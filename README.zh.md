@@ -118,7 +118,7 @@ console.log('加密代码块测试');
 
 **注意：如果你需要启用加密功能，你需要有两个 GitHub 仓库，一个私有库用于存放源代码，一个公开仓库用于存放博客，`external_repository` 请设置为你博客的公开仓库**
 
-如果你不使用加密功能，或者你只有一个仓库，请修改 [`Deploy`](https://github.com/Ice-Hazymoon/blog-hugo/blob/d37aa802e43351c0effd78c663659c01369732aa/.github/workflows/.main.yml#L44) 脚本部分，参考：[actions-gh-pages](https://github.com/peaceiris/actions-gh-pages)
+如果你不使用加密功能，或者你只有一个仓库，请修改 [`Deploy`](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/edf3a101a93e8e628b534636306fda5985cc1b32/.github/workflows/main_example.yml#L45) 脚本部分，参考：[actions-gh-pages](https://github.com/peaceiris/actions-gh-pages)
 
 在 [https://github.com/settings/tokens](https://github.com/settings/tokens) 创建一个用于部署的 Token，保存该 Token
 

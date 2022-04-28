@@ -112,11 +112,11 @@ If you have pjax enabled and have added additional `<script>` tags, add the `dat
 
 Copy the `.github` folder in the theme root directory to your blog's root directory
 
-Modify the `external_repository`, `user_name`, `user_email`, etc. fields in the [.main.yml](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/main/.github/workflows/.main.yml) file, see: [actions-gh-pages](https://github.com/peaceiris/actions-gh-pages)
+Modify the `external_repository`, `user_name`, `user_email`, etc. fields in the [main_example.yml](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/main/.github/workflows/main_example.yml) file, see: [actions-gh-pages](https://github.com/peaceiris/actions-gh-pages)
 
 **Note: If you need to enable encryption, you need to have two GitHub repositories, a private repository for your source code and a public repository for your blog, `external_repository` should be set as the public repository for your blog**
 
-If you only have one repository, modify the [`Deploy`](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/d37aa802e43351c0effd78c663659c01369732aa/.github/workflows/.main.yml#L44) script section
+If you only have one repository, modify the [`Deploy`](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/edf3a101a93e8e628b534636306fda5985cc1b32/.github/workflows/main_example.yml#L45) script section
 
 Create a Token for deployment at [https://github.com/settings/tokens](https://github.com/settings/tokens), save the Token
 
