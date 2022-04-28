@@ -1,0 +1,182 @@
+{{- define "main" -}}
+{{- $cdn := "" -}}
+{{- if and .Site.Params.publicPath (not .Site.IsServer) -}}
+{{- $cdn := .Site.Params.publicPath -}}
+{{- end -}}
+
+{{- $Title := or $.Title (T "post.untitled") -}}
+<div class="h-full relative">
+    <div class="h-full relative">
+        <div class="bg-white dark:bg-darkFg h-full overflow-auto page-view-article flex flex-col">
+            <div class="relative">
+                {{- if or (.Site.Params.defaultFeaturedImage) (.Params.featured_image) -}}
+                    {{- $featured_image := "" -}}
+                    {{- $srcset := "" -}}
+                    {{- $srcset_webp := "" -}}
+                    {{- $featured_image_small := "" -}}
+                    {{- $featured_image_big := "" -}}
+                    {{- $featured_image_small_webp := "" -}}
+                    {{- $featured_image_big_webp := "" -}}
+                    {{- $featured_image_bg := "" -}}
+                    {{- $width := 0}}
+                    {{- $height := 0}}
+                    {{- $lazyload := .Site.Params.lazyload -}}
+                    {{- $featured_image_url := or .Params.featured_image .Site.Params.defaultFeaturedImage -}}
+
+                    {{- if (urls.Parse ($featured_image_url | safeURL)).Scheme -}}
+                        {{- $featured_image = $featured_image_url | relURL | safeURL -}}
+                    {{- else -}}
+                        {{- if .Params.featured_image -}}
+                            {{- $featured_image = .Resources.GetMatch .Params.featured_image -}}
+                        {{- else -}}
+                            {{- $featured_image = resources.Get .Site.Params.defaultFeaturedImage -}}
+                        {{- end}}
+
+                        {{- $width = $featured_image.Width -}}
+                        {{- $height = $featured_image.Height -}}
+
+                        {{- if (default true .Page.Site.Params.imageProcessing.cover.enabled) -}}
+                            {{- $featured_image_small = print $cdn ($featured_image.Resize "800x").RelPermalink -}}
+                            {{- $featured_image_big = print $cdn ($featured_image.Resize "1200x").RelPermalink -}}
+                            {{- $featured_image_bg = print $cdn (($featured_image.Resize "50x").Filter (images.GaussianBlur 2)).RelPermalink -}}
+                            {{- $srcset = printf "%s 800w, %s 1200w" $featured_image_small $featured_image_big -}}
+
+                            {{- $featured_image_small_webp = print $cdn ($featured_image.Resize "800x webp").RelPermalink -}}
+                            {{- $featured_image_big_webp = print $cdn ($featured_image.Resize "1200x webp").RelPermalink -}}
+                            {{- $srcset_webp = printf "%s 800w, %s 1200w" $featured_image_small_webp $featured_image_big_webp -}}
+                        {{- end -}}
+                    {{- end -}}
+
+                    <div class="article-cover h-0 relative w-full">
+                        <picture>
+                            {{- with $srcset_webp -}}<source {{ if $lazyload }}data-{{ end }}srcset="{{- $srcset_webp -}}" type="image/webp" />{{- end -}}
+                            <img 
+                                {{ if $lazyload }}data-{{ end }}src="{{- $featured_image -}}"
+                                {{ if $lazyload }}src="{{- $featured_image_bg -}}"{{ end }}
+                                {{ if $srcset }}{{ if $lazyload }}data-{{ end }}srcset="{{- $srcset -}}"{{ end }}
+                                {{- with $Title -}}alt="{{- . -}}"{{- end -}}
+                                {{- with $width -}}width="{{- . -}}"{{- end -}}
+                                {{- with $height -}}height="{{- . -}}"{{- end -}}
+                                class="absolute h-full left-0 object-center object-cover top-0 w-full"
+                                {{ if $lazyload }}data-lazyload{{ end }}
+                            >
+                            <noscript>
+                                <img src="{{- $featured_image -}}"
+                                    {{- with $srcset -}}srcset="{{- . -}}"{{- end -}}
+                                    {{- with $Title -}}alt="{{- . -}}"{{- end -}}
+                                    {{- with $width -}}width="{{- . -}}"{{- end -}}
+                                    {{- with $height -}}height="{{- . -}}"{{- end -}}
+                                    class="absolute h-full left-0 object-center object-cover top-0 w-full"
+                                >
+                            </noscript>
+                        </picture>
+                    </div>
+                    <h1 class="absolute article-title bottom-0 left-0 md:text-4xl pb-8 pt-32 px-6 text-3xl text-white dark:text-darkText w-full">
+                        {{$Title}}
+                    </h1>
+                {{- else -}}
+                    <div>
+                        <div class="p-6 pb-0 w-full text-3xl -mb-2">
+                            {{$Title}}
+                        </div>
+                    </div>
+                {{- end -}}
+            </div>
+            <div class="article-info p-6 pb-2">
+                <div class="inline-flex items-center mb-2 mr-4 sm:rounded-full">
+                    <i class="eva eva-clock-outline mr-1"></i>
+                    <span>
+						<time title="{{- T "post.publishedIn" -}}{{- .Date.Format (T "date.normal") -}}" {{- printf `datetime="%s"` (.Date.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr -}}>{{- .Date.Format (T "date.d_m_y") -}}</time>
+					</span>
+                </div>
+                <!-- {{- if .Site.Params.lastmod -}}
+                <span
+                    class="bg-emerald-500 inline-flex items-center mb-2 mr-2 sm:rounded-full text-white text-xs">
+                    <i class="eva eva-edit-2-outline mr-1"></i>
+                    <span>
+                        <time title="最后修改于：{{- .Lastmod.Format "2006年01月02日 15:04:05" -}}" {{- printf `datetime="%s"` (.Lastmod.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr -}}>{{- .Lastmod.Format "2006-01-02 15:04:05" -}}</time>
+                    </span>
+                </span>
+                {{- end -}} -->
+                <!-- <span
+                    class="bg-emerald-500 inline-flex items-center mb-2 mr-2 sm:rounded-full text-white text-xs">
+                    <i class="eva eva-person-outline mr-1"></i>
+                    <span>{{- .Site.Author.name -}}</span>
+                </span> -->
+                <!-- <div
+                    class="bg-violet-500 inline-flex items-center mb-2 mr-2 sm:rounded-full text-white text-xs">
+                    <i class="eva eva-message-circle-outline mr-1"></i>
+                    <span>3 条评论</span>
+                </div>  -->
+                <div
+                    class="inline-flex items-center mb-2 mr-4 sm:rounded-full">
+                    <i class="eva eva-flag-outline mr-1"></i>
+                    <span>{{- T "post.readingTime" .ReadingTime}}</span>
+                </div>
+                <div
+                    class="inline-flex items-center mb-2 mr-4 sm:rounded-full">
+                    <i class="eva eva-bar-chart-outline mr-1"></i>
+                    <span>{{- T "post.wordCount" .WordCount}}</span>
+                </div>
+            </div>
+            <div class="border-b dark:border-darkBorder border-gray-300 pb-6 px-6">
+                {{- if .Params.tags -}}
+                <div class="flex items-center mb-2">
+                    <i class="eva eva-pricetags-outline mr-1"></i>
+                    <span class="mr-2 text-sm">{{ T "taxonomy._tags" }}</span>
+					{{- range .Params.tags -}}
+                    <a href="{{- "/tags/" | relLangURL -}}{{- . | urlize -}}" title="{{- . -}}" class="flex hover:text-theme items-center mr-1 px-1 py-1 text-sm">
+                        <i class="eva eva-hash-outline"></i>
+                        <span>{{- . -}}</span>
+                    </a>
+					{{- end -}}
+                </div>
+                {{- end -}}
+                {{- if .Params.categories -}}
+                <div class="flex items-center mb-2">
+                    <i class="eva eva-folder-outline mr-1"></i>
+                    <span class="mr-2 text-sm">{{ T "taxonomy._categories" }}</span>
+					{{- range .Params.categories -}}
+                    <a href="{{- "/categories/" | relLangURL -}}{{- . | urlize -}}" title="{{- . -}}" class="flex hover:text-theme items-center mr-1 px-1 py-1 text-sm">
+                        <i class="eva eva-book-outline"></i>
+                        <span>{{- . -}}</span>
+                    </a>
+					{{- end -}}
+                </div>
+                {{- end -}}
+            </div>
+
+            {{- partial "post/toc" .}}
+            
+            <section class="article-content px-6 md:px-10 py-5 typo flex-grow">
+                {{- .Content -}}
+            </section>
+            
+            {{- partial "post/refs" .}}
+
+            {{- partial "post/share" .}}
+            <div class="border-b dark:border-darkBorder"></div>
+            {{- partial "post/lastmod" .}}
+            <div class="flex justify-between md:text-2xl p-4 text-xl">
+                <a href="{{- if .PrevInSection -}}{{- .PrevInSection.RelPermalink -}}{{- end -}}" title="{{- if .PrevInSection -}} {{- .PrevInSection.Title -}} {{- end -}}" class=" cursor-pointer flex hover:text-theme items-center text-gray-500 transition duration-300 ease-[ease] invisible dark:text-darkTextPlaceholder dark:hover:text-darkText" {{- if .PrevInSection -}} style="visibility: visible;" {{- end -}}>
+                    <span class="flex items-center text-5xl opacity-70 dark:bg-opacity-100">
+                        <i class="eva eva-chevron-left-outline"></i>
+                    </span>
+                    <span>{{ T "post.prevPost" }}</span>
+                </a>
+
+                {{- partial "post/license" .}}
+
+                <a href="{{- if .NextInSection -}}{{- .NextInSection.RelPermalink -}}{{- end -}}" title="{{- if .NextInSection -}} {{- .NextInSection.Title -}} {{- end -}}" class=" cursor-pointer flex hover:text-theme items-center text-gray-500 transition duration-300 ease-[ease] invisible dark:text-darkTextPlaceholder dark:hover:text-darkText" {{- if .NextInSection -}} style="visibility: visible;" {{- end -}}>
+                    <span>{{ T "post.nextPost" }}</span>
+                    <span class="flex items-center text-5xl opacity-70 dark:bg-opacity-100">
+                        <i class="eva eva-chevron-right-outline"></i>
+                    </span>
+                </a>
+            </div>
+
+            {{- partial "comment.html" . -}}
+        </div>
+    </div>
+</div>
+{{end}}

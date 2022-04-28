@@ -1,0 +1,17 @@
+{{- define "main" -}}
+<div class="page-blog px-8 md:px-10 relative">
+    <div>
+        <div class="article-list mx-auto">
+            <div class="text-xl flex items-center py-6">
+                <i class="eva eva-folder-remove-outline mr-2"></i>
+                {{ if eq .Data.Plural "tags"}}{{ T "taxonomy.tag" (dict "Count" (len .Pages) "Title" .Title) | safeHTML }}{{ else }}{{ T "taxonomy.category" (dict "Count" (len .Pages) "Title" .Title) | safeHTML }}{{ end }}
+            </div>
+            <div>
+                {{- range .Pages -}}
+                    {{- partial "post-card.html" . -}}
+                {{- end -}}
+            </div>
+        </div>
+    </div>
+</div>
+{{- end -}}

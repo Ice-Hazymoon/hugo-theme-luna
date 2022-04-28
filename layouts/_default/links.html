@@ -1,0 +1,21 @@
+{{- define "main" -}}
+<div class="page-links py-8 relative">
+    <div class=" text-3xl mb-2 inline-flex items-end pb-3 mx-8">
+        <div class="inline-flex items-center leading-none mr-4">
+            <i class="eva eva-people-outline mr-2"></i>
+            <span>{{- .Title -}}</span>
+        </div>
+        <div class=" text-lg inline-block text-gray-400 ml-2 leading-none">
+            {{ T "linksRank" }}
+        </div>
+    </div>
+
+    <div class=" mx-8">
+        {{- .Content -}}
+    </div>
+
+    <div class=" mx-2">
+        {{- partial "comment.html" . -}}
+    </div>
+</div>
+{{- end -}}

@@ -1,0 +1,9 @@
+.medium-zoom-overlay,
+.medium-zoom-overlay + .medium-zoom-image,
+.medium-zoom-overlay + .medium-zoom-image + .medium-zoom-image {
+    @apply z-50 border-0;
+}
+
+.medium-zoom-image--opened {
+    object-fit: contain !important;
+}

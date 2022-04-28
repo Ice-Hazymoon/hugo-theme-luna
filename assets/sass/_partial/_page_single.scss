@@ -1,0 +1,63 @@
+
+.article-content {
+    .gallery {
+        @apply relative flex justify-center my-4 flex-row;
+        figure {
+            img {
+                @apply my-0;
+            }
+            figcaption {
+                @apply my-2;
+            }
+        }
+        figure+figure {
+            @apply ml-4;
+        }
+    }
+    p:empty {
+        @apply my-0;
+    }
+}
+
+.page-view-article {
+    .article-cover {
+        padding-bottom: 42%;
+        display: block;
+    }
+    .article-title {
+        background-image: linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.4),
+            cubic-bezier(0.51, 0.59, 0.58, 1),
+            transparent
+        );
+        text-shadow: 1px 1px 3px rgba($color: #000000, $alpha: 0.2);
+    }
+    .toc {
+        @apply px-5 md:px-10 py-5 border-b border-gray-300 dark:border-darkBorder;
+        #TableOfContents {
+            @apply text-sm;
+            &>ul>li>a {
+                @apply font-bold text-base;
+            }
+            ul {
+                @apply pl-4;
+                li {
+                    margin-top: 0.5rem;
+                    a {
+                        @apply hover:text-theme;
+                    }
+                }
+                ul {
+                    // @apply border-l border-gray-300 dark:border-gray-600;
+                    li {
+                        &::before {
+                            content: "· ";
+                            @apply mr-1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

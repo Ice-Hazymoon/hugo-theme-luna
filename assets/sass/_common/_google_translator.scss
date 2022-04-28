@@ -1,0 +1,23 @@
+// Google Language Translator
+.goog-te-gadget {
+    font-size: 0 !important;
+    .goog-te-combo {
+        @apply m-0 p-1 text-xs outline-none dark:bg-darkBgAccent dark:text-darkTextPlaceholder #{!important};
+    }
+    .goog-logo-link {
+        display: none !important;
+    }
+}
+.goog-te-banner-frame {
+    @apply fixed border-none shadow-custom #{!important};
+}
+
+.skiptranslate {
+    margin-bottom: 40px;
+}
+
+#google_translate_element {
+    .skiptranslate {
+        margin-bottom: 0px;
+    }
+}

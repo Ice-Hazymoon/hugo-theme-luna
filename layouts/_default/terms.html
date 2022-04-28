@@ -1,0 +1,42 @@
+{{- define "main" -}}
+
+<div class="page-tags py-8 relative">
+    <div class=" text-3xl mb-2 inline-flex items-end pb-3 mx-8">
+        <div class="inline-flex items-center leading-none mr-4">
+            {{- if eq .Title "Categories" -}}
+            <i class="eva eva-folder-outline mr-2"></i>
+            {{- else -}}
+            <i class="eva eva-hash-outline mr-2"></i>
+            {{- end -}}
+            <span>{{- .Title -}}</span>
+        </div>
+        <div class=" text-lg inline-block text-gray-500 dark:text-darkTextPlaceholder ml-2 leading-none">
+            {{- if eq .Title "Categories" -}}
+            {{ T "taxonomy.totalCategories" (len .Site.Taxonomies.categories) | safeHTML }}
+            {{- else -}}
+            {{ T "taxonomy.totalTags" (len .Site.Taxonomies.tags) | safeHTML }}
+            {{- end -}}
+        </div>
+    </div>
+
+    <div class=" mx-8">
+        {{- if eq .Title "Categories" -}}
+            {{- range sort .Site.Taxonomies.categories "Count" "desc" -}}
+                <a class=" rounded inline-flex items-center border bg-white dark:bg-darkBgAccent mr-2 mb-2 px-2 py-1 hover:text-theme hover:border-theme dark:border-darkBorder transition duration-300 ease-[ease]" href="{{- .Page.RelPermalink -}}">
+                    <span>{{- .Page.Title -}}</span>
+                    <span class=" text-gray-400 dark:text-darkTextPlaceholder ml-1">{{- .Count -}}</span>
+                </a>
+            {{- end -}}
+        {{- else -}}
+            {{- range sort .Site.Taxonomies.tags "Count" "desc" -}}
+                {{- $size := add (mul .Count 0.15) 0.75 -}}
+                <a style="font-size: {{- $size -}}rem;" class=" rounded inline-flex items-center border bg-white dark:bg-darkBgAccent mr-2 mb-2 px-2 py-1 hover:text-theme hover:border-theme dark:border-darkBorder transition duration-300 ease-[ease]" href="{{- .Page.RelPermalink -}}">
+                    <span>{{- .Page.Title -}}</span>
+                    <span class=" text-gray-400 dark:text-darkTextPlaceholder ml-1">{{- .Count -}}</span>
+                </a>
+            {{- end -}}
+        {{- end -}}
+    </div>
+</div>
+
+{{- end -}}

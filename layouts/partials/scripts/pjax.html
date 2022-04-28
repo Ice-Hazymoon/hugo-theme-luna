@@ -1,0 +1,10 @@
+{{- $cdn := "" -}}
+{{- if and .Site.Params.publicPath (not .Site.IsServer) -}}{{- $cdn := .Site.Params.publicPath -}}{{- end -}}
+
+{{- $pjaxScript := resources.Get "ts/pjax.ts" | js.Build (dict "minify" hugo.IsProduction) -}}
+{{- if .Site.IsServer -}}
+    <script type="text/javascript" src="{{- $pjaxScript.RelPermalink -}}" defer></script>
+{{- else -}}
+    {{- $pjaxScript := $pjaxScript | fingerprint -}}
+    <script type="text/javascript" src="{{- print $cdn $pjaxScript.RelPermalink -}}" defer integrity="{{ $pjaxScript.Data.Integrity }}"></script>
+{{- end -}}

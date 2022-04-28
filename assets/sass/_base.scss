@@ -1,0 +1,107 @@
+html {
+    @apply overflow-y-scroll;
+    overflow-y: scroll;
+}
+
+* {
+    // cursor: none;
+}
+
+.cursor-pointer {
+    // cursor: none;
+}
+
+:root {
+    @apply overflow-y-auto overflow-x-hidden;
+
+    @media (max-width: 500px) {
+        font-size: 14px;
+    }
+
+    @media (max-width: 380px) {
+        font-size: 13px;
+    }
+
+    @media (max-width: 350px) {
+        font-size: 11px;
+    }
+}
+
+* {
+    -webkit-tap-highlight-color: transparent;
+    // cursor: url('../assets/images/a.png');
+}
+
+body {
+    background-color: #f4f8fb;
+    color: var(--color-text);
+    @apply overflow-hidden w-screen text-gray-700;
+    @apply top-0 #{!important};
+}
+
+::selection {
+    background: var(--theme);
+    color: #fff;
+}
+
+// 滚动条
+::-webkit-scrollbar {
+    width: 6px;
+    height: 10px;
+}
+
+/*滑块*/
+::-webkit-scrollbar-thumb {
+    background-color: var(--theme);
+    @apply rounded-full;
+}
+
+textarea,
+input {
+    &:disabled {
+        @apply bg-gray-100 dark:bg-transparent cursor-not-allowed;
+    }
+}
+
+figure {
+    margin: 0;
+}
+
+.lang-ja {
+    font-family: '-apple-system', BlinkMacSystemFont, 'Yu Gothic',
+        '游ゴシック', YuGothic, '游ゴシック体', 'Noto Sans Japanese',
+        'ヒラギノ角ゴ Pro W3', 'メイリオ',
+        'Hiragino Kaku Gothic ProN', 'MS PGothic', Osaka,
+        'sans-serif';
+}
+
+.main {
+    box-shadow: 8px 14px 38px rgba(39, 44, 49, 0.06),
+        1px 3px 8px rgba(39, 44, 49, 0.03);
+    min-height: 100vh;
+    nav {
+        left: 200px;
+    }
+}
+
+.qrcode-wrapper {
+    box-shadow: 0px 4px 40px 0px rgba(0, 0, 0, 0.25);
+}
+
+.dark-mode-switch {
+    box-shadow: 1px 1px 25px 1px rgba($color: #000000, $alpha: .07);
+}
+
+.com-footer {
+    & > div {
+        &:last-child {
+            & > span.mx-2.opacity-50 {
+                display: none;
+            }
+        }
+    }
+}
+
+.hugo-encrypt-sha1sum {
+    display: none;
+}

@@ -1,0 +1,52 @@
+{
+    "name": "hugo-theme-luna",
+    "description": "A simple, performance-first, SEO-friendly Hugo theme",
+    "version": "0.0.1",
+    "license": "GPL V3.0 ",
+    "author": "Ice-Hazymoon",
+    "homepage": "https://github.com/Ice-Hazymoon/hugo-theme-luna",
+    "bugs": {
+        "url": "https://github.com/Ice-Hazymoon/hugo-theme-luna/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Ice-Hazymoon/hugo-theme-luna.git"
+    },
+    "dependencies": {
+        "@swup/fade-theme": "^1.0.5",
+        "@swup/ga-plugin": "^1.1.0",
+        "@swup/progress-plugin": "^1.1.1",
+        "@swup/scripts-plugin": "^1.1.0",
+        "@swup/slide-theme": "^1.0.5",
+        "@tailwindcss/line-clamp": "^0.3.1",
+        "clipboard": "^2.0.10",
+        "eva-icons": "^1.1.3",
+        "flexsearch": "^0.7.21",
+        "jump.js": "https://github.com/Ice-Hazymoon/jump.js",
+        "katex": "^0.15.3",
+        "medium-zoom": "^1.0.6",
+        "normalize.css": "^8.0.1",
+        "swup": "^2.0.14",
+        "swup-morph-plugin": "^0.1.0",
+        "tailwindcss": "^3.0.24",
+        "vanilla-lazyload": "^17.8.1"
+    },
+    "devDependencies": {
+        "@fullhuman/postcss-purgecss": "^4.1.3",
+        "autoprefixer": "^10.4.5",
+        "cross-env": "^7.0.3",
+        "cssnano": "^5.1.7",
+        "cssnano-preset-advanced": "^5.3.3",
+        "lodash": "^4.17.21",
+        "postcss": "^8.4.12",
+        "postcss-easing-gradients": "^3.0.1",
+        "postcss-font-display": "^0.3.0",
+        "postcss-import": "^14.1.0",
+        "postcss-pxtorem": "^6.0.0",
+        "postcss-replace-values": "^2.3.0",
+        "postcss-url": "^10.1.3"
+    },
+    "browserslist": [
+        "last 1 Chrome versions"
+    ]
+}

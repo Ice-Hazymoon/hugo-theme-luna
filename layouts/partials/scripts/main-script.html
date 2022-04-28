@@ -1,0 +1,17 @@
+{{- $cdn := "" -}}
+{{- if and .Site.Params.publicPath (not .Site.IsServer) -}}{{- $cdn := .Site.Params.publicPath -}}{{- end -}}
+
+{{- $searchScript := resources.Get "ts/search.ts" | js.Build (dict "minify" hugo.IsProduction) -}}
+
+{{- $katex := "" -}}
+{{- if .Site.Params.katex -}}
+    {{- $katex = (resources.Get "ts/katex.ts" | js.Build (dict "minify" hugo.IsProduction "shims" (dict "katex" "modules/katex.js"))).Permalink -}}
+{{- end -}}
+
+{{- $mainScript := resources.Get "ts/main.ts" | js.Build (dict "minify" hugo.IsProduction "params" (dict "search" $searchScript.RelPermalink "katex" $katex)) -}}
+{{- if .Site.IsServer -}}
+    <script type="text/javascript" src="{{- $mainScript.RelPermalink -}}" defer></script>
+{{- else -}}
+    {{- $mainScript := $mainScript | fingerprint -}}
+    <script type="text/javascript" src="{{- print $cdn $mainScript.RelPermalink -}}" defer integrity="{{ $mainScript.Data.Integrity }}"></script>
+{{- end -}}

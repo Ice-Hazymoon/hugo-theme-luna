@@ -1,0 +1,12 @@
+{{- if .Site.Params.backtop -}}
+<a href="#nav" title="{{ T "backTop" }}" id="back-top" class="translate-y-3 opacity-0 sm:scale-100 scale-90 transition duration-300 ease-[ease] z-10 cursor-pointer fixed right-6 bottom-9 bg-white dark:bg-darkBgAccent rounded-full">
+    <div class=" relative">
+        <div class=" w-full h-full absolute left-0 top-0 text-xl flex justify-center items-center ">
+            <i class="eva eva-arrow-upward-outline"></i>
+        </div>
+        <svg id="svg" width="54" height="54" viewBox="0 0 54 54" preserveAspectRatio="xMinYMin meet">
+            <circle transform="rotate(-90, 27 , 27)" style="stroke-dasharray: 157, 157; stroke-dashoffset: 157;" cx="27" cy="27" r="25" fill="none" stroke-width="4" stroke-linecap="round" stroke="var(--theme)" />
+        </svg>
+    </div>
+</a>
+{{- end -}}

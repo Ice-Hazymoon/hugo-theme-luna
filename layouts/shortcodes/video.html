@@ -1,0 +1,22 @@
+{{- $cdn := "" -}}
+{{- if and .Site.Params.publicPath (not .Site.IsServer) -}}
+{{- $cdn := .Site.Params.publicPath -}}
+{{- end -}}
+
+{{- $src := .Get "src" | default (.Get 0) -}}
+{{- if not (urls.Parse $src).Scheme -}}
+    {{- $src = print $cdn .Page.RelPermalink $src -}}
+{{- end -}}
+<div class="video-wrapper">
+    <video
+    controls
+    src="{{- $src -}}"
+    {{- with .Get "poster" -}}poster="{{- . -}}"{{- end -}}
+    {{- with .Get "autoplay" -}}autoplay{{- end -}}
+    >
+        <p>
+            Your browser doesn't support HTML5 video. Here is a
+            <a href="{{- $src -}}">link to the video</a> instead.
+        </p>
+    </video>
+</div>

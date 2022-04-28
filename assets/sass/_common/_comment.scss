@@ -1,0 +1,32 @@
+
+.owo-box {
+    box-shadow: -3px 1px 30px 10px rgba(0, 0, 0, 0.05);
+    input:checked {
+        & + label {
+            @apply bg-theme text-white;
+        }
+    }
+}
+
+input.owo-btn-input:checked {
+    & + .owo-btn {
+        @apply bg-theme text-white border-theme;
+        & + .owo-box {
+            @apply opacity-100 translate-x-0 pointer-events-auto;
+        }
+    }
+}
+
+.comment-anonymous {
+    font-family: 'Eva-Icons';
+    vertical-align: text-top;
+    @apply bg-transparent align-bottom;
+    &:after {
+        content: "\ebb0";
+    }
+    &:checked {
+        &:after {
+            content: "\ea69";
+        }
+    }
+}

@@ -1,0 +1,22 @@
+{{- $cdn := "" -}}
+{{- if and .Site.Params.publicPath (not .Site.IsServer) -}}
+{{- $cdn := .Site.Params.publicPath -}}
+{{- end -}}
+
+{{- $title := .Get "title" -}}
+{{- $url := .Get "url" -}}
+{{- $desc := .Get "desc" -}}
+{{- $image := .Get "image" -}}
+{{- $lazyload := .Site.Params.lazyload -}}
+{{- if not (urls.Parse $image).Scheme -}}
+    {{- $image = print $cdn (path.Join .Page.RelPermalink (.Get "image")) -}}
+{{- end -}}
+<div class="md:w-1/3 sm:w-1/2 w-full inline-block px-3 pb-6 link-item -mx-1">
+    <a href="{{- $url -}}" target="_blank" rel="noopener noreferrer" class="inline-flex w-full bg-white dark:bg-darkBgAccent rounded p-4 relative overflow-hidden transition duration-300 ease-[ease] cursor-pointer hover:text-white dark:hover:text-darkText z-10 border dark:border-darkBorder align-top link-item">
+        <img {{ if $lazyload }}data-lazyload{{ end }} {{ if $lazyload }}data-{{ end }}src="{{- $image -}}" alt="{{- $title -}}" class="inline-block w-16 h-16 rounded-full object-cover object-center mr-4 border dark:border-darkBorder">
+        <div class="nr">
+            <div class="text-xl overflow-hidden whitespace-no-wrap n-name">{{- $title -}}</div>
+            <div class=" line-clamp-2 h-12" title="{{- $desc -}}">{{- $desc -}}</div>
+        </div>
+    </a>
+</div>

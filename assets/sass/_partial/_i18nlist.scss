@@ -1,0 +1,6 @@
+#i18nlist-checkbox:checked + label {
+    @apply hidden;
+    & + ul {
+        @apply block;
+    }
+}

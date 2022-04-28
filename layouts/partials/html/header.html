@@ -1,0 +1,16 @@
+<header class="relative z-40">
+    <nav id="nav" class="border-b dark:border-darkBorder flex items-center md:px-10 navbar px-5 py-6 top-0 z-10">
+        <div class="flex items-center justify-around route-items w-full">
+            {{- $RelPermalink := .RelPermalink -}}
+            <!-- Prevent tailwindcss ignore -->
+            <div class=" hidden eva-home eva-twitter eva-hash eva-folder eva-heart eva-people eva-bar-chart eva-search eva-github"></div>
+            {{ range .Site.Menus.main -}}
+                {{- $url := .URL | relLangURL -}}
+                <a title="{{ T (print "navbar." .Identifier) }}" data-active-link="{{ $url }}" href="{{ $url }}" class="{{ if eq $RelPermalink ($url) }}link-exact-active{{ end }} cursor-pointer relative text-gray-700 transition duration-300 ease-[ease] flex flex-col items-center">
+                    <i class="{{ .Params.icon }} flex justify-center items-center h-8 text-3xl leading-none text-gray-500 dark:text-darkTextPlaceholder transition duration-300 ease-[ease] w-8"></i>
+                    <span class="block md:hidden mt-1.5 text-sm dark:text-darkText">{{ T (print "navbar." .Identifier) }}</span>
+                </a> 
+            {{- end }}
+        </div>
+    </nav>
+</header>

@@ -1,0 +1,55 @@
+.page-twitter {
+    font-size: 0;
+    .rss-card {
+        &::after {
+            content: '';
+            width: 5px;
+            height: 5px;
+        }
+    }
+    .dot {
+        position: relative;
+        margin-left: - (0.75rem/2) - (0.25rem/2);
+        &::after {
+            content: attr(data-date) '';
+            @apply text-base absolute w-32;
+        }
+    }
+    .card-r {
+        &::after {
+            content: '';
+            @apply block absolute w-3 h-3 top-0 left-0 rounded-full bg-gray-500;
+            margin-left: - (0.75rem/2) - (0.25rem/2);
+        }
+        &.end {
+            &::after {
+                @apply bg-theme;
+            }
+        }
+    }
+    .img-box {
+        // width: calc(25% - 1rem);
+        padding-bottom: calc(100% - 1rem);
+        height: 0;
+        picture {
+            @apply absolute left-0 top-0 w-full h-full flex justify-center items-center bg-gray-50 dark:bg-darkBg bg-opacity-50;
+        }
+    }
+    .twitter-item {
+        &:hover {
+            .card-r::after {
+                @apply bg-theme;
+            }
+        }
+        &:last-child {
+            .card-r {
+                padding-bottom: 0;
+                &::before {
+                    content: '';
+                    @apply block absolute w-3 h-3 bottom-0 left-0 rounded-full bg-theme;
+                    margin-left: - (0.75rem/2) - (0.25rem/2);
+                }
+            }
+        }
+    }
+}

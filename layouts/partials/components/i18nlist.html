@@ -1,0 +1,21 @@
+{{- if .Site.Params.i18nlist -}}
+<div id="i18nlist">
+    {{- if .IsTranslated -}}
+    <div style="font-size: 0;" class=" absolute left-0 top-0 z-50 p-1.5 bg-white dark:bg-darkBgAccent shadow-custom rounded rounded-tl-none rounded-bl-none">
+        <input type="checkbox" name="i18nlist-input" id="i18nlist-checkbox">
+        <label for="i18nlist-checkbox">
+            <i class="eva cursor-pointer eva-globe-outline group-hover:hidden text-xl leading-none"></i>
+        </label>
+        <ul class=" hidden group-hover:block pb-0 border border-transparent">
+            {{- range $.Translations -}}
+                <li class="mb-1.5 last:mb-0 cursor-pointer">
+                    <a data-no-swup href="{{ .Permalink }}" title="{{- T "switchLang" -}}{{ .Language.LanguageName }}">
+                        <img class="w-6 cursor-pointer rounded-sm" src="{{ .Site.Params.icon }}" alt="{{ .Lang }}">
+                    </a>
+                </li>
+            {{- end -}}
+        </ul>
+    </div>
+    {{- end -}}
+</div>
+{{- end -}}

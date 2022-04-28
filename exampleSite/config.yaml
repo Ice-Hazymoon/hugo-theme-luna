@@ -1,0 +1,277 @@
+baseURL: https://imiku.me/
+languageCode: zh-cn
+defaultContentLanguage: zh-cn
+title: Ice-Hazymoon 的博客
+enableRobotsTXT: true
+enableEmoji: true
+theme: hugo-theme-luna
+themesDir: ../..
+timeout: 60000
+timeZone: Asia/Shanghai
+
+enableGitInfo: true
+
+hasCJKLanguage: true # enable CJK language support
+paginate: 10 # pagination size
+googleAnalytics: UA-98634098-1 # google analytics tracking code
+copyright: "" # default: author.name ↓
+permalinks:
+    posts: /:year/:month/:day/:slug.html # 2019/01/01/hello-world.html
+
+author:
+    name: Ice-Hazymoon
+
+frontmatter:
+    lastmod:
+      - :git
+      - lastmod
+      - :fileModTime
+      - date
+      - publishDate
+      - :default
+
+taxonomies:
+    tag: "tags"
+    category: "categories"
+
+summaryLength: 70
+canonifyURLs: false
+relativeURLs: false
+
+imaging: # see https://gohugo.io/content-management/image-processing/#imaging-configuration
+    resampleFilter: CatmullRom
+    quality: 95
+    anchor: smart
+
+outputFormats:
+    offline:
+        name: offline
+        baseName: offline
+        mediaType: text/html
+        notAlternative: true
+        permalinkable: true
+
+caches:
+  getresource:
+    dir: :resourceDir/_gen
+    maxAge: 24h
+
+# See https://gohugo.io/about/hugo-and-gdpr/
+privacy:
+  googleAnalytics:
+    anonymizeIP: true
+  youtube:
+    privacyEnhanced: true
+
+
+sitemap:
+  changefreq: weekly
+  priority: 0.5
+  filename: sitemap.xml
+
+menu:
+  main:
+    - name: Home
+      weight: 10
+      identifier: home
+      params:
+        icon: eva eva-home
+      url: /
+    - name: About
+      weight: 20
+      identifier: about
+      params:
+        icon: eva eva-heart
+      url: /about/
+    - name: Links
+      weight: 30
+      identifier: links
+      params:
+        icon: eva eva-people
+      url: /links/
+    - name: Archives
+      weight: 40
+      identifier: archives
+      params:
+        icon: eva eva-bar-chart
+      url: /archives/
+    # - name: Tags
+    #   weight: 50
+    #   identifier: tags
+    #   params:
+    #     icon: eva eva-hash
+    #   url: /tags/
+    # - name: Categories
+    #   weight: 60
+    #   identifier: categories
+    #   params:
+    #     icon: eva eva-folder
+    #   url: /categories/
+    - name: Twitter
+      weight: 70
+      identifier: twitter
+      params:
+        icon: eva eva-twitter
+      url: /twitter/
+    - name: GitHub
+      weight: 80
+      identifier: github
+      params:
+        icon: eva eva-github
+      url: /github/
+    - name: Search
+      weight: 999
+      identifier: search
+      params:
+        icon: eva eva-search
+      url: /search/
+
+languages:
+    zh-cn:
+        contentDir: content/zh-hans
+        title: Ice-Hazymoon 的博客
+        languageName: 中文
+        params:
+            icon: "/images/flag/zh-cn.svg"
+    en-us:
+        contentDir: content/en-us
+        title: Ice-Hazymoon's Blog
+        languageName: English
+        params: 
+            icon: "/images/flag/en-us.svg"
+            license:
+                name: "CC BY-NC-ND 4.0"
+                icon: "/images/Cc-by-nc-nd.svg"
+                url: "https://creativecommons.org/licenses/by-nc-nd/4.0"
+
+markup:
+    highlight:
+        style: dracula
+        guessSyntax: true
+        tabWidth: 4
+        lineNumbersInTable: true
+        lineNos: true
+        codeFences: true
+    goldmark:
+        renderer:
+            unsafe: true # enable html in markdown
+
+# .Site.Params
+params:
+    publicPath: https://cdn.jsdelivr.net/gh/Ice-Hazymoon/blog-hugo-pages@latest # CDN URL
+    themeColor: "#dd6065"
+    runTime: 
+        enable: true
+        creatTime: 2016/12/12 # Site creation time
+    since: "2016" # Site creation year
+    outdatedInfoWarning: # show warning when outdated info detected
+        enable: true
+        day: 90 # A timeout reminder will be displayed if the last modification time exceeds that number of days
+    share:
+        twitter: true
+        facebook: true
+        weibo: true
+        copyLinkText: true
+        qrcode: true
+
+    # license
+    license:
+        name: "署名 - 非商业性使用 - 禁止演绎 4.0"
+        icon: "/images/Cc-by-nc-nd.svg"
+        url: "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh"
+
+    # Display i18n toggle button
+    i18nlist: true
+
+     # github page
+    github:
+        id: "torvalds"
+        minStars: 5
+    
+     # tweet page
+    twitter:
+        rsshub: "https://rsshub.rssforever.com"
+        id: "elonmusk"
+        imageProcessing: true
+        
+    # Image Zoom Plugin
+    # see https://github.com/francoischalifour/medium-zoom
+    imageZoom: true
+
+    # lazyload image
+    lazyload: true
+
+    # enable google translate in footer
+    googleTranslate: true 
+    
+    # For outdated reminders
+    lastmod: true
+
+    # Show table of contents
+    # You can enable it separately in the page
+    toc:
+      enable: true
+      wordCount: 400 # When the article word count is greater than this value, the TOC will be displayed
+
+    # encryption articles
+    HugoEncrypt:
+        Password: "123456" # default password
+        Storage: "session" # or "local"
+    
+     # Enable pjax with swup.js
+    pjax: true
+
+    # use service worker
+    pwa: true
+
+    # katex
+    katex: true
+
+    # backtop button
+    backtop: true
+
+    # lightweight, privacy-friendly alternative to Disqus.
+    # See https://cusdis.com/
+    cusdis:
+        enable: false
+        host: "https://cusdis.com"
+        appId: "your-app-id"
+    
+    image:
+        url: "/cover.png"
+        width: 1000
+        height: 519
+
+    # site info
+    logo:
+        url: "/icon.png"
+        width: 200
+        height: 200
+
+    # Default featured image
+    # /images/featured_image.jpg or https://source.unsplash.com/random
+    # Your images must be located in the assets folder
+    defaultFeaturedImage: false
+
+    author: Ice-Hazymoon
+    keywords:
+        - Ice-Hazymoon
+        - 冰凌胧月
+        - Hazymoon
+        - MikuTools
+    description: "向着现充的生活拼命咸鱼中"
+
+    # Optimize your images and SEO
+    imageProcessing:
+        cover:
+            enabled: true
+        content:
+            enabled: true
+
+build:
+  noJSConfigInAssets: false
+
+# module:
+#   imports:
+#     - path: github.com/alex-shpak/hugo-book
+

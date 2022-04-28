@@ -1,0 +1,9 @@
+{{- define "main" -}}
+<div class="px-8 py-4 relative">
+    <div class="typo">{{- .Content -}}</div>
+
+    <div class="-mx-8 mt-12">
+        {{- partial "comment.html" . -}}
+    </div>
+</div>
+{{- end -}}

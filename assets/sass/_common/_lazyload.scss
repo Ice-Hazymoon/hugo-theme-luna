@@ -1,0 +1,28 @@
+img[data-lazyload] {
+    @apply bg-center bg-no-repeat bg-cover;
+    &[data-lazyload-blur] {
+        @apply transition duration-500 ease-[ease] opacity-0;
+        &.lazy-loading {
+            // filter: blur(10px);
+            opacity: .5;
+        }
+        &.lazy-loaded {
+            // filter: blur(0px);
+            opacity: 1;
+        }
+    }
+}
+
+article .lazy-loading[data-lazyload-blur]{
+    opacity: 1 !important;
+}
+
+.lazy-loading:not([data-lazyload-blur]) {
+    @apply bg-cover pb-[50%] bg-gray-300;
+    background-image: url('../../images/outload.svg');
+}
+
+.lazy-error:not([data-lazyload-blur]) {
+    @apply bg-cover;
+    background-image: url('../../images/error.svg');
+}

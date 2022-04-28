@@ -1,0 +1,61 @@
+.navbar {
+    .route-items {
+        a {
+            font-size: 0;
+            &::before {
+                content: '';
+                background-image: linear-gradient(
+                    to right,
+                    lighten($theme, 8%),
+                    cubic-bezier(0.5, 0.5, 0.5, 0.5),
+                    $theme
+                );
+                @apply w-full h-full rounded-full block absolute transition duration-300 ease-[ease] left-0 top-0 opacity-0;
+                transform: scale(0);
+                box-shadow: 0px 0px 10px 0px rgba($color: $theme, $alpha: 0.5);
+                @apply dark:shadow-none dark:bg-theme;
+            }
+        }
+            
+        i {
+            &:hover {
+                @apply text-theme;
+            }
+            &:active {
+                transform: scale(0.8);
+                transition: linear 0.1s transform;
+            }
+        }
+        .link-exact-active {
+            i {
+                @apply text-theme;
+            }
+            span {
+                @apply font-bold;
+            }
+        }
+        @media (min-width: 768px) {
+            .link-exact-active {
+                transform: scale(0.9);
+                i {
+                    @apply text-white overflow-hidden dark:text-darkText;
+                }
+                &::before {
+                    transform: scale(1.6);
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+.dark {
+    .link-exact-active::before {
+        background-image: none !important;
+    }
+}
+
+.swup-progress-bar {
+    height: 4px;
+    background-color: var(--theme);
+}

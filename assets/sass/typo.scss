@@ -1,0 +1,354 @@
+// $font: PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Merriweather, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
+$font: "Times New Roman",
+Times,
+"Heti Song",
+serif,
+"Apple Color Emoji",
+"Segoe UI Emoji",
+"Segoe UI Symbol";
+
+html{
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+}
+
+body {
+    font-family: $font;
+    word-spacing: 0.5px;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+input[type="search"]::-webkit-search-cancel-button{
+    display: none;
+}
+
+fieldset {
+    min-inline-size: auto;
+}
+
+input{
+    -webkit-appearance: none;
+    border-radius: 0;
+    outline: none;
+    background-color: transparent;
+}
+
+[type="button"]{
+    -webkit-appearance: none;
+}
+
+a[target="_blank"] {
+    cursor: alias;
+}
+
+input[type="checkbox"] {
+    font-family: 'Eva-Icons';
+    vertical-align: text-top;
+    @apply bg-transparent align-bottom;
+    &:after {
+        content: "\ebb0";
+    }
+    &:checked {
+        &:after {
+            content: "\ea69";
+        }
+    }
+}
+
+.typo {
+    font-size: 1.05rem;
+    line-height: 1.9em;
+    
+    ::-webkit-scrollbar {
+        @apply w-2 h-2;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply rounded-full bg-gray-500 dark:bg-darkTextPlaceholder;
+    }
+
+    b, strong {
+        font-weight: bold;
+        // margin: 0;
+        // padding: 0.15rem 0.25rem;
+        // border-radius: 7.5px;
+        // background: 
+        //     linear-gradient(
+        //         104deg,
+        //         rgba(255, 130, 130, 0) 0.9%,
+        //         hsla(337deg, 100%, 75%, 1) 2.4%,
+        //         hsla(337deg, 100%, 75%, 0.5) 5.8%,
+        //         hsla(337deg, 100%, 75%, 0.1) 93%,
+        //         hsla(337deg, 100%, 75%, 0.7) 96%
+        //     ),
+        //     linear-gradient(
+        //         183deg,
+        //         hsla(345deg, 100%, 75%, 0),
+        //         hsla(329deg, 100%, 71%, 0.3) 7.9%,
+        //         hsla(337deg, 100%, 75%, 0) 15%
+        //     );
+        // text-shadow: -12px 12px 9.8px hsla(337deg, 100%, 75%, 0.7), 21px -18.1px 7.3px #fff, -18.1px -27.3px 30px #fff;
+    }
+
+    a[target="_blank"]{
+        &::before {
+            content: "\eabe";
+            font-family: Eva-Icons;
+            margin-right: 2px;
+            vertical-align: bottom;
+        }
+    }
+
+    input[type="checkbox"] {
+        font-family: 'Eva-Icons';
+        vertical-align: text-top;
+        @apply bg-transparent align-bottom;
+        &:after {
+            content: "\ebb0";
+        }
+        &:checked {
+            &:after {
+                content: "\ea69";
+            }
+        }
+    }
+    figcaption {
+        @apply text-center text-gray-400;
+    }
+    img.emoji {
+        display: inline-block;
+        height: 1em;
+        width: 1em;
+        margin: 0;
+        vertical-align: -0.1em;
+    }
+    blockquote {
+        background-color: #f5f7f9;
+        @apply border-l-4 border-theme dark:bg-darkBgAccent my-4 p-5 ml-0 rounded-md;
+        p {
+            @apply last:mb-0 first:mt-0;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            @apply mt-4;
+        }
+        blockquote {
+            @apply border border-gray-300 dark:border-gray-600;
+        }
+    }
+    ul {
+        @apply pl-8 mb-5;
+        li{
+            @apply pl-1 list-disc;
+        }
+    }
+    
+    ol {
+        @apply pl-8 mb-5;
+        li{
+            @apply pl-1 list-decimal;
+        }
+    }
+
+    li {
+        @apply mt-1 marker:text-gray-400;
+
+        ul,
+        ol {
+            @apply my-2;
+        }
+
+        ul {
+            li {
+                @apply list-[circle];
+            }
+        }
+    }
+    
+    p {
+        @apply leading-8 my-4;
+    }
+
+    a {
+        @apply relative text-theme inline-block no-underline;
+        &:hover {
+            @apply underline;
+        }
+    }
+
+
+    pre {
+        font-family: Menlo, Monaco, Consolas, Andale Mono, lucida console,
+            Courier New, monospace;
+        @apply relative overflow-x-auto bg-gray-800 rounded text-sm p-4 my-4;
+
+        code{
+            @apply bg-transparent p-0;
+            &::after {
+                content: '';
+                @apply w-full h-11 bg-white;
+            }
+        }
+    }
+
+    .highlight {
+        @apply my-4 rounded overflow-hidden;
+        pre {
+            @apply my-0 rounded-none;
+        }
+        header {
+            color: #8b949e;
+            @apply w-full bg-gray-800 p-2 flex justify-between items-center border-b border-gray-700 text-sm dark:text-darkTextPlaceholder;
+            i {
+                @apply cursor-pointer;
+            }
+        }
+        table {
+            @apply max-h-96 block;
+
+            pre {
+                @apply p-0 py-4;
+            }
+            td:nth-child(1) {
+                @apply w-12;
+                pre {
+                    @apply pl-4;
+                }
+                span {
+                    display: block;
+                }
+            }
+            td:nth-child(2) {
+                width: calc(100% - 3rem);
+                pre {
+                    @apply px-2;
+                }
+            }
+        }
+    }
+
+    code {
+        font-family: Menlo, Monaco, Consolas, Andale Mono, lucida console,
+            Courier New, monospace;
+        @apply text-white dark:text-darkText bg-gray-700 px-1 py-1 rounded text-sm break-normal;
+    }
+
+    img, video {
+        border: 1px solid #f4f4f4;
+        @apply w-full rounded my-4 dark:border-darkBorder;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply text-gray-800 dark:text-darkText mb-4 mt-8 font-bold;
+        a {
+            color: initial;
+            &::before {
+                display: none;
+            }
+        }
+    }
+
+    h1 {
+        @apply text-4xl;
+    }
+
+    h2 {
+        @apply text-3xl;
+    }
+
+    h3 {
+        @apply text-2xl;
+    }
+
+    h4 {
+        @apply text-xl;
+    }
+
+    h5 {
+        @apply text-lg;
+    }
+
+    h6 {
+        @apply text-base;
+    }
+
+    h4,
+    h5,
+    h6 {
+        @apply font-bold;
+        &::before {
+            content: '#';
+            @apply w-5 text-gray-500 mr-2 italic font-bold;
+        }
+    }
+
+    hr {
+        @apply my-16 border-gray-300 dark:border-gray-600;
+    }
+
+    table {
+        width: 100%;
+        border-spacing: 0;
+        @apply my-8 text-center border-collapse max-w-full whitespace-nowrap overflow-auto rounded;
+        &::-webkit-scrollbar {
+            @apply w-2 h-2;
+        }
+        thead {
+            @apply border-b border-gray-300 dark:border-gray-600;
+        }
+        th {
+            @apply font-bold;
+        }
+        tr {
+            @apply border-b border-gray-300 dark:border-gray-600 last:border-0;
+        }
+        th,
+        td {
+            @apply overflow-hidden text-ellipsis text-left p-3 border-collapse text-base;
+        }
+        @media (max-width: 600px) {
+            @apply block table-auto w-full overflow-auto whitespace-nowrap;
+        }
+    }
+
+    .katex-display {
+        @apply overflow-x-auto py-4 px-2;
+    }
+}
+
+.dark {
+    // b, strong {
+    //     font-weight: bold;
+    //     margin: 0;
+    //     padding: 0.15rem 0.25rem;
+    //     border-radius: 7.5px;
+    //     background: 
+    //         linear-gradient(
+    //             104deg,
+    //             rgba(255, 130, 130, 0) 0.9%,
+    //             hsla(337deg, 72%, 59%, 1) 2.4%,
+    //             hsla(337deg, 72%, 59%, 0.5) 5.8%,
+    //             hsla(337deg, 72%, 59%, 0.1) 93%,
+    //             hsla(337deg, 72%, 59%, 0.7) 96%
+    //         ),
+    //         linear-gradient(
+    //             183deg,
+    //             hsla(345deg, 72%, 59%, 0),
+    //             hsla(329deg, 72%, 55%, 0.3) 7.9%,
+    //             hsla(337deg, 72%, 59%, 0) 15%
+    //         );
+    //     text-shadow: -12px 12px 9.8px hsla(337deg, 72%, 59%, 0.7), 21px -18.1px 7.3px var(--color-dark-fg), -18.1px -27.3px 30px var(--color-dark-fg);
+    // }
+}
+
+mjx-container svg {
+    @apply inline-block;
+}

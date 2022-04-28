@@ -1,0 +1,27 @@
+$theme: {{.Param "themeColor"}};
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import 'normalize.css';
+@import 'katex/dist/katex.css';
+@import 'eva-icons/style/eva-icons.css';
+@import './theme.scss';
+@import './typo.scss';
+
+@import './_base';
+
+@import './_common/_medium_zoom';
+@import './_common/_google_translator';
+@import './_common/_lazyload';
+@import './_common/_back_top';
+
+@import './_partial/_navbar';
+@import './_partial/_i18nlist';
+@import './_partial/_page_archives';
+@import './_partial/_page_github';
+@import './_partial/_page_links';
+@import './_partial/_page_search';
+@import './_partial/_page_home';
+@import './_partial/_page_single';
+@import './_partial/_page_twitter';
