@@ -1,21 +1,19 @@
-# Hugo Theme Luna
+<h1 align="center">Hugo Theme Luna</h1>
 
-![Luna](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/luna.png)
+<h2 align="center"><i>一个简约，性能优先，SEO 友好的 Hugo 主题</i></h2>
 
-> 一个简约，性能优先，SEO 友好的 Hugo 主题
-> 
-![](https://img.shields.io/badge/Hugo-0.97-green?style=for-the-badge&logo=hugo&logoColor=white)
-![](https://img.shields.io/github/workflow/status/Ice-Hazymoon/hugo-theme-luna/CI?style=for-the-badge&logo=github&logoColor=white)
+<p align="center">
+  <img src="https://img.shields.io/badge/Hugo-0.97-green?style=for-the-badge&logo=hugo&logoColor=white" />
+  <img src="https://img.shields.io/github/workflow/status/Ice-Hazymoon/hugo-theme-luna/CI?style=for-the-badge&logo=github&logoColor=white" />
+  <img src="https://img.shields.io/github/license/Ice-Hazymoon/hugo-theme-luna?style=for-the-badge" />
+</p>
 
+![Luna](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/luna-white.png)
 
-![](https://img.shields.io/github/license/Ice-Hazymoon/hugo-theme-luna?style=for-the-badge)
-![](https://img.shields.io/badge/author-Ice--Hazymoon-green?style=for-the-badge)
-![](https://img.shields.io/github/stars/Ice-Hazymoon/hugo-theme-luna?color=ff69b4&style=for-the-badge)
+[👉在线预览](https://hugo-theme-luna.imiku.me/zh-cn) | [English](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/main/README.md)
 
 ![](https://img.shields.io/github/last-commit/Ice-Hazymoon/hugo-theme-luna?style=flat-square)
 ![](https://img.shields.io/github/languages/code-size/Ice-Hazymoon/hugo-theme-luna?style=flat-square)
-
-[👉在线预览](https://hugo-theme-luna.imiku.me/zh-cn) | [English](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/main/README.md)
 
 ## 特性
 
