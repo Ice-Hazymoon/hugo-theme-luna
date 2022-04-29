@@ -8,7 +8,7 @@
   <img src="https://img.shields.io/github/license/Ice-Hazymoon/hugo-theme-luna?style=for-the-badge" />
 </p>
 
-![Luna](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/luna-white.png)
+![Luna](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/luna.png)
 
 [👉 Example](https://hugo-theme-luna.imiku.me) | [中文文档](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/main/README.zh.md)
 
