@@ -1,6 +1,6 @@
 <h1 align="center">Hugo Theme Luna</h1>
 
-<h2 align="center"><i>A simple, performance-first, SEO-friendly Hugo theme</i></h2>
+<h3 align="center"><i>A simple, performance-first, SEO-friendly Hugo theme</i></h3>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Hugo-0.97-green?style=for-the-badge&logo=hugo&logoColor=white" />
