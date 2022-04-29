@@ -56,20 +56,22 @@ function readFileList(dir, filelist = []) {
 
 async function encryptPage(path) {
     const content = fs.readFileSync(path, 'utf8');
-    const regex = /<cipher-text.+?data-content="((?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?)".+?><\/cipher-text>/gm;
+    const regex = /<cipher-text.+?data-content="?((?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?)"?.+?><\/cipher-text>/gm;
     const ciphers = content.match(regex);
     if (ciphers && ciphers.length) {
         for (let index = 0; index < ciphers.length; index++) {
             const cipher = ciphers[index];
-            console.log('Start encryption:', path, 'Part', index + 1);
-            const match = /<cipher-text.+?data-content="((?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?)".+?><\/cipher-text>/gm.exec(cipher);
+            let cipherId = cipher.match(/data-cipher-id="?(.+?)"? /)[1].trim();
+
+            console.log('Start encryption:', path, 'ID:', cipherId);
+            const match = /<cipher-text.+?data-content="?((?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?)"?.+?><\/cipher-text>/gm.exec(cipher);
             const cipherText = match[1];
             let password = cipher.match(/data-password="?(.+?)"? /);
             // Skip empty passwords or encrypted pages
             if (password) {
                 password = password[1].trim();
             } else {
-                console.log('Password is empty or encrypted:', path, 'Part', index + 1);
+                console.log('Password is empty or encrypted:', path, 'ID:', cipherId);
                 continue;
             }
             const plainText = Buffer.from(cipherText, 'base64').toString('utf8');
@@ -78,20 +80,21 @@ async function encryptPage(path) {
             const encrypted = await encrypt(password, encryptThis);
             const newContent = fs.readFileSync(path, 'utf8').replace(cipher, `<cipher-text class=hidden>${encrypted}</cipher-text>`);
             fs.writeFileSync(path, newContent, 'utf8');
-            console.log('Encryption success:', path, 'Part', index + 1);
+            console.log('Encryption success:', path, 'ID:', cipherId);
         }
     }
 }
 
-function main() {
+async function main() {
     console.log('Start encrypting articles...');
     let publicPath = '../../public';
     if (!fs.existsSync(publicPath)) publicPath = './exampleSite/public';
     const fileList = readFileList(publicPath, []);
     const htmlList = fileList.filter(file => file.endsWith('.html'));
-    htmlList.forEach(path => {
-        encryptPage(path);
-    })
+    for (let i = 0; i < htmlList.length; i++) {
+        const path = htmlList[i];
+        await encryptPage(path);
+    }
 }
 
 main();
