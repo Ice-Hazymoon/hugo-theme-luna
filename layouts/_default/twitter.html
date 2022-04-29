@@ -3,7 +3,7 @@
 {{- $twitterData := getJSON (print "https://api.rss2json.com/v1/api.json?rss_url=" $twitterConfig.rsshub "/twitter/user/" $twitterConfig.id) -}}
 {{- $cdn := "" -}}
 {{- if and .Site.Params.publicPath (not .Site.IsServer) -}}
-{{- $cdn := .Site.Params.publicPath -}}
+{{- $cdn = .Site.Params.publicPath -}}
 {{- end -}}
 
 {{- $lazyload := .Site.Params.lazyload -}}

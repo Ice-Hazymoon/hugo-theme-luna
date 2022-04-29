@@ -4,7 +4,7 @@
 
 > 一个简约，性能优先，SEO 友好的 Hugo 主题
 
-[👉在线预览](https://imiku.me) | [English](https://github.com/Ice-Hazymoon/hugo-theme-luna/README.md)
+[👉在线预览](https://hugo-theme-luna.imiku.me) | [English](https://github.com/Ice-Hazymoon/hugo-theme-luna/README.md)
 
 ## 特性
 

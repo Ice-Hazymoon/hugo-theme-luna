@@ -1,5 +1,5 @@
 {{- $cdn := "" -}}
-{{- if and .Site.Params.publicPath (not .Site.IsServer) -}}{{- $cdn := .Site.Params.publicPath -}}{{- end -}}
+{{- if and .Site.Params.publicPath (not .Site.IsServer) -}}{{- $cdn = .Site.Params.publicPath -}}{{- end -}}
 
 {{- $pjaxScript := resources.Get "ts/pjax.ts" | js.Build (dict "minify" hugo.IsProduction) -}}
 {{- if .Site.IsServer -}}

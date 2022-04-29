@@ -1,7 +1,7 @@
 {{- define "main" -}}
 {{- $cdn := "" -}}
 {{- if and .Site.Params.publicPath (not .Site.IsServer) -}}
-{{- $cdn := .Site.Params.publicPath -}}
+{{- $cdn = .Site.Params.publicPath -}}
 {{- end -}}
 
 {{- $Title := or $.Title (T "post.untitled") -}}

@@ -1,4 +1,4 @@
-baseURL: https://imiku.me/
+baseURL: https://hugo-theme-luna.imiku.me/
 languageCode: zh-cn
 defaultContentLanguage: zh-cn
 title: Ice-Hazymoon 的博客
@@ -158,7 +158,7 @@ markup:
 
 # .Site.Params
 params:
-    publicPath: https://cdn.jsdelivr.net/gh/Ice-Hazymoon/blog-hugo-pages@latest # CDN URL
+    publicPath: "" # CDN URL
     themeColor: "#dd6065"
     runTime: 
         enable: true

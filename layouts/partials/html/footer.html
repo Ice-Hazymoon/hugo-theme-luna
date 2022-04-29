@@ -1,6 +1,6 @@
 {{- $cdn := "" -}}
 {{- if and .Site.Params.publicPath (not .Site.IsServer) -}}
-{{- $cdn := .Site.Params.publicPath -}}
+{{- $cdn = .Site.Params.publicPath -}}
 {{- end -}}
 
 {{- $hugo := `<a data-no-swup class="mx-1 font-bold hover:text-theme" href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>` -}}

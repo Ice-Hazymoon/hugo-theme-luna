@@ -1,7 +1,7 @@
 {{- define "main" -}}
 {{- $cdn := "" -}}
 {{- if and .Site.Params.publicPath (not .Site.IsServer) -}}
-{{- $cdn := .Site.Params.publicPath -}}
+{{- $cdn = .Site.Params.publicPath -}}
 {{- end -}}
 <div class="page-search">
     <div class="search-input bg-gray-100 dark:bg-darkBgAccent border-b dark:border-darkBorder px-3 py-2 flex items-center text-2xl">

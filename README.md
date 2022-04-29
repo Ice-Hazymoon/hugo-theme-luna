@@ -4,7 +4,7 @@
 
 > A simple, performance-first, SEO-friendly Hugo theme
 
-[👉 Example](https://imiku.me/en-us) | [中文文档](https://github.com/Ice-Hazymoon/hugo-theme-luna/README.zh.md)
+[👉 Example](https://hugo-theme-luna.imiku.me/en-us) | [中文文档](https://github.com/Ice-Hazymoon/hugo-theme-luna/README.zh.md)
 
 ## Introduction
 

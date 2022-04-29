@@ -2,7 +2,7 @@
 
 {{- $cdn := "" -}}
 {{- if and .Site.Params.publicPath (not .Site.IsServer) -}}
-{{- $cdn := .Site.Params.publicPath -}}
+{{- $cdn = .Site.Params.publicPath -}}
 {{- end -}}
 
 {{- if eq .Type "posts" -}}
