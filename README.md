@@ -1,6 +1,6 @@
 # Hugo Theme Luna
 
-![Luna](screenshots/luna.png)
+![Luna](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/luna.png)
 
 > A simple, performance-first, SEO-friendly Hugo theme
 
@@ -118,7 +118,7 @@ If you have pjax enabled and have added additional `<script>` tags, add the `dat
 
 > Automatically deploy your blog to public repositories
 
-![image-20220426222913185](screenshots/image-20220426222913185.png)
+![image-20220426222913185](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/image-20220426222913185.png)
 
 Copy the [`.github/workflows/main_example.yml`](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/edf3a101a93e8e628b534636306fda5985cc1b32/.github/workflows/main_example.yml) file in the theme root directory to your blog's `.github/workflows` directory
 
@@ -146,18 +146,18 @@ hugo server -s ./exampleSite -D --themesDir "../.."
 
 ### - Performance tests (with pjax and katex turned off)
 
-| Lighthouse                                             | GTmetrix                                             |
-| ------------------------------------------------------ | ---------------------------------------------------- |
-| ![Lighthouse](screenshots/image-20220427013052128.png) | ![GTmetrix](screenshots/image-20220427013223319.png) |
+| Lighthouse                                                                                                      | GTmetrix                                                                                                      |
+| --------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| ![Lighthouse](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/image-20220427013052128.png) | ![GTmetrix](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/image-20220427013223319.png) |
 
 ### - Screenshots
 
-| <p align="center">Home</p> ![Home](screenshots/screely-1651059552132.png)                             | <p align="center">Home(Dark)</p> ![Home(dark)](screenshots/screely-1651059730757.png)         |
-| ----------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| <p align="center">Tags</p> ![Tags](screenshots/screely-1651060185422.png)                             | <p align="center">Search</p> ![Search](screenshots/screely-1651059518653.png)                 |
-| <p align="center">Archives</p> ![Archives](screenshots/screely-1651059387460.png)                     | <p align="center">Links</p> ![Links](screenshots/screely-1651059430110.png)                   |
-| <p align="center">Twitter</p> ![Twitter](screenshots/screely-1651059453997.png)                       | <p align="center">GitHub</p> ![GitHub](screenshots/screely-1651059484292.png)                 |
-| <p align="center">Encrypted Articles</p> ![Encrypted Articles](screenshots/screely-1651060168715.png) | <p align="center">Gallery Layout</p> ![Gallery Layout](screenshots/screely-1651059672459.png) |
+| <p align="center">Home</p> ![Home](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/screely-1651059552132.png)                             | <p align="center">Home(Dark)</p> ![Home(dark)](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/screely-1651059730757.png)         |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <p align="center">Tags</p> ![Tags](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/screely-1651060185422.png)                             | <p align="center">Search</p> ![Search](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/screely-1651059518653.png)                 |
+| <p align="center">Archives</p> ![Archives](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/screely-1651059387460.png)                     | <p align="center">Links</p> ![Links](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/screely-1651059430110.png)                   |
+| <p align="center">Twitter</p> ![Twitter](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/screely-1651059453997.png)                       | <p align="center">GitHub</p> ![GitHub](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/screely-1651059484292.png)                 |
+| <p align="center">Encrypted Articles</p> ![Encrypted Articles](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/screely-1651060168715.png) | <p align="center">Gallery Layout</p> ![Gallery Layout](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/screely-1651059672459.png) |
 
 ## Acknowledgements
 

@@ -1,6 +1,6 @@
 # Hugo Theme Luna
 
-![Luna](screenshots/luna.png)
+![Luna](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/luna.png)
 
 > 一个简约，性能优先，SEO 友好的 Hugo 主题
 > 
@@ -121,7 +121,7 @@ console.log('加密代码块测试');
 
 将自动部署你的博客到公开仓库
 
-![image-20220426222913185](screenshots/image-20220426222913185.png)
+![image-20220426222913185](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/image-20220426222913185.png)
 
 复制主题根目录的 [`.github/workflows/main_example.yml`](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/edf3a101a93e8e628b534636306fda5985cc1b32/.github/workflows/main_example.yml) 文件到你的博客 `.github/workflows` 目录
 
@@ -151,16 +151,16 @@ hugo server -s ./exampleSite -D --themesDir "../.."
 
 | Lighthouse                                             | GTmetrix                                             |
 | ------------------------------------------------------ | ---------------------------------------------------- |
-| ![Lighthouse](screenshots/image-20220427013052128.png) | ![GTmetrix](screenshots/image-20220427013223319.png) |
+| ![Lighthouse](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/image-20220427013052128.png) | ![GTmetrix](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/image-20220427013223319.png) |
 
 ### - 页面截图
 
-| <p align="center">首页</p> ![首页](screenshots/screely-1651059552132.png)                     | <p align="center">首页（夜间模式）</p> ![首页（夜间模式）](screenshots/screely-1651059730757.png) |
+| <p align="center">首页</p> ![首页](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/screely-1651059552132.png)                     | <p align="center">首页（夜间模式）</p> ![首页（夜间模式）](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/screely-1651059730757.png) |
 | --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| <p align="center">标签页</p> ![标签页](screenshots/screely-1651060185422.png)                 | <p align="center">搜索页</p> ![搜索页](screenshots/screely-1651059518653.png)                     |
-| <p align="center">归档页</p> ![归档页](screenshots/screely-1651059387460.png)                 | <p align="center">友情链接页</p> ![友情链接页](screenshots/screely-1651059430110.png)             |
-| <p align="center">Twitter 动态页</p> ![Twitter 动态页](screenshots/screely-1651059453997.png) | <p align="center">GitHub</p> ![GitHub 页](screenshots/screely-1651059484292.png)                  |
-| <p align="center">文章加密</p> ![文章加密](screenshots/screely-1651060168715.png)             | <p align="center">相册排版</p> ![相册排版](screenshots/screely-1651059672459.png)                 |
+| <p align="center">标签页</p> ![标签页](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/screely-1651060185422.png)                 | <p align="center">搜索页</p> ![搜索页](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/screely-1651059518653.png)                     |
+| <p align="center">归档页</p> ![归档页](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/screely-1651059387460.png)                 | <p align="center">友情链接页</p> ![友情链接页](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/screely-1651059430110.png)             |
+| <p align="center">Twitter 动态页</p> ![Twitter 动态页](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/screely-1651059453997.png) | <p align="center">GitHub</p> ![GitHub 页](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/screely-1651059484292.png)                  |
+| <p align="center">文章加密</p> ![文章加密](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/screely-1651060168715.png)             | <p align="center">相册排版</p> ![相册排版](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/screely-1651059672459.png)                 |
 
 ## 致谢
 
