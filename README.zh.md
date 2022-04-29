@@ -3,8 +3,19 @@
 ![Luna](screenshots/luna.png)
 
 > 一个简约，性能优先，SEO 友好的 Hugo 主题
+> 
+![](https://img.shields.io/badge/Hugo-0.97-green?style=for-the-badge&logo=hugo&logoColor=white)
+![](https://img.shields.io/github/workflow/status/Ice-Hazymoon/hugo-theme-luna/CI?style=for-the-badge&logo=github&logoColor=white)
 
-[👉在线预览](https://hugo-theme-luna.imiku.me) | [English](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/main/README.md)
+
+![](https://img.shields.io/github/license/Ice-Hazymoon/hugo-theme-luna?style=for-the-badge)
+![](https://img.shields.io/badge/author-Ice--Hazymoon-green?style=for-the-badge)
+![](https://img.shields.io/github/stars/Ice-Hazymoon/hugo-theme-luna?color=ff69b4&style=for-the-badge)
+
+![](https://img.shields.io/github/last-commit/Ice-Hazymoon/hugo-theme-luna?style=flat-square)
+![](https://img.shields.io/github/languages/code-size/Ice-Hazymoon/hugo-theme-luna?style=flat-square)
+
+[👉在线预览](https://hugo-theme-luna.imiku.me/zh-cn) | [English](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/main/README.md)
 
 ## 特性
 
@@ -53,23 +64,23 @@ scoop install hugo-extended
 git clone https://github.com/Ice-Hazymoon/hugo-theme-luna/ themes/hugo-theme-luna
 ```
 
-在主题 [`exampleSite`](https://github.com/Ice-Hazymoon/hugo-theme-luna/tree/master/exampleSite) 目录有一个 [`config.yaml`](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/exampleSite/config.yaml) 文件，将该文件复制到你的站点目录下并根据需求修改相关内容。
+在主题 [`exampleSite`](https://github.com/Ice-Hazymoon/hugo-theme-luna/tree/main/exampleSite) 目录有一个 [`config.yaml`](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/main/exampleSite/config.yaml) 文件，将该文件复制到你的站点目录下并根据需求修改相关内容。
 
 ### - 配置
 
-请参考 [`config.yaml`](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/exampleSite/config.yaml) 文件来配置你的博客
+请参考 [`config.yaml`](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/main/exampleSite/config.yaml) 文件来配置你的博客
 
-如果你喜欢使用 toml，你可以在 [convert yaml to toml](https://www.convertsimple.com/convert-yaml-to-toml) 这里转换它
+如果你喜欢使用 toml，你可以在 [convert yaml to toml](https://www.convertsimple.com/convert-yaml-to-toml) 转换它
 
-如果你需要使用 **Twitter**、**GitHub**、**Search**、**Archives** 等页面，你需要在 `content` 文件夹下创建对应的文件，参考 [cantent](https://github.com/Ice-Hazymoon/hugo-theme-luna/tree/master/exampleSite/content) 文件夹
+如果你需要使用 **Twitter**、**GitHub**、**Search**、**Archives** 等页面，你需要在 `content` 文件夹下创建对应的文件，参考 [cantent](https://github.com/Ice-Hazymoon/hugo-theme-luna/tree/main/exampleSite/content) 文件夹
 
-如果你想要添加一个 **Links** 页面，你可以参考 [这个文件](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/exampleSite/content/zh-hans/links/index.md) 文件的语法
+如果你想要添加一个 **Links** 页面，你可以参考 [这个文件](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/main/exampleSite/content/zh-hans/links/index.md) 文件的语法
 
 所有图标可以在 [Eva icons](https://akveo.github.io/eva-icons) 查询
 
 你可以设置文章类型为 `type: status` 来发表一篇想法
 
-你可以通过调整 [assets/icon.png](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/assets/icon.png) 文件来修改你的网站图标
+你可以通过调整 [assets/icon.png](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/main/assets/icon.png) 文件来修改你的网站图标
 
 ### - 加密文章
 
@@ -77,7 +88,7 @@ git clone https://github.com/Ice-Hazymoon/hugo-theme-luna/ themes/hugo-theme-lun
 
 **加密功能请勿加密任何重要内容，请小心使用 `.RawContent` 等函数，以免暴露正文**
 
-如果你没用使用 [GitHub Actions](https://github.com/features/actions)，并且你需要使用加密功能，请在每次生成网站之后，执行主题目录下的 [`hugo-encrypt.js`](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/hugo-encrypt.js) 文件
+如果你没用使用 [GitHub Actions](https://github.com/features/actions)，并且你需要使用加密功能，请在每次生成网站之后，执行主题目录下的 [`hugo-encrypt.js`](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/main/hugo-encrypt.js) 文件
 
 ````markdown
 {{% hugo-encrypt 2022 %}}
@@ -98,7 +109,7 @@ console.log('加密代码块测试');
 
 博客内图片均使用了 Hugo 的 [Image Processing](https://gohugo.io/content-management/image-processing/) 功能，自动裁剪成合适的大小来优化页面加载速度，首次生成可能较为耗费时间。
 
-搜索功能为了减少 json 文件的体积，去除了 shortcode 和代码块等内容，如果有需要，你可以在 [这里](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/layout/_default/search.json) 修改它
+搜索功能为了减少 json 文件的体积，去除了 shortcode 和代码块等内容，如果有需要，你可以在 [这里](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/main/layout/_default/search.json) 修改它
 
 如果文章过时提醒不遵循 Git 版本时间的话请设置 `git config --global core.quotepath false`，这是 Hugo 的[问题](https://github.com/gohugoio/hugo/issues/9810)，或许在未来的更新中会得到解决。
 
@@ -112,17 +123,25 @@ console.log('加密代码块测试');
 
 ![image-20220426222913185](screenshots/image-20220426222913185.png)
 
-复制主题根目录的 `.github` 文件夹到你的博客根目录
+复制主题根目录的 [`.github/workflows/main_example.yml`](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/edf3a101a93e8e628b534636306fda5985cc1b32/.github/workflows/main_example.yml) 文件到你的博客 `.github/workflows` 目录
 
 修改 `external_repository`, `user_name`, `user_email` 等字段
 
 **注意：如果你需要启用加密功能，你需要有两个 GitHub 仓库，一个私有库用于存放源代码，一个公开仓库用于存放博客，`external_repository` 请设置为你博客的公开仓库**
 
-如果你不使用加密功能，或者你只有一个仓库，请修改 [`Deploy`](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/edf3a101a93e8e628b534636306fda5985cc1b32/.github/workflows/main_example.yml#L45) 脚本部分，参考：[actions-gh-pages](https://github.com/peaceiris/actions-gh-pages)
+如果你只有一个仓库，请修改 [`Deploy`](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/edf3a101a93e8e628b534636306fda5985cc1b32/.github/workflows/main_example.yml#L45) 脚本部分，参考：[actions-gh-pages](https://github.com/peaceiris/actions-gh-pages)
 
 在 [https://github.com/settings/tokens](https://github.com/settings/tokens) 创建一个用于部署的 Token，保存该 Token
 
 在 **github.com/{username}/{project}/settings/secrets/actions** 添加一个 `TOKEN` 字段，输入刚才生成的 token
+
+## 开发
+
+```sh
+git clone https://github.com/Ice-Hazymoon/hugo-theme-luna/
+cd hugo-theme-luna
+hugo server -s ./exampleSite -D --themesDir "../.."
+```
 
 ## 截图：
 
@@ -130,18 +149,18 @@ console.log('加密代码块测试');
 
 ### - 性能测试（关闭 pjax 和 katex 后）
 
-| Lighthouse                                                   | GTmetrix                                                     |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Lighthouse                                             | GTmetrix                                             |
+| ------------------------------------------------------ | ---------------------------------------------------- |
 | ![Lighthouse](screenshots/image-20220427013052128.png) | ![GTmetrix](screenshots/image-20220427013223319.png) |
 
 ### - 页面截图
 
-| ![首页](screenshots/screely-1651059552132.png) | ![首页（夜间模式）](screenshots/screely-1651059730757.png) |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![标签页](screenshots/screely-1651060185422.png) | ![搜索页](screenshots/screely-1651059518653.png) |
-| ![归档页](screenshots/screely-1651059387460.png) | ![友情链接页](screenshots/screely-1651059430110.png) |
-| ![Twitter 动态页](screenshots/screely-1651059453997.png) | ![GitHub 页](screenshots/screely-1651059484292.png) |
-| ![文章加密](screenshots/screely-1651060168715.png) | ![相册排版](screenshots/screely-1651059672459.png) |
+| <center>首页</center> ![首页](screenshots/screely-1651059552132.png)                     | <center>首页（夜间模式）</center> ![首页（夜间模式）](screenshots/screely-1651059730757.png) |
+| ---------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| <center>标签页</center> ![标签页](screenshots/screely-1651060185422.png)                 | <center>搜索页</center> ![搜索页](screenshots/screely-1651059518653.png)                     |
+| <center>归档页</center> ![归档页](screenshots/screely-1651059387460.png)                 | <center>友情链接页</center> ![友情链接页](screenshots/screely-1651059430110.png)             |
+| <center>Twitter 动态页</center> ![Twitter 动态页](screenshots/screely-1651059453997.png) | <center>GitHub</center> ![GitHub 页](screenshots/screely-1651059484292.png)                  |
+| <center>文章加密</center> ![文章加密](screenshots/screely-1651060168715.png)             | <center>相册排版</center> ![相册排版](screenshots/screely-1651059672459.png)                 |
 
 ## 致谢
 
@@ -151,6 +170,6 @@ console.log('加密代码块测试');
 
 ## License
 
-主题 使用 [GPL V3.0](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/LICENSE) 协议开源，请遵守此协议进行二次开发等。
+主题 使用 [GPL V3.0](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/main/LICENSE) 协议开源，请遵守此协议进行二次开发等。
 
 您**必须在页脚保留 Luna 主题的名称及其链接**，否则请不要使用该主题。

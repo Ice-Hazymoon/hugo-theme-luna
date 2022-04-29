@@ -4,7 +4,18 @@
 
 > A simple, performance-first, SEO-friendly Hugo theme
 
-[👉 Example](https://hugo-theme-luna.imiku.me/en-us) | [中文文档](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/main/README.zh.md)
+![](https://img.shields.io/badge/Hugo-0.97-green?style=for-the-badge&logo=hugo&logoColor=white)
+![](https://img.shields.io/github/workflow/status/Ice-Hazymoon/hugo-theme-luna/CI?style=for-the-badge&logo=github&logoColor=white)
+
+
+![](https://img.shields.io/github/license/Ice-Hazymoon/hugo-theme-luna?style=for-the-badge)
+![](https://img.shields.io/badge/author-Ice--Hazymoon-green?style=for-the-badge)
+![](https://img.shields.io/github/stars/Ice-Hazymoon/hugo-theme-luna?color=ff69b4&style=for-the-badge)
+
+![](https://img.shields.io/github/last-commit/Ice-Hazymoon/hugo-theme-luna?style=flat-square)
+![](https://img.shields.io/github/languages/code-size/Ice-Hazymoon/hugo-theme-luna?style=flat-square)
+
+[👉 Example](https://hugo-theme-luna.imiku.me) | [中文文档](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/main/README.zh.md)
 
 ## Introduction
 
@@ -93,7 +104,6 @@ console.log('some codes');
 {{% /hugo-encrypt %}}
 ````
 
-
 ## Note:
 
 The images in the blog use Hugo's [Image Processing](https://gohugo.io/content-management/image-processing/) feature, which automatically crops them to the right size to optimize page load speed, and can be time-consuming to generate the first time.
@@ -110,7 +120,7 @@ If you have pjax enabled and have added additional `<script>` tags, add the `dat
 
 ![image-20220426222913185](screenshots/image-20220426222913185.png)
 
-Copy the `.github` folder in the theme root directory to your blog's root directory
+Copy the [`.github/workflows/main_example.yml`](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/edf3a101a93e8e628b534636306fda5985cc1b32/.github/workflows/main_example.yml) file in the theme root directory to your blog's `.github/workflows` directory
 
 Modify the `external_repository`, `user_name`, `user_email`, etc. fields in the [main_example.yml](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/main/.github/workflows/main_example.yml) file, see: [actions-gh-pages](https://github.com/peaceiris/actions-gh-pages)
 
@@ -122,30 +132,38 @@ Create a Token for deployment at [https://github.com/settings/tokens](https://gi
 
 Add a `TOKEN` field to **github.com/{username}/{project}/settings/secrets/actions** and enter the token you just generated
 
+## 开发
+
+```sh
+git clone https://github.com/Ice-Hazymoon/hugo-theme-luna/
+cd hugo-theme-luna
+hugo server -s ./exampleSite -D --themesDir "../.."
+```
+
 ## Screenshots
 
 > [https://imiku.me](https://imiku.me)
 
 ### - Performance tests (with pjax and katex turned off)
 
-| Lighthouse                                                   | GTmetrix                                                     |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Lighthouse                                             | GTmetrix                                             |
+| ------------------------------------------------------ | ---------------------------------------------------- |
 | ![Lighthouse](screenshots/image-20220427013052128.png) | ![GTmetrix](screenshots/image-20220427013223319.png) |
 
 ### - Screenshots
 
-| ![Home](screenshots/screely-1651059552132.png) | ![Home(dark)](screenshots/screely-1651059730757.png) |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| ![Tags](screenshots/screely-1651060185422.png) | ![Search](screenshots/screely-1651059518653.png) |
-| ![Archives](screenshots/screely-1651059387460.png) | ![Links](screenshots/screely-1651059430110.png) |
-| ![Twitter](screenshots/screely-1651059453997.png) | ![GitHub](screenshots/screely-1651059484292.png) |
-| ![Encrypted Articles](screenshots/screely-1651060168715.png) | ![Gallery Layout](screenshots/screely-1651059672459.png) |
+| <center>Home</center> ![Home](screenshots/screely-1651059552132.png)                             | <center>Home(Dark)</center> ![Home(dark)](screenshots/screely-1651059730757.png)         |
+| ------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
+| <center>Tags</center> ![Tags](screenshots/screely-1651060185422.png)                             | <center>Search</center> ![Search](screenshots/screely-1651059518653.png)                 |
+| <center>Archives</center> ![Archives](screenshots/screely-1651059387460.png)                     | <center>Links</center> ![Links](screenshots/screely-1651059430110.png)                   |
+| <center>Twitter</center> ![Twitter](screenshots/screely-1651059453997.png)                       | <center>GitHub</center> ![GitHub](screenshots/screely-1651059484292.png)                 |
+| <center>Encrypted Articles</center> ![Encrypted Articles](screenshots/screely-1651060168715.png) | <center>Gallery Layout</center> ![Gallery Layout](screenshots/screely-1651059672459.png) |
 
 ## Acknowledgements
 
-- [https://github.com/olOwOlo/hugo-theme-even](https://github.com/olOwOlo/hugo-theme-even)
-- [https://github.com/CaiJimmy/hugo-theme-stack](https://github.com/CaiJimmy/hugo-theme-stack)
-- [https://github.com/Izumiko/hugo-encrypt](https://github.com/Izumiko/hugo-encrypt)
+- [hugo-theme-even](https://github.com/olOwOlo/hugo-theme-even)
+- [hugo-theme-stack](https://github.com/CaiJimmy/hugo-theme-stack)
+- [hugo-encrypt](https://github.com/Izumiko/hugo-encrypt)
 
 ## License
 

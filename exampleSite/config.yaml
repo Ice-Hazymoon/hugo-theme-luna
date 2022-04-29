@@ -1,11 +1,10 @@
 baseURL: https://hugo-theme-luna.imiku.me/
-languageCode: zh-cn
-defaultContentLanguage: zh-cn
-title: Ice-Hazymoon 的博客
+languageCode: en-us
+defaultContentLanguage: en-us
+title: Ice-Hazymoon's Blog
 enableRobotsTXT: true
 enableEmoji: true
 theme: hugo-theme-luna
-themesDir: ../..
 timeout: 60000
 timeZone: Asia/Shanghai
 
@@ -13,43 +12,43 @@ enableGitInfo: true
 
 hasCJKLanguage: true # enable CJK language support
 paginate: 10 # pagination size
-googleAnalytics: UA-98634098-1 # google analytics tracking code
-copyright: "" # default: author.name ↓
+# googleAnalytics: UA-98634098-1 # google analytics tracking code
+# copyright: "" # default: author.name ↓
 permalinks:
-    posts: /:year/:month/:day/:slug.html # 2019/01/01/hello-world.html
+  posts: /:year/:month/:day/:slug.html # 2019/01/01/hello-world.html
 
 author:
-    name: Ice-Hazymoon
+  name: Ice-Hazymoon
 
 frontmatter:
-    lastmod:
-      - :git
-      - lastmod
-      - :fileModTime
-      - date
-      - publishDate
-      - :default
+  lastmod:
+    - :git
+    - lastmod
+    - :fileModTime
+    - date
+    - publishDate
+    - :default
 
 taxonomies:
-    tag: "tags"
-    category: "categories"
+  tag: "tags"
+  category: "categories"
 
 summaryLength: 70
 canonifyURLs: false
 relativeURLs: false
 
 imaging: # see https://gohugo.io/content-management/image-processing/#imaging-configuration
-    resampleFilter: CatmullRom
-    quality: 95
-    anchor: smart
+  resampleFilter: CatmullRom
+  quality: 95
+  anchor: smart
 
 outputFormats:
-    offline:
-        name: offline
-        baseName: offline
-        mediaType: text/html
-        notAlternative: true
-        permalinkable: true
+  offline:
+    name: offline
+    baseName: offline
+    mediaType: text/html
+    notAlternative: true
+    permalinkable: true
 
 caches:
   getresource:
@@ -62,7 +61,6 @@ privacy:
     anonymizeIP: true
   youtube:
     privacyEnhanced: true
-
 
 sitemap:
   changefreq: weekly
@@ -127,151 +125,182 @@ menu:
       url: /search/
 
 languages:
-    zh-cn:
-        contentDir: content/zh-hans
-        title: Ice-Hazymoon 的博客
-        languageName: 中文
-        params:
-            icon: "/images/flag/zh-cn.svg"
-    en-us:
-        contentDir: content/en-us
-        title: Ice-Hazymoon's Blog
-        languageName: English
-        params: 
-            icon: "/images/flag/en-us.svg"
-            license:
-                name: "CC BY-NC-ND 4.0"
-                icon: "/images/Cc-by-nc-nd.svg"
-                url: "https://creativecommons.org/licenses/by-nc-nd/4.0"
+  zh-cn:
+    contentDir: content/zh-hans
+    title: Ice-Hazymoon 的博客
+    languageName: 中文
+    params:
+      icon: "/images/flag/zh-cn.svg"
+    license:
+      name: "署名 - 非商业性使用 - 禁止演绎 4.0"
+      icon: "/images/Cc-by-nc-nd.svg"
+      url: "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh"
+  en-us:
+    contentDir: content/en-us
+    title: Ice-Hazymoon's Blog
+    languageName: English
+    params:
+      icon: "/images/flag/en-us.svg"
 
 markup:
-    highlight:
-        style: dracula
-        guessSyntax: true
-        tabWidth: 4
-        lineNumbersInTable: true
-        lineNos: true
-        codeFences: true
-    goldmark:
-        renderer:
-            unsafe: true # enable html in markdown
+  highlight:
+    style: dracula
+    guessSyntax: true
+    tabWidth: 4
+    lineNumbersInTable: true
+    lineNos: true
+    codeFences: true
+  goldmark:
+    renderer:
+      unsafe: true # enable html in markdown
 
 # .Site.Params
 params:
-    publicPath: "" # CDN URL
-    themeColor: "#dd6065"
-    runTime: 
-        enable: true
-        creatTime: 2016/12/12 # Site creation time
-    since: "2016" # Site creation year
-    outdatedInfoWarning: # show warning when outdated info detected
-        enable: true
-        day: 90 # A timeout reminder will be displayed if the last modification time exceeds that number of days
-    share:
-        twitter: true
-        facebook: true
-        weibo: true
-        copyLinkText: true
-        qrcode: true
+  # CDN 地址
+  # CDN URL
+  publicPath: ""
 
-    # license
-    license:
-        name: "署名 - 非商业性使用 - 禁止演绎 4.0"
-        icon: "/images/Cc-by-nc-nd.svg"
-        url: "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh"
+  # 网站主题颜色
+  # Site theme colors
+  themeColor: "#dd6065"
 
-    # Display i18n toggle button
-    i18nlist: true
+  # 网站底部显示运行时间
+  # Show site runtime
+  runTime:
+    enable: true
+    # 网站创建时间
+    # Site creation time
+    creatTime: 2016/12/12
+  
+  # Site creation year
+  #  网站创建年份
+  since: "2016"
 
-     # github page
-    github:
-        id: "torvalds"
-        minStars: 5
-    
-     # tweet page
-    twitter:
-        rsshub: "https://rsshub.rssforever.com"
-        id: "elonmusk"
-        imageProcessing: true
-        
-    # Image Zoom Plugin
-    # see https://github.com/francoischalifour/medium-zoom
-    imageZoom: true
+  # 显示文章过时提醒
+  # show warning when outdated info detected
+  outdatedInfoWarning:
+    enable: true
+    # A timeout reminder will be displayed if the last modification time exceeds that number of days
+    # 超过该天数将显示过时提醒
+    day: 90
 
-    # lazyload image
-    lazyload: true
+  # 文章分享功能
+  share:
+    twitter: true
+    facebook: true
+    weibo: true
+    copyLinkText: true
+    qrcode: true
 
-    # enable google translate in footer
-    googleTranslate: true 
-    
-    # For outdated reminders
-    lastmod: true
+  # 文章许可设置
+  # license
+  license:
+    name: "CC BY-NC-ND 4.0"
+    icon: "/images/Cc-by-nc-nd.svg"
+    url: "https://creativecommons.org/licenses/by-nc-nd/4.0"
 
-    # Show table of contents
-    # You can enable it separately in the page
-    toc:
-      enable: true
-      wordCount: 400 # When the article word count is greater than this value, the TOC will be displayed
+  # 显示右上角 i18n 切换按钮
+  # Display i18n toggle button
+  i18nlist:
+    true
 
-    # encryption articles
-    HugoEncrypt:
-        Password: "123456" # default password
-        Storage: "session" # or "local"
-    
-     # Enable pjax with swup.js
-    pjax: true
+  # GitHub 页面设置
+  # github page
+  github:
+    id: "torvalds"
+    minStars: 5
 
-    # use service worker
-    pwa: true
+  # Twitter 页面设置
+  # tweet page
+  twitter:
+    rsshub: "https://rsshub.rssforever.com"
+    id: "elonmusk"
+    imageProcessing: true
 
-    # katex
-    katex: true
+  # 开启图片放大功能
+  # Image Zoom Plugin
+  # see https://github.com/francoischalifour/medium-zoom
+  imageZoom: true
 
-    # backtop button
-    backtop: true
+  # 图片懒加载
+  # lazyload image
+  lazyload: true
 
-    # lightweight, privacy-friendly alternative to Disqus.
-    # See https://cusdis.com/
-    cusdis:
-        enable: false
-        host: "https://cusdis.com"
-        appId: "your-app-id"
-    
-    image:
-        url: "/cover.png"
-        width: 1000
-        height: 519
+  # 启用谷歌翻译插件
+  # enable google translate in footer
+  googleTranslate: true
 
-    # site info
-    logo:
-        url: "/icon.png"
-        width: 200
-        height: 200
+  # For outdated reminders
+  lastmod: true
 
-    # Default featured image
-    # /images/featured_image.jpg or https://source.unsplash.com/random
-    # Your images must be located in the assets folder
-    defaultFeaturedImage: false
+  # 开启文章内目录，可以在页面内单独设置
+  # Show table of contents
+  # You can enable it separately in the page
+  toc:
+    enable: true
+    # 超过这个字数后将显示目录
+    # When the article word count is greater than this value, the TOC will be displayed
+    wordCount: 400 
 
-    author: Ice-Hazymoon
-    keywords:
-        - Ice-Hazymoon
-        - 冰凌胧月
-        - Hazymoon
-        - MikuTools
-    description: "向着现充的生活拼命咸鱼中"
+  # 加密功能
+  # encryption articles
+  HugoEncrypt:
+    # 默认密码
+    # default password
+    Password: "123456"
+    # 密码缓存选项 "session" or "local"
+    # or "local"
+    Storage: "session"
 
-    # Optimize your images and SEO
-    imageProcessing:
-        cover:
-            enabled: true
-        content:
-            enabled: true
+  # 开启 Pjax 无刷新加载
+  # Enable pjax with swup.js
+  pjax: true
+
+  # 开启 PWA
+  # use service worker
+  pwa: true
+
+  # 开启数学公式
+  # katex
+  katex: true
+
+  # 开启返回顶部按钮
+  # backtop button
+  backtop: true
+
+  # 默认文章封面图片
+  # 图片必须位于 assets 文件夹
+  # Default featured image
+  # /images/featured_image.jpg or https://source.unsplash.com/random
+  # Your images must be located in the assets folder
+  defaultFeaturedImage: false
+
+  # 自动调整图片大小并兼容 Webp 格式
+  # Optimize your images and SEO
+  imageProcessing:
+    cover:
+      enabled: true
+    content:
+      enabled: true
+
+  # 网站信息，根据需要修改
+  # site info
+  image:
+    url: "/cover.png"
+    width: 1000
+    height: 519
+  
+  logo:
+    url: "/icon.png"
+    width: 200
+    height: 200
+
+  author: Ice-Hazymoon
+  keywords:
+    - Hugo
+    - Hugo Theme
+    - Luna
+  description: "A simple, performance-first, SEO-friendly Hugo theme"
 
 build:
   noJSConfigInAssets: false
-
-# module:
-#   imports:
-#     - path: github.com/alex-shpak/hugo-book
-

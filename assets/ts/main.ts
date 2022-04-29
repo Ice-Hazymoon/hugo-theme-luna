@@ -9,10 +9,6 @@ declare global {
         Hazymoon: any;
         initSearch: any;
         rednerKatex: any;
-        CUSDIS: {
-            initial: any,
-            setTheme: any
-        };
         __theme: {
             cdn: string,
             pjax: boolean,
@@ -132,10 +128,6 @@ class Hazymoon {
         if (activeMenu) activeMenu.classList.remove('link-exact-active');
         const currentMenu = document.querySelector(`[data-active-link="${window.location.pathname.replace(/\/$/, '')}/"]`);
         if (currentMenu) currentMenu.classList.add('link-exact-active');
-    }
-    // loadComment
-    initComment() {
-        if (window.CUSDIS) window.CUSDIS.initial();
     }
     // 搜索插件
     async initSearch() {
@@ -307,12 +299,10 @@ class Hazymoon {
                 _i.classList.remove('eva-moon');
                 _i.classList.add('eva-sun');
                 document.documentElement.classList.add('dark');
-                if ( window.CUSDIS) window.CUSDIS.setTheme('dark');
             } else {
                 _i.classList.remove('eva-sun');
                 _i.classList.add('eva-moon');
                 document.documentElement.classList.remove('dark');
-                if ( window.CUSDIS) window.CUSDIS.setTheme('light');
             }
         }
     
