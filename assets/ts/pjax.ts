@@ -30,8 +30,6 @@ window.addEventListener('load', () => {
         window.Hazymoon.initActiveMenu();
 
         window.Hazymoon.renderPost();
-
-        window.Hazymoon.initComment();
     
         if (!n && document.getElementById('back-top')) {
             document.getElementById('back-top').click();

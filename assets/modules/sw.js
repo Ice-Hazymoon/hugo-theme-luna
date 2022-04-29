@@ -2,7 +2,7 @@ import * as params from '@params';
 const CACHE_NAME = 'hazymoon_sw';
 const OFFLINE_URL = '/offline.html';
 const OFFLINE_IMAGE = '/offline.jpg';
-const CDN = params.cdn || window.location.origin;
+const CDN = params.cdn;
 
 self.addEventListener('install', (event) => {
     event.waitUntil(
