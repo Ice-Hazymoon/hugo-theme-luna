@@ -155,12 +155,12 @@ hugo server -s ./exampleSite -D --themesDir "../.."
 
 ### - 页面截图
 
-| <center>首页</center> ![首页](screenshots/screely-1651059552132.png)                     | <center>首页（夜间模式）</center> ![首页（夜间模式）](screenshots/screely-1651059730757.png) |
-| ---------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| <center>标签页</center> ![标签页](screenshots/screely-1651060185422.png)                 | <center>搜索页</center> ![搜索页](screenshots/screely-1651059518653.png)                     |
-| <center>归档页</center> ![归档页](screenshots/screely-1651059387460.png)                 | <center>友情链接页</center> ![友情链接页](screenshots/screely-1651059430110.png)             |
-| <center>Twitter 动态页</center> ![Twitter 动态页](screenshots/screely-1651059453997.png) | <center>GitHub</center> ![GitHub 页](screenshots/screely-1651059484292.png)                  |
-| <center>文章加密</center> ![文章加密](screenshots/screely-1651060168715.png)             | <center>相册排版</center> ![相册排版](screenshots/screely-1651059672459.png)                 |
+| <p align="center">首页</p> ![首页](screenshots/screely-1651059552132.png)                     | <p align="center">首页（夜间模式）</p> ![首页（夜间模式）](screenshots/screely-1651059730757.png) |
+| --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| <p align="center">标签页</p> ![标签页](screenshots/screely-1651060185422.png)                 | <p align="center">搜索页</p> ![搜索页](screenshots/screely-1651059518653.png)                     |
+| <p align="center">归档页</p> ![归档页](screenshots/screely-1651059387460.png)                 | <p align="center">友情链接页</p> ![友情链接页](screenshots/screely-1651059430110.png)             |
+| <p align="center">Twitter 动态页</p> ![Twitter 动态页](screenshots/screely-1651059453997.png) | <p align="center">GitHub</p> ![GitHub 页](screenshots/screely-1651059484292.png)                  |
+| <p align="center">文章加密</p> ![文章加密](screenshots/screely-1651060168715.png)             | <p align="center">相册排版</p> ![相册排版](screenshots/screely-1651059672459.png)                 |
 
 ## 致谢
 

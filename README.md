@@ -152,12 +152,12 @@ hugo server -s ./exampleSite -D --themesDir "../.."
 
 ### - Screenshots
 
-| <center>Home</center> ![Home](screenshots/screely-1651059552132.png)                             | <center>Home(Dark)</center> ![Home(dark)](screenshots/screely-1651059730757.png)         |
-| ------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
-| <center>Tags</center> ![Tags](screenshots/screely-1651060185422.png)                             | <center>Search</center> ![Search](screenshots/screely-1651059518653.png)                 |
-| <center>Archives</center> ![Archives](screenshots/screely-1651059387460.png)                     | <center>Links</center> ![Links](screenshots/screely-1651059430110.png)                   |
-| <center>Twitter</center> ![Twitter](screenshots/screely-1651059453997.png)                       | <center>GitHub</center> ![GitHub](screenshots/screely-1651059484292.png)                 |
-| <center>Encrypted Articles</center> ![Encrypted Articles](screenshots/screely-1651060168715.png) | <center>Gallery Layout</center> ![Gallery Layout](screenshots/screely-1651059672459.png) |
+| <p align="center">Home</p> ![Home](screenshots/screely-1651059552132.png)                             | <p align="center">Home(Dark)</p> ![Home(dark)](screenshots/screely-1651059730757.png)         |
+| ----------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| <p align="center">Tags</p> ![Tags](screenshots/screely-1651060185422.png)                             | <p align="center">Search</p> ![Search](screenshots/screely-1651059518653.png)                 |
+| <p align="center">Archives</p> ![Archives](screenshots/screely-1651059387460.png)                     | <p align="center">Links</p> ![Links](screenshots/screely-1651059430110.png)                   |
+| <p align="center">Twitter</p> ![Twitter](screenshots/screely-1651059453997.png)                       | <p align="center">GitHub</p> ![GitHub](screenshots/screely-1651059484292.png)                 |
+| <p align="center">Encrypted Articles</p> ![Encrypted Articles](screenshots/screely-1651060168715.png) | <p align="center">Gallery Layout</p> ![Gallery Layout](screenshots/screely-1651059672459.png) |
 
 ## Acknowledgements
 
