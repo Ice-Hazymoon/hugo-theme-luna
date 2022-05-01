@@ -114,9 +114,9 @@
                 <div class="category-items flex items-center">
                     <i class="eva eva-folder-outline mr-1"></i>
                     {{- range .Params.categories -}}
-                        <a href="{{- "/categories/" | relLangURL -}}{{- . | urlize -}}" title="{{- . -}}" class="group inline-flex">
+                        <a href="{{- "/categories/" | relLangURL -}}{{- . | urlize -}}" title="{{- . -}}" class="inline-flex">
                             <span class="hover:text-theme">{{- . -}}</span>
-                            <span class="group-last:hidden mx-0.5">,</span>
+                            <span class="mx-0.5">,</span>
                         </a>
                     {{- end -}}
                 </div>

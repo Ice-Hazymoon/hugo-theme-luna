@@ -1,6 +1,9 @@
 
 .article-list {
     // width: calc(100% - 100px);
+    .category-items a:last-child span:last-child {
+        display: none;
+    }
     .article {
         @media (min-width: 640px) {
             box-shadow: 8px 14px 38px rgba(39, 44, 49, 0.06),
