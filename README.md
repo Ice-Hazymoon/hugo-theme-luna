@@ -79,7 +79,7 @@ You can modify your website icons by adjusting the [assets/icon.png](https://git
 
 ### - Comment
 
-You can add the HTML part of the comment in [comment.html](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/77c6007410a97315448119c224412f3929716ed2/layouts/partials/comment.html) and then add the script part in [custom-script.html](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/main/layouts/partials/scripts/custom-script.html)
+You can add the HTML part of the comment in [comment.html](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/77c6007410a97315448119c224412f3929716ed2/layouts/partials/comment.html) and then add the script part in [custom-script.html](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/main/layouts/partials/scripts/custom-script.html) or [custom-script-pjax.js](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/main/assets/custom-script-pjax.js) / [custom-script.js](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/main/assets/custom-script.js)
 
 ### - Encryption
 

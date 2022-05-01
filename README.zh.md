@@ -82,7 +82,7 @@ git clone https://github.com/Ice-Hazymoon/hugo-theme-luna/ themes/hugo-theme-lun
 
 ### - 评论系统
 
-你可以在 [comment.html](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/77c6007410a97315448119c224412f3929716ed2/layouts/partials/comment.html) 添加评论系统的 HTML 部分，然后在 [custom-script.html](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/main/layouts/partials/scripts/custom-script.html) 添加脚本的初始化部分
+你可以在 [comment.html](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/77c6007410a97315448119c224412f3929716ed2/layouts/partials/comment.html) 添加评论系统的 HTML 部分，然后在 [custom-script.html](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/main/layouts/partials/scripts/custom-script.html) 或者 [custom-script-pjax.js](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/main/assets/custom-script-pjax.js) / [custom-script.js](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/main/assets/custom-script.js) 添加脚本的初始化部分
 
 ### - 加密文章
 

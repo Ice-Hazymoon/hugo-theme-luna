@@ -1,3 +1,18 @@
+{{- $cdn := "" -}}
+{{- if and .Site.Params.publicPath (not .Site.IsServer) -}}{{- $cdn = .Site.Params.publicPath -}}{{- end -}}
+
+{{- $customScript := resources.Get "custom-script.js" | js.Build (dict "minify" hugo.IsProduction) -}}
+{{- $customScriptPjax := resources.Get "custom-script-pjax.js" | js.Build (dict "minify" hugo.IsProduction) -}}
+{{- if .Site.IsServer -}}
+    <!-- <script type="text/javascript" src="{{- $customScript.RelPermalink -}}" defer></script>
+    <script type="text/javascript" src="{{- $customScriptPjax.RelPermalink -}}" data-swup-reload-script defer></script> -->
+{{- else -}}
+    {{- $customScript := $customScript | fingerprint -}}
+    {{- $customScriptPjax := $customScriptPjax | fingerprint -}}
+    <!-- <script type="text/javascript" src="{{- print $cdn $customScript.RelPermalink -}}" defer integrity="{{ $customScript.Data.Integrity }}"></script>
+    <script type="text/javascript" src="{{- print $cdn $customScriptPjax.RelPermalink -}}" defer integrity="{{ $customScriptPjax.Data.Integrity }}"></script> -->
+{{- end -}}
+
 <script>
     // Only the first visit loads
     // console.log('First visit');
