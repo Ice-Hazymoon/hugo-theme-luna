@@ -132,17 +132,17 @@
                     {{- end -}}
                 {{- end -}}
             </div>
-            <div class="flex items-center sm:hidden">
-                <!-- <i class="eva eva-bar-chart-outline mr-1"></i>
-                <span>{{- .WordCount}} 字</span> -->
-                {{- if .Params.tags -}}
+            <div class="flex items-center sm:hidden text-gray-400 dark:text-darkText ">
+                <i class="eva eva-bar-chart-outline mr-1"></i>
+                <span>{{- T "post.wordCount" .WordCount -}}</span>
+                <!-- {{- if .Params.tags -}}
                     {{- range .Params.tags -}}
                     <a href="{{- "/tags/" | relLangURL -}}{{- . | urlize -}}" title="{{- . -}}" class="mx-1 flex items-center text-gray-600 text-opacity-70 dark:text-darkText hover:text-opacity-100">
                         <i class="eva eva-hash-outline mr-0.5"></i>
                         <span>{{- . -}}</span>
                     </a>
                     {{- end -}}
-                {{- end -}}
+                {{- end -}} -->
             </div>
         </div>
     </article>
