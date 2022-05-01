@@ -84,14 +84,14 @@
             </div>
             <div class="article-info p-6 pb-3 text-sm border-b dark:border-darkBorder border-gray-300">
                 <div>
-                    <div class="inline-flex items-center mb-3 mr-5 sm:rounded-full">
+                    <div class="inline-flex items-center mb-3 mr-4 sm:rounded-full">
                         <i class="eva eva-clock-outline mr-1 "></i>
                         <span>
                             <time title="{{- T "post.publishedIn" -}}{{- .Date.Format (T "date.normal") -}}" {{- printf `datetime="%s"` (.Date.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr -}}>{{- .Date.Format (T "date.d_m_y") -}}</time>
                         </span>
                     </div>
                     {{- if .Site.Params.lastmod -}}
-                        <span class="inline-flex items-center mb-3 mr-5 sm:rounded-full">
+                        <span class="inline-flex items-center mb-3 mr-4 sm:rounded-full">
                             <i class="eva eva-edit-2-outline mr-1 "></i>
                             <span>
                                 <time title="{{- T "post.lastmod" -}}{{- .Lastmod.Format (T "date.normal") -}}" {{- printf `datetime="%s"` (.Lastmod.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr -}}>{{- .Lastmod.Format (T "date.d_m_y") -}}</time>
@@ -99,12 +99,12 @@
                         </span>
                     {{- end -}}
                     <div
-                        class="inline-flex items-center mb-3 mr-5 sm:rounded-full">
+                        class="inline-flex items-center mb-3 mr-4 sm:rounded-full">
                         <i class="eva eva-flag-outline mr-1 "></i>
                         <span>{{- T "post.readingTime" .ReadingTime}}</span>
                     </div>
                     <div
-                        class="inline-flex items-center mb-3 mr-5 sm:rounded-full">
+                        class="inline-flex items-center mb-3 mr-4 sm:rounded-full">
                         <i class="eva eva-bar-chart-outline mr-1 "></i>
                         <span>{{- T "post.wordCount" .WordCount}}</span>
                     </div>

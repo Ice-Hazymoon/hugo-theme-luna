@@ -28,7 +28,7 @@
             {{- if .Site.Params.googleTranslate -}}<div id="google_translate_element" class=" rounded border dark:border-darkBorder overflow-hidden"></div>{{- end -}}
         </div>
         {{- if .Site.Params.runTime.enable -}}
-            {{- partial "run-time" .}}
+            {{- partial "components/run-time" .}}
         {{- end -}}
     </div>
     <!-- google analytics -->
@@ -39,6 +39,9 @@
 
     <!-- main.js -->
     {{- partial "scripts/main-script" . -}}
+
+    <!-- custom_script.js -->
+    {{- partial "scripts/custom-script" . -}}
 
     <!-- pjax.js -->
     {{- if .Site.Params.pjax -}}

@@ -80,6 +80,10 @@ git clone https://github.com/Ice-Hazymoon/hugo-theme-luna/ themes/hugo-theme-lun
 
 你可以通过调整 [assets/icon.png](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/main/assets/icon.png) 文件来修改你的网站图标
 
+### - 评论系统
+
+你可以在 [https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/77c6007410a97315448119c224412f3929716ed2/layouts/partials/comment.html](comment.html) 添加评论系统的 HTML 部分，然后在 [custom-script.html](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/main/layouts/partials/scripts/custom-script.html) 添加脚本的初始化部分
+
 ### - 加密文章
 
 我建议你使用两个仓库用来管理你的博客，一个私有用于存放博客的源代码，一个公开仓库用于启用 GitHub Pages，如果你需要使用文章加密功能，请一定不要把你的源代码放到公开的仓库上。
@@ -114,6 +118,8 @@ console.log('加密代码块测试');
 新页面的格式请遵循 `archetypes/default.md` 文件，是必须的
 
 如果你开启了 pjax 并且使用了额外的 `<script>` 标签，请在标签上添加 `data-swup-reload-script` 属性，请查看：[https://swup.js.org/plugins/scripts-plugin](https://swup.js.org/plugins/scripts-plugin)
+
+你可以在 [custom-script.html](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/main/layouts/partials/scripts/custom-script.html) 添加你的自定义脚本
 
 ## GitHub Action
 

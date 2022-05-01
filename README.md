@@ -77,6 +77,10 @@ You can set the post type to `type: status` to post a status
 
 You can modify your website icons by adjusting the [assets/icon.png](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/main/assets/icon.png) file
 
+### - Comment
+
+You can add the HTML part of the comment in [comment.html](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/77c6007410a97315448119c224412f3929716ed2/layouts/partials/comment.html) and then add the script part in [custom-script.html](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/main/layouts/partials/scripts/custom-script.html)
+
 ### - Encryption
 
 I suggest you use two repositories to manage your blog, a private repository for your blog's source code and a public repository for public files. If you need to use the post encryption feature, please make sure not to put your source code on the public repository.
@@ -111,6 +115,8 @@ The local search function removes the shortcode and code blocks in order to redu
 For the format of new articles, please follow the [`archetypes/default.md`](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/main/archetypes/default.md) file
 
 If you have pjax enabled and have added additional `<script>` tags, add the `data-swup-reload-script` attribute to the tags, see: [https://swup.js.org/plugins/scripts-plugin](https://swup.js.org/plugins/scripts-plugin)
+
+You can add your custom script at [custom-script.html](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/main/layouts/partials/scripts/custom-script.html)
 
 ## GitHub Action
 
