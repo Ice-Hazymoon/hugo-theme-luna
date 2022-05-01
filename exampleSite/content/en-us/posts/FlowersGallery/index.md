@@ -9,6 +9,7 @@ tags:
   - Poem
 categories:
   - Gallery
+  - Photography
 ---
 
 ## Spring.

@@ -130,7 +130,7 @@ Create a Token for deployment at [https://github.com/settings/tokens](https://gi
 
 Add a `TOKEN` field to **github.com/{username}/{project}/settings/secrets/actions** and enter the token you just generated
 
-## 开发
+## Development
 
 ```sh
 git clone https://github.com/Ice-Hazymoon/hugo-theme-luna/

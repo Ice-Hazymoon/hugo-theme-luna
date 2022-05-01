@@ -41,7 +41,8 @@ post:
     prevPost: "Prev"
     nextPost: "Next"
     license: "Unless otherwise stated, this blog is licensed under"
-    lastmod: 'Last edited <span class="mx-1 font-bold">{{.}}</span> days ago, the information described in the text may have changed'
+    outdatedInfo: 'Last edited <span class="mx-1 font-bold">{{.}}</span> days ago, the information described in the text may have changed'
+    lastmod: 'Last modified on: '
     toc: "Table of Contents"
     refs: "Refs"
     archiveCounter:
@@ -132,7 +133,6 @@ twitter:
     like: "Like"
     reply: "Reply"
     forward: "Forward"
-    dateFormat: "Jan 02 15:04"
     goto: "Go to Twitter to check it out"
 
 # i18nlist

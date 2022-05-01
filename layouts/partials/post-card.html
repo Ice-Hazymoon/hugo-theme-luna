@@ -6,8 +6,9 @@
 {{- end -}}
 
 {{- if eq .Type "posts" -}}
-    <article class="article relative bg-white dark:bg-darkBgAccent border mb-10 md:border-none dark:border-darkBorder md:mb-16 overflow-hidden rounded transition duration-300 ease-[ease]">
-        {{- if or (.Site.Params.defaultFeaturedImage) (.Params.featured_image) -}}
+    <article class="article relative group bg-white dark:bg-darkBgAccent border mb-10 md:border-none dark:border-darkBorder md:mb-16 overflow-hidden rounded transition duration-300 ease-[ease]">
+        {{- $hasCover := or (.Site.Params.defaultFeaturedImage) (.Params.featured_image) -}}
+        {{- if $hasCover -}}
             {{- $featured_image := "" -}}
             {{- $srcset := "" -}}
             {{- $srcset_webp := "" -}}
@@ -82,23 +83,23 @@
                     class="article-title absolute hidden sm:flex h-4/5 bottom-0 items-end left-0 md:p-10 md:text-3xl p-5 text-2xl text-white dark:text-darkText w-full z-10">
                     <div class="w-full">
                         <div class="font-bold line-clamp-2 md:line-clamp-3">{{- .Title -}}</div>
-                        {{- with $Summary -}}<div class="line-clamp-2 md:mt-4 mt-2 text-xl hidden" title="{{- . -}}">{{ . }}...</div>{{- end -}}
+                        {{- with $Summary -}}<div class="line-clamp-2 md:mt-4 mt-2 text-xl hidden" title="{{- . -}}">{{ . }} ...</div>{{- end -}}
                     </div>
                 </div>
             </a>
             
             <div class="sm:hidden block px-5 border-t dark:border-darkBorder pt-5">
                 <a href="{{- .RelPermalink -}}" class="font-bold line-clamp-2 md:line-clamp-3 text-2xl">{{- .Title -}}</a>
-                {{- with $Summary -}}<div class="line-clamp-2 mt-4 mb-1" title="{{- . -}}...">{{ . }}...</div>{{- end -}}
+                {{- with $Summary -}}<div class="line-clamp-2 mt-4 mb-1" title="{{- . -}} ...">{{ . }} <span class=" text-gray-400"></span></div>{{- end -}}
             </div>
         {{- else -}}
             <a href="{{- .RelPermalink -}}" class="block px-5 dark:border-darkBorder pt-5">
-                <div class="font-bold line-clamp-2 md:line-clamp-3 text-2xl">{{- .Title -}}</div>
-                {{- with $Summary -}}<div class="line-clamp-2 mt-4 mb-1" title="{{- . -}}...">{{ . }}...</div>{{- end -}}
+                <div class="font-bold line-clamp-2 md:line-clamp-3 text-2xl group-hover:text-theme">{{- .Title -}}</div>
+                {{- with $Summary -}}<div class="line-clamp-2 mt-4 mb-1" title="{{- . -}} ...">{{ . }} <span class=" text-gray-400">...</span></div>{{- end -}}
             </a>
         {{- end -}}
-        <div class="article-info flex justify-between px-5 py-4">
-            <div class="flex">
+        <div class="article-info flex justify-between px-5 py-4 text-sm">
+            <div class="flex {{ if not $hasCover }} sm:text-gray-400{{ else }}sm:text-gray-500{{ end }} text-gray-400 dark:text-gray-400">
                 <div class="flex items-center mr-4">
                     <i class="eva eva-clock-outline mr-1"></i>
                     <span>
@@ -110,27 +111,38 @@
                     <span class="mr-2">{{- T "post.readingTime" .ReadingTime}}</span>
                 </div>
                 {{- if .Params.categories -}}
-                <div class="category-items flex items-center mr-4">
+                <div class="category-items flex items-center">
                     <i class="eva eva-folder-outline mr-1"></i>
                     {{- range .Params.categories -}}
-                    <a href="{{- "/categories/" | relLangURL -}}{{- . | urlize -}}" title="{{- . -}}" class="hover:text-theme mr-2">{{- . -}}</a>
+                        <a href="{{- "/categories/" | relLangURL -}}{{- . | urlize -}}" title="{{- . -}}" class="group inline-flex">
+                            <span class="hover:text-theme">{{- . -}}</span>
+                            <span class="group-last:hidden mx-0.5">,</span>
+                        </a>
                     {{- end -}}
                 </div>
                 {{- end -}}
             </div>
-            <div class="items-center hidden sm:flex">
+            <div class="items-center hidden sm:flex text-xs">
                 {{- if .Params.tags -}}
-                {{- range .Params.tags -}}
-                <a href="{{- "/tags/" | relLangURL -}}{{- . | urlize -}}" title="{{- . -}}" class="bg-theme flex items-center mx-1 px-2 py-1 rounded-full tag text-white dark:text-darkText text-xs transition duration-300 ease-[ease]">
-                    <i class="eva eva-hash-outline mr-1"></i>
-                    <span>{{- . -}}</span>
-                </a>
-                {{- end -}}
+                    {{- range .Params.tags -}}
+                    <a href="{{- "/tags/" | relLangURL -}}{{- . | urlize -}}" title="{{- . -}}" class="bg-theme flex items-center mx-1 px-2 py-1 rounded-full tag text-white dark:text-darkText transition duration-300 ease-[ease]">
+                        <i class="eva eva-hash-outline mr-0.5"></i>
+                        <span>{{- . -}}</span>
+                    </a>
+                    {{- end -}}
                 {{- end -}}
             </div>
             <div class="flex items-center sm:hidden">
-                <i class="eva eva-bar-chart-outline mr-1"></i>
-                <span>{{- .WordCount}} 字</span>
+                <!-- <i class="eva eva-bar-chart-outline mr-1"></i>
+                <span>{{- .WordCount}} 字</span> -->
+                {{- if .Params.tags -}}
+                    {{- range .Params.tags -}}
+                    <a href="{{- "/tags/" | relLangURL -}}{{- . | urlize -}}" title="{{- . -}}" class="mx-1 flex items-center text-gray-600 text-opacity-70 dark:text-darkText hover:text-opacity-100">
+                        <i class="eva eva-hash-outline mr-0.5"></i>
+                        <span>{{- . -}}</span>
+                    </a>
+                    {{- end -}}
+                {{- end -}}
             </div>
         </div>
     </article>
@@ -141,8 +153,8 @@
                 <i class="eva eva-edit-2-outline"></i>
             </div>
             <div class="flex-grow justify-between">
-                {{- with $Summary -}}<div class="text-xl line-clamp-3">{{ . }}...</div>{{- end -}}
-                <div class="flex items-center mt-2 self-end text-gray-500 text-sm">
+                {{- with $Summary -}}<div class="text-xl line-clamp-3">{{ . }} <span class=" text-gray-400">...</span></div>{{- end -}}
+                <div class="flex items-center mt-2 self-end text-gray-400 text-sm">
                     <i class="eva eva-clock-outline mr-1"></i>
                     <div>
                         <time title="{{- .Date.Format (T "date.normal") -}}" {{- printf `datetime="%s"` (.Date.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr -}}>{{- .Date.Format (T "date.m_d_y") -}}</time>

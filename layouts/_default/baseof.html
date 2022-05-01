@@ -5,6 +5,8 @@
         <div class="mx-auto relative shadow-lg">
             <div class="bg-white dark:bg-darkFg main md:max-w-4xl mx-auto relative xl:max-w-4xl flex flex-col justify-between">
                 {{- partial "html/header" . -}}
+
+                {{- partial "components/dark-mode" . -}}
                 
                 <main class=" relative flex-grow flex" id="swup">
                     <div class=" w-full">{{- block "main" . -}}{{- end -}}</div>
@@ -14,8 +16,6 @@
             </div>
         </div>
         {{- partial "components/backtop" . -}}
-
-        {{- partial "components/dark-mode" . -}}
 
         {{- partial "components/i18nlist" . -}}
 

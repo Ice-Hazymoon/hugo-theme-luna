@@ -35,7 +35,8 @@ post:
     prevPost: "上一篇"
     nextPost: "下一篇"
     license: "除特殊声明外，本博客一律使用以下协议进行授权"
-    lastmod: '文章最后编辑于: <span class="mx-1 font-bold"> {{.}} </span> 天前，文中所描述的信息可能已发生改变'
+    outdatedInfo: '文章最后编辑于: <span class="mx-1 font-bold"> {{.}} </span> 天前，文中所描述的信息可能已发生改变'
+    lastmod: '最后修改于：'
     toc: "文章目录"
     refs: "引用链接"
     archiveCounter: '共 <span class="mx-1 text-theme">{{ .Count }}</span> 篇文章'

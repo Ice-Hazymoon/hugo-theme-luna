@@ -82,67 +82,57 @@
                     </div>
                 {{- end -}}
             </div>
-            <div class="article-info p-6 pb-2">
-                <div class="inline-flex items-center mb-2 mr-4 sm:rounded-full">
-                    <i class="eva eva-clock-outline mr-1"></i>
-                    <span>
-						<time title="{{- T "post.publishedIn" -}}{{- .Date.Format (T "date.normal") -}}" {{- printf `datetime="%s"` (.Date.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr -}}>{{- .Date.Format (T "date.d_m_y") -}}</time>
-					</span>
+            <div class="article-info p-6 pb-3 text-sm border-b dark:border-darkBorder border-gray-300">
+                <div>
+                    <div class="inline-flex items-center mb-3 mr-5 sm:rounded-full">
+                        <i class="eva eva-clock-outline mr-1 "></i>
+                        <span>
+                            <time title="{{- T "post.publishedIn" -}}{{- .Date.Format (T "date.normal") -}}" {{- printf `datetime="%s"` (.Date.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr -}}>{{- .Date.Format (T "date.d_m_y") -}}</time>
+                        </span>
+                    </div>
+                    {{- if .Site.Params.lastmod -}}
+                        <span class="inline-flex items-center mb-3 mr-5 sm:rounded-full">
+                            <i class="eva eva-edit-2-outline mr-1 "></i>
+                            <span>
+                                <time title="{{- T "post.lastmod" -}}{{- .Lastmod.Format (T "date.normal") -}}" {{- printf `datetime="%s"` (.Lastmod.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr -}}>{{- .Lastmod.Format (T "date.d_m_y") -}}</time>
+                            </span>
+                        </span>
+                    {{- end -}}
+                    <div
+                        class="inline-flex items-center mb-3 mr-5 sm:rounded-full">
+                        <i class="eva eva-flag-outline mr-1 "></i>
+                        <span>{{- T "post.readingTime" .ReadingTime}}</span>
+                    </div>
+                    <div
+                        class="inline-flex items-center mb-3 mr-5 sm:rounded-full">
+                        <i class="eva eva-bar-chart-outline mr-1 "></i>
+                        <span>{{- T "post.wordCount" .WordCount}}</span>
+                    </div>
                 </div>
-                <!-- {{- if .Site.Params.lastmod -}}
-                <span
-                    class="bg-emerald-500 inline-flex items-center mb-2 mr-2 sm:rounded-full text-white text-xs">
-                    <i class="eva eva-edit-2-outline mr-1"></i>
-                    <span>
-                        <time title="最后修改于：{{- .Lastmod.Format "2006年01月02日 15:04:05" -}}" {{- printf `datetime="%s"` (.Lastmod.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr -}}>{{- .Lastmod.Format "2006-01-02 15:04:05" -}}</time>
-                    </span>
-                </span>
-                {{- end -}} -->
-                <!-- <span
-                    class="bg-emerald-500 inline-flex items-center mb-2 mr-2 sm:rounded-full text-white text-xs">
-                    <i class="eva eva-person-outline mr-1"></i>
-                    <span>{{- .Site.Author.name -}}</span>
-                </span> -->
-                <!-- <div
-                    class="bg-violet-500 inline-flex items-center mb-2 mr-2 sm:rounded-full text-white text-xs">
-                    <i class="eva eva-message-circle-outline mr-1"></i>
-                    <span>3 条评论</span>
-                </div>  -->
-                <div
-                    class="inline-flex items-center mb-2 mr-4 sm:rounded-full">
-                    <i class="eva eva-flag-outline mr-1"></i>
-                    <span>{{- T "post.readingTime" .ReadingTime}}</span>
-                </div>
-                <div
-                    class="inline-flex items-center mb-2 mr-4 sm:rounded-full">
-                    <i class="eva eva-bar-chart-outline mr-1"></i>
-                    <span>{{- T "post.wordCount" .WordCount}}</span>
-                </div>
-            </div>
-            <div class="border-b dark:border-darkBorder border-gray-300 pb-6 px-6">
+
                 {{- if .Params.tags -}}
-                <div class="flex items-center mb-2">
-                    <i class="eva eva-pricetags-outline mr-1"></i>
-                    <span class="mr-2 text-sm">{{ T "taxonomy._tags" }}</span>
-					{{- range .Params.tags -}}
-                    <a href="{{- "/tags/" | relLangURL -}}{{- . | urlize -}}" title="{{- . -}}" class="flex hover:text-theme items-center mr-1 px-1 py-1 text-sm">
-                        <i class="eva eva-hash-outline"></i>
-                        <span>{{- . -}}</span>
-                    </a>
-					{{- end -}}
-                </div>
+                    <div class="flex items-center mb-3">
+                        <i class="eva eva-pricetags-outline mr-1 "></i>
+                        <span class="mr-3">{{ T "taxonomy._tags" }}</span>
+                        {{- range .Params.tags -}}
+                        <a href="{{- "/tags/" | relLangURL -}}{{- . | urlize -}}" title="{{- . -}}" class="group flex items-center text-sm mr-2">
+                            <i class="text-gray-400 group-hover:text-theme mr-1">#</i>
+                            <span class=" group-hover:text-theme text-gray-400 "> {{- . -}}</span>
+                        </a>
+                        {{- end -}}
+                    </div>
                 {{- end -}}
                 {{- if .Params.categories -}}
-                <div class="flex items-center mb-2">
-                    <i class="eva eva-folder-outline mr-1"></i>
-                    <span class="mr-2 text-sm">{{ T "taxonomy._categories" }}</span>
-					{{- range .Params.categories -}}
-                    <a href="{{- "/categories/" | relLangURL -}}{{- . | urlize -}}" title="{{- . -}}" class="flex hover:text-theme items-center mr-1 px-1 py-1 text-sm">
-                        <i class="eva eva-book-outline"></i>
-                        <span>{{- . -}}</span>
-                    </a>
-					{{- end -}}
-                </div>
+                    <div class="flex items-center mb-3">
+                        <i class="eva eva-folder-outline mr-1 "></i>
+                        <span class="mr-3">{{ T "taxonomy._categories" }}</span>
+                        {{- range .Params.categories -}}
+                        <a href="{{- "/categories/" | relLangURL -}}{{- . | urlize -}}" title="{{- . -}}" class="group flex items-center text-sm">
+                            <span class=" group-hover:text-theme text-gray-400 ">{{- . -}}</span>
+                            <span class="group-last:hidden mx-0.5">,</span>
+                        </a>
+                        {{- end -}}
+                    </div>
                 {{- end -}}
             </div>
 
