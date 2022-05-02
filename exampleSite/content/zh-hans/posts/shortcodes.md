@@ -31,10 +31,10 @@ categories:
 ## GitHub
 
 ```markdown
-{{</* github name="Organic-Carbon-Estimating" link="https://github.com/guanqr/Organic-Carbon-Estimating" description="A program used in estimating organic carbon stocks in oceans. 计算指定海域的有机碳存量，包括颗粒有机碳与溶解有机碳，数据依赖于 NASA 中分辨率成像光谱仪 MODIS 遥感产品。" color="#e16737" language="MATLAB" */>}}
+{{</* github name="tailwindcss" link="https://github.com/tailwindlabs/tailwindcss" description="A utility-first CSS framework for rapid UI development." color="#f1e05a" language="JavaScript" */>}}
 ```
 
-{{< github name="Organic-Carbon-Estimating" link="https://github.com/guanqr/Organic-Carbon-Estimating" description="A program used in estimating organic carbon stocks in oceans. 计算指定海域的有机碳存量，包括颗粒有机碳与溶解有机碳，数据依赖于 NASA 中分辨率成像光谱仪 MODIS 遥感产品。" color="#e16737" language="MATLAB" >}}
+{{< github name="tailwindcss" link="https://github.com/tailwindlabs/tailwindcss" description="A utility-first CSS framework for rapid UI development." color="#f1e05a" language="JavaScript" >}}
 
 ## GitHub 自动获取
 
