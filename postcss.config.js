@@ -35,7 +35,7 @@ module.exports = {
             ],
             safelist: {
                 // xx
-                standard: ['swup-progress-bar', /medium-zoom/, /lazy/, /scrollbar/, /sm|md|lg|xl|2xl|[0-9]{1,2}\.[0-9]{1,2}/, /\//, /h[1-6]|hover|dark|last/, 'a', 'blockquote', 'body', 'code', 'fieldset', 'figure', 'hr', 'html', 'img', 'kbd', 'ol', 'p', 'pre', 'strong', 'sup', 'table', 'ul'],
+                standard: ['swup-progress-bar', /medium-zoom/, /lazy/, /scrollbar/, /sm|md|lg|xl|2xl|[0-9]{1,2}\.[0-9]{1,2}/, /\//, /h[1-6]|hover|dark|last|after|before/, 'a', 'blockquote', 'body', 'code', 'fieldset', 'figure', 'hr', 'html', 'img', 'kbd', 'ol', 'p', 'pre', 'strong', 'sup', 'table', 'ul'],
                 // xx包括子项
                 deep: [/goog-te-gadget/, /goog-te-banner-frame/, /katex/, /hugo-encrypt/, /skiptranslate/],
                 // button.bg-xx.other-class
