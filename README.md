@@ -19,6 +19,7 @@
 
 - Using [Tailwindcss](https://tailwindcss.com)
 - Custom Themes
+- Many [shortcodes](https://hugo-theme-luna.imiku.me/2022/05/02/shortcodes.html/)
 - Dark mode
 - Image gallery
 - Responsive images

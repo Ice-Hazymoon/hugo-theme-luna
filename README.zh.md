@@ -19,6 +19,7 @@
 
 - 使用 [Tailwindcss](https://tailwindcss.com) 构建，界面美观，SEO友好
 - 自定义主题颜色
+- 丰富的[短代码](https://hugo-theme-luna.imiku.me/zh-cn/2022/05/02/shortcodes.html/)支持
 - 夜间模式
 - 画廊模式
 - 图片自动压缩，支持 webp 向下兼容
