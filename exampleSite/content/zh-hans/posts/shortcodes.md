@@ -1,5 +1,5 @@
 ---
-title: "Shortcodes"
+title: "短代码（Shortcodes）"
 date: 2022-05-02T13:12:47+02:00
 draft: false
 toc: false

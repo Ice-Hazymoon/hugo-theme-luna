@@ -29,8 +29,6 @@ categories:
 *Today is the day when grasses green,*
 
 *When leaves burst forth for spring to be seen.*
-
-
 {{< /quote-center >}}
 
 {{< align right "—— Robert McCracken ." >}}
