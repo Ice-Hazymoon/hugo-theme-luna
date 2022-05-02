@@ -126,7 +126,7 @@ input[type="checkbox"] {
         margin: 0;
         vertical-align: -0.1em;
     }
-    blockquote {
+    blockquote:not(.quote) {
         background-color: #f5f7f9;
         @apply border-l-4 border-theme dark:bg-darkBgAccent my-4 p-5 ml-0 rounded-md;
         p {
@@ -137,6 +137,17 @@ input[type="checkbox"] {
         }
         blockquote {
             @apply border border-gray-300 dark:border-gray-600;
+        }
+    }
+    details {
+        summary::before {
+            content: "\ea70";
+            font-family: Eva-Icons;
+        }
+        &[open] {
+            summary::before {
+                content: "\ea6c";
+            }
         }
     }
     ul {

@@ -1,0 +1,11 @@
+<div class="github border dark:border-darkBorder p-4 rounded my-4">
+    <div class="flex items-center text-xl">
+        <i class="eva eva-github mr-2"></i>
+        <a class=" before:hidden" href={{ .Get "link" }} target="_blank">{{ .Get "name" }}</a>
+    </div>
+    <div class=" leading-6 my-2">{{ .Get "description" }}</div> 
+    <div class="flex items-center">
+        <span class=" w-3 h-3 inline-block rounded-full mr-1" style="background-color: {{ .Get "color" }}"></span>
+        <span>{{ .Get "language" }}</span>
+    </div>
+</div>

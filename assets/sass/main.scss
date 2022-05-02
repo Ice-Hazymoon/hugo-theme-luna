@@ -15,9 +15,10 @@ $theme: {{.Param "themeColor"}};
 @import './_common/_google_translator';
 @import './_common/_lazyload';
 @import './_common/_back_top';
+@import './_common/_i18nlist';
+@import './_common/_shortcodes';
 
 @import './_partial/_navbar';
-@import './_partial/_i18nlist';
 @import './_partial/_page_archives';
 @import './_partial/_page_github';
 @import './_partial/_page_links';

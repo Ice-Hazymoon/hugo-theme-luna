@@ -1,0 +1,15 @@
+{{- $colors := newScratch -}}
+{{- $colors.Set "red" "bg-red-400" -}}
+{{- $colors.Set "green" "bg-green-400" -}}
+{{- $colors.Set "blue" "bg-blue-400" -}}
+{{- $colors.Set "orange" "bg-orange-400" -}}
+
+<div class=" my-4">
+    <div class=" flex justify-between">
+        <div class="">{{ index .Params 2 }}</div>
+        <div class="">{{ index .Params 0 }}%</div>
+    </div>
+    <div class=" w-full bg-gray-200 dark:bg-gray-300 rounded-full overflow-hidden relative">
+        <div class=" h-2 {{ $colors.Get (index .Params 1) }}" style="width: {{ index .Params 0 }}%;"></div>
+    </div>
+</div>

@@ -13,6 +13,7 @@ categories:
 
 ## Spring.
 
+{{< quote-center >}}
 *Today is the day when bold kites fly,*
 
 *When cumulus clouds roar across the sky.*
@@ -29,7 +30,10 @@ categories:
 
 *When leaves burst forth for spring to be seen.*
 
-*—— Robert McCracken .*
+
+{{< /quote-center >}}
+
+{{< align right "—— Robert McCracken ." >}}
 
 ## Flower
 

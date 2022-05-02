@@ -1,0 +1,27 @@
+.quote {
+    @apply my-4;
+}
+
+.quote:not(.quote-center) {
+    &::before {
+        content: '“';
+        @apply text-6xl font-bold leading-none text-gray-300 dark:text-gray-400 absolute left-0;
+        font-family: system-ui;
+    }
+}
+
+.quote-center {
+    &::before, &::after {
+        @apply absolute text-gray-300 dark:text-gray-400 text-5xl font-bold leading-none;
+    }
+    &::before {
+        top: -0.1em;
+        left: 0;
+        content: '“';
+    }
+    &::after {
+        bottom: -0.5em;
+        right: 0;
+        content: '”';
+    }
+}

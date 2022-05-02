@@ -81,6 +81,10 @@ You can modify your website icons by adjusting the [assets/icon.png](https://git
 
 You can add the HTML part of the comment in [comment.html](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/77c6007410a97315448119c224412f3929716ed2/layouts/partials/comment.html) and then add the script part in [custom-script.html](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/main/layouts/partials/scripts/custom-script.html) or [custom-script-pjax.js](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/main/assets/custom-script-pjax.js) / [custom-script.js](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/main/assets/custom-script.js)
 
+### - Shortcodes
+
+See: [Shortcodes](https://hugo-theme-luna.imiku.me/2022/05/02/shortcodes.html/)
+
 ### - Encryption
 
 I suggest you use two repositories to manage your blog, a private repository for your blog's source code and a public repository for public files. If you need to use the post encryption feature, please make sure not to put your source code on the public repository.
@@ -168,6 +172,7 @@ hugo server -s ./exampleSite -D --themesDir "../.."
 - [hugo-theme-even](https://github.com/olOwOlo/hugo-theme-even)
 - [hugo-theme-stack](https://github.com/CaiJimmy/hugo-theme-stack)
 - [hugo-encrypt](https://github.com/Izumiko/hugo-encrypt)
+- [shortcodes](https://guanqr.com/tech/website/hugo-shortcodes-customization)
 
 ## License
 

@@ -2,7 +2,6 @@
 title: "中文排版测试"
 date: 2022-04-15T02:49:13+02:00
 slug: typo-cn
-toc: false
 refs:
   - link: https://unsplash.com/
 ---

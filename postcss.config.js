@@ -28,6 +28,7 @@ module.exports = {
         },
         '@fullhuman/postcss-purgecss': {
             content: [
+                path.join(__dirname, '/data/luna/icon.yaml'),
                 path.join(__dirname, '/layouts/**/*.html'),
                 path.join(__dirname, '/layouts/*.html'),
                 path.join(__dirname, '/assets/ts/*.ts'),

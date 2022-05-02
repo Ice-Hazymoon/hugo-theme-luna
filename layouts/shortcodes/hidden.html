@@ -1,0 +1,9 @@
+{{- if .Get 0 -}}
+<div class=" transition ease-in-out filter blur-sm hover:filter-none ">
+    {{ .Inner | markdownify }}
+</div>
+{{- else -}}
+<div class=" relative after:block after:bg-darkBg dark:after:bg-darkText after:z-50 after:transition after:ease-in-out hover:after:bg-transparent dark:hover:after:bg-transparent after:absolute after:left-0 after:top-0 after:w-full after:h-full after:rounded after:pointer-events-none">
+    {{ .Inner | markdownify }}
+</div>
+{{- end -}}

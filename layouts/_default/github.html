@@ -13,7 +13,7 @@
         </div>
 
         <div class=" mx-4" id="github">
-            {{- $githubColors := getJSON "https://gist.githubusercontent.com/Ice-Hazymoon/bb4378c85ff083094d32336b31206a30/raw/fb541e47f98e21cbf59b91fb5a34c26cc7b3664f/github-language-color.json" -}}
+            {{- $githubColors := .Site.Data.luna.githubColors -}}
             {{- $apiURL := print "https://api.github.com/users/" $githubConfig.id "/repos?per_page=100&type=owner" -}}
             {{- $githubData := getJSON (print "https://api.github.com/users/" $githubConfig.id "/repos?per_page=100&type=owner&access_token=") -}}
             {{- range sort $githubData "stargazers_count" "desc" -}}

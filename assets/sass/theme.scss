@@ -6,12 +6,12 @@
     --color-dark-bg: #16171d;
     --color-dark-bg-accent: #2a2d3a;
     --color-dark-fg: #24252d;
-    --color-dark-border: #32333c;
+    --color-dark-border: #4e4f64;
     --color-dark-text: #d3d4de;
     --color-dark-text-placeholder: #8b8c95;
 }
 .dark {
-    --theme: #{darken($theme, 30%)};
+    --theme: #{darken($theme, 20%)};
     --color-zoom-bg: #16171d;
 }
 /* purgecss end ignore */

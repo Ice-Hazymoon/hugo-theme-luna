@@ -1,0 +1,7 @@
+{{- $colors := newScratch -}}
+{{- $colors.Set "red" "bg-red-500" -}}
+{{- $colors.Set "green" "bg-green-500" -}}
+{{- $colors.Set "blue" "bg-blue-500" -}}
+{{- $colors.Set "orange" "bg-orange-500" -}}
+<!-- {{ index .Params 0 }} -->
+<span class=" rounded py-1 px-2 text-sm text-white {{ $colors.Get (index .Params 0) }}">{{ index .Params 1 | markdownify }}</span>

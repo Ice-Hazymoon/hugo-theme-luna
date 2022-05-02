@@ -84,6 +84,10 @@ git clone https://github.com/Ice-Hazymoon/hugo-theme-luna/ themes/hugo-theme-lun
 
 你可以在 [comment.html](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/77c6007410a97315448119c224412f3929716ed2/layouts/partials/comment.html) 添加评论系统的 HTML 部分，然后在 [custom-script.html](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/main/layouts/partials/scripts/custom-script.html) 或者 [custom-script-pjax.js](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/main/assets/custom-script-pjax.js) / [custom-script.js](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/main/assets/custom-script.js) 添加脚本的初始化部分
 
+### - 短代码
+
+请查看: [Shortcodes](http://localhost:1313/zh-cn/2022/05/02/shortcodes.html/)
+
 ### - 加密文章
 
 我建议你使用两个仓库用来管理你的博客，一个私有用于存放博客的源代码，一个公开仓库用于启用 GitHub Pages，如果你需要使用文章加密功能，请一定不要把你的源代码放到公开的仓库上。
@@ -168,9 +172,10 @@ hugo server -s ./exampleSite -D --themesDir "../.."
 
 ## 致谢
 
-- [https://github.com/olOwOlo/hugo-theme-even](https://github.com/olOwOlo/hugo-theme-even)
-- [https://github.com/CaiJimmy/hugo-theme-stack](https://github.com/CaiJimmy/hugo-theme-stack)
-- [https://github.com/Izumiko/hugo-encrypt](https://github.com/Izumiko/hugo-encrypt)
+- [hugo-theme-even](https://github.com/olOwOlo/hugo-theme-even)
+- [hugo-theme-stack](https://github.com/CaiJimmy/hugo-theme-stack)
+- [hugo-encrypt](https://github.com/Izumiko/hugo-encrypt)
+- [shortcodes](https://guanqr.com/tech/website/hugo-shortcodes-customization)
 
 ## License
 
