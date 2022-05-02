@@ -1,9 +1,15 @@
 ---
 title: "短代码（Shortcodes）"
 date: 2022-05-02T13:12:47+02:00
+slug: shortcodes
 draft: false
 toc: false
 summary: 一些短代码示例
+tags:
+  - Shortcodes
+  - Hugo
+categories:
+  - Luna
 ---
 
 ## 文字排版
