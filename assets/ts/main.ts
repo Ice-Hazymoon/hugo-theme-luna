@@ -16,6 +16,7 @@ declare global {
             lazyload: boolean,
             isServer: boolean,
             $version: string,
+            autoDarkMode: boolean,
             lang: string,
             hugoEncrypt: {
                 wrongPasswordText: string,
@@ -305,8 +306,13 @@ class Hazymoon {
                 document.documentElement.classList.remove('dark');
             }
         }
-    
-        setDarkMode(localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches));
+        
+        if (window.__theme.autoDarkMode) {
+            setDarkMode(localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches));
+        } else {
+            setDarkMode(localStorage.theme === 'dark');
+        }
+        
     
         el.addEventListener('click', () => {
             if (_i.classList.contains('eva-sun')) {

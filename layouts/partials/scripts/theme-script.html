@@ -15,6 +15,7 @@ window.__theme = {
     lang: '{{- .Site.LanguageCode -}}',
     imageZoom: {{- .Site.Params.imageZoom -}},
     lazyload: {{- .Site.Params.lazyload -}},
+    autoDarkMode: {{- .Site.Params.autoDarkMode -}},
     hugoEncrypt: {
         wrongPasswordText: '{{ i18n "encrypt.wrongPassword" }}',
         userStorage: {{- if .Site.Params.HugoEncrypt.Storage -}} window['{{- .Site.Params.HugoEncrypt.Storage -}}Storage'] {{- else -}} localStorage {{- end -}},

@@ -131,6 +131,10 @@ languages:
     languageName: 中文
     params:
       icon: "/images/flag/zh-cn.svg"
+      twitter: 
+        rsshub: "https://rsshub.rssforever.com"
+        id: "Ice_Hazymoon"
+        imageProcessing: true
     license:
       name: "署名 - 非商业性使用 - 禁止演绎 4.0"
       icon: "/images/Cc-by-nc-nd.svg"
@@ -172,17 +176,21 @@ params:
     # Site creation time
     creatTime: 2016/12/12
   
-  # Site creation year
   #  网站创建年份
+  # Site creation year
   since: "2016"
 
   # 显示文章过时提醒
   # show warning when outdated info detected
   outdatedInfoWarning:
     enable: true
-    # A timeout reminder will be displayed if the last modification time exceeds that number of days
     # 超过该天数将显示过时提醒
+    # A timeout reminder will be displayed if the last modification time exceeds that number of days
     day: 90
+
+  # 自动切换夜间模式（使用设备设置）
+  # Automatic switching of night mode (using device settings)
+  autoDarkMode: false
 
   # 文章分享功能
   share:
