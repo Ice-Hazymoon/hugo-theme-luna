@@ -10,11 +10,24 @@ timeZone: Asia/Shanghai
 
 enableGitInfo: true
 
-hasCJKLanguage: true # enable CJK language support
-paginate: 10 # pagination size
-# googleAnalytics: UA-98634098-1 # google analytics tracking code
-# copyright: "" # default: author.name ↓
+# 如果你的博客包含中日韩语，请启用此选项
+# enable CJK language support
+hasCJKLanguage: true
+
+# 每页显示文章数量
+# pagination size
+paginate: 10
+
+# 启用谷歌统计
+# google analytics tracking code
+# googleAnalytics: UA-98634098-1
+
+# 版权信息，默认为 author.name ↓
+# default: author.name ↓
+# copyright: "" 
 permalinks:
+  # 文章链接的格式
+  # Format of posts links
   posts: /:year/:month/:day/:slug.html # 2019/01/01/hello-world.html
 
 author:
@@ -37,7 +50,9 @@ summaryLength: 70
 canonifyURLs: false
 relativeURLs: false
 
-imaging: # see https://gohugo.io/content-management/image-processing/#imaging-configuration
+# 图像处理
+# see https://gohugo.io/content-management/image-processing/#imaging-configuration
+imaging:
   resampleFilter: CatmullRom
   quality: 95
   anchor: smart
@@ -55,6 +70,7 @@ caches:
     dir: :resourceDir/_gen
     maxAge: 24h
 
+# 隐私政策，请查看 https://gohugo.io/about/hugo-and-gdpr/
 # See https://gohugo.io/about/hugo-and-gdpr/
 privacy:
   googleAnalytics:
@@ -135,10 +151,10 @@ languages:
         rsshub: "https://rsshub.rssforever.com"
         id: "Ice_Hazymoon"
         imageProcessing: true
-    license:
-      name: "署名 - 非商业性使用 - 禁止演绎 4.0"
-      icon: "/images/Cc-by-nc-nd.svg"
-      url: "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh"
+      license:
+        name: "署名 - 非商业性使用 - 禁止演绎 4.0"
+        icon: "/images/Cc-by-nc-nd.svg"
+        url: "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh"
   en-us:
     contentDir: content/en-us
     title: Ice-Hazymoon's Blog
