@@ -151,14 +151,14 @@ This is a {{< tag-outlined orange "orange tag" >}}
 ## Accordion
 
 ```markdown
-{{</* accordion "Foods" */>}}
+{{</* accordion "Foods" open */>}}
 * Vegetables
 * Fruits
 * Fish
 {{</* /accordion */>}}
 ```
 
-{{< accordion "Foods" >}}
+{{< accordion "Foods" open >}}
 * Vegetables
 * Fruits
 * Fish

@@ -155,14 +155,14 @@ categories:
 ## 折叠面板
 
 ```markdown
-{{</* accordion "折叠面板" */>}}
+{{</* accordion "折叠面板" open */>}}
 * Vegetables
 * Fruits
 * Fish
 {{</* /accordion */>}}
 ```
 
-{{< accordion "折叠面板" >}}
+{{< accordion "折叠面板" open >}}
 * Vegetables
 * Fruits
 * Fish

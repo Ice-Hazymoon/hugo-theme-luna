@@ -1,4 +1,4 @@
-<details class=" border  dark:border-darkBorder rounded" open>
-<summary class="px-4 py-2 flex items-center font-bold before:text-gray-300 before:text-xl">{{ index .Params 0 }}</summary>
+<details class=" border  dark:border-darkBorder rounded" {{ if eq (.Get 1) "open" }}open{{ end }}>
+<summary class="px-4 py-2 flex items-center font-bold before:text-gray-400 before:-mt-0.5 before:text-xl">{{ index .Params 0 }}</summary>
 <div class=" px-4 py-2 border-t  dark:border-darkBorder">{{ .Inner | markdownify }}</div>
 </details>
