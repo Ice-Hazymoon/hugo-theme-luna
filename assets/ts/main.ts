@@ -6,7 +6,7 @@ import ClipboardJS from "modules/clipboard";
 
 declare global {
     interface Window {
-        Hazymoon: any;
+        Luna: any;
         initSearch: any;
         rednerKatex: any;
         __theme: {
@@ -36,7 +36,7 @@ declare global {
     }
 }
 
-class Hazymoon {
+class Luna {
     _LazyLoad: any;
     zoom: any;
     jump: boolean;
@@ -425,6 +425,6 @@ class Hazymoon {
 }
 
 window.addEventListener('load', async () => {
-    window.Hazymoon = new Hazymoon();
-    window.Hazymoon.init();
+    window.Luna = new Luna();
+    window.Luna.init();
 });

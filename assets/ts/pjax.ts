@@ -22,14 +22,14 @@ window.addEventListener('load', () => {
         '"]:not([data-no-swup]), a[href^="/"]:not([data-no-swup])',
     });
     
-    window.Hazymoon.swup = swup;
+    window.Luna.swup = swup;
     
     swup.on('pageView', async function(n) {
-        await window.Hazymoon.hugoEncrypt();
-        window.Hazymoon.initSearch();
-        window.Hazymoon.initActiveMenu();
+        await window.Luna.hugoEncrypt();
+        window.Luna.initSearch();
+        window.Luna.initActiveMenu();
 
-        window.Hazymoon.renderPost();
+        window.Luna.renderPost();
     
         if (!n && document.getElementById('back-top')) {
             document.getElementById('back-top').click();

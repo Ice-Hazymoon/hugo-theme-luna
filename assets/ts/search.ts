@@ -7,8 +7,8 @@ if (window.initSearch) {
     window.initSearch = initSearch;
     window.initSearch();
 }
-if (window.Hazymoon.swup) {
-    window.Hazymoon.swup.on('pageView', async function(n) {
+if (window.Luna.swup) {
+    window.Luna.swup.on('pageView', async function(n) {
         window.initSearch();
     })
 }
