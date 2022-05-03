@@ -87,7 +87,7 @@ git clone https://github.com/Ice-Hazymoon/hugo-theme-luna/ themes/hugo-theme-lun
 
 ### - 短代码
 
-请查看: [Shortcodes](https://hugo-theme-luna.imiku.me/zh-cn/2022/05/02/shortcodes.html/)
+Luna 主题支持大量的 Shortcodes，请查看：[Shortcodes](https://hugo-theme-luna.imiku.me/zh-cn/2022/05/02/shortcodes.html/)
 
 ### - 加密文章
 

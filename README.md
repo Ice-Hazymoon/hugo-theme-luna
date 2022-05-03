@@ -84,7 +84,7 @@ You can add the HTML part of the comment in [comment.html](https://github.com/Ic
 
 ### - Shortcodes
 
-See: [Shortcodes](https://hugo-theme-luna.imiku.me/2022/05/02/shortcodes.html/)
+The luna theme supports many shortcodes, see: [Shortcodes](https://hugo-theme-luna.imiku.me/2022/05/02/shortcodes.html/)
 
 ### - Encryption
 
