@@ -34,7 +34,7 @@
                     {{- printf `datetime="%s"` (.Date.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr -}}
                     class="dot h-2 bg-white rounded-full border-gray-400 dark:border-gray-500 group-hover:border-theme border-4 dark:text-darkTextPlaceholder text-gray-600"
                 ></time>
-                <a href="{{- .RelPermalink -}}" class=" inline-block hover:text-theme shadow-custom2 hover:shadow-none px-3 py-2  dark:text-darkText ml-4 rounded-sm dark:bg-darkBgAccent transition duration-300 ease-[ease] dark:shadow-none border border-transparent dark:border-darkBorder relative">
+                <a href="{{- .RelPermalink -}}" class=" inline-block hover:text-theme shadow-custom2 hover:shadow-none px-3 py-2  dark:text-darkText ml-4 rounded-sm dark:bg-darkBgAccent transition duration-300 ease-[ease] dark:shadow-none border border-transparent dark:border-transparent relative">
                     {{- if .Title -}}
                     {{- .Title -}}
                     {{- else -}}

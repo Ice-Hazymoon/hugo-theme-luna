@@ -91,12 +91,14 @@
                         </span>
                     </div>
                     {{- if .Site.Params.lastmod -}}
-                        <span class="inline-flex items-center mb-3 mr-4 sm:rounded-full">
-                            <i class="eva eva-edit-2-outline mr-1 "></i>
-                            <span>
-                                <time title="{{- T "post.lastmod" -}}{{- .Lastmod.Format (T "date.normal") -}}" {{- printf `datetime="%s"` (.Lastmod.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr -}}>{{- .Lastmod.Format (T "date.d_m_y") -}}</time>
+                        {{- if ne (.Lastmod.Format (T "date.d_m_y")) (.Date.Format (T "date.d_m_y")) -}}
+                            <span class="inline-flex items-center mb-3 mr-4 sm:rounded-full">
+                                <i class="eva eva-edit-2-outline mr-1 "></i>
+                                <span>
+                                    <time title="{{- T "post.lastmod" -}}{{- .Lastmod.Format (T "date.normal") -}}" {{- printf `datetime="%s"` (.Lastmod.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr -}}>{{- .Lastmod.Format (T "date.d_m_y") -}}</time>
+                                </span>
                             </span>
-                        </span>
+                        {{- end -}}
                     {{- end -}}
                     <div
                         class="inline-flex items-center mb-3 mr-4 sm:rounded-full">
