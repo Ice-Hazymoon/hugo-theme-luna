@@ -237,7 +237,7 @@ params:
   # tweet page
   twitter:
     rsshub: "https://rsshub.rssforever.com"
-    id: "elonmusk"
+    id: "GenshinImpact"
     imageProcessing: true
 
   # 开启图片放大功能
