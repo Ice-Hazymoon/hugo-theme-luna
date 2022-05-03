@@ -60,7 +60,7 @@ scoop install hugo-extended
 在 Hugo 根目录执行
 
 ```bash
-git clone https://github.com/Ice-Hazymoon/hugo-theme-luna/ themes/hugo-theme-luna
+git submodule add https://github.com/Ice-Hazymoon/hugo-theme-luna themes/hugo-theme-luna
 cd themes/hugo-theme-luna
 npm install
 ```

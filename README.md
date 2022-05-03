@@ -54,10 +54,10 @@ If you are using **Windows**, I recommend using [Scoop](https://scoop.sh/) to in
 scoop install hugo-extended
 ```
 
-### - Installation
+### - Install as git submodule
 
 ```bash
-git clone https://github.com/Ice-Hazymoon/hugo-theme-luna/ themes/hugo-theme-luna
+git submodule add https://github.com/Ice-Hazymoon/hugo-theme-luna themes/hugo-theme-luna
 cd themes/hugo-theme-luna
 npm install
 ```
