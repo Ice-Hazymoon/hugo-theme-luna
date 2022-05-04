@@ -16,6 +16,7 @@ window.__theme = {
     imageZoom: {{- .Site.Params.imageZoom -}},
     lazyload: {{- .Site.Params.lazyload -}},
     autoDarkMode: {{- .Site.Params.autoDarkMode -}},
+    googleAnalytics: {{ if .Site.GoogleAnalytics }}true{{ else }}false{{ end }},
     hugoEncrypt: {
         wrongPasswordText: '{{ i18n "encrypt.wrongPassword" }}',
         userStorage: {{- if .Site.Params.HugoEncrypt.Storage -}} window['{{- .Site.Params.HugoEncrypt.Storage -}}Storage'] {{- else -}} localStorage {{- end -}},

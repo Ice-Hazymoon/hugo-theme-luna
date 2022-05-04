@@ -17,6 +17,7 @@ declare global {
             isServer: boolean,
             $version: string,
             autoDarkMode: boolean,
+            googleAnalytics: boolean,
             lang: string,
             hugoEncrypt: {
                 wrongPasswordText: string,

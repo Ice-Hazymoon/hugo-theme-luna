@@ -2,19 +2,17 @@
 <html lang="{{- .Language -}}" class="lang-{{- .Language -}}">
     {{- partial "html/head" . -}}
     <body class=" dark:bg-darkBg dark:text-darkText">
-        <div class="mx-auto relative shadow-lg">
-            <div class="md:max-w-[52rem] mx-auto relative xl:max-w-[52rem]">
-                <div class="bg-white dark:bg-darkFg main  flex flex-col justify-between">
-                    {{- partial "html/header" . -}}
-    
-                    {{- partial "components/dark-mode" . -}}
-                    
-                    <main class=" relative flex-grow flex" id="swup">
-                        <div class=" w-full">{{- block "main" . -}}{{- end -}}</div>
-                    </main>
-    
-                    {{- partial "html/footer" . -}}
-                </div>
+        <div class="md:max-w-[52rem] mx-auto xl:max-w-[52rem] relative shadow-lg">
+            <div class="bg-white dark:bg-darkFg main  flex flex-col justify-between">
+                {{- partial "html/header" . -}}
+
+                {{- partial "components/dark-mode" . -}}
+                
+                <main class=" relative flex-grow flex" id="swup">
+                    <div class=" w-full">{{- block "main" . -}}{{- end -}}</div>
+                </main>
+
+                {{- partial "html/footer" . -}}
             </div>
         </div>
         {{- partial "components/backtop" . -}}

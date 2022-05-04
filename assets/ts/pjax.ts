@@ -10,11 +10,11 @@ window.addEventListener('load', () => {
         cache: true,
         plugins: [new SwupMorphPlugin({
             containers: ['#i18nlist']
-        }), new SwupFadeTheme(), new SwupProgressPlugin(), new SwupGaPlugin(), new SwupScriptsPlugin({
+        }), new SwupFadeTheme(), new SwupProgressPlugin(), new SwupScriptsPlugin({
             optin: true,
             // head: false,
             // body: false
-        })],
+        })].concat(window.__theme.googleAnalytics ? [new SwupGaPlugin()] : []),
         animateHistoryBrowsing: true,
         linkSelector:
         'a[href^="' +
