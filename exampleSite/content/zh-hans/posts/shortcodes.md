@@ -221,7 +221,7 @@ categories:
 
 ## 卡片链接
 
-```
+```markdown
 {{</* link-card name="hugo-theme-luna" desc="A simple, performance-first, SEO-friendly Hugo theme" link="https://github.com/Ice-Hazymoon/hugo-theme-luna" img="https://repository-images.githubusercontent.com/486781027/dc31a9ab-66d1-49b8-a225-4f85f2329f2e" */>}}
 
 {{</* link-card name="hugo-theme-luna" desc="A simple, performance-first, SEO-friendly Hugo theme" link="https://github.com/Ice-Hazymoon/hugo-theme-luna" */>}}
