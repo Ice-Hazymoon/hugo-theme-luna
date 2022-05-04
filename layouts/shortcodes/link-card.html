@@ -1,0 +1,21 @@
+<a class="link-card hover:bg-gray-100 hover:dark:bg-darkBg transition ease-in-out cursor-pointer my-4 rounded border dark:border-darkBorder flex justify-between flex-col-reverse md:flex-row w-full">
+    <div class=" flex-grow p-4 flex flex-col">
+        <div class=" flex-grow">
+            <div class=" text-xl font-bold">{{- .Get "name" -}}</div>
+            {{- if (.Get "desc") -}}
+            <div class=" text-gray-400 dark:text-darkTextPlaceholder line-clamp-2 my-1">{{- .Get "desc" -}}</div>
+            {{- end -}}
+        </div>
+        
+        {{- if (.Get "link") -}}
+        <div class=" flex items-center">
+            {{- $url := urls.Parse (.Get "link") -}}
+            <img class="link-card-img mr-1 w-3 h-3" src="https://www.google.cn/s2/favicons?domain={{- $url.Host -}}" alt="">
+            <div class=" text-xs text-gray-400 dark:text-darkTextPlaceholder line-clamp-1">{{- .Get "link" -}}</div>
+        </div>
+        {{- end -}}
+    </div>
+    {{- if (.Get "img") -}}
+    <img class="link-card-img h-32 bg-white dark:bg-darkBg object-contain" src="{{ .Get "img" }}" alt="{{- .Get "name" -}}">
+    {{- end -}}
+</a>

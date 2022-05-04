@@ -145,7 +145,9 @@ class Luna {
     initGallery() {
         const figuresEl = Array.from(document.querySelectorAll('figure.gallery-image')) as HTMLElement[];
         let currentGallery = [];
+        if (figuresEl.length < 2) return false;
         for (const figure of figuresEl) {
+            if (figure.parentElement.classList.contains('gallery')) return false;
             if (!currentGallery.length) {
                 /// First iteration
                 currentGallery = [figure];

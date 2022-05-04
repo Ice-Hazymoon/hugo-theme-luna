@@ -31,10 +31,10 @@ categories:
 ## GitHub
 
 ```markdown
-{{</* github name="tailwindcss" link="https://github.com/tailwindlabs/tailwindcss" description="A utility-first CSS framework for rapid UI development." color="#f1e05a" language="JavaScript" */>}}
+{{</* github name="tailwindlabs/tailwindcss" link="https://github.com/tailwindlabs/tailwindcss" description="A utility-first CSS framework for rapid UI development." color="#f1e05a" language="JavaScript" */>}}
 ```
 
-{{< github name="tailwindcss" link="https://github.com/tailwindlabs/tailwindcss" description="A utility-first CSS framework for rapid UI development." color="#f1e05a" language="JavaScript" >}}
+{{< github name="tailwindlabs/tailwindcss" link="https://github.com/tailwindlabs/tailwindcss" description="A utility-first CSS framework for rapid UI development." color="#f1e05a" language="JavaScript" >}}
 
 ## GitHub 自动获取
 
@@ -117,26 +117,26 @@ categories:
 ## 标签
 
 ```markdown
-这是一个 {{</* tag red "红色标签" */>}}
-这是一个 {{</* tag green "绿色标签" */>}}
-这是一个 {{</* tag blue "蓝色标签" */>}}
-这是一个 {{</* tag orange "橘色标签" */>}}
+这是一个 {{</* tag red "红色标签" */>}}  
+这是一个 {{</* tag green "绿色标签" */>}}  
+这是一个 {{</* tag blue "蓝色标签" */>}}  
+这是一个 {{</* tag orange "橘色标签" */>}}  
 
-这是一个 {{</* tag-outlined red "红色标签" */>}}
-这是一个 {{</* tag-outlined green "绿色标签" */>}}
-这是一个 {{</* tag-outlined blue "蓝色标签" */>}}
-这是一个 {{</* tag-outlined orange "橘色标签" */>}}
+这是一个 {{</* tag-outlined red "红色标签" */>}}  
+这是一个 {{</* tag-outlined green "绿色标签" */>}}  
+这是一个 {{</* tag-outlined blue "蓝色标签" */>}}  
+这是一个 {{</* tag-outlined orange "橘色标签" */>}}  
 ```
 
-这是一个 {{< tag red "红色标签" >}}
-这是一个 {{< tag green "绿色标签" >}}
-这是一个 {{< tag blue "蓝色标签" >}}
-这是一个 {{< tag orange "橘色标签" >}}
+这是一个 {{< tag red "红色标签" >}}  
+这是一个 {{< tag green "绿色标签" >}}  
+这是一个 {{< tag blue "蓝色标签" >}}  
+这是一个 {{< tag orange "橘色标签" >}}  
 
-这是一个 {{< tag-outlined red "红色标签" >}}
-这是一个 {{< tag-outlined green "绿色标签" >}}
-这是一个 {{< tag-outlined blue "蓝色标签" >}}
-这是一个 {{< tag-outlined orange "橘色标签" >}}
+这是一个 {{< tag-outlined red "红色标签" >}}  
+这是一个 {{< tag-outlined green "绿色标签" >}}  
+这是一个 {{< tag-outlined blue "蓝色标签" >}}  
+这是一个 {{< tag-outlined orange "橘色标签" >}}  
 
 ## 进度条
 
@@ -210,3 +210,23 @@ categories:
 * Fruits
 * Fish
 {{< /hidden >}}
+
+## 评分
+
+```markdown
+我对海鲜饭的评价 {{</* rating 10 6*/>}}
+```
+
+我对海鲜饭的评价 {{< rating 10 6 >}}
+
+## 卡片链接
+
+```
+{{</* link-card name="hugo-theme-luna" desc="A simple, performance-first, SEO-friendly Hugo theme" link="https://github.com/Ice-Hazymoon/hugo-theme-luna" img="https://repository-images.githubusercontent.com/486781027/dc31a9ab-66d1-49b8-a225-4f85f2329f2e" */>}}
+
+{{</* link-card name="hugo-theme-luna" desc="A simple, performance-first, SEO-friendly Hugo theme" link="https://github.com/Ice-Hazymoon/hugo-theme-luna" */>}}
+```
+
+{{< link-card name="hugo-theme-luna" desc="A simple, performance-first, SEO-friendly Hugo theme" link="https://github.com/Ice-Hazymoon/hugo-theme-luna" img="https://repository-images.githubusercontent.com/486781027/dc31a9ab-66d1-49b8-a225-4f85f2329f2e" >}}
+
+{{< link-card name="hugo-theme-luna" desc="A simple, performance-first, SEO-friendly Hugo theme" link="https://github.com/Ice-Hazymoon/hugo-theme-luna" >}}

@@ -1,0 +1,11 @@
+<span class=" inline-flex align-sub ml-1">
+    {{- if ge (.Get 0) (.Get 1) -}}
+        {{- $star_outline := sub (int (.Get 0)) (int (.Get 1)) -}}
+        {{- range $i, $sequence :=  (seq (.Get 1)) -}}
+            <i class="eva eva-star text-theme mr-1"></i>
+        {{- end -}}
+        {{- range $i, $sequence :=  (seq $star_outline) -}}
+            <i class="eva eva-star-outline text-gray-400 mr-1"></i>
+        {{- end -}}
+    {{- end -}}
+</span>

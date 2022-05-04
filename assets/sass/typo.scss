@@ -183,7 +183,7 @@ input[type="checkbox"] {
         @apply leading-8 my-4;
     }
 
-    a {
+    a:not(.link-card) {
         @apply relative text-theme inline-block no-underline;
         &:hover {
             @apply underline;
@@ -247,7 +247,7 @@ input[type="checkbox"] {
         @apply text-white dark:text-darkText bg-gray-700 px-1 py-1 rounded text-sm break-normal;
     }
 
-    img, video {
+    img:not(.link-card-img), video {
         border: 1px solid #f4f4f4;
         @apply w-full rounded my-4 dark:border-darkBorder;
     }

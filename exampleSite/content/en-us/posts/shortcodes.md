@@ -31,10 +31,10 @@ categories:
 ## GitHub
 
 ```markdown
-{{</* github name="hugo" link="https://github.com/gohugoio/hugo" description="The world’s fastest framework for building websites." color="#00ADD8" language="Go" */>}}
+{{</* github name="gohugoio/hugo" link="https://github.com/gohugoio/hugo" description="The world’s fastest framework for building websites." color="#00ADD8" language="Go" */>}}
 ```
 
-{{< github name="hugo" link="https://github.com/gohugoio/hugo" description="The world’s fastest framework for building websites." color="#00ADD8" language="Go" >}}
+{{< github name="gohugoio/hugo" link="https://github.com/gohugoio/hugo" description="The world’s fastest framework for building websites." color="#00ADD8" language="Go" >}}
 
 ## GitHub Auto
 
@@ -113,26 +113,26 @@ And leaves the world to darkness and to me.
 ## Tags
 
 ```markdown
-This is a {{</* tag red "red tag" */>}}
-This is a {{</* tag green "green tag" */>}}
-This is a {{</* tag blue "blue tag" */>}}
-This is a {{</* tag orange "orange tag" */>}}
+This is a {{</* tag red "red tag" */>}}  
+This is a {{</* tag green "green tag" */>}}  
+This is a {{</* tag blue "blue tag" */>}}  
+This is a {{</* tag orange "orange tag" */>}}  
 
-This is a {{</* tag-outlined red "red tag" */>}}
-This is a {{</* tag-outlined green "green tag" */>}}
-This is a {{</* tag-outlined blue "blue tag" */>}}
-This is a {{</* tag-outlined orange "orange tag" */>}}
+This is a {{</* tag-outlined red "red tag" */>}}  
+This is a {{</* tag-outlined green "green tag" */>}}  
+This is a {{</* tag-outlined blue "blue tag" */>}}  
+This is a {{</* tag-outlined orange "orange tag" */>}}  
 ```
 
-This is a {{< tag red "red tag" >}}
-This is a {{< tag green "green tag" >}}
-This is a {{< tag blue "blue tag" >}}
-This is a {{< tag orange "orange tag" >}}
+This is a {{< tag red "red tag" >}}  
+This is a {{< tag green "green tag" >}}  
+This is a {{< tag blue "blue tag" >}}  
+This is a {{< tag orange "orange tag" >}}  
 
-This is a {{< tag-outlined red "red tag" >}}
-This is a {{< tag-outlined green "green tag" >}}
-This is a {{< tag-outlined blue "blue tag" >}}
-This is a {{< tag-outlined orange "orange tag" >}}
+This is a {{< tag-outlined red "red tag" >}}  
+This is a {{< tag-outlined green "green tag" >}}  
+This is a {{< tag-outlined blue "blue tag" >}}  
+This is a {{< tag-outlined orange "orange tag" >}}  
 
 ## Progress bar
 
@@ -206,3 +206,23 @@ This is a {{< hidden-text "Hide text" >}}
 * Fruits
 * Fish
 {{< /hidden >}}
+
+## Rating
+
+```markdown
+The paella dish I rate {{</* rating 10 6*/>}}
+```
+
+The paella dish I rate {{< rating 10 6 >}}
+
+## Links Card
+
+```
+{{</* link-card name="hugo-theme-luna" desc="A simple, performance-first, SEO-friendly Hugo theme" link="https://github.com/Ice-Hazymoon/hugo-theme-luna" img="https://repository-images.githubusercontent.com/486781027/dc31a9ab-66d1-49b8-a225-4f85f2329f2e" */>}}
+
+{{</* link-card name="hugo-theme-luna" desc="A simple, performance-first, SEO-friendly Hugo theme" link="https://github.com/Ice-Hazymoon/hugo-theme-luna" */>}}
+```
+
+{{< link-card name="hugo-theme-luna" desc="A simple, performance-first, SEO-friendly Hugo theme" link="https://github.com/Ice-Hazymoon/hugo-theme-luna" img="https://repository-images.githubusercontent.com/486781027/dc31a9ab-66d1-49b8-a225-4f85f2329f2e" >}}
+
+{{< link-card name="hugo-theme-luna" desc="A simple, performance-first, SEO-friendly Hugo theme" link="https://github.com/Ice-Hazymoon/hugo-theme-luna" >}}
