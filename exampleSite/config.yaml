@@ -184,6 +184,10 @@ params:
   # Site theme colors
   themeColor: "#dd6065"
 
+  # 网站字体
+  # Site font
+  font: '"Times New Roman", Times, "Heti Song", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
+
   # 网站底部显示运行时间
   # Show site runtime
   runTime:

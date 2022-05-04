@@ -1,4 +1,5 @@
 $theme: {{.Param "themeColor"}};
+$font: {{.Param "font"}};
 
 @tailwind base;
 @tailwind components;
