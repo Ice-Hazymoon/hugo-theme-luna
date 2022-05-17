@@ -1,0 +1,53 @@
+{{- define "main" -}}
+    <div class="page-blog relative px-8 md:px-10">
+        <div class="article-list mx-auto">
+            <div class="flex items-center py-6 text-xl">
+                <i class="eva eva-bar-chart-outline mr-2"></i>
+                <span>{{- T "post.archiveCounter" (len (where site.RegularPages "Type" "in" (slice "posts" "status"))) | safeHTML -}}</span>
+            </div>
+            {{- if .Site.Params.notification.enabled -}}
+                {{- with resources.Get .Site.Params.notification.file -}}
+                    <div class="typo pb-6">
+                        {{- .Content | markdownify -}}
+                    </div>
+                {{- end -}}
+            {{- end -}}
+            <div>
+                {{- $paginator := .Paginate (where site.RegularPages "Type" "in" (slice "posts" "status")) -}}
+                {{- range $paginator.Pages -}}
+                    {{- partial "post-card" . -}}
+                {{- end -}}
+            </div>
+        </div>
+
+        <nav role="navigation" class="pagination bottom-0 left-0 flex w-full items-center justify-between pb-10 text-gray-600 dark:text-darkTextPlaceholder">
+            <a
+                href="{{- if .Paginator.HasPrev -}}
+                    {{- .Paginator.Prev.URL -}}
+                {{- else -}}
+                    /
+                {{- end -}}"
+                title="{{- T "page.prev" -}}"
+                class="{{- if not .Paginator.HasPrev -}}
+                    opacity-0 pointer-events-none
+                {{- end -}} flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border bg-white text-xl transition duration-300 ease-[ease] hover:border-none hover:bg-theme hover:text-white dark:border-darkBorder dark:bg-darkBgAccent dark:text-darkTextPlaceholder dark:hover:text-darkText"
+            >
+                <i class="eva eva-arrow-left-outline"></i>
+            </a>
+            <span>- {{ T "page.pagination" (dict "PageNumber" .Paginator.PageNumber "TotalPages" .Paginator.TotalPages) }} -</span>
+            <a
+                href="{{- if .Paginator.HasNext -}}
+                    {{- .Paginator.Next.URL -}}
+                {{- else -}}
+                    /
+                {{- end -}}"
+                title="{{- T "page.next" -}}"
+                class="{{- if not .Paginator.HasNext -}}
+                    opacity-0 pointer-events-none
+                {{- end -}} flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border bg-white text-xl transition duration-300 ease-[ease] hover:border-none hover:bg-theme hover:text-white dark:border-darkBorder dark:bg-darkBgAccent dark:text-darkTextPlaceholder dark:hover:text-darkText"
+            >
+                <i class="eva eva-arrow-right-outline"></i>
+            </a>
+        </nav>
+    </div>
+{{- end -}}

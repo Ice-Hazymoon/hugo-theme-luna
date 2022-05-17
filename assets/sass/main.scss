@@ -1,0 +1,35 @@
+/* prettier-ignore-start */
+$theme: {{.Param "themeColor"}};
+$font: {{.Param "font"}};
+/* prettier-ignore-end */
+
+@import 'modules/normalize';
+@import 'modules/katex';
+@import 'modules/eva-icons';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import './theme.scss';
+@import './typo.scss';
+
+@import './_base';
+
+@import './_common/_medium_zoom';
+@import './_common/_google_translator';
+@import './_common/_lazyload';
+@import './_common/_back_top';
+@import './_common/_i18nlist';
+@import './_common/_shortcodes';
+
+@import './_partial/_navbar';
+@import './_partial/_page_archives';
+@import './_partial/_page_github';
+@import './_partial/_page_links';
+@import './_partial/_page_search';
+@import './_partial/_page_home';
+@import './_partial/_page_single';
+@import './_partial/_page_twitter';
+@import './_partial/_page_gallery';
+
+@import './custom.scss';

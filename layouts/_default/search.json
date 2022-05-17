@@ -1,0 +1,13 @@
+{{- $pages := where .Site.RegularPages "Type" "in" (slice "posts" "status") -}}
+{{- $notHidden := where .Site.RegularPages "Params.hidden" "!=" true -}}
+{{- $filtered := ($pages | intersect $notHidden) -}}
+
+{{- $result := slice -}}
+
+{{- range $filtered -}}
+    {{- $data := slice (slice .Title (.Date.Format "2006年01月01日") .RelPermalink (replaceRE "( )+?|\r?\n" " " (replaceRE "```(.|\n)+?```|{{.+?}}(.|\r?\n?)+?{{.+?}}|{{.+?}}|`(.+?)`" " " .RawContent | markdownify | plainify)) ) -}}
+
+    {{- $result = $result | append $data -}}
+{{- end -}}
+
+{{- jsonify $result -}}

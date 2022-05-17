@@ -1,0 +1,4 @@
+<details class="accordion rounded  border dark:border-darkBorder" {{ if eq (.Get 1) "open" }}open{{ end }}>
+    <summary class="flex items-center px-4 py-2 font-bold before:mr-0.5 before:-mt-0.5 before:text-xl before:text-gray-400">{{- index .Params 0 -}}</summary>
+    <div class="border-t px-4 py-2  dark:border-darkBorder">{{- .Inner | markdownify -}}</div>
+</details>

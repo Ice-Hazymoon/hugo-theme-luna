@@ -1,0 +1,17 @@
+{{- $public_cdn := cond .Site.IsServer "" .Site.Params.publicCDN -}}
+{{- $customScript := resources.Get "ts/custom.ts" | js.Build (dict "minify" hugo.IsProduction) -}}
+{{- if .Site.IsServer -}}
+    <script
+        type="text/javascript"
+        src="{{- $customScript.RelPermalink -}}"
+        {{- if .Site.Params.customScript.pjax -}}data-swup-reload-script{{- end -}}
+    ></script>
+{{- else -}}
+    {{- $customScript = $customScript | fingerprint -}}
+    <script
+        type="text/javascript"
+        src="{{- print $public_cdn $customScript.RelPermalink -}}"
+        integrity="{{- $customScript.Data.Integrity -}}"
+        {{- if .Site.Params.customScript.pjax -}}data-swup-reload-script{{- end -}}
+    ></script>
+{{- end -}}

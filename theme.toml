@@ -1,0 +1,36 @@
+name = "Luna"
+license = "GPL V3.0"
+licenselink = "https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/LICENSE"
+description = "A simple, performance-first, SEO-friendly Hugo theme"
+homepage = "https://github.com/Ice-Hazymoon/hugo-theme-luna"
+demosite = "https://hugo-theme-luna.imiku.me"
+tags = [
+  "blog",
+  "responsive",
+  "minimal",
+  "personal",
+  "light",
+  "dark",
+  "gallery",
+  "archive",
+  "tailwind",
+  "search",
+  "multilingual"
+]
+features = [
+  "blog",
+  "responsive",
+  "minimal",
+  "personal",
+  "light",
+  "dark",
+  "gallery",
+  "tailwind",
+  "search",
+  "multilingual"
+]
+min_version = "0.97.0"
+
+[author]
+  name = "Ice-Hazymoon"
+  homepage = "https://imiku.me"

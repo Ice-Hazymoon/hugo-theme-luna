@@ -1,0 +1,383 @@
+baseURL: https://hugo-theme-luna.imiku.me/
+languageCode: en-us
+defaultContentLanguage: en-us
+title: Ice-Hazymoon's Blog
+enableRobotsTXT: true
+enableEmoji: true
+theme: hugo-theme-luna
+timeout: 60000
+timeZone: Asia/Shanghai
+
+# 可根据 Git 中的提交生成最近更新记录。
+# use git commit log to generate lastmod record
+enableGitInfo: true
+
+# 如果你的博客包含中日韩语，请启用此选项
+# enable CJK language support
+hasCJKLanguage: true
+
+# 每页显示文章数量
+# pagination size
+paginate: 10
+
+# 启用谷歌统计
+# google analytics tracking code
+# googleAnalytics: UA-98634098-1
+
+# 版权信息，默认为 author.name ↓
+# default: author.name ↓
+# copyright: "" 
+permalinks:
+  # 文章链接的格式
+  # Format of posts links
+  posts: /:year/:month/:day/:slug.html # 2019/01/01/hello-world.html
+  pages: /:slug.html # about.html
+
+author:
+  name: Ice-Hazymoon
+
+frontmatter:
+  lastmod:
+    - :git
+    - lastmod
+    - :fileModTime
+    - date
+    - publishDate
+    - :default
+
+taxonomies:
+  tag: "tags"
+  category: "categories"
+
+summaryLength: 70
+canonifyURLs: false
+relativeURLs: false
+
+# 图像处理
+# see https://gohugo.io/content-management/image-processing/#imaging-configuration
+imaging:
+  resampleFilter: CatmullRom
+  quality: 95
+  anchor: smart
+
+outputFormats:
+  offline:
+    name: offline
+    baseName: offline
+    mediaType: text/html
+    notAlternative: true
+    permalinkable: true
+
+caches:
+  getresource:
+    dir: :resourceDir/_gen
+    maxAge: 24h
+
+# 隐私政策，请查看 https://gohugo.io/about/hugo-and-gdpr/
+# See https://gohugo.io/about/hugo-and-gdpr/
+privacy:
+  googleAnalytics:
+    anonymizeIP: true
+  youtube:
+    privacyEnhanced: true
+
+sitemap:
+  changefreq: weekly
+  priority: 0.5
+  filename: sitemap.xml
+
+menu:
+  main:
+    - name: Home
+      weight: 10
+      identifier: home
+      params:
+        icon: eva eva-home
+      url: /
+    - name: About
+      weight: 20
+      identifier: about
+      params:
+        icon: eva eva-heart
+      url: /about/
+    - name: Links
+      weight: 30
+      identifier: links
+      params:
+        icon: eva eva-people
+      url: /links/
+    - name: Archives
+      weight: 40
+      identifier: archives
+      params:
+        icon: eva eva-bar-chart
+      url: /archives/
+    # - name: Tags
+    #   weight: 50
+    #   identifier: tags
+    #   params:
+    #     icon: eva eva-hash
+    #   url: /tags/
+    # - name: Categories
+    #   weight: 60
+    #   identifier: categories
+    #   params:
+    #     icon: eva eva-folder
+    #   url: /categories/
+    - name: Twitter
+      weight: 70
+      identifier: twitter
+      params:
+        icon: eva eva-twitter
+      url: /twitter/
+    - name: GitHub
+      weight: 80
+      identifier: github
+      params:
+        icon: eva eva-github
+      url: /github/
+    - name: Search
+      weight: 999
+      identifier: search
+      params:
+        icon: eva eva-search
+      url: /search/
+
+languages:
+  zh-cn:
+    contentDir: content/zh-hans
+    title: Ice-Hazymoon 的博客
+    languageName: 中文
+    params:
+      icon: "images/i18n/zh-cn.svg" # in assets folder
+      twitter: 
+        rsshub: "https://rsshub.rssforever.com"
+        id: "Ice_Hazymoon"
+        imageProcessing: true
+      github:
+        id: "Ice-Hazymoon"
+        minStars: 10
+      license:
+        enabled: true
+        name: "署名 - 非商业性使用 - 禁止演绎 4.0"
+        icon: "Cc-by-nc-nd.svg" # in assets folder
+        url: "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh"
+      notification:
+        enabled: true
+        file: "README.zh.md"
+  en-us:
+    contentDir: content/en-us
+    title: Ice-Hazymoon's Blog
+    languageName: English
+    params:
+      icon: "images/i18n/en-us.svg" # in assets folder
+
+markup:
+  highlight:
+    style: dracula
+    guessSyntax: true
+    tabWidth: 4
+    lineNumbersInTable: true
+    lineNos: true
+    codeFences: true
+  goldmark:
+    renderer:
+      unsafe: true # enable html in markdown
+
+# .Site.Params
+params:
+  # CDN 地址
+  # CDN URL
+  publicCDN: ""
+
+  # 在首页顶部创建一个通知部分
+  # Create a notification section at the top of the home page
+  notification:
+    enabled: true
+    file: "README.md" # assets/README.md
+
+  # Rss 配置
+  # RSS configuration
+  rss:
+    # 如果为 false，你必须设置 Output Formats，请查看：https://gohugo.io/templates/output-formats#customizing-output-formats
+    # If false, you must set Output Formats, see: https://gohugo.io/templates/output-formats#customizing-output-formats
+    enabled: true
+    # 是否输出全文
+    # Output full text
+    fullText: true
+
+  # 如果为 false，你必须设置 Output Formats，请查看：https://gohugo.io/templates/output-formats#customizing-output-formats
+  # If false, you must set Output Formats, see: https://gohugo.io/templates/output-formats#customizing-output-formats
+  sitemap: true
+
+  # 网站主题颜色
+  # Site theme colors
+  themeColor: "#dd6065"
+
+  # 网站字体
+  # Site font
+  font: '"Times New Roman", Times, "Heti Song", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
+
+  # 自定义脚本
+  # ts/custom.ts
+  customScript:
+    enable: false
+    pjax: true # Auto-reload in pjax mode
+
+  # 网站底部显示运行时间
+  # Show site runtime
+  runTime:
+    enable: true
+    # 网站创建时间
+    # Site creation time
+    creatTime: 2016/12/12
+  
+  #  网站创建年份
+  # Site creation year
+  since: "2016"
+
+  # 显示文章过时提醒
+  # show warning when outdated info detected
+  outdatedInfoWarning:
+    enable: true
+    # 超过该天数将显示过时提醒
+    # A timeout reminder will be displayed if the last modification time exceeds that number of days
+    day: 90
+
+  # 自动切换夜间模式（使用设备设置）
+  # Automatic switching of night mode (using device settings)
+  autoDarkMode: false
+
+  # 文章分享功能
+  share:
+    twitter: true
+    facebook: true
+    weibo: true
+    copyLinkText: true
+    qrcode: true
+
+  # 文章许可设置
+  # license
+  license:
+    enabled: true
+    name: "CC BY-NC-ND 4.0"
+    icon: "Cc-by-nc-nd.svg" # in assets folder
+    url: "https://creativecommons.org/licenses/by-nc-nd/4.0"
+
+  # 显示右上角 i18n 切换按钮
+  # Display i18n toggle button
+  i18nlist: true
+
+  # GitHub 页面设置
+  # github page
+  github:
+    id: "torvalds"
+    minStars: 5
+
+  # Twitter 页面设置
+  # tweet page
+  twitter:
+    rsshub: "https://rsshub.rssforever.com"
+    id: "GenshinImpact"
+    imageProcessing: true
+
+  # 开启图片放大功能
+  # Image Zoom Plugin
+  # see https://github.com/francoischalifour/medium-zoom
+  imageZoom: true
+
+  # 图片懒加载
+  # lazyload image
+  lazyload: true
+
+  # 启用谷歌翻译插件
+  # enable google translate in footer
+  googleTranslate: true
+
+  # 优化中文排版，请参考：https://github.com/vinta/pangu.js
+  # Optimize Chinese typography, see: https://github.com/vinta/pangu.js
+  pangu: true
+
+  # 文章页显示最后修改时间
+  # For outdated reminders
+  lastmod: true
+
+  # 显示阅读时间
+  # show reading time
+  readingTime: true
+
+  # 显示文章字数
+  # show word count
+  wordCount: false
+
+  # 开启文章内目录，可以在页面内单独设置
+  # Show table of contents
+  # You can enable it separately in the page
+  toc:
+    enable: true
+    # 超过这个字数后将显示目录
+    # When the article word count is greater than this value, the TOC will be displayed
+    wordCount: 400 
+
+  # 加密功能
+  # encryption articles
+  HugoEncrypt:
+    # 默认密码
+    # default password
+    Password: "123456"
+    # 密码缓存选项 "session" or "local"
+    # or "local"
+    Storage: "session"
+
+  # 开启 Pjax 无刷新加载
+  # Enable pjax with swup.js
+  pjax: true
+
+  # 开启 PWA
+  # use service worker
+  pwa: true
+
+  # 开启数学公式
+  # katex
+  katex: true
+
+  # 开启返回顶部按钮
+  # backtop button
+  backtop: true
+
+  # 默认文章封面图片
+  # 图片必须位于 assets 文件夹
+  # Default featured image
+  # Your images must be located in the assets folder
+  # /images/featured_image.jpg or https://source.unsplash.com/random
+  defaultFeaturedImage: false
+
+  # 自动调整图片大小并兼容 Webp 格式
+  # Optimize your images and SEO
+  imageProcessing:
+    cover:
+      enabled: true
+    content:
+      enabled: true
+
+  # 网站信息，根据需要修改
+  # site info
+  image:
+    url: "/cover.png"
+    width: 1000
+    height: 519
+  
+  logo:
+    url: "/icon.png"
+    width: 200
+    height: 200
+
+  author: Ice-Hazymoon
+  keywords:
+    - Hugo
+    - Hugo Theme
+    - Luna
+  description: "A simple, performance-first, SEO-friendly Hugo theme"
+
+build:
+  noJSConfigInAssets: true

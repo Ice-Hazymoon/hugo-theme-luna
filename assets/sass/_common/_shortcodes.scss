@@ -1,0 +1,86 @@
+.quote {
+    @apply my-4;
+}
+
+.quote:not(.quote-center) {
+    &::before {
+        content: '“';
+        @apply absolute left-0 text-6xl font-bold leading-none text-gray-300 dark:text-gray-400;
+        font-family: system-ui;
+    }
+}
+
+.quote-center {
+    &::before,
+    &::after {
+        @apply absolute text-5xl font-bold leading-none text-gray-300 dark:text-gray-400;
+    }
+    &::before {
+        top: -0.1em;
+        left: 0;
+        content: '“';
+    }
+    &::after {
+        bottom: -0.5em;
+        right: 0;
+        content: '”';
+    }
+}
+
+.carousel {
+    @apply relative my-4 h-96 overflow-hidden rounded bg-gray-100 dark:bg-darkBgAccent;
+    .slider-wrapper {
+        @apply absolute left-0 top-0 h-full w-full overflow-hidden;
+        input {
+            @apply hidden;
+        }
+        .slider-arrow-nav {
+            .nav-arrow {
+                @apply absolute top-1/2 h-12 w-12 -translate-y-1/2 transform cursor-pointer text-5xl text-white transition ease-in-out;
+                z-index: 2;
+                font-family: Eva-Icons;
+            }
+            .nav-arrow.next {
+                &::before {
+                    content: '\ea70';
+                }
+                @apply right-4;
+            }
+            .nav-arrow.prev {
+                &::before {
+                    content: '\ea6e';
+                }
+                @apply left-4;
+                z-index: 3;
+            }
+            .nav-arrow.next:first-of-type {
+                z-index: 3;
+            }
+        }
+        .slide {
+            @apply absolute top-0 left-0 h-full w-full opacity-0;
+            z-index: 1;
+            transition: 1000ms cubic-bezier(0.68, -0.57, 0.33, 1.67) opacity;
+            img {
+                @apply m-0 h-full w-full border-none object-contain;
+                &:nth-child(2) {
+                    @apply absolute left-0 top-0 h-full w-full scale-105 transform object-cover blur-lg;
+                    z-index: -1;
+                }
+            }
+        }
+        .slider-nav {
+            @apply absolute bottom-4 left-0 w-full text-center;
+            z-index: 3;
+            .nav-button {
+                @apply mx-2 inline-block h-3 w-3 cursor-pointer rounded-full bg-white bg-opacity-50 hover:bg-theme hover:bg-opacity-100;
+            }
+        }
+    }
+}
+
+.timeline {
+    .timeline-item {
+        @apply relative pb-4 pl-6 leading-7 before:absolute before:left-0 before:top-2 before:z-10 before:mr-6 before:block before:h-2.5 before:w-2.5 before:rounded-full before:bg-gray-400 after:absolute after:top-4 after:left-[0.1875rem] after:block after:h-full after:w-1 after:bg-gray-100 last:after:hidden hover:before:bg-theme dark:before:bg-gray-500 dark:after:bg-darkBorder dark:before:hover:bg-theme;
+    }
+}

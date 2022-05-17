@@ -1,0 +1,15 @@
+{{- if .Params.refs -}}
+    <div class="w-full overflow-x-hidden border-t border-b bg-gray-100 bg-opacity-80 p-6 dark:border-darkBorder dark:bg-darkBgAccent">
+        <div class="mb-2 inline-block border-b-2 border-text pb-1 text-base">{{- T "post.refs" -}}</div>
+        <div class="">
+            {{- range $index, $ref := .Params.refs -}}
+                <div class="overflow-hidden text-ellipsis whitespace-nowrap text-sm leading-loose">
+                    <span>[{{- add $index 1 -}}] </span>
+                    <a class="hover:underline" href="{{- or $ref.link "javascript:;" -}}" target="_blank" rel="noopener noreferrer"
+                        >{{- if $ref.name -}}{{- $ref.name -}}:{{- end -}}{{- $ref.link -}}</a
+                    >
+                </div>
+            {{- end -}}
+        </div>
+    </div>
+{{- end -}}

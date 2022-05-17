@@ -1,0 +1,35 @@
+{{ $_hugo_config := `{ "version": 1 }` }}
+{{- $randomID := delimit (shuffle (split (md5 now.Unix) "" )) "" -}}
+
+
+<hugo-encrypt id="r{{- $randomID -}}">
+    {{- if .Get 0 -}}
+        {{- $.Page.Store.Set "passphrase" (.Get 0) -}}
+    {{- else if .Site.Params.HugoEncrypt.Password -}}
+        {{- $.Page.Store.Set "passphrase" .Site.Params.HugoEncrypt.Password -}}
+    {{- end -}}
+    <div class="hugo-encrypt-encryption-notice rounded-md border bg-gray-100 p-4 dark:border-darkBorder dark:bg-darkBg">
+        <div class="mb-2">{{- i18n "encrypt.protectedByPassword" -}}</div>
+        <noscript><span>{{- T "encrypt.encryptNoscript" -}}</span></noscript>
+
+        <div class="hugo-encrypt-form inline-flex overflow-hidden rounded border border-gray-300 dark:border-darkBorder">
+            <input
+                class="hugo-encrypt-input border-r border-gray-300 bg-white py-1 px-3 dark:border-darkBorder dark:bg-darkFg"
+                placeholder="{{- i18n "encrypt.enterPassword" -}}"
+            />
+            <input
+                class="hugo-encrypt-button cursor-pointer bg-white py-1 px-3 dark:bg-darkFg"
+                type="button"
+                value="{{- i18n "encrypt.decrypt" -}}"
+                data-hugo-encrypt-id="{{- $randomID -}}"
+            />
+        </div>
+        <div class="hugo-encrypt-input-response mt-2 text-sm text-red-500"></div>
+    </div>
+    <cipher-text
+        data-cipher-id="{{- $randomID -}}"
+        data-password="{{- $.Page.Store.Get "passphrase" -}}"
+        data-content="{{- .Inner | base64Encode -}}"
+        style="display:none;"
+    ></cipher-text>
+</hugo-encrypt>

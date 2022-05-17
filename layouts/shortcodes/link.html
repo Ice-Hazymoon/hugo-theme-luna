@@ -1,0 +1,31 @@
+{{- $title := .Get "title" -}}
+{{- $url := .Get "url" -}}
+{{- $desc := .Get "desc" -}}
+{{- $image := .Get "image" -}}
+{{- $lazyload := .Site.Params.lazyload -}}
+{{- $public_cdn := cond .Site.IsServer "" .Site.Params.publicCDN -}}
+{{- $svg_outload := "images/outload.svg" | relURL -}}
+
+{{- if not (urls.Parse $image).Scheme -}}
+    {{- $image = print $public_cdn (.Page.Resources.Get $image).RelPermalink -}}
+{{- end -}}
+<div class="link-item -mx-1 inline-block w-full px-3 pb-6 sm:w-1/2 md:w-1/3">
+    <a
+        href="{{- $url -}}"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="link-item relative z-10 inline-flex w-full cursor-pointer overflow-hidden rounded border bg-white p-4 align-top transition duration-300 ease-[ease] hover:border-theme hover:text-white dark:border-darkBorder dark:bg-darkBgAccent dark:hover:text-darkText"
+    >
+        <img
+            {{ if $lazyload }}data-lazyload{{ end }}
+            {{ if $lazyload }}data-{{ end }}src="{{- $image -}}"
+            {{ if $lazyload }}src="{{- print $public_cdn $svg_outload -}}"{{ end }}
+            alt="{{- $title -}}"
+            class="mr-4 inline-block h-16 w-16 rounded-full border object-cover object-center dark:border-darkBorder"
+        />
+        <div class="nr">
+            <div class="whitespace-no-wrap n-name overflow-hidden text-xl">{{- $title -}}</div>
+            <div class="h-12 line-clamp-2" title="{{- $desc -}}">{{- $desc -}}</div>
+        </div>
+    </a>
+</div>

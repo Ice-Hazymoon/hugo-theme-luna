@@ -1,0 +1,74 @@
+{{- $hugo := `<a data-no-swup class="mx-1 font-bold hover:text-theme" href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>` -}}
+{{- $heart := `<span class="text-xs opacity-70">❤</span>` -}}
+{{- $theme := printf `<a data-no-swup class="mx-1 font-bold hover:text-theme" href="https://github.com/Ice-Hazymoon/hugo-theme-luna" target="_blank" rel="noopener noreferrer">Luna</a>` -}}
+
+
+<footer>
+    <div
+        class="com-footer flex flex-col items-center border-t py-4 px-6 text-sm leading-none text-gray-600 dark:border-darkBorder dark:text-darkTextPlaceholder md:flex-row md:justify-between"
+    >
+        <div class="mb-2 flex items-center justify-between text-center md:mb-0">
+            <span class="">© {{ .Site.Params.since }} - {{ now.Format "2006" }}</span>
+            <span class="mx-2 opacity-50"> | </span>
+            {{- T "poweredBy" (dict "Hugo" $hugo "Heart" $heart "Theme" $theme) | safeHTML -}}
+        </div>
+
+        <div class="flex items-center">
+            {{- if or .Site.Params.rss.enabled .Site.Params.sitemap -}}
+                <span class="mx-2 hidden opacity-50 md:block"> | </span>
+            {{- end -}}
+            {{- if .Site.Params.rss.enabled -}}
+                <a data-no-swup href="{{- "/index.xml" | absLangURL -}}" target="_blank" class="mr-2 hover:text-theme">
+                    {{- $.Site.Data.luna.icon.rss | safeHTML -}}
+                    <span>RSS</span>
+                </a>
+            {{- end -}}
+            {{- if .Site.Params.sitemap -}}
+                <a data-no-swup href="{{- "/sitemap.xml" | absLangURL -}}" target="_blank" class="mr-2 hover:text-theme">
+                    {{- $.Site.Data.luna.icon.sitemap | safeHTML -}}
+                    <span>Sitemap</span>
+                </a>
+            {{- end -}}
+            {{- if .Site.Params.googleTranslate -}}
+                <div id="google_translate_element" class="overflow-hidden rounded border dark:border-darkBorder"></div>
+            {{- end -}}
+        </div>
+        {{- if .Site.Params.runTime.enable -}}
+            {{- partial "components/run-time" . }}
+        {{- end -}}
+    </div>
+    <!-- google analytics -->
+    {{- if .Site.GoogleAnalytics -}}{{- template "_internal/google_analytics_async.html" . -}}{{- end -}}
+
+
+    <!-- theme config script -->
+    {{- partial "scripts/theme-script" . -}}
+
+
+    <!-- main.js -->
+    {{- partial "scripts/main-script" . -}}
+
+
+    <!-- sw.js -->
+    {{- if .Site.Params.pwa -}}
+        {{- partial "scripts/pwa" . -}}
+    {{- end -}}
+
+
+    <!-- google-translate.js -->
+    {{- if .Site.Params.googleTranslate -}}
+        {{- partial "scripts/google-translate" . -}}
+    {{- end -}}
+
+
+    <!-- custom footer -->
+    {{- partial "custom/footer" . -}}
+
+
+    <!-- custom script tag -->
+    {{- partial "custom/script" . -}}
+
+    {{- if and .Site.Params.customScript .Site.Params.customScript.enable -}}
+        {{- partial "scripts/custom" . -}}
+    {{- end -}}
+</footer>

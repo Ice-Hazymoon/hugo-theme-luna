@@ -1,0 +1,41 @@
+.page-links {
+    h4 {
+        @apply m-8 ml-0 mb-6 border-l-4 border-theme pl-3 text-2xl leading-none;
+    }
+
+    a.link-item {
+        &:before {
+            content: '';
+            top: 100%;
+            right: 100%;
+            width: 2.5em;
+            height: 2.5em;
+            border-radius: 50%;
+            transform-origin: center;
+            transform: translate3d(50%, -50%, 0) scale3d(0, 0, 0);
+            @apply absolute -z-10 bg-theme transition duration-500 ease-[ease];
+        }
+        &:hover::before {
+            transform: translate3d(50%, -50%, 0) scale3d(11, 15, 15);
+            transform-origin: left;
+        }
+        @media (max-width: 640px) {
+            &:hover {
+                &::before {
+                    transform: none;
+                }
+                @apply bg-theme;
+            }
+        }
+        .n-name {
+            @apply text-ellipsis;
+        }
+        .nr {
+            width: calc(100% - 5rem);
+        }
+        &:hover {
+            box-shadow: -14px 14px 28px #f2f2f2, 14px -14px 28px #ffffff;
+            @apply dark:shadow-none;
+        }
+    }
+}

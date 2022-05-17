@@ -1,0 +1,20 @@
+{
+    "overrides": [
+        {
+            "files": ["*.html"],
+            "options": {
+                "parser": "go-template"
+            },
+            "goTemplateBracketSpacing": true
+        }
+    ],
+    "plugins": ["prettier-plugin-tailwindcss"],
+    "tabWidth": 4,
+    "singleQuote": true,
+    "bracketSpacing": true,
+    "bracketSameLine": false,
+    "printWidth": 160,
+    "arrowParens": "avoid",
+    "semi": true,
+    "useTabs": false
+}

@@ -1,0 +1,21 @@
+{{- $public_cdn := cond .Site.IsServer "" .Site.Params.publicCDN -}}
+{{- $script := resources.Get "translate-google.js" | js.Build (dict "minify" hugo.IsProduction) -}}
+
+{{- if .Site.IsServer -}}
+    <script type="text/javascript" src="{{- $script.RelPermalink -}}" defer></script>
+{{- else -}}
+    {{- $script := $script | fingerprint -}}
+    <script type="text/javascript" src="{{- print $public_cdn $script.RelPermalink -}}" defer integrity="{{- $script.Data.Integrity -}}"></script>
+{{- end -}}
+
+{{- $sass := resources.Get "sass/translateelement.scss" -}}
+{{- $style := $sass | resources.ToCSS | minify | fingerprint -}}<script type="text/javascript">
+    window.translateelement_styles = "{{- $style.RelPermalink -}}";
+    function googleTranslateElementInit(){
+        new google.translate.TranslateElement({
+            pageLanguage: '{{.Language}}',
+            includedLanguages: 'af,ga,sq,it,ar,ja,az,kn,eu,ko,bn,la,be,lv,bg,lt,ca,mk,zh-CN,ms,zh-TW,mt,hr,no,cs,fa,da,pl,nl,pt,en,ro,eo,ru,et,sr,tl,sk,fi,sl,fr,es,gl,sw,ka,sv,de,ta,el,te,gu,th,ht,tr,iw,uk,hi,ur,hu,vi,is,cy,id,yi',
+            autoDisplay:false
+        },'google_translate_element');
+    }
+</script>

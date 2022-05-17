@@ -1,0 +1,61 @@
+{{- define "main" -}}
+    <div class="page-archives relative p-8">
+        <div class="mb-4 inline-flex items-end pb-3 text-3xl">
+            <div class="mr-4 inline-flex items-center leading-none">
+                <i class="eva eva-bar-chart mr-2"></i>
+                <span>{{ T "archives.title" }}</span>
+            </div>
+            <div class="inline-block text-lg leading-none text-gray-500 dark:text-darkTextPlaceholder">
+                {{- $total_post := len (where site.RegularPages "Type" "in" (slice "posts" "status")) -}}
+                {{- T "archives.total" $total_post | safeHTML -}}
+            </div>
+        </div>
+
+        <div class="mb-8">
+            {{- range sort .Site.Taxonomies.categories "Count" "desc" -}}
+                <a
+                    class="mr-2 mb-2 inline-flex items-center rounded border bg-white px-2 py-1 text-xs transition duration-200 ease-[ease] hover:border-theme hover:text-theme dark:border-darkBorder dark:bg-darkBgAccent dark:hover:border-theme"
+                    href="{{- .Page.RelPermalink -}}"
+                >
+                    <span>{{- .Page.Title -}}</span>
+                    <span class="ml-1 text-gray-400">{{- .Count -}}</span>
+                </a>
+            {{- end -}}
+        </div>
+
+        {{- range (where site.RegularPages "Type" "in" (slice "posts" "status")).GroupByDate (T "date.m_y") -}}
+            <div class="archives">
+                <div
+                    class="archives_title inline-block rounded-full border border-transparent bg-theme py-1 px-3 text-center text-sm text-white dark:border-darkBorder dark:bg-darkBgAccent dark:text-darkText dark:shadow-none"
+                >
+                    <span>{{- .Key -}}</span>
+                </div>
+                <ul class="relative ml-12 border-l-4 border-gray-100 py-4 dark:border-darkBorder">
+                    {{- range .Pages -}}
+                        <li class="group relative flex items-center py-4">
+                            <time
+                                title="{{- .Date.Format (T "date.normal") -}}"
+                                data-date="{{- (T "date.day" (.Date.Format "02")) -}}"
+                                {{- printf `datetime="%s"` (.Date.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr -}}
+                                class="dot h-2 rounded-full border-4 border-gray-400 bg-white text-gray-600 group-hover:border-theme dark:border-gray-500 dark:text-darkTextPlaceholder"
+                            ></time>
+                            <a
+                                href="{{- .RelPermalink -}}"
+                                class="relative ml-4 inline-block rounded-sm border border-transparent  px-3 py-2 shadow-custom2 transition duration-300 ease-[ease] hover:text-theme hover:shadow-none dark:border-transparent dark:bg-darkBgAccent dark:text-darkText dark:shadow-none"
+                            >
+                                {{- if .Title -}}
+                                    {{- .Title -}}
+                                {{- else -}}
+                                    {{- T "archives.untitled" -}}
+                                {{- end -}}
+                            </a>
+                        </li>
+                    {{- end -}}
+                </ul>
+            </div>
+        {{- end -}}
+        <div class="inline-block rounded-full border bg-white py-1 px-2 text-center text-sm dark:border-darkBorder dark:bg-darkBgAccent">
+            {{- T "archives.helloWorld" -}}
+        </div>
+    </div>
+{{- end -}}

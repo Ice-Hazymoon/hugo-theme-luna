@@ -1,0 +1,8 @@
+{{- if .Get 1 -}}
+    <span class="inline-block blur-sm filter transition ease-in-out hover:filter-none">{{- .Get 0 | markdownify -}}</span>
+{{- else -}}
+    <span
+        class="relative inline-block leading-none after:pointer-events-none after:absolute after:left-0 after:top-0 after:z-50 after:block after:h-full after:w-full after:rounded after:bg-darkBg after:transition after:ease-in-out hover:after:bg-transparent dark:after:bg-darkText dark:hover:after:bg-transparent"
+        >{{- .Get 0 | markdownify -}}</span
+    >
+{{- end -}}

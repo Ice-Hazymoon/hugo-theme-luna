@@ -1,0 +1,25 @@
+{{- $githubData := getJSON (print "https://api.github.com/repos/" (.Get "name")) -}}
+{{- $githubColors := .Site.Data.luna.githubColors -}}
+{{- with $githubData -}}
+    <div class="github my-4 rounded border p-4 dark:border-darkBorder">
+        <div class="flex items-center text-xl">
+            <i class="eva eva-github mr-2"></i>
+            <a class="before:hidden" href="{{- .html_url -}}" target="_blank">{{- .full_name -}}</a>
+        </div>
+        <div class="my-2 leading-6">{{- .description -}}</div>
+        <div class="flex items-center">
+            <div class="mr-4 inline-flex items-center">
+                <span class="mr-1 inline-block h-3 w-3 rounded-full" style="background-color: {{- index $githubColors .language -}}"></span>
+                <span>{{- .language -}}</span>
+            </div>
+            <div class="mr-4 inline-flex items-center">
+                <i class="eva eva-star mr-1 text-amber-400"></i>
+                <span>{{- .stargazers_count -}}</span>
+            </div>
+            <div class="inline-flex items-center">
+                <i class="eva eva-shuffle-2 mr-1 text-blue-500"></i>
+                <span>{{- .forks -}}</span>
+            </div>
+        </div>
+    </div>
+{{- end -}}

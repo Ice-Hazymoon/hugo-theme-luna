@@ -1,0 +1,7 @@
+<!-- prettier-ignore -->
+{{/* prettier-ignore-start */}}
+<h{{ .Level }} class="group " id="{{- .Anchor | safeURL -}}"
+    >{{- .Text | safeHTML -}}<a href="#{{- .Anchor | safeURL -}}"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h{{ .Level }}>
+{{/* prettier-ignore-end */}}

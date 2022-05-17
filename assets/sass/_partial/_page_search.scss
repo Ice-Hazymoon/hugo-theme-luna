@@ -1,0 +1,12 @@
+.page-search {
+    .search-results-items {
+        &:hover {
+            div:first-child {
+                color: var(--theme);
+            }
+        }
+        &:last-child {
+            @apply border-none;
+        }
+    }
+}

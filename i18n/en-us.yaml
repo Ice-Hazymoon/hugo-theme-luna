@@ -1,0 +1,145 @@
+backTop: "Back to top"
+
+# hugo encrypt
+encrypt:
+    protectedByPassword: "The following content is protected."
+    enterPassword: "Please enter the password."
+    decrypt: "Decrypt"
+    wrongPassword: "Password is incorrect"
+    encryptNoscript: "Javascript needs to be enabled to decrypt content"
+
+# Links
+linksRank: "Ranking in no particular order"
+
+# Archives
+archives:
+    title: "Archives"
+    total: 
+        one: 'Total <span class="text-theme font-bold">{{.}}</span> post'
+        other: 'Total <span class="text-theme font-bold">{{.}}</span> posts'
+    helloWorld: "Hello World!"
+    untitled: "Untitled"
+
+# date
+date:
+    day: "{{ . }}th"
+    d_m_y: "02 Jan 2006"
+    m_d_y: "January 2, 2006"
+    m_y: "Jan 2006"
+    m_d_h_s: "Jan 02 15:04"
+    normal: "02 Jan 2006 15:04:05"
+
+# post
+post:
+    publishedIn: "Published in: "
+    readingTime:
+        one: "{{ .Count }} min read"
+        other: "{{ .Count }} mins read"
+    wordCount:
+        one: "{{ .Count }} word"
+        other: "{{ .Count }} words"
+    prevPost: "Prev"
+    nextPost: "Next"
+    license: "Unless otherwise stated, this blog is licensed under"
+    outdatedInfo: 'Last edited <span class="mx-1 font-bold">{{.}}</span> days ago, the information described in the text may have changed'
+    lastmod: 'Last modified on: '
+    toc: "Table of Contents"
+    refs: "Refs"
+    archiveCounter:
+        one: '<span class="mx-1 text-theme">{{ .Count }}</span> Post In Total'
+        other: '<span class="mx-1 text-theme">{{ .Count }}</span> Posts In Total'
+    untitled: "Untitled"
+
+# search
+searchLoading: "Loading···"
+
+# taxonomy
+taxonomy:
+    _tags: "Tags"
+    _categories: "Categories"
+    tag:
+        one: 'Tag <b class="text-theme mx-1">{{.Title}}</b> has <b class="text-theme mx-1">{{.Count}}</b> post'
+        other: 'Tag <b class="text-theme mx-1">{{.Title}}</b> has <b class="text-theme mx-1">{{.Count}}</b> posts'
+    category:
+        one: 'Category <b class="text-theme mx-1">{{.Title}}</b> has <b class="text-theme mx-1">{{.Count}}</b> post'
+        other: 'Category <b class="text-theme mx-1">{{.Title}}</b> has <b class="text-theme mx-1">{{.Count}}</b> posts'
+    totalTags:
+        one: '<span class="text-theme font-bold mx-1">{{.}}</span> Tag In Total'
+        other: '<span class="text-theme font-bold mx-1">{{.}}</span> Tags In Total'
+    totalCategories: 
+        one: '<span class="text-theme font-bold mx-1">{{.}}</span> Category In Total'
+        other: '<span class="text-theme font-bold mx-1">{{.}}</span> Categories In Total'
+
+runTime:
+    text: "Run time:"
+    days: "days"
+    hours: "h"
+    minutes: "m"
+    seconds: "s"
+
+# navbar
+navbar:
+    home: "Home"
+    about: "About"
+    links: "Links"
+    github: "GitHub"
+    search: "Search"
+    archives: "Archives"
+    twitter: "Tweet"
+    tags: "Tags"
+    categories: "Categories"
+
+# share
+share:
+    twitter: "Share to twitter"
+    facebook: "Share to facebook"
+    weibo: "Share to weibo"
+    copy: "Copy Link"
+    qrcode: "QR Code"
+
+# pagination
+page:
+    prev: "Prev"
+    next: "Next"
+    pagination: "Page {{ .PageNumber }} of  {{ .TotalPages }}th"
+
+# js
+js:
+    copySuccess: "Copy success"
+    copyFailed: "Copy failed"
+    copyCode: "Copy code"
+    searchLoadFailure: "Initialization of the search engine failed"
+    searchInput: "Type something..."
+    searchResults: '`Found <span class="text-theme">${results}</span> results for the keyword <span class="text-theme">${keyword}</span>`'
+
+# offline
+offline:
+    title: "Network Offline!"
+    h1: "Network Offline!"
+    h3: "You seem to have a problem with your network, but it's okay, you can still access the pages you visited before"
+    h4: "Now please enjoy this lovely rabbit!"
+    return: "Click to return to home page"
+
+# github
+github:
+    goto: "Go to GitHub to check it out"
+    config: "Please check the \"github\" configuration"
+
+# twitter
+twitter:
+    title: "Twitter"
+    config: "Please check the \"twitter\" configuration"
+    link: "View"
+    like: "Like"
+    reply: "Reply"
+    forward: "Forward"
+    goto: "Go to Twitter to check it out"
+
+# i18nlist
+switchLang: "Switch language to "
+
+noscript: "Please enable JavaScript for a better experience"
+
+poweredBy: "Powered by {{ .Hugo }} {{ .Heart }} {{ .Theme }}"
+
+notFound: "Page not found, click back to home page"

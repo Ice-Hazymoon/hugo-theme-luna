@@ -1,0 +1,56 @@
+{{- $id := print "slide-" (delimit (shuffle (seq 1 9)) "") "-" -}}
+
+
+<div class="carousel">
+    <div class="slider-wrapper">
+        {{- range $i, $img := .Params -}}
+            <input id="{{- print $id $i -}}" {{- if eq ($i | string) "0" -}}checked="checked"{{- end -}} name="{{- print $id "slides" -}}" type="radio" />
+        {{- end -}}
+
+
+        <div class="slider-arrow-nav">
+            {{- range $i, $img := .Params -}}
+                <label class="nav-arrow prev" for="{{- print $id $i -}}"></label>
+            {{- end -}}
+        </div>
+        <div class="slider-arrow-nav">
+            {{- range $i, $img := .Params -}}
+                <label class="nav-arrow next" for="{{- print $id $i -}}"></label>
+            {{- end -}}
+        </div>
+        <div class="slider-nav">
+            {{- range $i, $img := .Params -}}
+                <label class="nav-button" for="{{- print $id $i -}}"></label>
+            {{- end -}}
+        </div>
+        <div class="slider-content">
+            {{- range $i, $img := .Params -}}
+                <div class="slide {{ print $id $i -}}">
+                    <img src="{{- $img -}}" />
+                    <img src="{{- $img -}}" alt="" />
+                </div>
+            {{- end -}}
+        </div>
+    </div>
+    <style>
+        {{- range $i, $img := .Params -}}
+            #{{- print $id $i -}}:checked ~ .slider-content .{{- print $id $i -}}{
+                //transform: translateX(0);
+                opacity:1;
+            }
+            #{{- print $id $i -}}:checked ~ .slider-nav .nav-button[for="{{- print $id $i -}}"]{
+                    background: rgba(255,255,255,1);
+            }
+            #{{- print $id $i -}}:checked ~ .slider-arrow-nav .nav-arrow.next[for="{{- print $id $i -}}"] + .nav-arrow{
+                z-index:4;
+            }
+            #{{- print $id $i -}}:checked ~ .slider-arrow-nav .nav-arrow.next[for="{{- print $id $i -}}"]:last-of-type{
+                z-index:2;
+            }
+            #{{- print $id $i -}}:checked ~ .slider-arrow-nav .nav-arrow.prev[for="{{- print $id $i -}}"],
+            #{{- print $id $i -}}:checked ~ .slider-arrow-nav .nav-arrow.prev[for="{{- print $id $i -}}"] ~ .nav-arrow.prev{
+                z-index:2;
+            }
+        {{- end -}}
+    </style>
+</div>

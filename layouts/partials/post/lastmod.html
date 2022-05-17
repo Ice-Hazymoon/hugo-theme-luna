@@ -1,0 +1,18 @@
+{{- $config := .Site.Params.outdatedInfoWarning -}}
+{{- if $config.enable -}}
+    {{- $updateTime := .Lastmod -}}
+    {{- if .GitInfo -}}
+        {{- if lt .GitInfo.AuthorDate.Unix .Lastmod.Unix -}}
+            {{- $updateTime := .GitInfo.AuthorDate -}}
+        {{- end -}}
+    {{- end -}}
+    {{- $lastMod := int (div (now.Sub ($updateTime)).Hours 24) -}}
+    {{- if (gt $lastMod $config.day) -}}
+        <div class="border-b bg-blue-100 bg-opacity-20 p-6 dark:border-darkBorder dark:bg-darkBg">
+            <time
+                {{ printf `datetime="%s"` ($updateTime.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr }}
+                >{{- (T "post.outdatedInfo" $lastMod) | safeHTML -}}</time
+            >
+        </div>
+    {{- end -}}
+{{- end -}}

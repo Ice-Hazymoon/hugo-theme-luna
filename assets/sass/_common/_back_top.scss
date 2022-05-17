@@ -1,0 +1,24 @@
+#back-top {
+    box-shadow: 1px 1px 25px 1px rgba($color: #000000, $alpha: 0.07);
+    &:active {
+        transform: scale(0.95);
+    }
+    &.x {
+        @apply translate-y-0 opacity-100;
+    }
+    &.back-top-completed {
+        @apply text-white dark:text-darkText;
+        background-color: lighten($theme, 7);
+        svg circle {
+            @apply stroke-current text-theme;
+        }
+    }
+}
+
+.dark {
+    #back-top {
+        &.back-top-completed {
+            background-color: darken($theme, 10%);
+        }
+    }
+}

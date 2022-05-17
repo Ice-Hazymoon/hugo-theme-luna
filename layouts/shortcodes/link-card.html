@@ -1,0 +1,26 @@
+<a
+    href="{{- .Get "link" -}}"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="link-card my-4 flex w-full cursor-pointer flex-col-reverse justify-between rounded border transition ease-in-out before:hidden hover:bg-gray-100 dark:border-darkBorder hover:dark:bg-darkBg md:flex-row"
+>
+    <div class="flex flex-grow flex-col p-4">
+        <div class="flex-grow">
+            <div class="text-xl font-bold">{{- .Get "name" -}}</div>
+            {{- if (.Get "desc") -}}
+                <div class="my-1 text-gray-400 line-clamp-2 dark:text-darkTextPlaceholder">{{- .Get "desc" -}}</div>
+            {{- end -}}
+        </div>
+
+        {{- if (.Get "link") -}}
+            <div class="flex items-center">
+                {{- $url := urls.Parse (.Get "link") -}}
+                <img class="link-card-img mr-1 h-3 w-3" src="https://www.google.cn/s2/favicons?domain={{- $url.Host -}}" alt="" />
+                <div class="text-xs text-gray-400 line-clamp-1 dark:text-darkTextPlaceholder">{{- .Get "link" -}}</div>
+            </div>
+        {{- end -}}
+    </div>
+    {{- if (.Get "img") -}}
+        <img class="link-card-img h-32 bg-white object-contain dark:bg-transparent" src="{{- .Get "img" -}}" alt="{{- .Get "name" -}}" />
+    {{- end -}}
+</a>

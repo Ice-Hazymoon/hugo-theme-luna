@@ -1,0 +1,9 @@
+{{- $public_cdn := cond .Site.IsServer "" .Site.Params.publicCDN -}}
+<!-- main.js -->
+{{- $script := resources.Get "sw.js" | js.Build (dict "minify" hugo.IsProduction "params" (dict "cdn" $public_cdn "url" .Site.BaseURL)) -}}<script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('{{- $script.RelPermalink -}}');
+        });
+    }
+</script>

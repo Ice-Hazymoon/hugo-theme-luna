@@ -1,0 +1,42 @@
+{{- $icon := resources.Get "icon.png" -}}
+{{- $public_cdn := cond .Site.IsServer "" .Site.Params.publicCDN -}}
+{{- $icon_192 := print $public_cdn ($icon.Resize "192x192").RelPermalink -}}
+{{- $icon_256 := print $public_cdn ($icon.Resize "256x256").RelPermalink -}}
+{{- $icon_384 := print $public_cdn ($icon.Resize "384x384").RelPermalink -}}
+{{- $icon_512 := print $public_cdn ($icon.Resize "512x512").RelPermalink -}}
+{
+    "theme_color": "{{- .Site.Params.themeColor | safeHTML -}}",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "{{- "/" | relLangURL -}}",
+    "name": "{{- .Site.Title | safeHTML -}}",
+    "short_name": "{{- .Site.Params.author | safeHTML -}}",
+    "description": "{{- .Site.Title | safeHTML -}}",
+    "icons": [
+        {
+            "src": "{{- $icon_192 -}}",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "{{- $icon_256 -}}",
+            "sizes": "256x256",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "{{- $icon_384 -}}",
+            "sizes": "384x384",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "{{- $icon_512 -}}",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ]
+}

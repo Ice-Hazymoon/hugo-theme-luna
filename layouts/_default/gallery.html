@@ -1,0 +1,43 @@
+{{- define "main" -}}
+    <div class="page-gallery">
+        <div class=" mt-8 text-center">
+            <div class=" text-4xl font-bold">{{- .Title -}}</div>
+            <div class="mt-4 inline-flex items-center ">
+                <span class="text-gray-400 dark:text-gray-500">-</span>
+                <span class=" mx-2">{{ .Summary }}</span>
+                <span class="text-gray-400 dark:text-gray-500">-</span>
+            </div>
+            <div class="mt-4 flex items-center justify-center text-xs text-gray-400">
+                <i class="eva eva-clock-outline mr-1"></i>
+                <time
+                    class=" "
+                    title="{{- .Date.Format (T "date.normal") -}}"
+                    {{- printf `datetime="%s"` (.Date.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr -}}
+                    >{{- .Date.Format (T "date.d_m_y") -}}</time
+                >
+                <div class=" flex items-center">
+                    <span class="mx-2 opacity-50">|</span>
+                    <i class=" eva eva-folder-outline mr-1"></i>
+                    {{- range .Params.categories -}}
+                        <a href="{{- "/categories/" | relLangURL -}}{{- . | urlize -}}" title="{{- . -}}" class="group flex items-center">
+                            <span class=" group-hover:text-theme">{{- . -}}</span>
+                            <span class="mx-0.5 group-last:hidden">,</span>
+                        </a>
+                    {{- end -}}
+                </div>
+                <div class=" flex items-center">
+                    <span class="mx-2 opacity-50">|</span>
+                    {{- range .Params.tags -}}
+                        <a href="{{- "/tags/" | relLangURL -}}{{- . | urlize -}}" title="{{- . -}}" class="group mr-2 flex items-center">
+                            <i class="mr-1  group-hover:text-theme">#</i>
+                            <span class=" group-hover:text-theme"> {{- . -}}</span>
+                        </a>
+                    {{- end -}}
+                </div>
+            </div>
+            <div class="mt-4 text-gray-300">|</div>
+        </div>
+        <div class="gallery-box columns-2 p-4 pt-6 sm:columns-3 md:columns-4">{{- .Content -}}</div>
+        <div class=" my-10 text-center text-gray-300">- <span class="mx-2">End</span> -</div>
+    </div>
+{{- end -}}

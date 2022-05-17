@@ -1,0 +1,39 @@
+{{- $noticeType := .Get 0 -}}
+
+{{- $raw := (markdownify .Inner | chomp) -}}
+
+{{- $block := findRE "(?is)^<(?:address|article|aside|blockquote|canvas|dd|div|dl|dt|fieldset|figcaption|figure|footer|form|h(?:1|2|3|4|5|6)|header|hgroup|hr|li|main|nav|noscript|ol|output|p|pre|section|table|tfoot|ul|video)\\b" $raw 1 -}}
+
+{{- $icons := newScratch -}}
+{{- $colors := newScratch -}}
+
+{{- $icons.Set "warn" "eva-alert-circle-outline" -}}
+{{- $colors.Set "warn" "yellow-400" -}}
+
+{{- $icons.Set "success" "eva-checkmark-circle-2-outline" -}}
+{{- $colors.Set "success" "green-400" -}}
+
+{{- $icons.Set "error" "eva-minus-circle-outline" -}}
+{{- $colors.Set "error" "red-400" -}}
+
+{{- $icons.Set "info" "eva-question-mark-circle-outline" -}}
+{{- $colors.Set "info" "blue-400" -}}
+
+
+<div class="border-yellow-400 border-green-400 border-red-400 border-blue-400"></div>
+<div class="bg-yellow-400 bg-green-400 bg-red-400 bg-blue-400"></div>
+<div class="text-yellow-400 text-green-400 text-red-400 text-blue-400"></div>
+
+<div
+    class="border-{{ $colors.Get $noticeType }} bg-{{ $colors.Get $noticeType }} my-4 ml-0 flex items-start rounded border-l-4 bg-opacity-10 p-5 dark:bg-darkBgAccent"
+    {{ if len .Params | eq 2 }}id="{{ .Get 1 }}"{{ end }}
+>
+    <div class="mr-2">
+        <i class="eva text-{{ $colors.Get $noticeType }} {{ $icons.Get $noticeType }} text-2xl"></i>
+    </div>
+    {{- if or $block (not $raw) -}}
+        {{- $raw -}}
+    {{- else -}}
+        <p style="margin: 0;">{{- $raw -}}</p>
+    {{- end -}}
+</div>

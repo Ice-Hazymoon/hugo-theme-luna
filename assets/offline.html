@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{{ T "offline.title" }}</title>
+
+        <style>
+            body {
+                padding: 20px;
+                background-color: #f4f8fb;
+            }
+            img {
+                max-width: 100%;
+                max-height: 50vh;
+                display: block;
+                margin: 30px 0;
+            }
+            h4,
+            h3,
+            h1,
+            a {
+                color: rgb(55, 65, 81);
+            }
+            a {
+                display: block;
+                font-size: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>{{- T "offline.h1" -}}</h1>
+        <h3>{{- T "offline.h3" -}}</h3>
+        <h4>{{- T "offline.h4" -}}</h4>
+
+        <img src="/offline.jpg" alt="" />
+
+        <a href="{{- "/" | absLangURL -}}">{{- T "offline.return" -}}</a>
+    </body>
+</html>

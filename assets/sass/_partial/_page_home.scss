@@ -1,0 +1,75 @@
+.article-list {
+    // width: calc(100% - 100px);
+    .category-items a:last-child span:last-child {
+        display: none;
+    }
+    .article {
+        @media (min-width: 640px) {
+            box-shadow: 8px 14px 38px rgba(39, 44, 49, 0.06), 1px 3px 8px rgba(39, 44, 49, 0.03);
+            &:hover {
+                // box-shadow: 0px 0px 1px 1px #e2e8f0;
+                // box-shadow: 0px 0px 0px 0px transparent,0px 0px 0px 0px transparent,
+                //     inset 30px 30px 60px #d9d9d9, inset -30px -30px 60px #ffffff;
+                .article-cover {
+                    img {
+                        @apply rounded-b-none;
+                    }
+                    &::after {
+                        content: '';
+                        @apply opacity-25;
+                    }
+                }
+                .cover-shadow {
+                    opacity: 0;
+                }
+            }
+        }
+        &-title {
+            text-shadow: 0px 1px 3px rgba($color: #000000, $alpha: 0.3);
+            // position: absolute !important;
+            line-height: 1.3;
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.4), cubic-bezier(0.25, 0, 0.5, 1), transparent);
+        }
+        &-cover {
+            padding-bottom: 42%;
+            transform: scale(1);
+            &::after {
+                content: '';
+                @apply pointer-events-none absolute left-0 top-0 z-0 h-full w-full bg-black opacity-0 transition duration-500 ease-[ease];
+            }
+            [data-lazyload]:not(.lazy-loaded) + noscript + .cover-shadow {
+                @apply opacity-0 #{!important};
+            }
+        }
+        .cover-shadow {
+            filter: blur(18px) saturate(3.5) brightness(1) contrast(1.3);
+            transform: scale(0.94) translateY(5px);
+            opacity: 1;
+        }
+        .tag {
+            &:hover {
+                box-shadow: -5px 5px 12px #f2f2f2, 5px -5px 12px #ffffff;
+                @apply dark:shadow-none opacity-90;
+            }
+        }
+    }
+}
+
+.dark {
+    .article-list {
+        .article {
+            .cover-shadow {
+                opacity: 0.2;
+            }
+            @media (min-width: 640px) {
+                box-shadow: 0px 5px 40px 0px rgba(0, 0, 0, 0.1);
+                &:hover {
+                    box-shadow: 0px 0px 0px 0px transparent;
+                    .cover-shadow {
+                        opacity: 0;
+                    }
+                }
+            }
+        }
+    }
+}

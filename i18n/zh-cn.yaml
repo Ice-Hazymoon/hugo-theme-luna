@@ -1,0 +1,129 @@
+backTop: "返回顶部"
+
+# hugo encrypt
+encrypt:
+    protectedByPassword: "此处包含密码保护内容"    
+    enterPassword: "请输入密码"
+    decrypt: "提交"
+    wrongPassword: "密码错误"
+    encryptNoscript: "需要启用 Javascript 来解密内容"
+
+# links
+linksRank: "排名不分先后"
+
+# Archives
+archives:
+    title: "归档"
+    total: '当前共计<span class="text-theme font-bold"> {{.}} </span>篇日志'
+    helloWorld: "你好世界！"
+    untitled: "无标题"
+
+# date
+date:
+    day: "{{ . }}日"
+    d_m_y: "2006年01月02日"
+    m_d_y: "2006年01月02日"
+    m_y: "2006年01月"
+    m_d_h_s: "01月02日 15:04"
+    normal: "2006年01月02日 15:04:05"
+
+# post
+post:
+    publishedIn: "发布于："
+    readingTime: "阅读约 {{ .Count }} 分钟"
+    wordCount: "{{ .Count }} 字"
+    prevPost: "上一篇"
+    nextPost: "下一篇"
+    license: "除特殊声明外，本博客一律使用以下协议进行授权"
+    outdatedInfo: '文章最后编辑于: <span class="mx-1 font-bold"> {{.}} </span> 天前，文中所描述的信息可能已发生改变'
+    lastmod: '最后修改于：'
+    toc: "文章目录"
+    refs: "引用链接"
+    archiveCounter: '共 <span class="mx-1 text-theme">{{ .Count }}</span> 篇文章'
+    untitled: "无标题"
+
+# search
+searchLoading: "初始化中，请稍后"
+
+# taxonomy
+taxonomy:
+    _tags: "标签"
+    _categories: "分类"
+    tag: '标签 <b class="text-theme mx-1">{{.Title}}</b> 下共有 <b class="text-theme mx-1">{{.Count}}</b> 篇文章'
+    category: '分类 <b class="text-theme mx-1">{{.Title}}</b> 下共有 <b class="text-theme mx-1">{{.Count}}</b> 篇文章'
+    totalTags: 当前共有<span class="text-theme font-bold mx-1"> {{.}} </span> 个标签
+    totalCategories: 当前共有<span class="text-theme font-bold mx-1"> {{.}} </span> 个分类
+
+runTime:
+    text: "运行时间："
+    days: "天"
+    hours: "小时"
+    minutes: "分钟"
+    seconds: "秒"
+
+# navbar
+navbar:
+    home: "首页"
+    about: "关于我"
+    links: "朋友们"
+    github: "GitHub"
+    search: "搜索"
+    archives: "归档"
+    twitter: "推特"
+    tags: "标签"
+    categories: "分类"
+
+# share
+share:
+    twitter: "分享到 Twitter"
+    facebook: "分享到 Facebook"
+    weibo: "分享到 微博"
+    copy: "复制链接"
+    qrcode: "二维码"
+
+# pagination
+page:
+    prev: "上一页"
+    next: "下一页"
+    pagination: "第 {{ .PageNumber }} 页 共 {{ .TotalPages }} 页"
+
+# js
+js:
+    copySuccess: "复制成功"
+    copyFailed: "复制失败，请手动复制"
+    copyCode: "复制代码"
+    searchLoadFailure: "初始化搜索引擎失败"
+    searchInput: "请输入内容"
+    searchResults: '`关键字 <span class="text-theme">${keyword}</span> 中共找到 <span class="text-theme">${results}</span> 条结果`'
+
+# offline
+offline:
+    title: "您已离线"
+    h1: "呕吼，完蛋!"
+    h3: "你的网络好像出现了点问题，但是没关系，你仍然可以访问你之前访问过的页面"
+    h4: "现在请尽情欣赏下面这只可爱的兔狲吧"
+    return: "点击返回首页"
+
+# github
+github:
+    goto: "前往 GitHub 查看"
+    config: "未检测到 github 配置"
+
+# twitter
+twitter:
+    title: "近期动态"
+    config: "未检测到 twitter 配置"
+    link: "查看原文"
+    like: "点赞"
+    reply: "回复"
+    forward: "转发"
+    goto: "前往 Twitter 查看"
+
+# i18nlist
+switchLang: "切换语言到 "
+
+noscript: "请启用 JavaScript 来获取更好的体验"
+
+poweredBy: "由 {{ .Hugo }} {{ .Heart }} {{ .Theme }} 驱动"
+
+notFound: "未找到页面，点击返回首页"

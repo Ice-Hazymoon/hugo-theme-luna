@@ -1,0 +1,13 @@
+{{- define "main" -}}
+    {{- $public_cdn := cond .Site.IsServer "" .Site.Params.publicCDN -}}
+
+
+    <div class="absolute flex h-full items-center justify-center px-8">
+        <div class="w-5/6 text-center md:w-4/6">
+            <img src="{{- print $public_cdn ("images/error.svg" | relURL) -}}" alt="404" class="pointer-events-none max-h-full max-w-full" />
+            <a href="/" class="my-8 inline-block border-b border-gray-600 text-center text-3xl font-bold transition duration-200 ease-[ease] hover:text-theme"
+                >{{- T "notFound" -}}</a
+            >
+        </div>
+    </div>
+{{- end -}}

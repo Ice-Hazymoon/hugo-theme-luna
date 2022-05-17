@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="{{- .Language -}}" class="lang-{{- .Language -}}">
+    {{- partial "html/head" . -}}
+    <body class="dark:bg-darkBg dark:text-darkText">
+        {{- partial "resources" . -}}
+        <div class="relative mx-auto shadow-lg md:max-w-4xl xl:max-w-4xl 2xl:max-w-4xl">
+            <div class="main flex flex-col justify-between bg-white dark:bg-darkFg">
+                {{- partial "html/header" . -}}
+
+                {{- partial "components/dark-mode" . -}}
+
+
+                <main class="relative flex flex-grow" id="swup">
+                    <div class="w-full">{{- block "main" . -}}{{- end -}}</div>
+                </main>
+
+                {{- partial "html/footer" . -}}
+            </div>
+        </div>
+        {{- partial "components/backtop" . -}}
+
+        {{- partial "components/i18nlist" . -}}
+
+        {{- partial "noscript" . -}}
+    </body>
+</html>

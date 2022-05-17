@@ -1,0 +1,20 @@
+{{- $showTOC := false -}}
+
+{{- if isset .Params "toc" -}}
+    {{- $showTOC = .Params.Toc -}}
+{{- else if .Site.Params.Toc.enable -}}
+    {{- $showTOC = true -}}
+{{- end -}}
+
+{{- if $showTOC -}}
+    {{- if gt .WordCount .Site.Params.Toc.wordCount -}}
+        <aside
+            class="toc border-b border-gray-300 px-5 py-5 dark:border-darkBorder md:px-10 2xl:fixed 2xl:top-10 2xl:m-0 2xl:-ml-72 2xl:w-72 2xl:border-none 2xl:p-0 2xl:py-4 2xl:pr-4 "
+        >
+            <header>
+                <h1 class="mb-3 text-2xl font-bold 2xl:mb-4">{{- T "post.toc" -}}</h1>
+            </header>
+            {{ .TableOfContents }}
+        </aside>
+    {{- end -}}
+{{- end -}}

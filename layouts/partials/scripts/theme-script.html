@@ -1,0 +1,38 @@
+{{- $pjax := .Site.Params.pjax -}}
+{{- $isServer := .Site.IsServer -}}
+{{- $version := getenv "HUGO_VERSION" -}}
+{{- $public_cdn := cond .Site.IsServer "" .Site.Params.publicCDN -}}<script type="text/javascript">
+window.__theme = {
+    cdn: '{{- $public_cdn -}}',
+    pjax: {{- $pjax -}},
+    isServer: {{- $isServer -}},
+    $version: {{- $version -}},
+    lang: '{{- .Language -}}',
+    imageZoom: {{- .Site.Params.imageZoom -}},
+    lazyload: {{- .Site.Params.lazyload -}},
+    backtop: {{- .Site.Params.backtop -}},
+    pangu: {{- .Site.Params.pangu -}},
+    autoDarkMode: {{- .Site.Params.autoDarkMode -}},
+    googleAnalytics: {{- if .Site.GoogleAnalytics -}}true{{- else -}}false{{- end -}},
+    hugoEncrypt: {
+        wrongPasswordText: '{{- i18n "encrypt.wrongPassword" -}}',
+        userStorage: {{- if .Site.Params.HugoEncrypt.Storage -}} window['{{- .Site.Params.HugoEncrypt.Storage -}}Storage'] {{- else -}} localStorage {{- end -}},
+    },
+    assets: {
+        error_svg: "{{- "images/error.svg" | relURL -}}",
+        search_svg: "{{- "images/search.svg" | relURL -}}",
+    },
+    i18n: {
+        untitled: "{{- i18n "post.untitled" -}}",
+        copySuccess: "{{- T "js.copySuccess" -}}",
+        copyFailed: "{{- T "js.copyFailed" -}}",
+        copyCode: "{{- T "js.copyCode" -}}",
+        searchLoadFailure: "{{- T "js.searchLoadFailure" -}}",
+        searchInput: "{{- T "js.searchInput" -}}",
+        searchResults: (results, keyword) => {{- safeJS (T "js.searchResults") -}},
+    },
+    {{- if .Site.Params.runTime.enable -}}
+    creatTime: "{{- .Site.Params.runTime.creatTime -}}"
+    {{- end -}}
+}
+</script>

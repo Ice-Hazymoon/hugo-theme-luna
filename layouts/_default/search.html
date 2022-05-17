@@ -1,0 +1,24 @@
+{{- define "main" -}}
+    {{- $public_cdn := cond .Site.IsServer "" .Site.Params.publicCDN -}}
+
+
+    <div class="page-search">
+        <div class="search-input flex items-center border-b bg-gray-100 px-3 py-2 text-2xl dark:border-darkBorder dark:bg-darkBgAccent">
+            <input id="search-input" type="search" disabled placeholder="{{- T "searchLoading" -}}" autofocus="autofocus" class="w-full" />
+            <i class="eva eva-search ml-4 block cursor-pointer text-gray-500"></i>
+        </div>
+        <div class="relative">
+            <noscript>
+                <h2 class="mt-12 -mb-10 text-center text-2xl font-bold">{{- T "noscript" -}}</h2>
+            </noscript>
+            <div id="search-image" class="mt-20 flex items-center justify-center">
+                <img
+                    src="{{- print $public_cdn ("images/search.svg" | relURL) -}}"
+                    alt="search-results"
+                    class="pointer-events-none max-h-full max-w-xs md:max-w-sm"
+                />
+            </div>
+            <div id="search-results"></div>
+        </div>
+    </div>
+{{- end -}}

@@ -1,0 +1,28 @@
+{{- $public_cdn := cond .Site.IsServer "" .Site.Params.publicCDN -}}
+{{- $searchScript := resources.Get "ts/search.ts" | js.Build (dict "minify" hugo.IsProduction) -}}
+
+{{- $katex := "" -}}
+{{- if .Site.Params.katex -}}
+    {{- $katex = print $public_cdn (resources.Get "ts/katex.ts" | js.Build (dict "minify" hugo.IsProduction "shims" (dict "katex" "ts/modules/katex.js"))).RelPermalink -}}
+{{- end -}}
+
+{{- $scratch := newScratch -}}
+{{- $scratch.SetInMap "jsModules" "lazyload" (cond .Site.Params.lazyload "ts/modules/lazyload.js" "ts/_.ts") -}}
+{{- $scratch.SetInMap "jsModules" "medium-zoom" (cond .Site.Params.imageZoom "ts/modules/medium-zoom.js" "ts/_.ts") -}}
+{{- $scratch.SetInMap "jsModules" "jump.js" (cond .Site.Params.backtop "ts/modules/jump.js" "ts/_.ts") -}}
+{{- $scratch.SetInMap "jsModules" "pangu" (cond .Site.Params.backtop "ts/modules/pangu.js" "ts/_.ts") -}}
+
+{{- $scratch.SetInMap "jsModules" "swup" (cond .Site.Params.pjax "ts/modules/swup.js" "ts/_.ts") -}}
+{{- $scratch.SetInMap "jsModules" "swupFadeTheme" (cond .Site.Params.pjax "ts/modules/swupFadeTheme.js" "ts/_.ts") -}}
+{{- $scratch.SetInMap "jsModules" "swupProgressPlugin" (cond .Site.Params.pjax "ts/modules/swupProgressPlugin.js" "ts/_.ts") -}}
+{{- $scratch.SetInMap "jsModules" "swupGaPlugin" (cond .Site.Params.pjax "ts/modules/swupGaPlugin.js" "ts/_.ts") -}}
+{{- $scratch.SetInMap "jsModules" "swupScriptsPlugin" (cond .Site.Params.pjax "ts/modules/swupScriptsPlugin.js" "ts/_.ts") -}}
+{{- $scratch.SetInMap "jsModules" "swupMorphPlugin" (cond .Site.Params.pjax "ts/modules/swupMorphPlugin.js" "ts/_.ts") -}}
+
+{{- $mainScript := resources.Get "ts/main.ts" | js.Build (dict "minify" hugo.IsProduction "params" (dict "search" $searchScript.RelPermalink "katex" $katex "lazyload" .Site.Params.lazyload) "shims" ($scratch.Get "jsModules")) -}}
+{{- if .Site.IsServer -}}
+    <script type="text/javascript" src="{{- $mainScript.RelPermalink -}}" defer></script>
+{{- else -}}
+    {{- $mainScript := $mainScript | fingerprint -}}
+    <script type="text/javascript" src="{{- print $public_cdn $mainScript.RelPermalink -}}" defer integrity="{{- $mainScript.Data.Integrity -}}"></script>
+{{- end -}}

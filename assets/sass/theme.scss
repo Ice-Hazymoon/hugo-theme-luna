@@ -1,0 +1,17 @@
+/* purgecss start ignore */
+:root {
+    --theme: #{$theme};
+    --color-zoom-bg: #fff;
+    --color-text: rgba(55, 65, 81, 1);
+    --color-dark-bg: #0d1117;
+    --color-dark-bg-accent: #21262d;
+    --color-dark-fg: #161b22;
+    --color-dark-border: #30363d;
+    --color-dark-text: #d3d4de;
+    --color-dark-text-placeholder: #8b8c95;
+}
+.dark {
+    --theme: #{darken($theme, 20%)};
+    --color-zoom-bg: #0d1117;
+}
+/* purgecss end ignore */

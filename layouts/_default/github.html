@@ -1,0 +1,64 @@
+{{- define "main" -}}
+    {{- $githubConfig := .Site.Params.github -}}
+    <div class="page-github relative py-8">
+        {{- if and $githubConfig (and $githubConfig.id $githubConfig.minStars) -}}
+            <div class="mx-8 mb-2 inline-flex items-end pb-3 text-3xl">
+                <div class="mr-4 inline-flex items-center leading-none">
+                    <i class="eva eva-github-outline mr-2"></i>
+                    <span>{{- .Title -}}</span>
+                </div>
+                <div class="inline-block text-lg leading-none text-gray-500 hover:text-theme dark:text-darkTextPlaceholder">
+                    <a href="https://github.com/{{- $githubConfig.id -}}/" target="_blank" rel="noopener noreferrer" title="{{- T "github.goto" -}}"
+                        >@{{- $githubConfig.id -}}</a
+                    >
+                </div>
+            </div>
+
+            <div class="mx-4" id="github">
+                {{- $githubColors := .Site.Data.luna.githubColors -}}
+                {{- $apiURL := print "https://api.github.com/users/" $githubConfig.id "/repos?per_page=100&type=owner" -}}
+                {{- $githubData := getJSON $apiURL -}}
+                {{- range sort $githubData "stargazers_count" "desc" -}}
+                    {{- if and (eq .owner.login $githubConfig.id) (gt .stargazers_count $githubConfig.minStars) -}}
+                        <a href="{{- .html_url -}}" target="_blank" rel="noopener noreferrer" class="inline-flex w-full  flex-col  justify-between sm:w-1/2">
+                            <div
+                                class="card m-4 flex h-40 flex-col justify-between rounded border p-4 transition duration-300 ease-[ease] dark:border-darkBorder dark:bg-darkBgAccent dark:shadow-none sm:border-none"
+                            >
+                                <div>
+                                    <div class="text-lg font-bold" title="{{- .name -}}">
+                                        {{- .name -}}
+                                    </div>
+                                    <div class="my-3 line-clamp-2" title="{{- or .description "暫無描述" -}}">
+                                        {{- or .description "暫無描述" -}}
+                                    </div>
+                                </div>
+                                <div class="flex justify-between">
+                                    <div class="flex">
+                                        <div class="mr-6 flex items-center">
+                                            <i class="eva eva-star mr-1 text-amber-400"></i>
+                                            <span>{{- .stargazers_count -}}</span>
+                                        </div>
+
+                                        {{- if .language -}}
+                                            <div class="flex items-center">
+                                                <span class="github-language-dot" style="background-color:{{- index $githubColors .language -}};"></span>
+                                                <span>{{- .language -}}</span>
+                                            </div>
+                                        {{- end -}}
+                                    </div>
+
+                                    <div class="flex items-center">
+                                        <i class="eva eva-shuffle-2 mr-1 text-blue-500"></i>
+                                        <span>{{- .forks -}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    {{- end -}}
+                {{- end -}}
+            </div>
+        {{- else -}}
+            {{- T "github.config" -}}
+        {{- end -}}
+    </div>
+{{- end -}}

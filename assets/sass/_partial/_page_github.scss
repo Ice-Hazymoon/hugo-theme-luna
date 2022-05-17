@@ -1,0 +1,17 @@
+.page-github {
+    .card {
+        @media (min-width: 640px) {
+            box-shadow: 11px 11px 22px #ededed, -11px -11px 22px #ffffff;
+            &:hover {
+                box-shadow: 0px 0px 0px transparent, 0px 0px 0px transparent, inset 11px 11px 22px #ededed, inset -11px -11px 22px #ffffff;
+            }
+            @apply dark:shadow-none dark:hover:shadow-none;
+        }
+    }
+    .github-language-dot {
+        width: 10px;
+        height: 10px;
+        margin-right: 6px;
+        @apply rounded-full;
+    }
+}
