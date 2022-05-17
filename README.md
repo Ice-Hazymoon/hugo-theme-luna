@@ -8,7 +8,7 @@
   <a href="https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/LICENSE" target="_blank"><img src="https://img.shields.io/github/license/Ice-Hazymoon/hugo-theme-luna?style=for-the-badge" /></a>
 </p>
 
-![Luna](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/luna.png)
+![Luna](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/luna.png)
 
 [👉 Example](https://hugo-theme-luna.imiku.me) | [中文文档](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/README.zh.md)
 
@@ -150,15 +150,15 @@ hugo server -s ./exampleSite -D --themesDir "../.."
 
 | Lighthouse                                                                                                      | GTmetrix                                                                                                      |
 | --------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| ![Lighthouse](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/lighthouse.png) | ![GTmetrix](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/gtmetrix.png) |
+| ![Lighthouse](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/lighthouse.png) | ![GTmetrix](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/gtmetrix.png) |
 
 ### - Screenshots
 
-| <p align="center">Home</p> ![Home](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/screen-home.png)                             | <p align="center">Home(Dark)</p> ![Home(dark)](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/screen-home-dark.png)         |
+| <p align="center">Home</p> ![Home](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/screen-home.png)                             | <p align="center">Home(Dark)</p> ![Home(dark)](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/screen-home-dark.png)         |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <p align="center">Archives</p> ![Archives](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/screen-archives.png)                     | <p align="center">Links</p> ![Links](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/screen-links.png)                   |
-| <p align="center">Twitter</p> ![Twitter](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/screen-twitter.png)                       | <p align="center">GitHub</p> ![GitHub](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/screen-github.png)                 |
-| <p align="center">Search</p> ![Search](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/screen-search.png) | <p align="center">Gallery</p> ![Gallery](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/screen-gallery.png) |
+| <p align="center">Archives</p> ![Archives](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/screen-archives.png)                     | <p align="center">Links</p> ![Links](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/screen-links.png)                   |
+| <p align="center">Twitter</p> ![Twitter](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/screen-twitter.png)                       | <p align="center">GitHub</p> ![GitHub](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/screen-github.png)                 |
+| <p align="center">Search</p> ![Search](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/screen-search.png) | <p align="center">Gallery</p> ![Gallery](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/screen-gallery.png) |
 
 ## Acknowledgements
 

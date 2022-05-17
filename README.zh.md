@@ -8,7 +8,7 @@
   <a href="https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/LICENSE" target="_blank"><img src="https://img.shields.io/github/license/Ice-Hazymoon/hugo-theme-luna?style=for-the-badge" /></a>
 </p>
 
-![Luna](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/luna.png)
+![Luna](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/luna.png)
 
 [👉在线预览](https://hugo-theme-luna.imiku.me/zh-cn) | [English](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/README.md)
 
@@ -167,15 +167,15 @@ hugo server -s ./exampleSite -D --themesDir "../.."
 
 | Lighthouse                                                                                                      | GTmetrix                                                                                                      |
 | --------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| ![Lighthouse](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/lighthouse.png) | ![GTmetrix](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/gtmetrix.png) |
+| ![Lighthouse](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/lighthouse.png) | ![GTmetrix](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/gtmetrix.png) |
 
 ### - 页面截图
 
-| <p align="center">首页</p> ![Home](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/screen-home.png)           | <p align="center">首页 (夜间模式)</p> ![Home(dark)](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/screen-home-dark.png) |
+| <p align="center">首页</p> ![Home](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/screen-home.png)           | <p align="center">首页 (夜间模式)</p> ![Home(dark)](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/screen-home-dark.png) |
 | ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| <p align="center">归档页</p> ![Archives](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/screen-archives.png) | <p align="center">友情链接</p> ![Links](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/screen-links.png)                 |
-| <p align="center">Twitter</p> ![Twitter](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/screen-twitter.png)  | <p align="center">GitHub</p> ![GitHub](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/screen-github.png)                 |
-| <p align="center">搜索页</p> ![Search](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/screen-search.png)     | <p align="center">画廊页</p> ![Gallery](https://github.com/Ice-Hazymoon/hugo-theme-luna/raw/main/screenshots/screen-gallery.png)               |
+| <p align="center">归档页</p> ![Archives](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/screen-archives.png) | <p align="center">友情链接</p> ![Links](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/screen-links.png)                 |
+| <p align="center">Twitter</p> ![Twitter](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/screen-twitter.png)  | <p align="center">GitHub</p> ![GitHub](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/screen-github.png)                 |
+| <p align="center">搜索页</p> ![Search](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/screen-search.png)     | <p align="center">画廊页</p> ![Gallery](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/screen-gallery.png)               |
 
 ## 致谢
 
