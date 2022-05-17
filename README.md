@@ -127,11 +127,11 @@ Add a `TOKEN` field to **github.com/{username}/{project}/settings/secrets/action
 
 ## Custom
 
-- [custom.ts](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/assets/ts/custom.ts)
-- [custom.scss](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/assets/sass/custom.scss)
-- [custom/head.html](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/layouts/partials/custom/head.html)
-- [custom/footer.html](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/layouts/partials/custom/footer.html)
-- [custom/script.html](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/layouts/partials/custom/script.html)
+- [custom.ts](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/assets/ts/custom.ts)
+- [custom.scss](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/assets/sass/custom.scss)
+- [custom/head.html](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/layouts/partials/custom/head.html)
+- [custom/footer.html](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/layouts/partials/custom/footer.html)
+- [custom/script.html](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/layouts/partials/custom/script.html)
 
 ## Development
 
