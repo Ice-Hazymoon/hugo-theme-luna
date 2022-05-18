@@ -50,5 +50,6 @@ jobs:
                 external_repository: "Ice-Hazymoon/blog-hugo-pages"
                 publish_branch: master
                 publish_dir: ./public
+                force_orphan: true
                 user_name: Ice-Hazymoon
                 user_email: imiku.me@gmail.com

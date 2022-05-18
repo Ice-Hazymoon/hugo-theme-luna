@@ -46,3 +46,4 @@ jobs:
               with:
                 personal_token: ${{ secrets.TOKEN }}
                 publish_dir: ./exampleSite/public
+                force_orphan: true
