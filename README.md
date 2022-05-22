@@ -132,6 +132,7 @@ Add a `TOKEN` field to **github.com/{username}/{project}/settings/secrets/action
 - [custom/head.html](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/layouts/partials/custom/head.html)
 - [custom/footer.html](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/layouts/partials/custom/footer.html)
 - [custom/script.html](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/layouts/partials/custom/script.html)
+- [custom/icons.html](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/layouts/partials/custom/icons.html)
 
 ## Development
 

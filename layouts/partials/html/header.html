@@ -3,7 +3,6 @@
         <div class="route-items flex w-full items-center justify-around">
             {{- $RelPermalink := .RelPermalink -}}
             <!-- Prevent tailwindcss ignore -->
-            <div class="eva-home eva-twitter eva-hash eva-folder eva-heart eva-people eva-bar-chart eva-search eva-github hidden"></div>
             {{- range .Site.Menus.main -}}
                 {{- $url := .URL | relLangURL -}}
                 <a
