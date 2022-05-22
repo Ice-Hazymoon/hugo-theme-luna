@@ -165,7 +165,7 @@ class Luna {
             if (!window.__theme.lazyload) {
                 this.noLazyload(false);
             }
-            this.zoom = mediumZoom('[data-zoomable]:not([data-lazyload])', {
+            this.zoom = mediumZoom('[data-zoomable]:not([data-lazyload]):not(.medium-zoom-image)', {
                 background: 'var(--color-zoom-bg)',
             });
         }
@@ -212,7 +212,7 @@ class Luna {
     }
 
     noLazyload(zoom: boolean) {
-        const images = Array.from(document.querySelectorAll('[data-zoomable]:not([data-lazyload])')) as HTMLImageElement[];
+        const images = Array.from(document.querySelectorAll('[data-zoomable]:not([data-lazyload]):not(.medium-zoom-image)')) as HTMLImageElement[];
         images.forEach(el => {
             el.setAttribute('src', el.currentSrc || el.getAttribute('src'));
             el.removeAttribute('srcset');
@@ -534,7 +534,7 @@ class Luna {
             this.noLazyload(true);
         }
         this.zoom.detach();
-        this.zoom.attach('[data-zoomable]:not([data-lazyload])');
+        this.zoom.attach('[data-zoomable]:not([data-lazyload]):not(.medium-zoom-image)');
     }
 }
 
