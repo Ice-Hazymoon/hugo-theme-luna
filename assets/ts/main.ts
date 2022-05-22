@@ -5,6 +5,7 @@ import mediumZoom from "medium-zoom";
 import LazyLoad from "lazyload";
 import ClipboardJS from "./modules/clipboard";
 import renderToc from "./toc";
+import bionicReading from "./bionic-reading";
 // pjax
 import Swup from 'swup';
 import SwupFadeTheme from 'swupFadeTheme';
@@ -18,6 +19,7 @@ declare global {
         Luna: any;
         initSearch: any;
         rednerKatex: any;
+        isBionic: boolean;
         __theme: {
             cdn: string,
             pjax: boolean,
@@ -25,6 +27,7 @@ declare global {
             lazyload: boolean,
             backtop: boolean,
             pangu: boolean,
+            bionicReading: boolean,
             isServer: boolean,
             $version: string,
             autoDarkMode: boolean,
@@ -90,6 +93,8 @@ class Luna {
         renderToc();
 
         this.pangu();
+
+        this.initBionicReading();
     }
     initPjax() {
         if (!window.__theme.pjax) return false;
@@ -133,11 +138,25 @@ class Luna {
         this.initClipboard();
         renderToc();
         this.pangu();
+        this.initBionicReading();
     }
 
     pangu() {
         if (window.__theme.pangu) {
             pangu.spacingElementById('swup');
+        }
+    }
+
+    initBionicReading() {
+        window.isBionic = false;
+        if (window.__theme.bionicReading && document.getElementById('bionicReading')) {
+            document.getElementById('bionicReading').addEventListener('click', () => {
+                if (window.isBionic) {
+                    bionicReading.revoke();
+                } else {
+                    bionicReading.bionic();
+                }
+            });
         }
     }
 

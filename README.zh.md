@@ -22,6 +22,7 @@
 - 轮播图
 - 丰富的[短代码](https://hugo-theme-luna.imiku.me/zh-cn/2022/05/02/shortcodes.html/)支持
 - 夜间模式
+- [Bionic Reading](https://bionic-reading.com/) 
 - 画廊模式
 - 图片自动压缩，支持 webp 向下兼容
 - 支持文章加密（任何情况下都请勿加密重要内容）

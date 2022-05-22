@@ -216,7 +216,8 @@ params:
 
   # 网站字体
   # Site font
-  font: '"Times New Roman", Times, "Heti Song", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
+  # font: '"Times New Roman", Times, "Heti Song", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
+  font: 'Inter, "Helvetica Neue", Helvetica, Arial, sans-serif'
 
   # 自定义脚本
   # ts/custom.ts
@@ -289,6 +290,12 @@ params:
   # 图片懒加载
   # lazyload image
   lazyload: true
+
+  # 更快速的阅读英文内容, 参考：https://bionic-reading.com/
+  # Read English content faster, see https://bionic-reading.com/
+  bionicReading:
+    enabled: true
+
 
   # 启用谷歌翻译插件
   # enable google translate in footer

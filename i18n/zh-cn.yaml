@@ -127,3 +127,5 @@ noscript: "请启用 JavaScript 来获取更好的体验"
 poweredBy: "由 {{ .Hugo }} {{ .Heart }} {{ .Theme }} 驱动"
 
 notFound: "未找到页面，点击返回首页"
+
+bionicReading: "更快的阅读"

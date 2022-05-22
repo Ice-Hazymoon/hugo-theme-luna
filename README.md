@@ -22,6 +22,7 @@
 - Carousel
 - Many [shortcodes](https://hugo-theme-luna.imiku.me/2022/05/02/shortcodes.html/)
 - Dark mode
+- [Bionic Reading](https://bionic-reading.com/) 
 - Image gallery
 - Responsive images
 - Article encryption (please do not encrypt important content under any circumstances)

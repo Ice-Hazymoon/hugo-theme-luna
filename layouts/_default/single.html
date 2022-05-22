@@ -150,7 +150,10 @@
                 {{- partial "post/toc" . }}
 
 
-                <section class="article-content typo flex-grow px-6 py-5 md:px-10">
+                <section class="article-content typo flex-grow px-6 py-5 md:px-10 relative">
+                    {{- if .Site.Params.bionicReading.enabled -}}
+                        <i title="{{- T "bionicReading" -}}" id="bionicReading" class="absolute right-0 top-0 p-3 cursor-pointer">{{- $.Site.Data.luna.icon.wand | safeHTML -}}</i>
+                    {{- end -}}
                     {{- .Content -}}
                 </section>
 
