@@ -144,4 +144,4 @@ poweredBy: "Покреће {{ .Hugo }} {{ .Heart }} {{ .Theme }}"
 
 notFound: "Страница није пронађена, кликни назад за почетну страницу"
 
-bionicReading: "Faster Reads"
+bionicReading: "Брже читање"
