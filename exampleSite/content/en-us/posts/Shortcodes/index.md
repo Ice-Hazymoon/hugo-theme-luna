@@ -262,3 +262,39 @@ The paella dish I rate {{< rating 10 6 >}}
 ```
 
 ![](1.jpg) ![](2.jpg) ![](3.jpg)
+
+## Tabs
+
+```markdown
+{{</* tab-view */>}}
+
+{{</* tab-panel name="中文" checked=true */>}}
+百合花（学名：Lilium）通称百合花，是百合目百合科的一属，为多年生草本球根植物，属内物种繁多，经常作为观赏植物。主要分布在亚洲东部、欧洲、北美洲等北半球温带地区，全球已发现有至少96个品种，其中5种产于台湾。近年更有不少经过人工杂交而产生的新品种，如OT百合、东方型百合、玫瑰百合等。百合属对猫来说有剧毒。
+{{</* /tab-panel */>}}
+
+{{</* tab-panel name="English" */>}}
+Lilium is a genus of herbaceous flowering plants growing from bulbs, all with large prominent flowers. They are the true lilies. Lilies are a group of flowering plants which are important in culture and literature in much of the world. Most species are native to the northern hemisphere and their range is temperate climates and extends into the subtropics. Many other plants have "lily" in their common names, but do not belong to the same genus and are therefore not true lilies.
+{{</* /tab-panel */>}}
+
+{{</* tab-panel name="Español" */>}}
+Las especies de Lilium, comúnmente llamadas azucenas o lirios, constituyen un género con alrededor de 110 integrantes que se incluye dentro de la familia de las liliáceas. Los lirios son herbáceas perennes de tallos erectos con numerosas hojas alternas, lineares a lance balas. Crecen a partir de bulbos formados por capas de escamas carnosas sin túnica.
+{{</* /tab-panel */>}}
+
+{{</* /tab-view */>}}
+```
+
+{{< tab-view >}}
+
+{{< tab-panel name="中文" checked=true >}}
+百合花（学名：Lilium）通称百合花，是百合目百合科的一属，为多年生草本球根植物，属内物种繁多，经常作为观赏植物。主要分布在亚洲东部、欧洲、北美洲等北半球温带地区，全球已发现有至少96个品种，其中5种产于台湾。近年更有不少经过人工杂交而产生的新品种，如OT百合、东方型百合、玫瑰百合等。百合属对猫来说有剧毒。
+{{< /tab-panel >}}
+
+{{< tab-panel name="English" >}}
+Lilium is a genus of herbaceous flowering plants growing from bulbs, all with large prominent flowers. They are the true lilies. Lilies are a group of flowering plants which are important in culture and literature in much of the world. Most species are native to the northern hemisphere and their range is temperate climates and extends into the subtropics. Many other plants have "lily" in their common names, but do not belong to the same genus and are therefore not true lilies.
+{{< /tab-panel >}}
+
+{{< tab-panel name="Español" >}}
+Las especies de Lilium, comúnmente llamadas azucenas o lirios, constituyen un género con alrededor de 110 integrantes que se incluye dentro de la familia de las liliáceas. Los lirios son herbáceas perennes de tallos erectos con numerosas hojas alternas, lineares a lance balas. Crecen a partir de bulbos formados por capas de escamas carnosas sin túnica.
+{{< /tab-panel >}}
+
+{{< /tab-view >}}

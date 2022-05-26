@@ -1,0 +1,7 @@
+{{- $id := print "tab-" (delimit (shuffle (seq 1 9)) "") "-" -}}
+
+<input type="radio" name="tabs" id="{{- $id -}}" {{- if .Get "checked" -}}checked="checked"{{- end -}}>
+<label class="px-4 py-2 font-bold cursor-pointer block order-1" for="{{- $id -}}">{{- .Get "name" -}}</label>
+<div class="tab p-4 hidden w-full order-last grow border-t border-gray-200 dark:border-gray-600">
+    {{- .Inner | markdownify -}}
+</div>

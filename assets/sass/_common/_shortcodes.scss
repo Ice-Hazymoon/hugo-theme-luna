@@ -84,3 +84,17 @@
         @apply relative pb-4 pl-6 leading-7 before:absolute before:left-0 before:top-2 before:z-10 before:mr-6 before:block before:h-2.5 before:w-2.5 before:rounded-full before:bg-gray-400 after:absolute after:top-4 after:left-[0.1875rem] after:block after:h-full after:w-1 after:bg-gray-100 last:after:hidden hover:before:bg-theme dark:before:bg-gray-500 dark:after:bg-darkBorder dark:before:hover:bg-theme;
     }
 }
+
+.tabs {
+    input {
+        &[type="radio"] {
+            @apply hidden;
+        }
+        &[type="radio"]:checked + label {
+            @apply  border-b-2 border-b-theme text-theme;
+        }
+        &[type="radio"]:checked + label + .tab {
+            @apply block;
+        }
+    }
+}
