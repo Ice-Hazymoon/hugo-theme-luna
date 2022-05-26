@@ -244,7 +244,7 @@ class Luna {
 
     // https://github.com/CaiJimmy/hugo-theme-stack/blob/master/assets/ts/gallery.ts
     initGallery() {
-        const figuresEl = Array.from(document.querySelectorAll('.typo figure.gallery-image')) as HTMLElement[];
+        const figuresEl = Array.from(document.querySelectorAll('.type-posts figure.gallery-image')) as HTMLElement[];
         let currentGallery = [];
         if (figuresEl.length < 2) return false;
         for (const figure of figuresEl) {
@@ -533,7 +533,7 @@ class Luna {
         if (!window.__theme.lazyload) {
             this.noLazyload(true);
         }
-        this.zoom.detach();
+        // this.zoom.detach();
         this.zoom.attach('[data-zoomable]:not([data-lazyload]):not(.medium-zoom-image)');
     }
 }

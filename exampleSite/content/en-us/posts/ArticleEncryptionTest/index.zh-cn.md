@@ -1,7 +1,7 @@
 ---
 title: "加密文章测试"
 date: 2022-04-09T02:49:13+02:00
-slug: Hugo-Encrypt
+slug: hugo-encrypt
 summary: "Hugo 文章加密测试"
 ---
 

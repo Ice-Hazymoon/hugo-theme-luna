@@ -1,8 +1,10 @@
 ---
 title: "中文排版测试"
 date: 2022-04-15T02:49:13+02:00
-slug: typography-cn
+slug: typography
 featured_image: cover.jpg
+tags:
+  - 中文
 refs:
   - link: https://unsplash.com/
 ---

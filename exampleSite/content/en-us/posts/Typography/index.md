@@ -1,7 +1,7 @@
 ---
 title: "Typography"
 date: 2022-04-15T02:49:13+02:00
-slug: typography-en
+slug: typography
 featured_image: cover.jpg
 tags:
   - English

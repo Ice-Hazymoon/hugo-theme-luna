@@ -218,7 +218,7 @@ input[type='checkbox'] {
         }
         header {
             color: #8b949e;
-            @apply flex w-full items-center justify-between bg-gray-800 px-4 pt-2 text-base dark:border-b dark:border-darkBorder dark:bg-transparent dark:text-darkTextPlaceholder;
+            @apply flex w-full items-center justify-between bg-gray-800 px-4 py-2 text-base dark:border-b dark:border-darkBorder dark:bg-transparent dark:text-darkTextPlaceholder;
             i {
                 @apply cursor-pointer;
             }

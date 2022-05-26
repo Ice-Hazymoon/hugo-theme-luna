@@ -1,0 +1,31 @@
+<div class="flex justify-between p-4 text-xl md:text-2xl">
+    <div>
+        <a
+            href="{{- with .PrevInSection -}}{{- .RelPermalink -}}{{- end -}}"
+            title="{{- with .PrevInSection -}}{{- .Title -}}{{- end -}}"
+            class="invisible flex cursor-pointer items-center text-gray-500 transition duration-300 ease-[ease] hover:text-theme dark:text-darkTextPlaceholder dark:hover:text-darkText"
+            {{- if .PrevInSection -}}style="visibility: visible;"{{- end -}}
+        >
+            <span class="flex items-center text-5xl opacity-70 dark:bg-opacity-100">
+                <i class="eva eva-chevron-left-outline"></i>
+            </span>
+            <span>{{- T "post.prevPost" -}}</span>
+        </a>
+    </div>
+
+    {{- if .Site.Params.license.enabled -}}
+        {{- partial "post/license" . }}
+    {{- end -}}
+
+    <a
+        href="{{- with .NextInSection -}}{{- .RelPermalink -}}{{- end -}}"
+        title="{{- with .NextInSection -}}{{- .Title -}}{{- end -}}"
+        class="invisible flex cursor-pointer items-center text-gray-500 transition duration-300 ease-[ease] hover:text-theme dark:text-darkTextPlaceholder dark:hover:text-darkText"
+        {{- if .NextInSection -}}style="visibility: visible;"{{- end -}}
+    >
+        <span>{{- T "post.nextPost" -}}</span>
+        <span class="flex items-center text-5xl opacity-70 dark:bg-opacity-100">
+            <i class="eva eva-chevron-right-outline"></i>
+        </span>
+    </a>
+</div>
