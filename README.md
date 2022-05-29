@@ -14,6 +14,30 @@
 
 ![](https://img.shields.io/github/last-commit/Ice-Hazymoon/hugo-theme-luna?style=flat-square) ![](https://img.shields.io/github/languages/code-size/Ice-Hazymoon/hugo-theme-luna?style=flat-square)
 
+<details open>
+<summary>Table of Contents</summary>
+
+- [Introduction](#introduction)
+- [Usage](#usage)
+  - [- Requirements](#--requirements)
+  - [- Install as git submodule](#--install-as-git-submodule)
+  - [- Update theme](#--update-theme)
+  - [- Configuration](#--configuration)
+  - [- Comment](#--comment)
+  - [- Shortcodes](#--shortcodes)
+  - [- Encryption](#--encryption)
+  - [Here is what needs to be encrypted](#here-is-what-needs-to-be-encrypted)
+- [Note:](#note)
+- [GitHub Action](#github-action)
+- [Custom](#custom)
+- [Development](#development)
+- [Screenshots](#screenshots)
+  - [- Performance tests (with pjax and katex turned off)](#--performance-tests-with-pjax-and-katex-turned-off)
+  - [- Screenshots](#--screenshots)
+- [Acknowledgements](#acknowledgements)
+- [License](#license)
+</details>
+
 ## Introduction
 
 - Using [Tailwindcss](https://tailwindcss.com)

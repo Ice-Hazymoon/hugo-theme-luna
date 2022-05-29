@@ -14,6 +14,30 @@
 
 ![](https://img.shields.io/github/last-commit/Ice-Hazymoon/hugo-theme-luna?style=flat-square) ![](https://img.shields.io/github/languages/code-size/Ice-Hazymoon/hugo-theme-luna?style=flat-square)
 
+<details open>
+<summary>目录</summary>
+
+- [特性](#特性)
+- [使用](#使用)
+  - [- 环境](#--环境)
+  - [- 安装主题](#--安装主题)
+  - [- 更新主题](#--更新主题)
+  - [- 配置](#--配置)
+  - [- 评论系统](#--评论系统)
+  - [- 短代码](#--短代码)
+  - [- 加密文章](#--加密文章)
+  - [这里是需要加密的内容](#这里是需要加密的内容)
+- [注意](#注意)
+- [GitHub Action](#github-action)
+- [自定义](#自定义)
+- [开发](#开发)
+- [截图：](#截图)
+  - [- 性能测试（关闭 pjax 和 katex 后）](#--性能测试关闭-pjax-和-katex-后)
+  - [- 页面截图](#--页面截图)
+- [致谢](#致谢)
+- [License](#license)
+</details>
+
 ## 特性
 
 - 使用 [Tailwindcss](https://tailwindcss.com) 构建，界面美观，SEO友好
