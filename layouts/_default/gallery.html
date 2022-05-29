@@ -1,13 +1,13 @@
 {{- define "main" -}}
     <div class="page-gallery">
-        <div class=" mt-8 text-center">
+        <div class=" py-8 text-center border-b dark:border-darkBorder">
             <div class=" text-4xl font-bold">{{- .Title -}}</div>
             {{- with .Summary -}}
-            <div class="mt-4 inline-flex items-center ">
-                <span class="text-gray-400 dark:text-gray-500">-</span>
-                <span class=" mx-2 italic">{{ . }}</span>
-                <span class="text-gray-400 dark:text-gray-500">-</span>
-            </div>
+                <div class="mt-4 inline-flex items-center ">
+                    <span class="text-gray-300 dark:text-gray-600">-</span>
+                    <span class=" mx-2 italic text-gray-500">{{ . }}</span>
+                    <span class="text-gray-300 dark:text-gray-600">-</span>
+                </div>
             {{- end -}}
             <div class="mt-4 flex items-center justify-center text-xs text-gray-400">
                 {{- if .Date -}}
@@ -45,9 +45,9 @@
                     </div>
                 {{- end -}}
             </div>
-            <div class="mt-6 text-gray-100 dark:text-gray-600">|</div>
+            <!-- <div class="my-6 text-gray-100 dark:text-gray-600">|</div> -->
         </div>
-        <div class="gallery-box columns-2 p-4 pt-8 sm:columns-3 md:columns-4">{{- .Content -}}</div>
+        <div class="">{{- .Content -}}</div>
         <div class=" my-10 text-center text-gray-300">- <span class="mx-2">End</span> -</div>
 
         {{- if eq .Type "posts" -}}

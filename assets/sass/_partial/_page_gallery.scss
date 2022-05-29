@@ -1,4 +1,7 @@
 .page-gallery {
+    .gallery {
+        @apply mx-4;
+    }
     .gallery-image {
         @apply relative mb-4 overflow-hidden rounded;
         figcaption {
@@ -13,5 +16,24 @@
                 @apply opacity-100;
             }
         }
+    }
+
+    h2 {
+        @apply text-2xl text-center mt-20 mb-14;
+        a {
+            @apply hidden;
+        }
+        &::before {
+            content: '「　';
+            @apply text-theme font-bold;
+        }
+        &::after {
+            content: '　」';
+            @apply text-theme font-bold;
+        }
+    }
+
+    blockquote {
+        @apply text-gray-400 text-center mb-12 -mt-10 italic;
     }
 }

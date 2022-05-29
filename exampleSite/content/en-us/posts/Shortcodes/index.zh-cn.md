@@ -261,11 +261,19 @@ categories:
 
 ## 画廊排版
 
-```
-![](1.jpg) ![](2.jpg) ![](3.jpg)
+```markdown
+{{</* gallery */>}}
+![Rose](1.jpg)
+![Rose](2.jpg)
+![Rose](3.jpg)
+{{</* /gallery */>}}
 ```
 
-![](1.jpg) ![](2.jpg) ![](3.jpg)
+{{< gallery >}}
+![Rose](1.jpg)
+![Rose](2.jpg)
+![Rose](3.jpg)
+{{< /gallery >}}
 
 ## 选项卡
 

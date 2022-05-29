@@ -257,11 +257,19 @@ The paella dish I rate {{< rating 10 6 >}}
 
 ## Gallery
 
-```
-![](1.jpg) ![](2.jpg) ![](3.jpg)
+```markdown
+{{</* gallery */>}}
+![Rose](1.jpg)
+![Rose](2.jpg)
+![Rose](3.jpg)
+{{</* /gallery */>}}
 ```
 
-![](1.jpg) ![](2.jpg) ![](3.jpg)
+{{< gallery >}}
+![Rose](1.jpg)
+![Rose](2.jpg)
+![Rose](3.jpg)
+{{< /gallery >}}
 
 ## Tabs
 

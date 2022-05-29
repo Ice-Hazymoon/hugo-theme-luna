@@ -98,3 +98,18 @@
         }
     }
 }
+
+.gallery-box {
+    .gallery {
+        @apply relative my-4 flex flex-row justify-center;
+        figure {
+            @apply my-0;
+            img {
+                @apply my-0;
+            }
+        }
+        figure + figure {
+            @apply ml-4;
+        }
+    }
+}

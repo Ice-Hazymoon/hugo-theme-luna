@@ -1,18 +1,4 @@
 .article-content {
-    .gallery {
-        @apply relative my-4 flex flex-row justify-center;
-        figure {
-            img {
-                @apply my-0;
-            }
-            figcaption {
-                @apply my-2;
-            }
-        }
-        figure + figure {
-            @apply ml-4;
-        }
-    }
     p:empty {
         @apply my-0;
     }
