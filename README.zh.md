@@ -174,6 +174,8 @@ Luna 主题支持大量的 Shortcodes，请查看：[Shortcodes](https://hugo-th
 - [custom/script.html](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/layouts/partials/custom/script.html)
 - [custom/icons.html](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/layouts/partials/custom/icons.html)
 
+如果你不想修改主题文件，你可以在网站根目录创建一个同名的文件来修改它，例如：`myblog/layouts/partials/custom/head.html`
+
 ## 开发
 
 ```sh

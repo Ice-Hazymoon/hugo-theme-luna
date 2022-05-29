@@ -157,6 +157,8 @@ Add a `TOKEN` field to **github.com/{username}/{project}/settings/secrets/action
 - [custom/script.html](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/layouts/partials/custom/script.html)
 - [custom/icons.html](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/layouts/partials/custom/icons.html)
 
+If you don't want to modify the theme file, you can create a file with the same name in the root of your website to modify it, e.g. `myblog/layouts/partials/custom/head.html`
+
 ## Development
 
 ```sh
