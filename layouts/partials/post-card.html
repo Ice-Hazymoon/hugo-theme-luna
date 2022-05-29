@@ -84,24 +84,24 @@
                 >
                     <div class="w-full">
                         <div class="font-bold line-clamp-2 md:line-clamp-3">{{- .Title -}}</div>
-                        {{- with $Summary -}}<div class="mt-2 hidden text-xl line-clamp-2 md:mt-4" title="{{- . -}}">{{ . }} ...</div>{{- end -}}
+                        {{- with $Summary -}}<div class="mt-2 hidden text-xl line-clamp-2 md:mt-4" title="{{- . -}}">{{ . }}</div>{{- end -}}
                     </div>
                 </div>
             </a>
 
             <div class="block border-t px-5 pt-5 dark:border-darkBorder sm:hidden">
                 <a href="{{- .RelPermalink -}}" class="text-2xl font-bold line-clamp-2 group-hover:text-theme md:line-clamp-3 transition">{{- .Title -}}</a>
-                {{- with $Summary -}}<div class="mt-4 mb-1 line-clamp-2" title="{{- . -}} ...">{{ . }} <span>...</span></div>{{- end -}}
+                {{- with $Summary -}}<div class="mt-4 mb-1 line-clamp-2" title="{{- . -}}">{{ . }}</div>{{- end -}}
             </div>
         {{- else -}}
             <a href="{{- .RelPermalink -}}" class="block px-5 pt-5 dark:border-darkBorder">
                 <div class="text-2xl font-bold line-clamp-2 group-hover:text-theme md:line-clamp-3 transition">{{- .Title -}}</div>
-                {{- with $Summary -}}<div class="mt-4 mb-1 line-clamp-2" title="{{- . -}} ...">{{ . }} <span>...</span></div>{{- end -}}
+                {{- with $Summary -}}<div class="mt-4 mb-1 line-clamp-2" title="{{- . -}}">{{ . }}</div>{{- end -}}
             </a>
         {{- end -}}
         <div class="article-info flex justify-between px-5 py-4 text-sm">
             <div class="{{ if $hasCover }}sm:text-inherit{{ end }} flex text-gray-400 dark:text-gray-400">
-                <div class="mr-4 flex items-center">
+                <div class="mr-3 md:mr-4 flex items-center">
                     <i class="eva eva-clock-outline mr-1"></i>
                     <span>
                         <time
@@ -118,9 +118,9 @@
                         >
                     </span>
                 </div>
-                <div class="mr-4 hidden items-center sm:flex">
+                <div class="mr-3 md:mr-4 hidden items-center sm:flex">
                     <i class="eva eva-book-open-outline mr-1"></i>
-                    <span class="mr-2">{{- T "post.readingTime" .ReadingTime }}</span>
+                    <span>{{- T "post.readingTime" .ReadingTime }}</span>
                 </div>
                 {{- if .Params.categories -}}
                     <div class="category-items flex items-center">
@@ -173,7 +173,7 @@
                 <i class="eva eva-edit-2-outline"></i>
             </div>
             <div class="flex-grow justify-between">
-                {{- with $Summary -}}<div class="text-xl line-clamp-3">{{ . }} <span>...</span></div>{{- end -}}
+                {{- with $Summary -}}<div class="text-xl line-clamp-3">{{ . }}</div>{{- end -}}
                 <div class="mt-2 flex items-center self-end text-sm text-gray-400">
                     <i class="eva eva-clock-outline mr-1"></i>
                     <div>
