@@ -18,6 +18,7 @@
 
 - 使用 [Tailwindcss](https://tailwindcss.com) 构建，界面美观，SEO友好
 - 动态导入 JS 模块
+- 数学公式，使用 [KaTeX](https://katex.org/)
 - 自定义主题颜色和字体
 - 轮播图
 - 丰富的[短代码](https://hugo-theme-luna.imiku.me/zh-cn/2022/05/02/shortcodes.html/)支持
@@ -62,7 +63,7 @@ scoop install hugo-extended
 在 Hugo 根目录执行
 
 ```bash
-git submodule add https://github.com/Ice-Hazymoon/hugo-theme-luna themes/hugo-theme-luna
+git submodule add -b master https://github.com/Ice-Hazymoon/hugo-theme-luna themes/hugo-theme-luna
 cd themes/hugo-theme-luna
 npm install --production
 ```

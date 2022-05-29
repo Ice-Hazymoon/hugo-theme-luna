@@ -17,7 +17,8 @@
 ## Introduction
 
 - Using [Tailwindcss](https://tailwindcss.com)
-- Dynamic import of JS modules
+- Dynamic import of JS modules、
+- LaTeX, use [KaTeX](https://katex.org/)
 - Custom Themes and Fonts
 - Carousel
 - Many [shortcodes](https://hugo-theme-luna.imiku.me/2022/05/02/shortcodes.html/)
@@ -48,12 +49,12 @@
 - **NodeJs**
 - **postcss-cli**, Install using `npm install postcss-cli -g`
 
-For more information about Hugo's functionality, check [official documentation of Hugo](https://gohugo.io/documentation/).
+For more information about Hugo's functionality, check [documentation of Hugo](https://gohugo.io/documentation/).
 
 ### - Install as git submodule
 
 ```bash
-git submodule add https://github.com/Ice-Hazymoon/hugo-theme-luna themes/hugo-theme-luna
+git submodule add -b master https://github.com/Ice-Hazymoon/hugo-theme-luna themes/hugo-theme-luna
 cd themes/hugo-theme-luna
 npm install --production
 ```
