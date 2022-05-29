@@ -105,9 +105,16 @@
                     <i class="eva eva-clock-outline mr-1"></i>
                     <span>
                         <time
-                            title="{{- .Date.Format "2006年01月02日 15:04:05" -}}"
+                            class=" hidden md:block"
+                            title="{{- .Date.Format (T "date.normal") -}}"
                             {{- printf `datetime="%s"` (.Date.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr -}}
-                            >{{- .Date.Format "2006-01-02" -}}</time
+                            >{{- .Date.Format (T "date.d_m_y") -}}</time
+                        >
+                        <time
+                            class=" block md:hidden"
+                            title="{{- .Date.Format (T "date.normal") -}}"
+                            {{- printf `datetime="%s"` (.Date.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr -}}
+                            >{{- .Date.Format (T "date.d_m") -}}</time
                         >
                     </span>
                 </div>
@@ -173,7 +180,7 @@
                         <time
                             title="{{- .Date.Format (T "date.normal") -}}"
                             {{- printf `datetime="%s"` (.Date.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr -}}
-                            >{{- .Date.Format (T "date.m_d_y") -}}</time
+                            >{{- .Date.Format (T "date.d_m_y") -}}</time
                         >
                     </div>
                 </div>

@@ -22,7 +22,7 @@
             <div id="twitter">
                 {{- if $twitterConfig.id -}}
                     {{- range (index $twitterData "items") -}}
-                        {{- $pubDate := dateFormat (T "date.m_d_h_s") .pubDate -}}
+                        {{- $pubDate := dateFormat (T "date.d_m_h_s") .pubDate -}}
                         {{- $content := (trim (replaceRE "<br>" "\n" (replaceRE "<video(.+?)</video>|<img(.+?)>" "" .content)) "\n") | safeHTML -}}
                         {{- $pics := findRE "<img src=\"(.+?)\" referrerpolicy=\"no-referrer\">" .content -}}
                         {{- $videos := findRE "<video (.+?)></video>" .content -}}
