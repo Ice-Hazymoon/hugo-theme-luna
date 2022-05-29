@@ -26,7 +26,6 @@
   - [- Comment](#--comment)
   - [- Shortcodes](#--shortcodes)
   - [- Encryption](#--encryption)
-  - [Here is what needs to be encrypted](#here-is-what-needs-to-be-encrypted)
 - [Note:](#note)
 - [GitHub Action](#github-action)
 - [Custom](#custom)
@@ -120,9 +119,7 @@ If you're not using [GitHub Actions](https://github.com/features/actions) and yo
 ````markdown
 {{% hugo-encrypt 2022 %}}
 
-### Here is what needs to be encrypted
-
-test content
+Here is what needs to be encrypted
 
 ![some text](test.jpg)
 

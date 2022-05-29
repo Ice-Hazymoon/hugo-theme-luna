@@ -26,7 +26,6 @@
   - [- 评论系统](#--评论系统)
   - [- 短代码](#--短代码)
   - [- 加密文章](#--加密文章)
-  - [这里是需要加密的内容](#这里是需要加密的内容)
 - [注意](#注意)
 - [GitHub Action](#github-action)
 - [自定义](#自定义)
@@ -129,9 +128,7 @@ Luna 主题支持大量的 Shortcodes，请查看：[Shortcodes](https://hugo-th
 ````markdown
 {{% hugo-encrypt 2022 %}}
 
-### 这里是需要加密的内容
-
-test content
+这里是需要加密的内容
 
 ![加密图片测试](test.jpg)
 
