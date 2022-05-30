@@ -1,6 +1,11 @@
 .page-gallery {
-    .gallery {
-        @apply md:mx-4 mx-3;
+    .gallery-box {
+        .gallery {
+            @apply md:my-4 my-3 md:mx-4 mx-3;
+            figure + figure {
+                @apply md:ml-4 ml-3;
+            }
+        }
     }
     .gallery-image {
         @apply relative md:mb-4 mb-3 overflow-hidden rounded;

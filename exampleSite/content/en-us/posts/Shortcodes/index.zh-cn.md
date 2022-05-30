@@ -263,16 +263,24 @@ categories:
 
 ```markdown
 {{</* gallery */>}}
-![Rose](1.jpg)
-![Rose](2.jpg)
-![Rose](3.jpg)
+![](1.jpg)
+![](2.jpg)
+![](3.jpg)
+
+![](2.jpg)
+![](3.jpg)
+![](1.jpg)
 {{</* /gallery */>}}
 ```
 
 {{< gallery >}}
-![Rose](1.jpg)
-![Rose](2.jpg)
-![Rose](3.jpg)
+![](1.jpg)
+![](2.jpg)
+![](3.jpg)
+
+![](2.jpg)
+![](3.jpg)
+![](1.jpg)
 {{< /gallery >}}
 
 ## 选项卡
