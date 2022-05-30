@@ -101,7 +101,7 @@
 
 .gallery-box {
     .gallery {
-        @apply relative my-4 flex flex-row justify-center;
+        @apply relative md:m-4 m-3 flex flex-row justify-center;
         figure {
             @apply my-0;
             img {
@@ -109,7 +109,7 @@
             }
         }
         figure + figure {
-            @apply ml-4;
+            @apply md:ml-4 ml-3;
         }
     }
 }

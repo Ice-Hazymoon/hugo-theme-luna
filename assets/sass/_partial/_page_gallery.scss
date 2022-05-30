@@ -1,9 +1,9 @@
 .page-gallery {
     .gallery {
-        @apply mx-4;
+        @apply md:mx-4 mx-3;
     }
     .gallery-image {
-        @apply relative mb-4 overflow-hidden rounded;
+        @apply relative md:mb-4 mb-3 overflow-hidden rounded;
         figcaption {
             @apply pointer-events-none absolute bottom-0 w-full px-4 pt-8 pb-4 text-center text-lg text-white opacity-100 transition-opacity duration-300 md:opacity-0;
             background-image: linear-gradient(to bottom, hsla(330, 0%, 0%, 0), cubic-bezier(0.42, 0, 0.4, 1), hsla(210, 0%, 0%, 0.3));

@@ -1,6 +1,6 @@
 {{- define "main" -}}
     <div class="page-tags relative py-8">
-        <div class="mx-8 mb-2 inline-flex items-end pb-3 text-3xl">
+        <div class="mx-6 md:mx-10 mb-2 inline-flex items-end pb-3 text-3xl">
             <div class="mr-4 inline-flex items-center leading-none">
                 {{- if eq .Title "Categories" -}}
                     <i class="eva eva-folder-outline mr-2"></i>
@@ -18,7 +18,7 @@
             </div>
         </div>
 
-        <div class="mx-8">
+        <div class="mx-6 md:mx-10">
             {{- if eq .Title "Categories" -}}
                 {{- range sort .Site.Taxonomies.categories "Count" "desc" -}}
                     <a

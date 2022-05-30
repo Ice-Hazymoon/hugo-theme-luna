@@ -136,7 +136,7 @@
             </div>
             <div class="hidden items-center text-xs sm:flex">
                 {{- if .Params.tags -}}
-                    {{- range .Params.tags -}}
+                    {{- range first 4 .Params.tags -}}
                         <a
                             href="{{- "/tags/" | relLangURL -}}{{- . | urlize -}}"
                             title="{{- . -}}"
@@ -150,7 +150,7 @@
             </div>
             <div class="flex items-center sm:hidden">
                 {{- if .Params.tags -}}
-                    {{- range .Params.tags -}}
+                    {{- range first 4 .Params.tags -}}
                         <a
                             href="{{- "/tags/" | relLangURL -}}{{- . | urlize -}}"
                             title="{{- . -}}"

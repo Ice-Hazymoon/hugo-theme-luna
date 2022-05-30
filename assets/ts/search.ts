@@ -68,7 +68,7 @@ async function initSearch() {
             return data[n]
         });
         if (value) {
-            const html = `<div class="p-6 pb-0">
+            const html = `<div class="p-6 md:px-10 pb-0">
                 <div class="font-bold text-2xl border-b dark:border-darkBorder pb-4">
                     ${window.__theme.i18n.searchResults(results.length, value)}
                 </div>

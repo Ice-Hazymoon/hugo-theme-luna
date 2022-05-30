@@ -125,6 +125,7 @@ This is a {{</* tag red "red tag" */>}}
 This is a {{</* tag green "green tag" */>}}  
 This is a {{</* tag blue "blue tag" */>}}  
 This is a {{</* tag orange "orange tag" */>}}  
+This is a {{</* tag theme "theme tag" */>}}  
 
 This is a {{</* tag-outlined red "red tag" */>}}  
 This is a {{</* tag-outlined green "green tag" */>}}  
@@ -136,6 +137,7 @@ This is a {{< tag red "red tag" >}}
 This is a {{< tag green "green tag" >}}  
 This is a {{< tag blue "blue tag" >}}  
 This is a {{< tag orange "orange tag" >}}  
+This is a {{< tag theme "theme tag" >}}  
 
 This is a {{< tag-outlined red "red tag" >}}  
 This is a {{< tag-outlined green "green tag" >}}  
@@ -149,12 +151,14 @@ This is a {{< tag-outlined orange "orange tag" >}}
 {{</* progress 77.54 red "Name of progress bar" */>}}
 {{</* progress 123.45 blue "Name of progress bar" */>}}
 {{</* progress 11.11 orange "Name of progress bar" */>}}
+{{</* progress 99.99 theme "Name of progress bar" */>}}
 ```
 
 {{< progress 80 green "Name of progress bar" >}}
 {{< progress 77.54 red "Name of progress bar" >}}
 {{< progress 123.45 blue "Name of progress bar" >}}
 {{< progress 11.11 orange "Name of progress bar" >}}
+{{< progress 99.99 theme "Name of progress bar" >}}
 
 ## Accordion
 

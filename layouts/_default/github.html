@@ -2,7 +2,7 @@
     {{- $githubConfig := .Site.Params.github -}}
     <div class="page-github relative py-8">
         {{- if and $githubConfig (and $githubConfig.id $githubConfig.minStars) -}}
-            <div class="mx-8 mb-2 inline-flex items-end pb-3 text-3xl">
+            <div class="mx-6 md:mx-10 mb-2 inline-flex items-end pb-3 text-3xl">
                 <div class="mr-4 inline-flex items-center leading-none">
                     <i class="eva eva-github-outline mr-2"></i>
                     <span>{{- .Title -}}</span>
@@ -14,7 +14,7 @@
                 </div>
             </div>
 
-            <div class="mx-4" id="github">
+            <div class="mx-2 md:mx-6" id="github">
                 {{- $githubColors := .Site.Data.luna.githubColors -}}
                 {{- $apiURL := print "https://api.github.com/users/" $githubConfig.id "/repos?per_page=100&type=owner" -}}
                 {{- $githubData := getJSON $apiURL -}}
