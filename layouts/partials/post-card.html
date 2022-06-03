@@ -1,83 +1,59 @@
 {{- $Summary := .Summary | plainify -}}
 {{- $public_cdn := cond .Site.IsServer "" .Site.Params.publicCDN -}}
+{{- $lazyload_image := print $public_cdn ("images/outload.svg" | relURL) -}}
 
 {{- if eq .Type "posts" -}}
     <article
-        class="article group relative mb-10 overflow-hidden rounded border bg-white transition duration-300 ease-[ease] dark:border-darkBorder dark:bg-darkBgAccent sm:border-transparent sm:hover:border-gray-200 sm:dark:hover:border-gray-600 sm:hover:shadow-none md:mb-16"
+        class="article group relative mb-10 overflow-hidden rounded border bg-white transition duration-300 ease-[ease] dark:border-darkBorder dark:bg-darkBgAccent sm:border-transparent sm:hover:border-gray-200 sm:hover:shadow-none sm:dark:hover:border-gray-600 md:mb-16"
     >
         {{- $hasCover := or (.Site.Params.defaultFeaturedImage) (.Params.featured_image) -}}
         {{- if $hasCover -}}
-            {{- $featured_image := "" -}}
-            {{- $srcset := "" -}}
-            {{- $srcset_webp := "" -}}
-            {{- $featured_image_small := "" -}}
-            {{- $featured_image_big := "" -}}
-            {{- $featured_image_small_webp := "" -}}
-            {{- $featured_image_big_webp := "" -}}
-            {{- $featured_image_bg := "" -}}
-            {{- $width := 0 }}
-            {{- $height := 0 }}
+            {{- $featuredImage := "" -}}
+            {{- $processImage := "" -}}
             {{- $lazyload := .Site.Params.lazyload -}}
-            {{- $featured_image_url := or .Params.featured_image .Site.Params.defaultFeaturedImage -}}
+            {{- $featuredImageUrl := or .Params.featured_image .Site.Params.defaultFeaturedImage -}}
 
-            {{- if (urls.Parse ($featured_image_url | safeURL)).Scheme -}}
-                {{- $featured_image = $featured_image_url | safeURL -}}
+            {{- if (urls.Parse ($featuredImageUrl | safeURL)).Scheme -}}
+                {{- $featured_image = $featuredImageUrl | safeURL -}}
             {{- else -}}
-                {{- if .Params.featured_image -}}
-                    {{- $featured_image = .Resources.GetMatch .Params.featured_image -}}
-                {{- else -}}
-                    {{- $featured_image = resources.Get .Site.Params.defaultFeaturedImage -}}
-                {{- end }}
+                {{- $featuredImage = cond (isset .Params "featured_image") (.Resources.GetMatch .Params.featured_image) (resources.Get .Site.Params.defaultFeaturedImage) -}}
+                {{- $processImage = partial "functions/image-process" (dict "Image" $featuredImage "Site" .Page.Site) -}}
 
-                {{- $width = $featured_image.Width -}}
-                {{- $height = $featured_image.Height -}}
-
-                {{- if (default true .Page.Site.Params.imageProcessing.cover.enabled) -}}
-                    {{- $featured_image_small = print $public_cdn ($featured_image.Resize "800x").RelPermalink -}}
-                    {{- $featured_image_big = print $public_cdn ($featured_image.Resize "1200x").RelPermalink -}}
-                    {{- $featured_image_bg = print $public_cdn (($featured_image.Resize "50x").Filter (images.GaussianBlur 2 )).RelPermalink -}}
-                    {{- $srcset = printf "%s 800w, %s 1200w" $featured_image_small $featured_image_big -}}
-
-                    {{- $featured_image_small_webp = print $public_cdn ($featured_image.Resize "800x webp").RelPermalink -}}
-                    {{- $featured_image_big_webp = print $public_cdn ($featured_image.Resize "1200x webp").RelPermalink -}}
-                    {{- $srcset_webp = printf "%s 800w, %s 1200w" $featured_image_small_webp $featured_image_big_webp -}}
-                {{- end -}}
-
-                {{- $featured_image = print $public_cdn $featured_image.RelPermalink -}}
+                {{- $featuredImageUrl = print $public_cdn $processImage.Permalink -}}
             {{- end }}
 
 
             <a href="{{- .RelPermalink -}}" class="article-cover relative block h-0 w-full transition duration-100 ease-[ease]">
-                <picture>
-                    {{- with $srcset_webp -}}<source {{ if $lazyload }}data-{{ end }}srcset="{{- $srcset_webp -}}" type="image/webp" />{{- end -}}
+                <picture class="noscript-hidden">
+                    {{- with $processImage.SrcsetWebp -}}<source {{ if $lazyload }}data-{{ end }}srcset="{{- . -}}" type="image/webp" />{{- end -}}
                     <img
-                        {{ if $lazyload }}data-{{ end }}src="{{- $featured_image -}}"
-                        {{ if $lazyload }}src="{{- or $featured_image_bg ($.Scratch.Get "svg_outload") -}}"{{ end }}
-                        {{- with $width -}}width="{{- . -}}"{{- end -}}
-                        {{- with $height -}}height="{{- . -}}"{{- end -}}
-                        {{ if $lazyload }}data-{{ end }}srcset="{{- $srcset -}}"
+                        {{ if $lazyload }}data-{{ end }}src="{{- $featuredImage -}}"
+                        {{ if $lazyload }}src="{{- or $processImage.Placeholder $lazyload_image -}}"{{ end }}
+                        {{ if $lazyload }}data-{{ end }}srcset="{{- $processImage.Srcset -}}"
                         {{- with .Title -}}alt="{{- . -}}"{{- end -}}
-                        {{- if not $featured_image_bg -}}style="background-color: #fff;"{{- end -}}
-                        class="absolute left-0 top-0 h-full w-full object-cover object-center transition duration-300 ease-[ease]"
+                        {{- if not $processImage.Placeholder -}}style="background-color: #fff;"{{- end -}}
+                        class="noscript-hidden absolute left-0 top-0 h-full w-full object-cover object-center transition duration-300 ease-[ease]"
                         {{ if $lazyload }}data-lazyload data-lazyload-blur{{ end }}
                     />
-                    <noscript>
+                </picture>
+
+                <noscript>
+                    <picture>
+                        {{- with $processImage.SrcsetWebp -}}<source srcset="{{- . -}}" type="image/webp" />{{- end -}}
                         <img
-                            src="{{- $featured_image -}}"
-                            {{- with $width -}}width="{{- . -}}"{{- end -}}
-                            {{- with $height -}}height="{{- . -}}"{{- end -}}
-                            {{- with $srcset -}}srcset="{{- . -}}"{{- end -}}
+                            src="{{- $featuredImageUrl -}}"
+                            {{- with $processImage.Srcset -}}srcset="{{- . -}}"{{- end -}}
                             {{- with .Title -}}alt="{{- . -}}"{{- end -}}
-                            {{- if not $featured_image_bg -}}style="background-color: #fff;"{{- end -}}
+                            {{- if not $processImage.Placeholder -}}style="background-color: #fff;"{{- end -}}
                             class="absolute left-0 top-0 h-full w-full object-cover object-center transition duration-300 ease-[ease]"
                         />
-                    </noscript>
+                    </picture>
+                </noscript>
 
-                    <div
-                        class="cover-shadow absolute left-0 top-0 -z-10 hidden h-full w-full bg-cover bg-center bg-no-repeat transition duration-300 ease-[ease] md:block"
-                        style="background-image:url({{- or $featured_image_bg $featured_image -}})"
-                    ></div>
-                </picture>
+                <div
+                    class="cover-shadow absolute left-0 top-0 -z-10 hidden h-full w-full bg-cover bg-center bg-no-repeat transition duration-300 ease-[ease] md:block"
+                    style="background-image:url({{- or $processImage.Placeholder $featuredImageUrl -}})"
+                ></div>
 
                 <div
                     class="article-title absolute bottom-0 left-0 z-10 hidden h-4/5 w-full items-end p-5 text-2xl text-white dark:text-darkText sm:flex md:p-10 md:text-3xl"
@@ -90,18 +66,18 @@
             </a>
 
             <div class="block border-t px-5 pt-5 dark:border-darkBorder sm:hidden">
-                <a href="{{- .RelPermalink -}}" class="text-2xl font-bold line-clamp-2 group-hover:text-theme md:line-clamp-3 transition">{{- .Title -}}</a>
+                <a href="{{- .RelPermalink -}}" class="text-2xl font-bold transition line-clamp-2 group-hover:text-theme md:line-clamp-3">{{- .Title -}}</a>
                 {{- with $Summary -}}<div class="mt-4 mb-1 line-clamp-2" title="{{- . -}}">{{ . }}</div>{{- end -}}
             </div>
         {{- else -}}
             <a href="{{- .RelPermalink -}}" class="block px-5 pt-5 dark:border-darkBorder">
-                <div class="text-2xl font-bold line-clamp-2 group-hover:text-theme md:line-clamp-3 transition">{{- .Title -}}</div>
+                <div class="text-2xl font-bold transition line-clamp-2 group-hover:text-theme md:line-clamp-3">{{- .Title -}}</div>
                 {{- with $Summary -}}<div class="mt-4 mb-1 line-clamp-2" title="{{- . -}}">{{ . }}</div>{{- end -}}
             </a>
         {{- end -}}
         <div class="article-info flex justify-between px-5 py-4 text-sm">
             <div class="{{ if $hasCover }}sm:text-inherit{{ end }} flex text-gray-400 dark:text-gray-400">
-                <div class="mr-3 md:mr-4 flex items-center">
+                <div class="mr-3 flex items-center md:mr-4">
                     <i class="eva eva-clock-outline mr-1"></i>
                     <span>
                         <time
@@ -118,7 +94,7 @@
                         >
                     </span>
                 </div>
-                <div class="mr-3 md:mr-4 hidden items-center sm:flex">
+                <div class="mr-3 hidden items-center sm:flex md:mr-4">
                     <i class="eva eva-book-open-outline mr-1"></i>
                     <span>{{- T "post.readingTime" .ReadingTime }}</span>
                 </div>
@@ -166,7 +142,7 @@
     </article>
 {{- else -}}
     <article
-        class="article group relative mb-10 overflow-hidden rounded border bg-white transition duration-300 ease-[ease] dark:border-darkBorder dark:bg-darkBgAccent sm:border-transparent sm:hover:border-gray-200 sm:dark:hover:border-gray-600 sm:hover:shadow-none md:mb-16"
+        class="article group relative mb-10 overflow-hidden rounded border bg-white transition duration-300 ease-[ease] dark:border-darkBorder dark:bg-darkBgAccent sm:border-transparent sm:hover:border-gray-200 sm:hover:shadow-none sm:dark:hover:border-gray-600 md:mb-16"
     >
         <a href="{{- .RelPermalink -}}" class="relative flex p-5">
             <div class="mr-6 flex items-center text-5xl text-theme opacity-50 dark:opacity-80">

@@ -97,6 +97,10 @@ figure {
 }
 
 bbb {
-    font-weight:bold;
+    font-weight: bold;
     opacity: 1;
+}
+
+.noscript-show {
+    @apply hidden;
 }

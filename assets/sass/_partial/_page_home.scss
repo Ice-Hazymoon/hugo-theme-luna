@@ -49,7 +49,7 @@
         .tag {
             &:hover {
                 box-shadow: -5px 5px 12px #f2f2f2, 5px -5px 12px #ffffff;
-                @apply dark:shadow-none opacity-90;
+                @apply opacity-90 dark:shadow-none;
             }
         }
     }

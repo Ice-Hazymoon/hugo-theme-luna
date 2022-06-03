@@ -87,13 +87,13 @@
 
 .tabs {
     input {
-        &[type="radio"] {
+        &[type='radio'] {
             @apply hidden;
         }
-        &[type="radio"]:checked + label {
-            @apply  border-b-2 border-b-theme text-theme;
+        &[type='radio']:checked + label {
+            @apply border-b-2 border-b-theme text-theme;
         }
-        &[type="radio"]:checked + label + .tab {
+        &[type='radio']:checked + label + .tab {
             @apply block;
         }
     }
@@ -101,7 +101,7 @@
 
 .gallery-box {
     .gallery {
-        @apply my-4 relative flex flex-row justify-center;
+        @apply relative my-4 flex flex-row justify-center;
         figure {
             @apply my-0;
             img {

@@ -1,71 +1,46 @@
 {{- $lazyload := .Page.Site.Params.lazyload -}}
 {{- $imageZoom := .Page.Site.Params.imageZoom -}}
 {{- $public_cdn := cond .Page.Site.IsServer "" .Page.Site.Params.publicCDN -}}
+{{- $lazyload_image := print $public_cdn ("images/outload.svg" | relURL) -}}
 
 {{- $Alt := .PlainText | safeHTML -}}
+
 {{- if (urls.Parse (.Destination | safeURL)).Scheme -}}
     <figure class="gallery-image">
-        <picture>
+        <picture class="noscript-hidden">
             <img
                 {{ if $lazyload }}data-{{ end }}src="{{- .Destination | safeURL -}}"
-                {{ if $lazyload }}src="{{- print $public_cdn ("images/outload.svg" | relURL) -}}"{{ end }}
+                {{ if $lazyload }}src="{{- $lazyload_image -}}"{{ end }}
                 {{- with $Alt -}}alt="{{- . -}}"{{- end -}}
                 {{ if $imageZoom }}data-zoomable{{ end }}
                 {{ if $lazyload }}data-lazyload{{ end }}
             />
         </picture>
+        <noscript data-lazyload-noscript>
+            <a href="{{ .Destination | relURL | safeURL }}" target="_blank" rel="noopener noreferrer">
+                <picture>
+                    <img
+                        src="{{ .Destination | relURL | safeURL }}"
+                        {{- with $Alt -}}alt="{{- . -}}"{{- end -}}
+                    />
+                </picture>
+            </a>
+        </noscript>
         {{- with $Alt -}}
             <figcaption>{{- . | markdownify -}}</figcaption>
         {{- end -}}
     </figure>
-    <noscript data-lazyload-noscript>
-        <img
-            src="{{ .Destination | relURL | safeURL }}"
-            {{- with $Alt -}}alt="{{- . -}}"{{- end -}}
-        />
-    </noscript>
 {{- else -}}
     {{- $Image := .Page.Resources.GetMatch (printf "%s" (.Destination | safeURL)) -}}
     {{- $Permalink := .Destination | relURL | safeURL -}}
-    {{- $Width := 0 -}}
-    {{- $Height := 0 -}}
-    {{- $Srcset := "" -}}
-    {{- $Srcset_Webp := "" -}}
-
-    {{- $Placeholder := "" -}}
-
-    {{/* SVG and external images won't work with gallery layout, because their width and height attributes are unknown */}}
     {{- $galleryImage := false -}}
 
-    {{- if and $Image (not (eq $Image.MediaType.SubType "gif")) -}}
-        {{- $notSVG := ne (path.Ext .Destination) ".svg" -}}
-        {{- $Permalink = $Image.RelPermalink -}}
+    {{- $processImage := partial "functions/image-process" (dict "Image" $Image "Site" .Page.Site) -}}
 
-        {{- if $notSVG -}}
-            {{- $Width = $Image.Width -}}
-            {{- $Height = $Image.Height -}}
-            {{- $galleryImage = true -}}
-            {{- if (default true .Page.Site.Params.imageProcessing.content.enabled) -}}
-                {{- $small := $Image.Resize "640x" -}}
-                {{- $big := $Image.Resize "1080x" -}}
-
-                {{- $small_webp := $Image.Resize "640x webp" -}}
-                {{- $big_webp := $Image.Resize "1080x webp" -}}
-
-                {{- $Placeholder = ($Image.Resize "50x").Filter (images.GaussianBlur 2) -}}
-
-                {{- $Srcset = printf `%s 640w, %s 1080w` (print $public_cdn $small.RelPermalink) (print $public_cdn $big.RelPermalink) -}}
-                {{- $Srcset_Webp = printf `%s 640w, %s 1080w` (print $public_cdn $small_webp.RelPermalink) (print $public_cdn $big_webp.RelPermalink) -}}
-                {{- $Placeholder = print $public_cdn $Placeholder.RelPermalink -}}
-            {{- end -}}
-        {{- end -}}
-    {{- else -}}
-        {{- if $Image -}}
-            {{- $Permalink = $Image.RelPermalink -}}
-        {{- end -}}
+    {{- if $processImage.Processed -}}
+        {{- $galleryImage = true -}}
     {{- end -}}
-
-    {{- $Permalink = print $public_cdn $Permalink -}}
+    {{- $Permalink = print $public_cdn $processImage.Permalink -}}
 
 
     <figure
@@ -74,19 +49,33 @@
             {{- div (mul $Image.Width 240) $Image.Height -}}px"
         {{ end }}
     >
-        <picture>
-            {{- with $Srcset_Webp -}}<source {{ if $lazyload }}data-{{ end }}srcset="{{- . -}}" type="image/webp" />{{- end -}}
+        <picture class="noscript-hidden">
+            {{- with $processImage.SrcsetWebp -}}<source {{ if $lazyload }}data-{{ end }}srcset="{{- . -}}" type="image/webp" />{{- end -}}
             <img
                 {{ if $lazyload }}data-{{ end }}src="{{- $Permalink -}}"
-                {{ if $lazyload }}src="{{- $Placeholder -}}"{{ end }}
-                {{- with $Width -}}width="{{- . -}}"{{- end -}}
-                {{- with $Height -}}height="{{- . -}}"{{- end -}}
-                {{ if $lazyload }}data-{{ end }}srcset="{{- $Srcset -}}"
+                {{ if $lazyload }}src="{{- $processImage.Placeholder -}}"{{ end }}
+                {{- with $processImage.Width -}}width="{{- . -}}"{{- end -}}
+                {{- with $processImage.Height -}}height="{{- . -}}"{{- end -}}
+                {{ if $lazyload }}data-{{ end }}{{- with $processImage.Srcset -}}srcset="{{- . -}}"{{- end -}}
                 {{- with $Alt -}}alt="{{- . -}}"{{- end -}}
                 {{ if $imageZoom }}data-zoomable{{ end }}
                 {{ if $lazyload }}data-lazyload data-lazyload-blur{{ end }}
             />
         </picture>
+        <noscript data-lazyload-noscript>
+            <a class=" before:hidden" href="{{- $Permalink -}}" target="_blank" rel="noopener noreferrer">
+                <picture>
+                    {{- with $processImage.SrcsetWebp -}}<source srcset="{{- . -}}" type="image/webp" />{{- end -}}
+                    <img
+                        src="{{- $Permalink -}}"
+                        {{- with $processImage.Width -}}width="{{- . -}}"{{- end -}}
+                        {{- with $processImage.Height -}}height="{{- . -}}"{{- end -}}
+                        {{- with $processImage.Srcset -}}srcset="{{- . -}}"{{- end -}}
+                        {{- with $Alt -}}alt="{{- . -}}"{{- end -}}
+                    />
+                </picture>
+            </a>
+        </noscript>
 
         {{- if not (eq $Alt .Page.Title) -}}
             {{- with $Alt -}}
@@ -94,13 +83,4 @@
             {{- end -}}
         {{- end -}}
     </figure>
-    <noscript data-lazyload-noscript>
-        <img
-            src="{{- $Permalink -}}"
-            {{- with $Width -}}width="{{- . -}}"{{- end -}}
-            {{- with $Height -}}height="{{- . -}}"{{- end -}}
-            {{- with $Srcset -}}srcset="{{- . -}}"{{- end -}}
-            {{- with $Alt -}}alt="{{- . -}}"{{- end -}}
-        />
-    </noscript>
 {{- end -}}

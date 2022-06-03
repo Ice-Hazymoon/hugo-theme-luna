@@ -18,11 +18,20 @@
     >
         <img
             {{ if $lazyload }}data-lazyload{{ end }}
-            {{ if $lazyload }}data-{{ end }}src="{{- $image -}}"
             {{ if $lazyload }}src="{{- print $public_cdn $svg_outload -}}"{{ end }}
+            {{ if $lazyload }}data-{{ end }}src="{{- $image -}}"
             alt="{{- $title -}}"
-            class="mr-4 inline-block h-16 w-16 rounded-full border object-cover object-center dark:border-darkBorder"
+            class="noscript-hidden mr-4 inline-block h-16 w-16 rounded-full border object-cover object-center dark:border-darkBorder"
         />
+
+        <noscript>
+            <img
+                src="{{- $image -}}"
+                alt="{{- $title -}}"
+                class="mr-4 inline-block h-16 w-16 rounded-full border object-cover object-center dark:border-darkBorder"
+            />
+        </noscript>
+
         <div class="nr">
             <div class="whitespace-no-wrap n-name overflow-hidden text-xl">{{- $title -}}</div>
             <div class="h-12 line-clamp-2" title="{{- $desc -}}">{{- $desc -}}</div>

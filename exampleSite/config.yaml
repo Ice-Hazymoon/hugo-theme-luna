@@ -362,10 +362,13 @@ params:
   # 自动调整图片大小并兼容 Webp 格式
   # Optimize your images and SEO
   imageProcessing:
-    cover:
-      enabled: true
-    content:
-      enabled: true
+    cover: true
+    content: true
+    autoResize:
+      - 640
+      - 1080
+      - 1440
+    webp: true
 
   # 网站信息，根据需要修改
   # site info

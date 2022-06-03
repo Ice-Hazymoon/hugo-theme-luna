@@ -116,10 +116,6 @@ $ E={\sqrt  {p^{2}c^{2}+m^{2}c^{4}}}=\gamma mc^{2} $
 
 $$ E_{0}=mc^{2} $$
 
-$$
-{\mathrm  d}K={\mathbf  F}\cdot {\mathrm  d}{\mathbf  x}={\frac  {{\mathrm  d}{\mathbf  p}}{{\mathrm  d}t}}\cdot {\mathrm  d}{\mathbf  x}={\frac  {{\mathrm  d}{\mathbf  x}}{{\mathrm  d}t}}\cdot {\mathrm  d}{\mathbf  p}
-$$
-
 \\[3 < 4\\]
 
 \begin{align}
@@ -131,10 +127,6 @@ $$
 这是一条行内公式：$ E={\sqrt  {p^{2}c^{2}+m^{2}c^{4}}}=\gamma mc^{2} $
 
 $$ E_{0}=mc^{2} $$
-
-$$
-{\mathrm  d}K={\mathbf  F}\cdot {\mathrm  d}{\mathbf  x}={\frac  {{\mathrm  d}{\mathbf  p}}{{\mathrm  d}t}}\cdot {\mathrm  d}{\mathbf  x}={\frac  {{\mathrm  d}{\mathbf  x}}{{\mathrm  d}t}}\cdot {\mathrm  d}{\mathbf  p}
-$$
 
 \\[3 < 4\\]
 

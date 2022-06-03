@@ -252,7 +252,7 @@ class Luna {
             if (!currentGallery.length) {
                 /// First iteration
                 currentGallery = [figure];
-            } else if (figure.previousElementSibling.previousElementSibling === currentGallery[currentGallery.length - 1]) {
+            } else if (figure.previousElementSibling === currentGallery[currentGallery.length - 1]) {
                 /// Adjacent figures
                 currentGallery.push(figure);
             } else if (currentGallery.length) {

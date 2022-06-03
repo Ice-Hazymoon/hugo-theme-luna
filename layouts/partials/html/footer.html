@@ -15,7 +15,7 @@
 
         <div class="flex items-center">
             {{- if or .Site.Params.rss.enabled .Site.Params.sitemap -}}
-                <span class="mx-1.5 hidden opacity-50 md:block"> | </span>
+                <span class="noscript-hidden mx-1.5 hidden opacity-50 md:block"> | </span>
             {{- end -}}
             {{- if .Site.Params.rss.enabled -}}
                 <a data-no-swup href="{{- "/index.xml" | absLangURL -}}" target="_blank" class="mr-1.5 hover:text-theme">

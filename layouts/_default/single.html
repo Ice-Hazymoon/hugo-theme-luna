@@ -1,87 +1,70 @@
 {{- define "main" -}}
     {{- $public_cdn := cond .Site.IsServer "" .Site.Params.publicCDN -}}
+    {{- $lazyload_image := print $public_cdn ("images/outload.svg" | relURL) -}}
     {{- $Title := or $.Title (T "post.untitled") -}}
     <div class="relative h-full">
         <div class="relative h-full">
             <div class="page-view-article flex h-full flex-col bg-white dark:bg-darkFg">
                 <div class="relative">
                     {{- if or (.Site.Params.defaultFeaturedImage) (.Params.featured_image) -}}
-                        {{- $featured_image := "" -}}
-                        {{- $srcset := "" -}}
-                        {{- $srcset_webp := "" -}}
-                        {{- $featured_image_small := "" -}}
-                        {{- $featured_image_big := "" -}}
-                        {{- $featured_image_small_webp := "" -}}
-                        {{- $featured_image_big_webp := "" -}}
-                        {{- $featured_image_bg := "" -}}
-                        {{- $width := 0 }}
-                        {{- $height := 0 }}
+                        {{- $featuredImage := "" -}}
+                        {{- $processImage := "" -}}
                         {{- $lazyload := .Site.Params.lazyload -}}
-                        {{- $featured_image_url := or .Params.featured_image .Site.Params.defaultFeaturedImage -}}
+                        {{- $featuredImageUrl := or .Params.featured_image .Site.Params.defaultFeaturedImage -}}
 
-                        {{- if (urls.Parse ($featured_image_url | safeURL)).Scheme -}}
-                            {{- $featured_image = $featured_image_url | safeURL -}}
+                        {{- if (urls.Parse ($featuredImageUrl | safeURL)).Scheme -}}
+                            {{- $featuredImage = $featuredImageUrl | safeURL -}}
                         {{- else -}}
-                            {{- if .Params.featured_image -}}
-                                {{- $featured_image = .Resources.GetMatch .Params.featured_image -}}
-                            {{- else -}}
-                                {{- $featured_image = resources.Get .Site.Params.defaultFeaturedImage -}}
-                            {{- end }}
+                            {{- $featuredImage = cond (isset .Params "featured_image") (.Resources.GetMatch .Params.featured_image) (resources.Get .Site.Params.defaultFeaturedImage) -}}
+                            {{- $processImage = partial "functions/image-process" (dict "Image" $featuredImage "Site" .Page.Site) -}}
 
-                            {{- $width = $featured_image.Width -}}
-                            {{- $height = $featured_image.Height -}}
-
-                            {{- if (default true .Page.Site.Params.imageProcessing.cover.enabled) -}}
-                                {{- $featured_image_small = print $public_cdn ($featured_image.Resize "800x").RelPermalink -}}
-                                {{- $featured_image_big = print $public_cdn ($featured_image.Resize "1200x").RelPermalink -}}
-                                {{- $featured_image_bg = print $public_cdn (($featured_image.Resize "50x").Filter (images.GaussianBlur 2)).RelPermalink -}}
-                                {{- $srcset = printf "%s 800w, %s 1200w" $featured_image_small $featured_image_big -}}
-
-                                {{- $featured_image_small_webp = print $public_cdn ($featured_image.Resize "800x webp").RelPermalink -}}
-                                {{- $featured_image_big_webp = print $public_cdn ($featured_image.Resize "1200x webp").RelPermalink -}}
-                                {{- $srcset_webp = printf "%s 800w, %s 1200w" $featured_image_small_webp $featured_image_big_webp -}}
-                            {{- end -}}
+                            {{- $featuredImageUrl = print $public_cdn $processImage.Permalink -}}
                         {{- end -}}
 
 
                         <div class="article-cover relative h-0 w-full">
-                            <picture>
-                                {{- with $srcset_webp -}}<source {{ if $lazyload }}data-{{ end }}srcset="{{- $srcset_webp -}}" type="image/webp" />{{- end -}}
+                            <picture class="noscript-hidden">
+                                {{- with $processImage.SrcsetWebp -}}
+                                    <source {{ if $lazyload }}data-{{ end }}srcset="{{- $processImage.SrcsetWebp -}}" type="image/webp" />
+                                {{- end -}}
                                 <img
-                                    {{ if $lazyload }}data-{{ end }}src="{{- $featured_image -}}"
-                                    {{ if $lazyload }}src="{{- $featured_image_bg -}}"{{ end }}
-                                    {{ if $srcset }}{{ if $lazyload }}data-{{ end }}srcset="{{- $srcset -}}"{{ end }}
+                                    {{ if $lazyload }}data-{{ end }}src="{{- $featuredImageUrl -}}"
+                                    {{ if $lazyload }}src="{{- or $processImage.Placeholder $lazyload_image -}}"{{ end }}
+                                    {{- with $processImage.Width -}}width="{{- . -}}"{{- end -}}
+                                    {{- with $processImage.Height -}}height="{{- . -}}"{{- end -}}
+                                    {{ if $lazyload }}data-{{ end }}{{- with $processImage.Srcset -}}srcset="{{- . -}}"{{- end -}}
                                     {{- with $Title -}}alt="{{- . -}}"{{- end -}}
-                                    {{- with $width -}}width="{{- . -}}"{{- end -}}
-                                    {{- with $height -}}height="{{- . -}}"{{- end -}}
                                     class="absolute left-0 top-0 h-full w-full object-cover object-center"
                                     {{ if $lazyload }}data-lazyload data-lazyload-blur{{ end }}
 
                                 />
-                                <noscript>
+                            </picture>
+                            <noscript>
+                                <picture>
+                                    {{- with $processImage.SrcsetWebp -}}<source srcset="{{- $processImage.SrcsetWebp -}}" type="image/webp" />{{- end -}}
                                     <img
-                                        src="{{- $featured_image -}}"
-                                        {{- with $srcset -}}srcset="{{- . -}}"{{- end -}}
+                                        src="{{- $featuredImageUrl -}}"
+                                        {{- with $processImage.Srcset -}}srcset="{{- . -}}"{{- end -}}
                                         {{- with $Title -}}alt="{{- . -}}"{{- end -}}
-                                        {{- with $width -}}width="{{- . -}}"{{- end -}}
-                                        {{- with $height -}}height="{{- . -}}"{{- end -}}
+                                        {{- with $processImage.Width -}}width="{{- . -}}"{{- end -}}
+                                        {{- with $processImage.Height -}}height="{{- . -}}"{{- end -}}
                                         class="absolute left-0 top-0 h-full w-full object-cover object-center"
                                     />
-                                </noscript>
-                            </picture>
+                                </picture>
+                            </noscript>
                         </div>
-                        <h1 class="article-title absolute bottom-0 left-0 w-full px-6 md:px-10 pb-8 pt-32 text-3xl text-white dark:text-darkText md:text-4xl">
+                        <h1 class="article-title absolute bottom-0 left-0 w-full px-6 pb-8 pt-32 text-3xl text-white dark:text-darkText md:px-10 md:text-4xl">
                             {{ $Title }}
                         </h1>
                     {{- else -}}
                         <div>
-                            <div class="-mb-2 w-full p-6 md:px-10 pb-0 text-3xl">
+                            <div class="-mb-2 w-full p-6 pb-0 text-3xl md:px-10">
                                 {{ $Title }}
                             </div>
                         </div>
                     {{- end -}}
                 </div>
-                <div class="article-info border-b p-6 md:px-10 pb-3 text-sm dark:border-darkBorder">
+                <div class="article-info border-b p-6 pb-3 text-sm dark:border-darkBorder md:px-10">
                     <div>
                         <div class="mb-3 mr-4 inline-flex items-center sm:rounded-full">
                             <i class="eva eva-clock-outline mr-1"></i>
@@ -149,10 +132,14 @@
 
                 {{- partial "post/toc" . }}
 
+                {{- partial "post/lastmod" . }}
 
-                <section class="article-content typo flex-grow px-6 py-5 md:px-10 relative">
+
+                <section class="article-content typo relative flex-grow px-6 py-5 md:px-10">
                     {{- if .Site.Params.bionicReading.enabled -}}
-                        <i title="{{- T "bionicReading" -}}" id="bionicReading" class="absolute right-0 top-0 p-3 cursor-pointer">{{- $.Site.Data.luna.icon.wand | safeHTML -}}</i>
+                        <i title="{{- T "bionicReading" -}}" id="bionicReading" class="absolute right-0 top-0 cursor-pointer p-3"
+                            >{{- $.Site.Data.luna.icon.wand | safeHTML -}}</i
+                        >
                     {{- end -}}
                     {{- .Content -}}
                 </section>

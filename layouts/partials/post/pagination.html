@@ -1,4 +1,4 @@
-<div class="flex justify-between px-2 md:px-6 py-4 text-xl md:text-2xl">
+<div class="flex justify-between px-2 py-4 text-xl md:px-6 md:text-2xl">
     <div>
         <a
             href="{{- with .PrevInSection -}}{{- .RelPermalink -}}{{- end -}}"
@@ -16,6 +16,7 @@
     {{- if .Site.Params.license.enabled -}}
         {{- partial "post/license" . }}
     {{- end -}}
+
 
     <a
         href="{{- with .NextInSection -}}{{- .RelPermalink -}}{{- end -}}"

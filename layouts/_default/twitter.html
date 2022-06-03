@@ -1,10 +1,12 @@
 {{- define "main" -}}
     {{- $public_cdn := cond .Site.IsServer "" .Site.Params.publicCDN -}}
+    {{- $lazyload_image := print $public_cdn ("images/outload.svg" | relURL) -}}
     {{- $twitterConfig := .Site.Params.twitter -}}
     {{- $twitterData := getJSON (print "https://api.rss2json.com/v1/api.json?rss_url=" $twitterConfig.rsshub "/twitter/user/" $twitterConfig.id) -}}
 
     {{- $lazyload := .Site.Params.lazyload -}}
-    {{- $imageZoom := .Page.Site.Params.imageZoom -}}
+    {{- $imageZoom := .Site.Params.imageZoom -}}
+    {{- $Site := .Site -}}
     <div class="page-twitter relative py-8">
         <div class="mx-6 md:mx-10">
             <div class="mb-10 inline-flex items-end pb-3 text-3xl">
@@ -49,38 +51,53 @@
 
                                     {{- range $pics -}}
                                         {{- $picURL := htmlUnescape (replaceRE "<img src=\"(.+?)\" referrerpolicy=\"no-referrer\">" `${1}` .) -}}
+
                                         {{- with resources.GetRemote $picURL -}}
                                             {{- with .Err -}}
                                                 {{- warnf "%s" . -}}
                                             {{- else -}}
+                                                {{- $processImage := "" -}}
                                                 {{- $pic_placeholder := "" -}}
                                                 {{- $pic_webp := "" -}}
+                                                {{- $pic_srcset := "" -}}
                                                 {{- if $twitterConfig.imageProcessing -}}
-                                                    {{- $pic_placeholder = print $public_cdn ((.Resize "50x").Filter (images.GaussianBlur 2)).RelPermalink -}}
-                                                    {{- $pic_webp = print $public_cdn (.Resize "1200x webp").RelPermalink -}}
+                                                    {{- $processImage = partial "functions/image-process" (dict "Image" . "Site" $Site) -}}
                                                 {{- end -}}
                                                 <div class="relative inline-block w-1/2 pr-4 pb-4 lg:w-1/3 xl:w-1/4">
                                                     <div class="img-box relative overflow-hidden rounded border dark:border-darkBorder">
-                                                        <picture>
-                                                            {{- with $pic_webp -}}
+                                                        <picture class="noscript-hidden">
+                                                            {{- with $processImage.SrcsetWebp -}}
                                                                 <source {{ if $lazyload }}data-{{ end }}srcset="{{- . -}}" type="image/webp" />
                                                             {{- end -}}
                                                             <img
-                                                                {{ if $lazyload }}data-{{ end }}src="{{- print $public_cdn .RelPermalink -}}"
-                                                                {{ if $lazyload }}src="{{- $pic_placeholder -}}"{{ end }}
+                                                                {{ if $lazyload }}data-{{ end }}src="{{- print $public_cdn $processImage.Permalink -}}"
+                                                                {{ if $lazyload }}data-{{ end }}srcset="{{- $processImage.Srcset -}}"
+                                                                {{ if $lazyload }}src="{{- or $processImage.Placeholder $lazyload_image -}}"{{ end }}
                                                                 {{- with $title -}}alt="{{- . -}}"{{- end -}}
                                                                 class="w-full border border-x-0 border-solid border-gray-200 object-cover dark:border-darkBorder"
                                                                 {{ if $imageZoom }}data-zoomable{{ end }}
                                                                 {{ if $lazyload }}data-lazyload data-lazyload-blur{{ end }}
                                                             />
-                                                            <noscript>
-                                                                <img
-                                                                    src="{{- print $public_cdn .RelPermalink -}}"
-                                                                    {{- with $title -}}alt="{{- . -}}"{{- end -}}
-                                                                    class="w-full border border-x-0 border-solid border-gray-200 object-cover dark:border-darkBorder"
-                                                                />
-                                                            </noscript>
                                                         </picture>
+                                                        <noscript>
+                                                            <a
+                                                                href="{{- print $public_cdn $processImage.Permalink -}}"
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                            >
+                                                                <picture>
+                                                                    {{- with $processImage.SrcsetWebp -}}
+                                                                        <source srcset="{{- . -}}" type="image/webp" />
+                                                                    {{- end -}}
+                                                                    <img
+                                                                        srcset="{{- $processImage.Srcset -}}"
+                                                                        src="{{- print $public_cdn $processImage.Permalink -}}"
+                                                                        {{- with $title -}}alt="{{- . -}}"{{- end -}}
+                                                                        class="w-full border border-x-0 border-solid border-gray-200 object-cover dark:border-darkBorder"
+                                                                    />
+                                                                </picture>
+                                                            </a>
+                                                        </noscript>
                                                     </div>
                                                 </div>
                                             {{- end -}}

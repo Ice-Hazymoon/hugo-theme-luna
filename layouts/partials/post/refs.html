@@ -1,5 +1,5 @@
 {{- if .Params.refs -}}
-    <div class="w-full overflow-x-hidden border-t border-b bg-gray-100 bg-opacity-80 p-6 md:px-10 dark:border-darkBorder dark:bg-darkBgAccent">
+    <div class="w-full overflow-x-hidden border-t border-b bg-gray-100 bg-opacity-80 p-6 dark:border-darkBorder dark:bg-darkBgAccent md:px-10">
         <div class="mb-2 inline-block border-b-2 border-text pb-1 text-base">{{- T "post.refs" -}}</div>
         <div class="">
             {{- range $index, $ref := .Params.refs -}}

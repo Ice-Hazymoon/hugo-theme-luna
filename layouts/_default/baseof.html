@@ -11,7 +11,7 @@
 
 
                 <main class="relative flex flex-grow" id="swup">
-                    <div class="w-full type-{{ .Type }} layout-{{ .Layout }}">{{- block "main" . -}}{{- end -}}</div>
+                    <div class="type-{{ .Type }} layout-{{ .Layout }} w-full">{{- block "main" . -}}{{- end -}}</div>
                 </main>
 
                 {{- partial "html/footer" . -}}

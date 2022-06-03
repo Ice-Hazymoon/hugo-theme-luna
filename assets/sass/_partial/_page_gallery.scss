@@ -1,14 +1,14 @@
 .page-gallery {
     .gallery-box {
         .gallery {
-            @apply md:my-4 my-3 md:mx-4 mx-3;
+            @apply my-3 mx-3 md:my-4 md:mx-4;
             figure + figure {
-                @apply md:ml-4 ml-3;
+                @apply ml-3 md:ml-4;
             }
         }
     }
     .gallery-image {
-        @apply relative md:mb-4 mb-3 overflow-hidden rounded;
+        @apply relative mb-3 overflow-hidden rounded md:mb-4;
         figcaption {
             @apply pointer-events-none absolute bottom-0 w-full px-4 pt-8 pb-4 text-center text-lg text-white opacity-100 transition-opacity duration-300 md:opacity-0;
             background-image: linear-gradient(to bottom, hsla(330, 0%, 0%, 0), cubic-bezier(0.42, 0, 0.4, 1), hsla(210, 0%, 0%, 0.3));
@@ -24,21 +24,21 @@
     }
 
     h2 {
-        @apply text-2xl text-center mt-20 mb-14;
+        @apply mt-20 mb-14 text-center text-2xl;
         a {
             @apply hidden;
         }
         &::before {
             content: '「　';
-            @apply text-theme font-bold;
+            @apply font-bold text-theme;
         }
         &::after {
             content: '　」';
-            @apply text-theme font-bold;
+            @apply font-bold text-theme;
         }
     }
 
     blockquote {
-        @apply text-gray-400 text-center mb-12 -mt-10 italic;
+        @apply mb-12 -mt-10 text-center italic text-gray-400;
     }
 }
