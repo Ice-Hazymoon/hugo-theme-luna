@@ -23,15 +23,22 @@
     {{- $Height = $Image.Height -}}
     {{- $galleryImage = true -}}
     {{- if (default true $imageProcessing.content) -}}
+        {{- $_flag := false -}}
         {{- range $index, $size := sort $imageProcessing.autoResize -}}
-            {{- $isLast := eq (add $index 1) (len $imageProcessing.autoResize) -}}
-            {{- $end := print " " . "w" (cond $isLast "" ", ") -}}
-            {{- $resizeWidth := cond (gt $Width $size) $size $Width -}}
+            {{- if not $_flag -}}
+                {{- $isLast := or (eq (add $index 1) (len $imageProcessing.autoResize)) (le $Width $size) -}}
+                {{- $end := print " " . "w" (cond $isLast "" ", ") -}}
+                {{- $resizeWidth := cond (ge $Width $size) $size $Width -}}
 
-            {{- $Srcset = print $Srcset $public_cdn ($Image.Resize (print $resizeWidth "x")).RelPermalink $end -}}
+                {{- $Srcset = print $Srcset $public_cdn ($Image.Resize (print $resizeWidth "x")).RelPermalink $end -}}
 
-            {{- if $imageProcessing.webp -}}
-                {{- $SrcsetWebp = print $SrcsetWebp $public_cdn ($Image.Resize (print $resizeWidth "x webp")).RelPermalink $end -}}
+                {{- if $imageProcessing.webp -}}
+                    {{- $SrcsetWebp = print $SrcsetWebp $public_cdn ($Image.Resize (print $resizeWidth "x webp")).RelPermalink $end -}}
+                {{- end -}}
+
+                {{- if le $Width $size -}}
+                    {{- $_flag = true -}}
+                {{- end -}}
             {{- end -}}
         {{- end -}}
 
