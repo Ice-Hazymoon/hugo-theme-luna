@@ -10,7 +10,7 @@ timeZone: Asia/Shanghai
 
 # 可根据 Git 中的提交生成最近更新记录。
 # use git commit log to generate lastmod record
-enableGitInfo: true
+enableGitInfo: false
 
 # 如果你的博客包含中日韩语，请启用此选项
 # enable CJK language support
