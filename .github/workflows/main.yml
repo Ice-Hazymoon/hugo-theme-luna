@@ -36,7 +36,7 @@ jobs:
                 extended: true
 
             - name: Build Hugo
-              run: echo "HUGO_VERSION -> $HUGO_VERSION" && hugo --gc -v --minify --cleanDestinationDir  -s ./exampleSite --themesDir "../.. --enableGitInfo true"
+              run: echo "HUGO_VERSION -> $HUGO_VERSION" && hugo --gc -v --minify --cleanDestinationDir  -s ./exampleSite --themesDir "../.." --enableGitInfo
 
             - name: Hugo-Encrypt
               run: node ./hugo-encrypt.js
