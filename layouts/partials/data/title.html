@@ -6,7 +6,7 @@
 
     {{ if .Paginator.HasPrev }}
         <!-- Paginated. Append page number to title -->
-        {{ $title = printf "%s - %s" (T "page.page" .Paginator.PageNumber) $siteTitle }}
+        {{ $title = printf "%s - %s" (T "page.page" (string .Paginator.PageNumber)) $siteTitle }}
     {{ else }}
         {{ $title = $siteTitle}}
     {{ end }}

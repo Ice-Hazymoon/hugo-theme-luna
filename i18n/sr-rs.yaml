@@ -101,7 +101,7 @@ share:
 page:
     prev: "Претходна"
     next: "Следећа"
-    page: "Страница {{ .PageNumber }}"
+    page: "Страница {{ . }}"
     pagination: "Страница {{ .PageNumber }} од  {{ .TotalPages }}"
 
 # js
