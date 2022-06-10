@@ -1,21 +1,22 @@
 {{- define "main" -}}
     <div class="page-blog relative px-6 md:px-10">
-        <div>
-            <div class="article-list mx-auto">
-                <div class="flex items-center py-6 text-xl">
-                    <i class="eva eva-folder-remove-outline mr-2"></i>
-                    {{- if eq .Data.Plural "tags" -}}
-                        {{- T "taxonomy.tag" (dict "Count" (len .Pages) "Title" .Title) | safeHTML -}}
-                    {{- else -}}
-                        {{- T "taxonomy.category" (dict "Count" (len .Pages) "Title" .Title) | safeHTML -}}
-                    {{- end -}}
-                </div>
-                <div>
-                    {{- range .Pages -}}
-                        {{- partial "article-list/article" . -}}
-                    {{- end -}}
-                </div>
+        <div class="article-list mx-auto">
+            <div class="flex items-center py-6 text-xl">
+                <i class="eva eva-folder-remove-outline mr-2"></i>
+                {{- if eq .Data.Plural "tags" -}}
+                    {{- T "taxonomy.tag" (dict "Count" (len .Pages) "Title" .Title) | safeHTML -}}
+                {{- else -}}
+                    {{- T "taxonomy.category" (dict "Count" (len .Pages) "Title" .Title) | safeHTML -}}
+                {{- end -}}
+            </div>
+            <div>
+                {{- $paginator := .Paginate (where .Pages "Type" "in" (slice "posts" "status")) -}}
+                {{- range $paginator.Pages -}}
+                    {{- partial "article-list/article" . -}}
+                {{- end -}}
             </div>
         </div>
+
+        {{- partial "article-list/components/pagination" . -}}
     </div>
 {{- end -}}
