@@ -319,8 +319,7 @@ params:
   wordCount: false
 
   # 开启文章内目录，可以在页面内单独设置
-  # Show table of contents
-  # You can enable it separately in the page
+  # Show table of contents, You can enable it separately in the page
   toc:
     enable: true
     # 超过这个字数后将显示目录
@@ -353,11 +352,9 @@ params:
   # backtop button
   backtop: true
 
-  # 默认文章封面图片
-  # 图片必须位于 assets 文件夹
-  # Default post card featured image
-  # /featured.png in assets folder or https://source.unsplash.com/random
-  defaultFeaturedImage: false
+  # 默认文章封面图片，不会显示在内容页面
+  # Default post card featured image, not displayed on content pages
+  defaultFeaturedImage: false # false | featured.png in assets folder | https://source.unsplash.com/random
 
   # 自动调整图片大小并兼容 Webp 格式
   # Optimize your images and SEO
@@ -370,11 +367,12 @@ params:
       - 1440
     webp: true
 
+  # 设置推特卡片样式
   opengraph:
     twitter: # see https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/getting-started
-      cardType: summary_large_image # summary or summary_large_image
+      cardType: summary_large_image # summary | summary_large_image
       site: "@Ice_Hazymoon"
-    image: "featured.png" # in assets folder or set to false
+    image: "featured.png" # in assets folder | false
 
   author: Ice-Hazymoon
   keywords:

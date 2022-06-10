@@ -1,5 +1,5 @@
 <div class="relative">
-    {{- if or (.Site.Params.defaultFeaturedImage) (.Params.featured_image) -}}
+    {{- if .Params.featured_image -}}
         {{- partial "article/components/with-cover" . }}
     {{- else -}}
         {{- partial "article/components/no-cover" . }}

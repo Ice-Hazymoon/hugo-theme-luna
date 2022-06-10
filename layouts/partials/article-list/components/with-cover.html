@@ -2,15 +2,22 @@
 {{- $public_cdn := cond .Site.IsServer "" .Site.Params.publicCDN -}}
 {{- $lazyload_image := print $public_cdn ("images/outload.svg" | relURL) -}}
 
-{{- $featuredImage := "" -}}
 {{- $processImage := "" -}}
 {{- $lazyload := .Site.Params.lazyload -}}
 {{- $featuredImageUrl := or .Params.featured_image .Site.Params.defaultFeaturedImage -}}
 
+
 {{- if (urls.Parse ($featuredImageUrl | safeURL)).Scheme -}}
-    {{- $featured_image = $featuredImageUrl | safeURL -}}
+    {{- $processImage = partial "helper/image-process" (dict "Image" $featuredImageUrl "Site" .Site) -}}
+    {{- $featuredImageUrl = $featuredImageUrl | safeURL -}}
 {{- else -}}
-    {{- $featuredImage = cond (isset .Params "featured_image") (.Resources.GetMatch .Params.featured_image) (resources.Get .Site.Params.defaultFeaturedImage) -}}
+    {{- $featuredImage := "" -}}
+    {{- if .Params.featured_image -}}
+        {{- $featuredImage = .Resources.GetMatch .Params.featured_image -}}
+    {{- else -}}
+        {{- $featuredImage = resources.Get .Site.Params.defaultFeaturedImage -}}
+    {{- end -}}
+
     {{- $processImage = partial "helper/image-process" (dict "Image" $featuredImage "Site" .Site) -}}
 
     {{- $featuredImageUrl = print $public_cdn $processImage.Permalink -}}
@@ -19,13 +26,17 @@
 
 <a href="{{- .RelPermalink -}}" class="article-cover relative block h-0 w-full transition duration-100 ease-[ease]">
     <picture class="noscript-hidden">
-        {{- with $processImage.SrcsetWebp -}}<source {{ if $lazyload }}data-{{ end }}srcset="{{- . -}}" type="image/webp" />{{- end -}}
+        {{- if $processImage.Processed -}}
+            <source {{ if $lazyload }}data-{{ end }}srcset="{{- $processImage.SrcsetWebp -}}" type="image/webp" />
+        {{- end -}}
         <img
-            {{ if $lazyload }}data-{{ end }}src="{{- $featuredImage -}}"
+            {{ if $lazyload }}data-{{ end }}src="{{- $featuredImageUrl -}}"
             {{ if $lazyload }}src="{{- or $processImage.Placeholder $lazyload_image -}}"{{ end }}
-            {{ if $lazyload }}data-{{ end }}srcset="{{- $processImage.Srcset -}}"
-            {{- with .Title -}}alt="{{- . -}}"{{- end -}}
-            {{- if not $processImage.Placeholder -}}style="background-color: #fff;"{{- end -}}
+            {{ if $processImage.Processed }}
+                {{ if $lazyload }}data-{{ end }}srcset="{{- $processImage.Srcset -}}"
+            {{ end -}}
+            {{ with .Title }}alt="{{- . -}}"{{ end }}
+            {{ if not $processImage.Placeholder }}style="background-color: #fff;"{{ end }}
             class="noscript-hidden absolute left-0 top-0 h-full w-full object-cover object-center transition duration-300 ease-[ease]"
             {{ if $lazyload }}data-lazyload data-lazyload-blur{{ end }}
         />
@@ -33,10 +44,10 @@
 
     <noscript>
         <picture>
-            {{- with $processImage.SrcsetWebp -}}<source srcset="{{- . -}}" type="image/webp" />{{- end -}}
+            {{- if $processImage.Processed -}}<source srcset="{{- $processImage.SrcsetWebp -}}" type="image/webp" />{{- end -}}
             <img
                 src="{{- $featuredImageUrl -}}"
-                {{- with $processImage.Srcset -}}srcset="{{- . -}}"{{- end -}}
+                {{- if $processImage.Processed -}}srcset="{{- $processImage.Srcset -}}"{{- end -}}
                 {{- with .Title -}}alt="{{- . -}}"{{- end -}}
                 {{- if not $processImage.Placeholder -}}style="background-color: #fff;"{{- end -}}
                 class="absolute left-0 top-0 h-full w-full object-cover object-center transition duration-300 ease-[ease]"
@@ -44,10 +55,12 @@
         </picture>
     </noscript>
 
-    <div
-        class="cover-shadow absolute left-0 top-0 -z-10 hidden h-full w-full bg-cover bg-center bg-no-repeat transition duration-300 ease-[ease] md:block"
-        style="background-image:url({{- or $processImage.Placeholder $featuredImageUrl -}})"
-    ></div>
+    {{- if $processImage.Processed -}}
+        <div
+            class="cover-shadow absolute left-0 top-0 -z-10 hidden h-full w-full bg-cover bg-center bg-no-repeat transition duration-300 ease-[ease] md:block"
+            style="background-image:url({{- or $processImage.Placeholder $featuredImageUrl -}})"
+        ></div>
+    {{- end -}}
 
     <div
         class="article-title absolute bottom-0 left-0 z-10 hidden h-4/5 w-full items-end p-5 text-2xl text-white dark:text-darkText sm:flex md:p-10 md:text-3xl"

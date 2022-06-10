@@ -84,15 +84,10 @@
     }
   },
   {{- end -}}
-  {{- if .Params.author -}}
+  {{- if or .Params.author .Site.Author.name -}}
   "author": {
     "@type": "Person",
-    "name": "{{- .Params.author -}}"
-  },
-  {{- else if .Site.Author.name -}}
-  "author": {
-    "@type": "Person",
-    "name": "{{- .Site.Author.name -}}"
+    "name": "{{- or .Params.author .Site.Author.name -}}"
   },
   {{- end -}}
   "description": "{{- .Description -}}"

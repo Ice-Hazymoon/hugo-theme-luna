@@ -5,57 +5,61 @@
 {{- $Permalink := "" -}}
 {{- $galleryImage := false -}}
 
-{{- $NotSVG := ne $Image.MediaType.SubType "svg" -}}
-{{- $NotGIF := ne $Image.MediaType.SubType "gif" -}}
-{{- $Width := 0 -}}
-{{- $Height := 0 -}}
-{{- $Srcset := "" -}}
-{{- $SrcsetWebp := "" -}}
-{{- $Placeholder := "" -}}
-
-{{- $imageProcessing := .Site.Params.imageProcessing -}}
-
 {{- $returnValue := newScratch -}}
 
-{{- if and $Image (and $NotSVG $NotGIF) -}}
-    {{- $Permalink = $Image.RelPermalink -}}
-    {{- $Width = $Image.Width -}}
-    {{- $Height = $Image.Height -}}
-    {{- $galleryImage = true -}}
-    {{- if (default true $imageProcessing.content) -}}
-        {{- $_flag := false -}}
-        {{- range $index, $size := sort $imageProcessing.autoResize -}}
-            {{- if not $_flag -}}
-                {{- $isLast := or (eq (add $index 1) (len $imageProcessing.autoResize)) (le $Width $size) -}}
-                {{- $end := print " " . "w" (cond $isLast "" ", ") -}}
-                {{- $resizeWidth := cond (ge $Width $size) $size $Width -}}
+{{- if (urls.Parse ($Image | safeURL)).Scheme -}}
+    {{- $returnValue.SetInMap "returnValue" "Processed" false -}}
+{{- else -}}
+    {{- $NotSVG := ne $Image.MediaType.SubType "svg" -}}
+    {{- $NotGIF := ne $Image.MediaType.SubType "gif" -}}
+    {{- $Width := 0 -}}
+    {{- $Height := 0 -}}
+    {{- $Srcset := "" -}}
+    {{- $SrcsetWebp := "" -}}
+    {{- $Placeholder := "" -}}
 
-                {{- $Srcset = print $Srcset $public_cdn ($Image.Resize (print $resizeWidth "x")).RelPermalink $end -}}
+    {{- $imageProcessing := .Site.Params.imageProcessing -}}
 
-                {{- if $imageProcessing.webp -}}
-                    {{- $SrcsetWebp = print $SrcsetWebp $public_cdn ($Image.Resize (print $resizeWidth "x webp")).RelPermalink $end -}}
-                {{- end -}}
+    {{- if and $Image (and $NotSVG $NotGIF) -}}
+        {{- $Permalink = $Image.RelPermalink -}}
+        {{- $Width = $Image.Width -}}
+        {{- $Height = $Image.Height -}}
+        {{- $galleryImage = true -}}
+        {{- if (default true $imageProcessing.content) -}}
+            {{- $_flag := false -}}
+            {{- range $index, $size := sort $imageProcessing.autoResize -}}
+                {{- if not $_flag -}}
+                    {{- $isLast := or (eq (add $index 1) (len $imageProcessing.autoResize)) (le $Width $size) -}}
+                    {{- $end := print " " . "w" (cond $isLast "" ", ") -}}
+                    {{- $resizeWidth := cond (ge $Width $size) $size $Width -}}
 
-                {{- if le $Width $size -}}
-                    {{- $_flag = true -}}
+                    {{- $Srcset = print $Srcset $public_cdn ($Image.Resize (print $resizeWidth "x")).RelPermalink $end -}}
+
+                    {{- if $imageProcessing.webp -}}
+                        {{- $SrcsetWebp = print $SrcsetWebp $public_cdn ($Image.Resize (print $resizeWidth "x webp")).RelPermalink $end -}}
+                    {{- end -}}
+
+                    {{- if le $Width $size -}}
+                        {{- $_flag = true -}}
+                    {{- end -}}
                 {{- end -}}
             {{- end -}}
+
+            {{- $Placeholder = print $public_cdn (($Image.Resize "50x jpg").Filter (images.GaussianBlur 2)).RelPermalink -}}
         {{- end -}}
 
-        {{- $Placeholder = print $public_cdn (($Image.Resize "50x jpg").Filter (images.GaussianBlur 2)).RelPermalink -}}
+        {{- $returnValue.SetInMap "returnValue" "Processed" true -}}
+        {{- $returnValue.SetInMap "returnValue" "Srcset" $Srcset -}}
+        {{- $returnValue.SetInMap "returnValue" "SrcsetWebp" $SrcsetWebp -}}
+        {{- $returnValue.SetInMap "returnValue" "Placeholder" $Placeholder -}}
+        {{- $returnValue.SetInMap "returnValue" "Width" $Width -}}
+        {{- $returnValue.SetInMap "returnValue" "Height" $Height -}}
+        {{- $returnValue.SetInMap "returnValue" "NotSVG" $NotSVG -}}
+        {{- $returnValue.SetInMap "returnValue" "NotGIF" $NotGIF -}}
+        {{- $returnValue.SetInMap "returnValue" "Permalink" $Permalink -}}
+    {{- else -}}
+        {{- $returnValue.SetInMap "returnValue" "Processed" false -}}
     {{- end -}}
-
-    {{- $returnValue.SetInMap "returnValue" "Processed" true -}}
-    {{- $returnValue.SetInMap "returnValue" "Srcset" $Srcset -}}
-    {{- $returnValue.SetInMap "returnValue" "SrcsetWebp" $SrcsetWebp -}}
-    {{- $returnValue.SetInMap "returnValue" "Placeholder" $Placeholder -}}
-    {{- $returnValue.SetInMap "returnValue" "Width" $Width -}}
-    {{- $returnValue.SetInMap "returnValue" "Height" $Height -}}
-    {{- $returnValue.SetInMap "returnValue" "NotSVG" $NotSVG -}}
-    {{- $returnValue.SetInMap "returnValue" "NotGIF" $NotGIF -}}
-    {{- $returnValue.SetInMap "returnValue" "Permalink" $Permalink -}}
-{{- else -}}
-    {{- $returnValue.SetInMap "returnValue" "Processed" false -}}
 {{- end -}}
 
 {{- return $returnValue.Get "returnValue" -}}
