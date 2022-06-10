@@ -101,6 +101,7 @@ share:
 page:
     prev: "Prev"
     next: "Next"
+    page: "Page {{ .PageNumber }}"
     pagination: "Page {{ .PageNumber }} of  {{ .TotalPages }}th"
 
 # js

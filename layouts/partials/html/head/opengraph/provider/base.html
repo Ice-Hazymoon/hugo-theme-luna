@@ -1,5 +1,5 @@
-{{- $title := partialCached "data/title" . .RelPermalink -}}
-{{- $description := partialCached "data/description" . .RelPermalink -}}
+{{- $title := partial "data/title" . .RelPermalink -}}
+{{- $description := partial "data/description" . .RelPermalink -}}
 
 <meta property="og:site_name" content="{{- $title -}}" />
 <meta property="og:type" content="{{- if $.IsNode -}}website{{- else -}}article{{- end -}}" />
@@ -7,7 +7,7 @@
 <meta property="og:description" content="{{- $description -}}" />
 <meta property="og:url" content="{{- .Permalink -}}" />
 {{- if .Site.Params.opengraph.image -}}
-    {{- $image := partialCached "data/image" . .RelPermalink -}}
+    {{- $image := partial "data/image" . .RelPermalink -}}
     {{- with $image.Permalink -}}<meta property="og:image" content="{{- . -}}" />{{- end -}}
     {{- with $image.Width -}}<meta property="og:image:width" content="{{- . -}}" />{{- end -}}
     {{- with $image.Height -}}<meta property="og:image:height" content="{{- . -}}" />{{- end -}}

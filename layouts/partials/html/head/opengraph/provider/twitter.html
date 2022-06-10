@@ -1,6 +1,6 @@
 {{- $twitterSummary := .Site.Params.opengraph.twitter -}}
-{{- $title := partialCached "data/title" . .RelPermalink -}}
-{{- $description := partialCached "data/description" . .RelPermalink -}}
+{{- $title := partial "data/title" . .RelPermalink -}}
+{{- $description := partial "data/description" . .RelPermalink -}}
 
 <meta name="twitter:card" content="{{- $twitterSummary.cardType -}}" />
 {{- with $twitterSummary.site -}}
@@ -12,6 +12,6 @@
 <meta name="twitter:url" content="{{- .Permalink -}}" />
 
 {{- if .Site.Params.opengraph.image -}}
-    {{- $image := partialCached "data/image" . .RelPermalink -}}
+    {{- $image := partial "data/image" . .RelPermalink -}}
     <meta name="twitter:image" content="{{- $image.Permalink}}" />
 {{- end -}}

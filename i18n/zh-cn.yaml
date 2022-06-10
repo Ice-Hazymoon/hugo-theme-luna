@@ -85,6 +85,7 @@ share:
 page:
     prev: "上一页"
     next: "下一页"
+    page: "第 {{ . }} 页"
     pagination: "第 {{ .PageNumber }} 页 共 {{ .TotalPages }} 页"
 
 # js
