@@ -1,0 +1,65 @@
+<div class="article-info border-b p-6 pb-3 text-sm dark:border-darkBorder md:px-10">
+    <div>
+        <div class="mb-3 mr-4 inline-flex items-center sm:rounded-full">
+            <i class="eva eva-clock-outline mr-1"></i>
+            <span>
+                <time
+                    title="{{- T "post.publishedIn" -}}{{- .Date.Format (T "date.normal") -}}"
+                    {{- printf `datetime="%s"` (.Date.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr -}}
+                    >{{- .Date.Format (T "date.d_m_y") -}}</time
+                >
+            </span>
+        </div>
+        {{- if .Site.Params.lastmod -}}
+            {{- if ne (.Lastmod.Format (T "date.d_m_y")) (.Date.Format (T "date.d_m_y")) -}}
+                <span class="mb-3 mr-4 inline-flex items-center sm:rounded-full">
+                    <i class="eva eva-edit-2-outline mr-1"></i>
+                    <span>
+                        <time
+                            title="{{- T "post.lastmod" -}}{{- .Lastmod.Format (T "date.normal") -}}"
+                            {{- printf `datetime="%s"` (.Lastmod.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr -}}
+                            >{{- .Lastmod.Format (T "date.d_m_y") -}}</time
+                        >
+                    </span>
+                </span>
+            {{- end -}}
+        {{- end -}}
+        {{- if .Site.Params.readingTime -}}
+            <div class="mb-3 mr-4 inline-flex items-center sm:rounded-full">
+                <i class="eva eva-flag-outline mr-1"></i>
+                <span>{{- T "post.readingTime" .ReadingTime }}</span>
+            </div>
+        {{- end -}}
+        {{- if .Site.Params.wordCount -}}
+            <div class="mb-3 mr-4 inline-flex items-center sm:rounded-full">
+                <i class="eva eva-bar-chart-outline mr-1"></i>
+                <span>{{- T "post.wordCount" .WordCount }}</span>
+            </div>
+        {{- end -}}
+    </div>
+
+    {{- if .Params.tags -}}
+        <div class="mb-3 flex items-center">
+            <i class="eva eva-pricetags-outline mr-1"></i>
+            <span class="mr-3">{{- T "taxonomy._tags" -}}</span>
+            {{- range .Params.tags -}}
+                <a href="{{- "/tags/" | relLangURL -}}{{- . | urlize -}}" title="{{- . -}}" class="group mr-2 flex items-center text-sm">
+                    <i class="mr-1 text-gray-400 group-hover:text-theme">#</i>
+                    <span class="text-gray-400 group-hover:text-theme"> {{- . -}}</span>
+                </a>
+            {{- end -}}
+        </div>
+    {{- end -}}
+    {{- if .Params.categories -}}
+        <div class="mb-3 flex items-center">
+            <i class="eva eva-folder-outline mr-1"></i>
+            <span class="mr-3">{{- T "taxonomy._categories" -}}</span>
+            {{- range .Params.categories -}}
+                <a href="{{- "/categories/" | relLangURL -}}{{- . | urlize -}}" title="{{- . -}}" class="group flex items-center text-sm">
+                    <span class="text-gray-400 group-hover:text-theme">{{- . -}}</span>
+                    <span class="mx-0.5 group-last:hidden">,</span>
+                </a>
+            {{- end -}}
+        </div>
+    {{- end -}}
+</div>

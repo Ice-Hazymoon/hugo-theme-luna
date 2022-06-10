@@ -1,7 +1,7 @@
 baseURL: https://hugo-theme-luna.imiku.me/
 languageCode: en-us
 defaultContentLanguage: en-us
-title: Ice-Hazymoon's Blog
+title: "Hugo Theme Luna"
 enableRobotsTXT: true
 enableEmoji: true
 theme: hugo-theme-luna
@@ -146,7 +146,6 @@ menu:
 languages:
   zh-cn:
     contentDir: content/zh-hans
-    title: Ice-Hazymoon 的博客
     languageName: 中文
     params:
       icon: "images/i18n/zh-cn.svg" # in assets folder
@@ -167,7 +166,6 @@ languages:
         file: "README.zh.md"
   en-us:
     contentDir: content/en-us
-    title: Ice-Hazymoon's Blog
     languageName: English
     params:
       icon: "images/i18n/en-us.svg" # in assets folder
@@ -256,6 +254,9 @@ params:
     weibo: true
     copyLinkText: true
     qrcode: true
+  
+  # qrcodeAPI: "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data="
+  qrcodeAPI: "https://www.lofter.com/genBitmaxImage?url="
 
   # 文章许可设置
   # license
@@ -354,9 +355,8 @@ params:
 
   # 默认文章封面图片
   # 图片必须位于 assets 文件夹
-  # Default featured image
-  # Your images must be located in the assets folder
-  # /images/featured_image.jpg or https://source.unsplash.com/random
+  # Default post card featured image
+  # /featured.png in assets folder or https://source.unsplash.com/random
   defaultFeaturedImage: false
 
   # 自动调整图片大小并兼容 Webp 格式
@@ -370,17 +370,11 @@ params:
       - 1440
     webp: true
 
-  # 网站信息，根据需要修改
-  # site info
-  image:
-    url: "/cover.png"
-    width: 1000
-    height: 519
-  
-  logo:
-    url: "/icon.png"
-    width: 200
-    height: 200
+  opengraph:
+    twitter: # see https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/getting-started
+      cardType: summary_large_image # summary or summary_large_image
+      site: "@Ice_Hazymoon"
+    image: "featured.png" # in assets folder or set to false
 
   author: Ice-Hazymoon
   keywords:

@@ -1,0 +1,7 @@
+{{- $hasCover := or (.Site.Params.defaultFeaturedImage) (.Params.featured_image) -}}
+
+{{- if $hasCover -}}
+    {{- partial "article-list/components/with-cover" . }}
+{{- else -}}
+    {{- partial "article-list/components/no-cover" . }}
+{{- end -}}

@@ -32,6 +32,7 @@
     "devDependencies": {
         "@swup/fade-theme": "^1.0.5",
         "@swup/ga-plugin": "^1.1.0",
+        "@swup/head-plugin": "^1.2.0",
         "@swup/progress-plugin": "^1.1.1",
         "@swup/scripts-plugin": "^1.1.0",
         "@swup/slide-theme": "^1.0.5",

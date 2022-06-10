@@ -1,0 +1,5 @@
+{{- $Summary := .Summary | plainify -}}
+<a href="{{- .RelPermalink -}}" class="block px-5 pt-5 dark:border-darkBorder">
+    <div class="text-2xl font-bold transition line-clamp-2 group-hover:text-theme md:line-clamp-3">{{- .Title -}}</div>
+    {{- with $Summary -}}<div class="mt-4 mb-1 line-clamp-2" title="{{- . -}}">{{ . }}</div>{{- end -}}
+</a>

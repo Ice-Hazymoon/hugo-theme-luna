@@ -1,0 +1,5 @@
+{{- if eq .Type "posts" -}}
+    {{- partial "article-list/type/posts" . }}
+{{- else -}}
+    {{- partial "article-list/type/status" . }}
+{{- end -}}

@@ -16,6 +16,7 @@ const modules = {
     '@swup/progress-plugin/dist/SwupProgressPlugin.js': `${js_modules_path}swupProgressPlugin.js`,
     '@swup/scripts-plugin/dist/SwupScriptsPlugin.js': `${js_modules_path}swupScriptsPlugin.js`,
     '@swup/slide-theme/dist/SwupSlideTheme.js': `${js_modules_path}swupSlideTheme.js`,
+    '@swup/head-plugin/dist/SwupHeadPlugin.js': `${js_modules_path}swupHeadPlugin.js`,
     'swup-morph-plugin/dist/SwupMorphPlugin.js': `${js_modules_path}swupMorphPlugin.js`,
     'flexsearch/dist/flexsearch.bundle.js': `${js_modules_path}flexsearch.js`,
     'katex/dist/katex.js': `${js_modules_path}katex.js`,

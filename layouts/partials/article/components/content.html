@@ -1,0 +1,8 @@
+<section class="article-content typo relative flex-grow px-6 py-5 md:px-10">
+    {{- if .Site.Params.bionicReading.enabled -}}
+        <i title="{{- T "bionicReading" -}}" id="bionicReading" class="absolute right-0 top-0 cursor-pointer p-3"
+            >{{- $.Site.Data.luna.icon.wand | safeHTML -}}</i
+        >
+    {{- end -}}
+    {{- .Content -}}
+</section>

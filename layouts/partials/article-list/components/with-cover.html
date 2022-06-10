@@ -1,0 +1,65 @@
+{{- $Summary := .Summary | plainify -}}
+{{- $public_cdn := cond .Site.IsServer "" .Site.Params.publicCDN -}}
+{{- $lazyload_image := print $public_cdn ("images/outload.svg" | relURL) -}}
+
+{{- $featuredImage := "" -}}
+{{- $processImage := "" -}}
+{{- $lazyload := .Site.Params.lazyload -}}
+{{- $featuredImageUrl := or .Params.featured_image .Site.Params.defaultFeaturedImage -}}
+
+{{- if (urls.Parse ($featuredImageUrl | safeURL)).Scheme -}}
+    {{- $featured_image = $featuredImageUrl | safeURL -}}
+{{- else -}}
+    {{- $featuredImage = cond (isset .Params "featured_image") (.Resources.GetMatch .Params.featured_image) (resources.Get .Site.Params.defaultFeaturedImage) -}}
+    {{- $processImage = partial "helper/image-process" (dict "Image" $featuredImage "Site" .Site) -}}
+
+    {{- $featuredImageUrl = print $public_cdn $processImage.Permalink -}}
+{{- end }}
+
+
+<a href="{{- .RelPermalink -}}" class="article-cover relative block h-0 w-full transition duration-100 ease-[ease]">
+    <picture class="noscript-hidden">
+        {{- with $processImage.SrcsetWebp -}}<source {{ if $lazyload }}data-{{ end }}srcset="{{- . -}}" type="image/webp" />{{- end -}}
+        <img
+            {{ if $lazyload }}data-{{ end }}src="{{- $featuredImage -}}"
+            {{ if $lazyload }}src="{{- or $processImage.Placeholder $lazyload_image -}}"{{ end }}
+            {{ if $lazyload }}data-{{ end }}srcset="{{- $processImage.Srcset -}}"
+            {{- with .Title -}}alt="{{- . -}}"{{- end -}}
+            {{- if not $processImage.Placeholder -}}style="background-color: #fff;"{{- end -}}
+            class="noscript-hidden absolute left-0 top-0 h-full w-full object-cover object-center transition duration-300 ease-[ease]"
+            {{ if $lazyload }}data-lazyload data-lazyload-blur{{ end }}
+        />
+    </picture>
+
+    <noscript>
+        <picture>
+            {{- with $processImage.SrcsetWebp -}}<source srcset="{{- . -}}" type="image/webp" />{{- end -}}
+            <img
+                src="{{- $featuredImageUrl -}}"
+                {{- with $processImage.Srcset -}}srcset="{{- . -}}"{{- end -}}
+                {{- with .Title -}}alt="{{- . -}}"{{- end -}}
+                {{- if not $processImage.Placeholder -}}style="background-color: #fff;"{{- end -}}
+                class="absolute left-0 top-0 h-full w-full object-cover object-center transition duration-300 ease-[ease]"
+            />
+        </picture>
+    </noscript>
+
+    <div
+        class="cover-shadow absolute left-0 top-0 -z-10 hidden h-full w-full bg-cover bg-center bg-no-repeat transition duration-300 ease-[ease] md:block"
+        style="background-image:url({{- or $processImage.Placeholder $featuredImageUrl -}})"
+    ></div>
+
+    <div
+        class="article-title absolute bottom-0 left-0 z-10 hidden h-4/5 w-full items-end p-5 text-2xl text-white dark:text-darkText sm:flex md:p-10 md:text-3xl"
+    >
+        <div class="w-full">
+            <div class="font-bold line-clamp-2 md:line-clamp-3">{{- .Title -}}</div>
+            {{- with $Summary -}}<div class="mt-2 hidden text-xl line-clamp-2 md:mt-4" title="{{- . -}}">{{ . }}</div>{{- end -}}
+        </div>
+    </div>
+</a>
+
+<div class="block border-t px-5 pt-5 dark:border-darkBorder sm:hidden">
+    <a href="{{- .RelPermalink -}}" class="text-2xl font-bold transition line-clamp-2 group-hover:text-theme md:line-clamp-3">{{- .Title -}}</a>
+    {{- with $Summary -}}<div class="mt-4 mb-1 line-clamp-2" title="{{- . -}}">{{ . }}</div>{{- end -}}
+</div>

@@ -3,6 +3,8 @@ title: "Article Encryption Test"
 date: 2022-04-09T02:49:13+02:00
 slug: hugo-encrypt
 summary: "This is a test article for encryption"
+tags:
+  - "Hugo"
 ---
 
 ## Hugo Encrypt

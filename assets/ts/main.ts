@@ -13,6 +13,7 @@ import SwupProgressPlugin from 'swupProgressPlugin';
 import SwupGaPlugin from 'swupGaPlugin';
 import SwupScriptsPlugin from 'swupScriptsPlugin';
 import SwupMorphPlugin from 'swupMorphPlugin';
+import SwupHeadPlugin from 'swupHeadPlugin';
 
 declare global {
     interface Window {
@@ -106,6 +107,8 @@ class Luna {
                 optin: true,
                 // head: false,
                 // body: false
+            }), new SwupHeadPlugin({
+                persistAssets: true
             })].concat(window.__theme.googleAnalytics ? [new SwupGaPlugin()] : []),
             animateHistoryBrowsing: true,
             linkSelector:

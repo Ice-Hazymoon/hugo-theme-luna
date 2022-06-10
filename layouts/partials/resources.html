@@ -1,7 +1,0 @@
-{{- $svg_files := dict "error_svg" "images/error.svg" "search_svg" "images/search.svg" "outload_svg" "images/outload.svg" "offline_html" "offline.html" -}}
-{{- $public_cdn := cond .Site.IsServer "" .Site.Params.publicCDN -}}
-
-{{- range $filename, $path := $svg_files -}}
-    {{- $svg := resources.Get $path | resources.ExecuteAsTemplate $path $ -}}
-    {{- $.Store.Set $filename (print $public_cdn $svg.RelPermalink) -}}
-{{- end -}}

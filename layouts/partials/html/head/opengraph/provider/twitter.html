@@ -1,0 +1,17 @@
+{{- $twitterSummary := .Site.Params.opengraph.twitter -}}
+{{- $title := partialCached "data/title" . .RelPermalink -}}
+{{- $description := partialCached "data/description" . .RelPermalink -}}
+
+<meta name="twitter:card" content="{{- $twitterSummary.cardType -}}" />
+{{- with $twitterSummary.site -}}
+    <meta name="twitter:site" content="{{- . -}}" />
+    <meta name="twitter:creator" content="{{- . -}}" />
+{{- end -}}
+<meta name="twitter:title" content="{{- $title -}}" />
+<meta name="twitter:description" content="{{- $description -}}" />
+<meta name="twitter:url" content="{{- .Permalink -}}" />
+
+{{- if .Site.Params.opengraph.image -}}
+    {{- $image := partialCached "data/image" . .RelPermalink -}}
+    <meta name="twitter:image" content="{{- $image.Permalink}}" />
+{{- end -}}

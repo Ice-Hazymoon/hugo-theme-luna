@@ -15,7 +15,7 @@
             <div>
                 {{- $paginator := .Paginate (where site.RegularPages "Type" "in" (slice "posts" "status")) -}}
                 {{- range $paginator.Pages -}}
-                    {{- partial "post-card" . -}}
+                    {{- partial "article-list/article" . -}}
                 {{- end -}}
             </div>
         </div>

@@ -1,0 +1,13 @@
+{{ $image := false }}
+{{- if or .Site.Params.opengraph.image .Params.featured_image -}}
+    {{- if .Params.featured_image -}}
+        {{- $image = .Resources.GetMatch .Params.featured_image -}}
+    {{- else -}}
+        {{- $image = resources.Get .Site.Params.opengraph.image -}}
+    {{- end -}}
+{{- end -}}
+
+{{- return $image -}}
+
+
+

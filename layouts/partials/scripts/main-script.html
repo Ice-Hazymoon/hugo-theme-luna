@@ -18,6 +18,7 @@
 {{- $scratch.SetInMap "jsModules" "swupGaPlugin" (cond .Site.Params.pjax "ts/modules/swupGaPlugin.js" "ts/_.ts") -}}
 {{- $scratch.SetInMap "jsModules" "swupScriptsPlugin" (cond .Site.Params.pjax "ts/modules/swupScriptsPlugin.js" "ts/_.ts") -}}
 {{- $scratch.SetInMap "jsModules" "swupMorphPlugin" (cond .Site.Params.pjax "ts/modules/swupMorphPlugin.js" "ts/_.ts") -}}
+{{- $scratch.SetInMap "jsModules" "swupHeadPlugin" (cond .Site.Params.pjax "ts/modules/swupHeadPlugin.js" "ts/_.ts") -}}
 
 {{- $mainScript := resources.Get "ts/main.ts" | js.Build (dict "minify" hugo.IsProduction "params" (dict "search" $searchScript.RelPermalink "katex" $katex "lazyload" .Site.Params.lazyload) "shims" ($scratch.Get "jsModules")) -}}
 {{- if .Site.IsServer -}}

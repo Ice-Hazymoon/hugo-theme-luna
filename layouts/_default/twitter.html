@@ -61,7 +61,7 @@
                                                 {{- $pic_webp := "" -}}
                                                 {{- $pic_srcset := "" -}}
                                                 {{- if $twitterConfig.imageProcessing -}}
-                                                    {{- $processImage = partial "functions/image-process" (dict "Image" . "Site" $Site) -}}
+                                                    {{- $processImage = partial "helper/image-process" (dict "Image" . "Site" $Site) -}}
                                                 {{- end -}}
                                                 <div class="relative inline-block w-1/2 pr-4 pb-4 lg:w-1/3 xl:w-1/4">
                                                     <div class="img-box relative overflow-hidden rounded border dark:border-darkBorder">

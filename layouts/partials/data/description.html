@@ -1,0 +1,8 @@
+<!-- Use site subtitle by default -->
+{{ $description := .Description }}
+{{ if .IsPage }}
+    <!-- Use page summary -->
+    {{ $description = .Summary }}
+{{ end }}
+
+{{ return ($description | plainify)}}

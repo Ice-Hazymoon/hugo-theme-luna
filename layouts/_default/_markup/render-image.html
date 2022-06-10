@@ -35,7 +35,7 @@
     {{- $Permalink := .Destination | relURL | safeURL -}}
     {{- $galleryImage := false -}}
 
-    {{- $processImage := partial "functions/image-process" (dict "Image" $Image "Site" .Page.Site) -}}
+    {{- $processImage := partial "helper/image-process" (dict "Image" $Image "Site" .Page.Site) -}}
 
     {{- if $processImage.Processed -}}
         {{- $galleryImage = true -}}

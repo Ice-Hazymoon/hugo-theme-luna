@@ -1,0 +1,14 @@
+{{- $license := .Site.Params.license -}}
+
+{{- if $license.enabled -}}
+    <div class="hidden items-center text-xs xl:flex">
+        {{ T "post.license" }} 「
+        <a href="{{- $license.url -}}" target="_blank" rel="noopener noreferrer" class="text-theme">{{- $license.name -}}</a>
+        」
+    </div>
+    <div class="flex items-center text-sm xl:hidden">
+        <a href="{{- $license.url -}}" target="_blank" rel="noopener noreferrer" class="text-theme">
+            <img src="{{- (resources.Get $license.icon).RelPermalink -}}" alt="{{- $license.name -}}" title="{{- $license.name -}}" class="w-24" />
+        </a>
+    </div>
+{{- end -}}

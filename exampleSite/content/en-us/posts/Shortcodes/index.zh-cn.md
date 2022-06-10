@@ -129,6 +129,7 @@ categories:
 这是一个 {{</* tag green "绿色标签" */>}}  
 这是一个 {{</* tag blue "蓝色标签" */>}}  
 这是一个 {{</* tag orange "橘色标签" */>}}  
+这是一个 {{</* tag theme "主题色标签" */>}}  
 
 这是一个 {{</* tag-outlined red "红色标签" */>}}  
 这是一个 {{</* tag-outlined green "绿色标签" */>}}  
@@ -140,6 +141,7 @@ categories:
 这是一个 {{< tag green "绿色标签" >}}  
 这是一个 {{< tag blue "蓝色标签" >}}  
 这是一个 {{< tag orange "橘色标签" >}}  
+这是一个 {{< tag theme "主题色标签" >}}  
 
 这是一个 {{< tag-outlined red "红色标签" >}}  
 这是一个 {{< tag-outlined green "绿色标签" >}}  
@@ -153,12 +155,14 @@ categories:
 {{</* progress 77.54 red "进度条名称" */>}}
 {{</* progress 123.45 blue "进度条名称" */>}}
 {{</* progress 11.11 orange "进度条名称" */>}}
+{{</* progress 99.99 theme "进度条名称" */>}}
 ```
 
 {{< progress 80 green "进度条名称" >}}
 {{< progress 77.54 red "进度条名称" >}}
 {{< progress 123.45 blue "进度条名称" >}}
 {{< progress 11.11 orange "进度条名称" >}}
+{{< progress 99.99 theme "进度条名称" >}}
 
 ## 折叠面板
 

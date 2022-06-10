@@ -13,10 +13,7 @@
         </a>
     </div>
 
-    {{- if .Site.Params.license.enabled -}}
-        {{- partial "post/license" . }}
-    {{- end -}}
-
+    {{- partial "article/components/license" . }}
 
     <a
         href="{{- with .NextInSection -}}{{- .RelPermalink -}}{{- end -}}"

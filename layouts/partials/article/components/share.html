@@ -72,7 +72,7 @@
                 <div
                     class="qrcode-wrapper pointer-events-none absolute left-2/4 bottom-10 h-32 w-32 -translate-x-1/2 overflow-hidden rounded border border-gray-300 bg-white opacity-0 transition duration-300 ease-[ease] group-hover:opacity-100"
                 >
-                    <img class="h-full w-full" src="https://www.lofter.com/genBitmaxImage?url={{- $url -}}" alt="{{- T "share.qrcode" -}}" />
+                    <img class="h-full w-full" src="{{- .Site.Params.qrcodeAPI -}}{{- $url -}}" alt="{{- T "share.qrcode" -}}" />
                 </div>
             </div>
         {{- end -}}

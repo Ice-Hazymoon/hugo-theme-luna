@@ -1,0 +1,47 @@
+{{- $public_cdn := cond .Site.IsServer "" .Site.Params.publicCDN -}}
+
+{{- $title := partialCached "data/title" . .RelPermalink -}}
+{{- $description := partialCached "data/description" . .RelPermalink -}}
+
+{{- partial "helper/resources" . -}}
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="{{- range union (union .Params.tags .Params.categories) .Site.Params.keywords -}}{{ . }},{{- end -}}" />
+    <meta name="description" content="{{- $description -}}" />
+    <meta itemprop="description" content="{{- $description -}}" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta itemprop="name" content="{{- $title -}}" />
+    <link href="{{- `index.xml` | absURL -}}" title="{{- $title -}}" type="application/rss+xml" rel="alternate" />
+    <title>{{- $title -}}</title>
+    {{- $sassTemplate := resources.Get "sass/main.scss" -}}
+    {{- $styles := $sassTemplate | resources.ExecuteAsTemplate "main.css" . | resources.ToCSS | postCSS (dict "config" "postcss.config.js") -}}
+
+    {{- if .Site.IsServer -}}
+        <link rel="stylesheet" href="{{- $styles.RelPermalink -}}" />
+    {{- else -}}
+        {{- $styles := $styles | fingerprint | resources.PostProcess -}}
+        <link rel="stylesheet" href="{{- print $public_cdn $styles.RelPermalink -}}" integrity="{{- $styles.Data.Integrity -}}" />
+    {{- end -}}
+
+    {{- partial "html/head/opengraph/include.html" . -}}
+
+    {{- $favicon_icon := resources.Get "icon.png" -}}
+    {{- $favicon_icon = $favicon_icon.Resize "48x48 ico icon" -}}
+    {{- $favicon_icon = slice $favicon_icon | resources.Concat "favicon.ico" -}}
+    {{- $favicon_icon = print $public_cdn $favicon_icon.RelPermalink -}}
+
+    <link rel="shortcut icon" href="{{- $favicon_icon -}}" type="image/x-icon" />
+
+    {{- $manifest := resources.Get "manifest.json" | resources.ExecuteAsTemplate (print ("/" | relLangURL) "manifest.json") . -}}
+    <link rel="manifest" href="{{- $manifest.RelPermalink -}}" />
+
+    {{- $icon := print $public_cdn (resources.Get "icon.png").RelPermalink -}}
+    <link href="{{- $icon -}}" rel="shortcut icon" />
+    <link href="{{- $icon -}}" rel="Bookmark" />
+    <link rel="apple-touch-icon" href="{{- $icon -}}" />
+    {{- partial "html/head/site-schema.html" . -}}
+
+    {{- partial "custom/head" . -}}
+</head>

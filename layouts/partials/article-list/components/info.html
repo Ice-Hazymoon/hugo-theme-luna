@@ -1,0 +1,65 @@
+{{- $hasCover := or (.Site.Params.defaultFeaturedImage) (.Params.featured_image) -}}
+<div class="article-info flex justify-between px-5 py-4 text-sm">
+    <div class="{{ if $hasCover }}sm:text-inherit{{ end }} flex text-gray-400 dark:text-gray-400">
+        <div class="mr-3 flex items-center md:mr-4">
+            <i class="eva eva-clock-outline mr-1"></i>
+            <span>
+                <time
+                    class=" hidden md:block"
+                    title="{{- .Date.Format (T "date.normal") -}}"
+                    {{- printf `datetime="%s"` (.Date.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr -}}
+                    >{{- .Date.Format (T "date.d_m_y") -}}</time
+                >
+                <time
+                    class=" block md:hidden"
+                    title="{{- .Date.Format (T "date.normal") -}}"
+                    {{- printf `datetime="%s"` (.Date.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr -}}
+                    >{{- .Date.Format (T "date.d_m") -}}</time
+                >
+            </span>
+        </div>
+        <div class="mr-3 hidden items-center sm:flex md:mr-4">
+            <i class="eva eva-book-open-outline mr-1"></i>
+            <span>{{- T "post.readingTime" .ReadingTime }}</span>
+        </div>
+        {{- if .Params.categories -}}
+            <div class="category-items flex items-center">
+                <i class="eva eva-folder-outline mr-1"></i>
+                {{- range .Params.categories -}}
+                    <a href="{{- "/categories/" | relLangURL -}}{{- . | urlize -}}" title="{{- . -}}" class="inline-flex">
+                        <span class="hover:text-theme">{{- . -}}</span>
+                        <span class="mx-0.5">,</span>
+                    </a>
+                {{- end -}}
+            </div>
+        {{- end -}}
+    </div>
+    <div class="hidden items-center text-xs sm:flex">
+        {{- if .Params.tags -}}
+            {{- range first 4 .Params.tags -}}
+                <a
+                    href="{{- "/tags/" | relLangURL -}}{{- . | urlize -}}"
+                    title="{{- . -}}"
+                    class="tag mx-1 flex items-center rounded-full bg-theme px-2 py-1 text-white transition duration-300 ease-[ease] dark:text-darkText"
+                >
+                    <i class="eva eva-hash-outline mr-0.5"></i>
+                    <span>{{- . -}}</span>
+                </a>
+            {{- end -}}
+        {{- end -}}
+    </div>
+    <div class="flex items-center sm:hidden">
+        {{- if .Params.tags -}}
+            {{- range first 4 .Params.tags -}}
+                <a
+                    href="{{- "/tags/" | relLangURL -}}{{- . | urlize -}}"
+                    title="{{- . -}}"
+                    class="mx-1 flex items-center text-gray-500 text-opacity-70 hover:text-opacity-100 dark:text-darkText"
+                >
+                    <i class="eva eva-hash-outline mr-0.5"></i>
+                    <span>{{- . -}}</span>
+                </a>
+            {{- end -}}
+        {{- end -}}
+    </div>
+</div>

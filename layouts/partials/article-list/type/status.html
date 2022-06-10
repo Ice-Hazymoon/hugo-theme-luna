@@ -1,0 +1,24 @@
+{{- $Summary := .Summary | plainify -}}
+
+<article
+    class="article group relative mb-10 overflow-hidden rounded border bg-white transition duration-300 ease-[ease] dark:border-darkBorder dark:bg-darkBgAccent sm:border-transparent sm:hover:border-gray-200 sm:hover:shadow-none sm:dark:hover:border-gray-600 md:mb-16"
+>
+    <a href="{{- .RelPermalink -}}" class="relative flex p-5">
+        <div class="mr-6 flex items-center text-5xl text-theme opacity-50 dark:opacity-80">
+            <i class="eva eva-edit-2-outline"></i>
+        </div>
+        <div class="flex-grow justify-between">
+            {{- with $Summary -}}<div class="text-xl line-clamp-3">{{ . }}</div>{{- end -}}
+            <div class="mt-2 flex items-center self-end text-sm text-gray-400">
+                <i class="eva eva-clock-outline mr-1"></i>
+                <div>
+                    <time
+                        title="{{- .Date.Format (T "date.normal") -}}"
+                        {{- printf `datetime="%s"` (.Date.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr -}}
+                        >{{- .Date.Format (T "date.d_m_y") -}}</time
+                    >
+                </div>
+            </div>
+        </div>
+    </a>
+</article>
