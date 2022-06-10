@@ -1,0 +1,29 @@
+<nav role="navigation" class="pagination bottom-0 left-0 flex w-full items-center justify-between pb-10 text-gray-600 dark:text-darkTextPlaceholder">
+    <a
+        href="{{- if .Paginator.HasPrev -}}
+            {{- .Paginator.Prev.URL -}}
+        {{- else -}}
+            /
+        {{- end -}}"
+        title="{{- T "page.prev" -}}"
+        class="{{- if not .Paginator.HasPrev -}}
+            opacity-0 pointer-events-none
+        {{- end -}} flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border bg-white text-xl transition duration-300 ease-[ease] hover:border-none hover:bg-theme hover:text-white dark:border-darkBorder dark:bg-darkBgAccent dark:text-darkTextPlaceholder dark:hover:text-darkText"
+    >
+        <i class="eva eva-arrow-left-outline"></i>
+    </a>
+    <span>- {{ T "page.pagination" (dict "PageNumber" .Paginator.PageNumber "TotalPages" .Paginator.TotalPages) }} -</span>
+    <a
+        href="{{- if .Paginator.HasNext -}}
+            {{- .Paginator.Next.URL -}}
+        {{- else -}}
+            /
+        {{- end -}}"
+        title="{{- T "page.next" -}}"
+        class="{{- if not .Paginator.HasNext -}}
+            opacity-0 pointer-events-none
+        {{- end -}} flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border bg-white text-xl transition duration-300 ease-[ease] hover:border-none hover:bg-theme hover:text-white dark:border-darkBorder dark:bg-darkBgAccent dark:text-darkTextPlaceholder dark:hover:text-darkText"
+    >
+        <i class="eva eva-arrow-right-outline"></i>
+    </a>
+</nav>
