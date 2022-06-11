@@ -290,6 +290,16 @@ input[type='checkbox'] {
             }
             $content: $content "." counter(h#{$i+2});
         }
+    } @else {
+        h4,
+        h5,
+        h6 {
+            @apply font-bold;
+            &::before {
+                content: '#';
+                @apply mr-2 w-5 font-bold italic text-gray-400;
+            }
+        }
     }
 
     h1,
@@ -329,16 +339,6 @@ input[type='checkbox'] {
 
     h6 {
         @apply text-base;
-    }
-
-    h4,
-    h5,
-    h6 {
-        @apply font-bold;
-        &::before {
-            content: '#';
-            @apply mr-2 w-5 font-bold italic text-gray-400;
-        }
     }
 
     hr {
