@@ -210,7 +210,7 @@ params:
 
   # 固定导航栏
   # Fixed navigation bar
-  fixedNav: true
+  fixedNav: false
 
   # 网站字体
   # Site font
