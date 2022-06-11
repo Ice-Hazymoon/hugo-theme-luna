@@ -17,7 +17,7 @@
             />
         </picture>
         <noscript data-lazyload-noscript>
-            <a href="{{ .Destination | relURL | safeURL }}" target="_blank" rel="noopener noreferrer">
+            <a class="before:hidden" href="{{ .Destination | relURL | safeURL }}" target="_blank" rel="noopener noreferrer">
                 <picture>
                     <img
                         src="{{ .Destination | relURL | safeURL }}"
@@ -63,7 +63,7 @@
             />
         </picture>
         <noscript data-lazyload-noscript>
-            <a class=" before:hidden" href="{{- $Permalink -}}" target="_blank" rel="noopener noreferrer">
+            <a class="before:hidden" href="{{- $Permalink -}}" target="_blank" rel="noopener noreferrer">
                 <picture>
                     {{- with $processImage.SrcsetWebp -}}<source srcset="{{- . -}}" type="image/webp" />{{- end -}}
                     <img

@@ -20,6 +20,8 @@ params:
 
   headlineCounter: true
 
+  fixedNav: false
+
   font: 'Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif'
 
   customScript:

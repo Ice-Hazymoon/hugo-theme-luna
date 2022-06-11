@@ -89,11 +89,11 @@ input[type='checkbox'] {
     }
 
     a[target='_blank'] {
-        &::before {
-            content: '\eabe';
+        &::after {
+            content: '\eaab';
             font-family: Eva-Icons;
-            margin-right: 2px;
-            vertical-align: bottom;
+            margin-left: 2px;
+            vertical-align: middle;
         }
     }
 
@@ -187,10 +187,10 @@ input[type='checkbox'] {
     }
 
     p {
-        @apply my-4 leading-8;
+        @apply my-4 leading-7;
     }
 
-    a:not(.link-card) {
+    a:not(.no-icon) {
         @apply relative inline-block text-theme no-underline;
         &:hover {
             @apply underline;

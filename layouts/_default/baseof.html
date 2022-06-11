@@ -10,10 +10,7 @@
             <div class="main flex flex-col justify-between bg-white dark:bg-darkFg">
                 {{- partial "html/header" . -}}
 
-                {{- partial "components/dark-mode" . -}}
-
-
-                <main class="relative flex flex-grow" id="swup">
+                <main class="relative flex flex-grow {{ if .Site.Params.fixedNav }} mt-28 md:mt-20 {{ end }}" id="swup">
                     <div class="type-{{ .Type }} layout-{{ .Layout }} w-full">{{- block "main" . -}}{{- end -}}</div>
                 </main>
 

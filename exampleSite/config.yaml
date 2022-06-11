@@ -208,6 +208,10 @@ params:
   # Title counter
   headlineCounter: true
 
+  # 固定导航栏
+  # Fixed navigation bar
+  fixedNav: true
+
   # 网站字体
   # Site font
   # font: '"Times New Roman", Times, "Heti Song", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'

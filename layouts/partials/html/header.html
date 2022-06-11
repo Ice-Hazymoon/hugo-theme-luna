@@ -1,4 +1,4 @@
-<header class="relative">
+<header class="{{- if .Site.Params.fixedNav -}} fixed z-10 backdrop-blur-md bg-white/80 dark:bg-darkFg mx-auto w-full md:max-w-4xl xl:max-w-4xl 2xl:max-w-4xl {{- else -}} relative {{- end -}}">
     <nav id="nav" class="navbar top-0 z-10 flex items-center border-b px-5 py-6 dark:border-darkBorder md:px-10">
         <div class="route-items flex w-full items-center justify-around">
             {{- $RelPermalink := .RelPermalink -}}
@@ -21,4 +21,6 @@
             {{- end }}
         </div>
     </nav>
+
+    {{- partial "components/dark-mode" . -}}
 </header>
