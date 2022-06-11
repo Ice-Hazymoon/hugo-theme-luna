@@ -5,8 +5,8 @@
 {{- $scratch.SetInMap "jsModules" "medium-zoom" (cond .Site.Params.imageZoom "ts/modules/medium-zoom.js" "ts/_.ts") -}}
 {{- $scratch.SetInMap "jsModules" "jump.js" (cond .Site.Params.backtop "ts/modules/jump.js" "ts/_.ts") -}}
 {{- $scratch.SetInMap "jsModules" "pangu" (cond .Site.Params.pangu "ts/modules/pangu.js" "ts/_.ts") -}}
+{{- $scratch.SetInMap "jsModules" "katex" (cond .Site.Params.katex "ts/modules/katex" "ts/_.ts") -}}
 {{- $scratch.SetInMap "jsModules" "katex-render" (cond .Site.Params.katex "ts/modules/katex-render" "ts/_.ts") -}}
-{{- $scratch.SetInMap "jsModules" "katex-copy" (cond .Site.Params.katex "ts/modules/katex-copy" "ts/_.ts") -}}
 {{- $scratch.SetInMap "jsModules" "katex-copy" (cond .Site.Params.katex "ts/modules/katex-copy" "ts/_.ts") -}}
 {{- $scratch.SetInMap "jsModules" "flexsearch" (cond .Site.Params.search "ts/modules/flexsearch" "ts/_.ts") -}}
 
