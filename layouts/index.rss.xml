@@ -12,7 +12,7 @@
         <atom:link href="{{- .OutputFormats.Get "RSS" -}}" rel="self" type="application/rss+xml" />
         <link>{{- .Permalink -}}</link>
         <managingEditor>{{- .Site.Author.name -}}</managingEditor>
-        <description>{{- .Site.Params.Description -}}</description>
+        <description>{{- or .Site.Params.Description .Site.Title -}}</description>
         <lastBuildDate>{{- .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML -}}</lastBuildDate>
         <language>{{- .Site.LanguageCode -}}</language>
         <generator>Hugo -- gohugo.io</generator>

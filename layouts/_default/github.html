@@ -22,9 +22,9 @@
                     {{- if and (eq .owner.login $githubConfig.id) (gt .stargazers_count $githubConfig.minStars) -}}
                         <a href="{{- .html_url -}}" target="_blank" rel="noopener noreferrer" class="inline-flex w-full  flex-col  justify-between sm:w-1/2">
                             <div
-                                class="card m-4 flex h-40 flex-col justify-between rounded border p-4 transition duration-300 ease-[ease] dark:border-darkBorder dark:bg-darkBgAccent dark:shadow-none sm:border-none"
+                                class="card relative m-4 flex h-40 flex-col justify-between rounded border p-4 transition duration-300 ease-[ease] dark:border-darkBorder dark:bg-darkBgAccent dark:shadow-none sm:border-none"
                             >
-                                <div>
+                                <div class="z-10">
                                     <div class="text-lg font-bold" title="{{- .name -}}">
                                         {{- .name -}}
                                     </div>
@@ -32,7 +32,7 @@
                                         {{- or .description "暫無描述" -}}
                                     </div>
                                 </div>
-                                <div class="flex justify-between">
+                                <div class="z-10 flex justify-between">
                                     <div class="flex">
                                         <div class="mr-6 flex items-center">
                                             <i class="eva eva-star mr-1 text-amber-400"></i>
@@ -51,6 +51,10 @@
                                         <i class="eva eva-shuffle-2 mr-1 text-blue-500"></i>
                                         <span>{{- .forks -}}</span>
                                     </div>
+                                </div>
+
+                                <div class=" absolute right-0 text-9xl text-gray-50">
+                                    <i class="eva eva-github-outline"></i>
                                 </div>
                             </div>
                         </a>

@@ -1,13 +1,16 @@
 {{ $_hugo_config := `{ "version": 1 }` }}
 {{- $randomID := delimit (shuffle (split (md5 now.Unix) "" )) "" -}}
 
+{{- if .Get 0 -}}
+    {{- $.Page.Store.Set "passphrase" (.Get 0) -}}
+{{- else if .Site.Params.HugoEncrypt.Password -}}
+    {{- $.Page.Store.Set "passphrase" .Site.Params.HugoEncrypt.Password -}}
+{{- else -}}
+    {{- warnf "!!! [Hugo Encrypt] Please set a password" -}}
+{{- end -}}
 
+{{- if ($.Page.Store.Get "passphrase") -}}
 <hugo-encrypt id="r{{- $randomID -}}">
-    {{- if .Get 0 -}}
-        {{- $.Page.Store.Set "passphrase" (.Get 0) -}}
-    {{- else if .Site.Params.HugoEncrypt.Password -}}
-        {{- $.Page.Store.Set "passphrase" .Site.Params.HugoEncrypt.Password -}}
-    {{- end -}}
     <div class="hugo-encrypt-encryption-notice rounded-md border bg-gray-100 p-4 dark:border-darkBorder dark:bg-darkBg">
         <div class="mb-2">{{- i18n "encrypt.protectedByPassword" -}}</div>
         <noscript><span>{{- T "encrypt.encryptNoscript" -}}</span></noscript>
@@ -33,3 +36,4 @@
         style="display:none;"
     ></cipher-text>
 </hugo-encrypt>
+{{- end -}}

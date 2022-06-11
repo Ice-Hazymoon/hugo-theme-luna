@@ -2,7 +2,6 @@
     {{- $public_cdn := cond .Site.IsServer "" .Site.Params.publicCDN -}}
     {{- $lazyload_image := print $public_cdn ("images/outload.svg" | relURL) -}}
     {{- $twitterConfig := .Site.Params.twitter -}}
-    {{- $twitterData := getJSON (print "https://api.rss2json.com/v1/api.json?rss_url=" $twitterConfig.rsshub "/twitter/user/" $twitterConfig.id) -}}
 
     {{- $lazyload := .Site.Params.lazyload -}}
     {{- $imageZoom := .Site.Params.imageZoom -}}
@@ -14,15 +13,18 @@
                     <i class="eva eva-twitter-outline mr-2"></i>
                     <span>{{- T "twitter.title" -}}</span>
                 </div>
+                {{- if $twitterConfig.id -}}
                 <div class="inline-block text-lg leading-none text-gray-500 hover:text-theme dark:text-darkTextPlaceholder">
                     <a href="https://twitter.com/{{- $twitterConfig.id -}}" target="_blank" rel="noopener noreferrer" title="{{- T "twitter.goto" -}}"
                         >@{{- $twitterConfig.id -}}</a
                     >
                 </div>
+                {{- end -}}
             </div>
 
             <div id="twitter">
                 {{- if $twitterConfig.id -}}
+                    {{- $twitterData := getJSON (print "https://api.rss2json.com/v1/api.json?rss_url=" $twitterConfig.rsshub "/twitter/user/" $twitterConfig.id) -}}
                     {{- range (index $twitterData "items") -}}
                         {{- $pubDate := dateFormat (T "date.d_m_h_s") .pubDate -}}
                         {{- $content := (trim (replaceRE "<br>" "\n" (replaceRE "<video(.+?)</video>|<img(.+?)>" "" .content)) "\n") | safeHTML -}}
@@ -167,7 +169,8 @@
                         </div>
                     {{- end -}}
                 {{- else -}}
-                    {{- T "twitter.config" -}}
+                    {{- warnf "!!! Twitter ID not set, Please check your config file" -}}
+                    <div class=" text-xl">ERROR: {{- T "twitter.config" -}}</div>
                 {{- end -}}
             </div>
         </div>

@@ -374,7 +374,6 @@ params:
     cover: true
     content: true
     autoResize:
-      - 640
       - 1080
       - 1440
     webp: true

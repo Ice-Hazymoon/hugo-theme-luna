@@ -1,0 +1,121 @@
+module:
+  hugoVersion:
+    extended: true
+    min: "0.97.0"
+
+params:
+  publicCDN: ""
+
+  notification:
+    enabled: false
+    file: "README.md"
+
+  rss:
+    enabled: true
+    fullText: true
+
+  sitemap: true
+
+  themeColor: "#dd6065"
+
+  headlineCounter: true
+
+  font: 'Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif'
+
+  customScript:
+    enabled: false
+    pjax: true
+
+  runTime:
+    enabled: true
+    creatTime: 2022/01/01
+
+  since: "2022"
+
+  outdatedInfoWarning:
+    enabled: true
+    day: 90
+
+  autoDarkMode: false
+
+  share:
+    twitter: true
+    facebook: true
+    weibo: true
+    copyLinkText: true
+    qrcode: true
+
+  qrcodeAPI: "https://www.lofter.com/genBitmaxImage?url="
+
+  license:
+    enabled: true
+    name: "CC BY-NC-ND 4.0"
+    icon: "Cc-by-nc-nd.svg"
+    url: "https://creativecommons.org/licenses/by-nc-nd/4.0"
+
+  i18nlist: false
+
+  github:
+    id: ""
+    minStars: 5
+
+  twitter:
+    rsshub: "https://rsshub.rssforever.com"
+    id: ""
+    imageProcessing: true
+
+  imageZoom: true
+
+  lazyload: true
+
+  bionicReading:
+    enabled: true
+    autoBionic: false
+    skipLinks: false
+    excludeWords: []
+    excludeNodeNames: []
+    excludeClasses: []
+
+  googleTranslate: true
+
+  pangu: true
+
+  search: true
+
+  lastmod: true
+
+  readingTime: true
+
+  wordCount: false
+
+  toc:
+    enabled: true
+    wordCount: 400
+
+  HugoEncrypt:
+    Password: ""
+    Storage: "session"
+
+  pjax: true
+
+  pwa: true
+
+  katex: true
+
+  backtop: true
+
+  defaultFeaturedImage: false
+
+  imageProcessing:
+    cover: true
+    content: true
+    autoResize:
+      - 1080
+      - 1440
+    webp: true
+
+  opengraph:
+    twitter:
+      cardType: summary_large_image
+      site:
+    image:
