@@ -10,7 +10,7 @@ module.exports = {
         path.join(__dirname, '/data/luna/icon.yaml'),
         path.join(__dirname, '/layouts/**/*.html'),
         path.join(__dirname, '/layouts/*.html'),
-        path.join(__dirname, '/assets/ts/*.ts'),
+        path.join(__dirname, '/assets/**/*.ts'),
     ],
     safelist: [],
     darkMode: 'class', // or 'media' or 'class'

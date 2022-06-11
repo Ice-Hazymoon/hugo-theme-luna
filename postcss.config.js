@@ -24,7 +24,7 @@ module.exports = {
                 path.join(__dirname, '/data/luna/icon.yaml').split(path.sep).join(path.posix.sep),
                 path.join(__dirname, '/layouts/**/*.html').split(path.sep).join(path.posix.sep),
                 path.join(__dirname, '/layouts/*.html').split(path.sep).join(path.posix.sep),
-                path.join(__dirname, '/assets/ts/*.ts').split(path.sep).join(path.posix.sep),
+                path.join(__dirname, '/assets/**/*.ts').split(path.sep).join(path.posix.sep),
             ],
             safelist: {
                 // xx

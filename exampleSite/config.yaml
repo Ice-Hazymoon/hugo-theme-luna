@@ -220,13 +220,13 @@ params:
   # 自定义脚本
   # ts/custom.ts
   customScript:
-    enable: false
+    enabled: false
     pjax: true # Auto-reload in pjax mode
 
   # 网站底部显示运行时间
   # Show site runtime
   runTime:
-    enable: true
+    enabled: true
     # 网站创建时间
     # Site creation time
     creatTime: 2016/12/12
@@ -238,7 +238,7 @@ params:
   # 显示文章过时提醒
   # show warning when outdated info detected
   outdatedInfoWarning:
-    enable: true
+    enabled: true
     # 超过该天数将显示过时提醒
     # A timeout reminder will be displayed if the last modification time exceeds that number of days
     day: 90
@@ -273,15 +273,15 @@ params:
   # GitHub 页面设置
   # github page
   github:
-    id: "torvalds"
-    minStars: 5
+    id: "torvalds" # github user id
+    minStars: 5 # 最小 star 项目 / min stars
 
   # Twitter 页面设置
   # tweet page
   twitter:
-    rsshub: "https://rsshub.rssforever.com"
-    id: "GenshinImpact"
-    imageProcessing: true
+    rsshub: "https://rsshub.rssforever.com" # rsshub url, see https://github.com/DIYgod/RSSHub
+    id: "GenshinImpact" # Twitter ID
+    imageProcessing: true # 开启图片处理 / enable image processing
 
   # 开启图片放大功能
   # Image Zoom Plugin
@@ -296,7 +296,11 @@ params:
   # Read English content faster, see https://bionic-reading.com/
   bionicReading:
     enabled: true
-
+    autoBionic: false # 自动启用 Bionic Reading / auto enable Bionic Reading
+    skipLinks: false # 跳过链接 / skip links
+    excludeWords: [] # 忽略的单词 / ignored words
+    excludeNodeNames: [] # 忽略的节点名称 / ignored node names
+    excludeClasses: ['github'] # 忽略的类名 / ignored classes
 
   # 启用谷歌翻译插件
   # enable google translate in footer
@@ -305,6 +309,10 @@ params:
   # 优化中文排版，请参考：https://github.com/vinta/pangu.js
   # Optimize Chinese typography, see: https://github.com/vinta/pangu.js
   pangu: true
+
+  # 开启本地搜索插件
+  # enable local search plugin
+  search: true
 
   # 文章页显示最后修改时间
   # For outdated reminders
@@ -321,7 +329,7 @@ params:
   # 开启文章内目录，可以在页面内单独设置
   # Show table of contents, You can enable it separately in the page
   toc:
-    enable: true
+    enabled: true
     # 超过这个字数后将显示目录
     # When the article word count is greater than this value, the TOC will be displayed
     wordCount: 400 
