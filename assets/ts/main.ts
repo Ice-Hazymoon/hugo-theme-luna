@@ -17,53 +17,6 @@ import initToc from './src/initToc';
 import initSearch from './src/initSearch';
 import initActiveMenu from './src/initActiveMenu';
 
-declare global {
-    interface Window {
-        Luna: any;
-        rednerKatex: any;
-        __theme: {
-            cdn: string,
-            pjax: boolean,
-            imageZoom: boolean,
-            lazyload: boolean,
-            backtop: boolean,
-            pangu: boolean,
-            bionicReading: {
-                enabled: boolean,
-                autoBionic: boolean,
-                skipLinks: boolean,
-                excludeWords: string[],
-                excludeNodeNames: string[],
-                excludeClasses: string[],
-            },
-            katex: boolean,
-            isServer: boolean,
-            $version: string,
-            autoDarkMode: boolean,
-            googleAnalytics: boolean,
-            lang: string,
-            hugoEncrypt: {
-                wrongPasswordText: string,
-                userStorage: any,
-            },
-            assets: {
-                error_svg: string,
-                search_svg: string,
-            },
-            i18n: {
-                copySuccess: string,
-                copyFailed: string,
-                copyCode: string,
-                searchLoadFailure: string,
-                searchInput: string,
-                searchResults: Function,
-                untitled: string,
-            },
-            creatTime: VarDate
-        }
-    }
-}
-
 class Luna {
     private _zoom: any;
     private _jump: boolean;

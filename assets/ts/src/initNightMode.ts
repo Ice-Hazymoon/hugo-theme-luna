@@ -1,6 +1,6 @@
 export default function() {
-    const el = document.querySelector('.dark-mode-switch');
-    const _i = el.querySelector('i');
+    const el = document.querySelector('.dark-mode-switch') as HTMLElement;
+    const _i = el.querySelector('i') as HTMLElement;
 
     function setDarkMode(isDark) {
         if (isDark) {

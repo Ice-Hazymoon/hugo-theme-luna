@@ -40,7 +40,8 @@ export default async function() {
                 el.querySelector(".hugo-encrypt-encryption-notice").remove();
                 cipher.outerHTML = decrypted_text;
                 userStorage.setItem(storageKey + id, password);
-                document.querySelector(`#r${id} .hugo-encrypt-sha1sum`).innerHTML = "Success: " + sha1_sum;
+                const sha1_sum_eL = document.querySelector(`#r${id} .hugo-encrypt-sha1sum`) as HTMLElement;
+                sha1_sum_eL.innerHTML = "Success: " + sha1_sum;
                 console.log(`Decryption successful. Storing password in ${userStorage}.`);
             }
         } catch (error) {
@@ -59,7 +60,7 @@ export default async function() {
         const block = hugoEncryptBlocks[index];
         block.addEventListener('click', async (e) => {
             const id = (e.target as HTMLElement).getAttribute('data-hugo-encrypt-id');
-            const El = document.getElementById(`r${id}`);
+            const El = document.getElementById(`r${id}`) as HTMLElement;
             const password = (El.querySelector('.hugo-encrypt-input') as HTMLInputElement).value;
             await hugoDecrypt(password, 'input', El, id);
             this.renderPost();

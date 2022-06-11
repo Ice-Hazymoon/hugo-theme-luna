@@ -130,8 +130,7 @@ input[type='checkbox'] {
         }
     }
     blockquote:not(.quote) {
-        background-color: #f5f7f9;
-        @apply my-4 ml-0 rounded-md border-l-4 border-theme p-5 dark:bg-darkBgAccent;
+        @apply my-4 ml-0 rounded border-l-4 border-theme p-5 bg-gray-50 dark:bg-darkBgAccent;
         p {
             @apply first:mt-0 last:mb-0;
         }
@@ -276,6 +275,23 @@ input[type='checkbox'] {
         @apply my-4 w-full rounded dark:border-darkBorder;
     }
 
+    
+    @if $headlineCounter {
+        counter-reset: h2 0 h3 0 h4 0 h5 0 h6 0;
+        $content: counter(h2);
+        @for $i from 1 through 5 {
+            h#{$i} {
+                counter-reset: h#{$i+1};
+            }
+            h#{$i+1}::before {
+                counter-increment: h#{$i+1};
+                content: $content;
+                @apply text-gray-400 mr-6;
+            }
+            $content: $content "." counter(h#{$i+2});
+        }
+    }
+
     h1,
     h2,
     h3,
@@ -296,7 +312,7 @@ input[type='checkbox'] {
     }
 
     h2 {
-        @apply border-b pb-2 text-3xl dark:border-darkBorder;
+        @apply text-3xl;
     }
 
     h3 {
@@ -326,7 +342,7 @@ input[type='checkbox'] {
     }
 
     hr {
-        @apply my-16 mx-auto w-3/4 dark:border-darkBorder;
+        @apply my-16 mx-auto border-gray-200 dark:border-darkBorder;
     }
 
     table {

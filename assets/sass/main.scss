@@ -1,6 +1,7 @@
 /* prettier-ignore-start */
 $theme: {{.Param "themeColor"}};
 $font: {{.Param "font"}};
+$headlineCounter: {{.Param "headlineCounter"}};
 /* prettier-ignore-end */
 
 @import 'modules/normalize';

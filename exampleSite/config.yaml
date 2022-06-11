@@ -212,6 +212,10 @@ params:
   # Site theme colors
   themeColor: "#dd6065"
 
+  # 标题计数器
+  # Title counter
+  headlineCounter: true
+
   # 网站字体
   # Site font
   # font: '"Times New Roman", Times, "Heti Song", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
@@ -312,7 +316,7 @@ params:
 
   # 开启本地搜索插件
   # enable local search plugin
-  search: true
+  search: false
 
   # 文章页显示最后修改时间
   # For outdated reminders

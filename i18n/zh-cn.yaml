@@ -43,7 +43,13 @@ post:
     untitled: "无标题"
 
 # search
-searchLoading: "初始化中，请稍后"
+search:
+    loading: "初始化中，请稍后"
+    loadFailure: "初始化搜索引擎失败"
+    input: "请输入内容..."
+    results: '`关键字 <span class="text-theme">${keyword}</span> 中共找到 <span class="text-theme">${results}</span> 条结果`'
+    notEnabled: "搜索功能未启用"
+
 
 # taxonomy
 taxonomy:
@@ -88,14 +94,10 @@ page:
     page: "第 {{ . }} 页"
     pagination: "第 {{ .PageNumber }} 页 共 {{ .TotalPages }} 页"
 
-# js
-js:
-    copySuccess: "复制成功"
-    copyFailed: "复制失败，请手动复制"
+copy:
+    success: "复制成功"
+    failed: "复制失败，请手动复制"
     copyCode: "复制代码"
-    searchLoadFailure: "初始化搜索引擎失败"
-    searchInput: "请输入内容"
-    searchResults: '`关键字 <span class="text-theme">${keyword}</span> 中共找到 <span class="text-theme">${results}</span> 条结果`'
 
 # offline
 offline:

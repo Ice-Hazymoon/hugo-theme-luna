@@ -4,7 +4,7 @@
 
     <div class="page-search">
         <div class="search-input flex items-center border-b bg-gray-100 px-3 py-2 text-2xl dark:border-darkBorder dark:bg-darkBgAccent">
-            <input id="search-input" type="search" disabled placeholder="{{- T "searchLoading" -}}" autofocus="autofocus" class="w-full" />
+            <input id="search-input" type="search" disabled placeholder="{{- cond .Site.Params.search (T "search.loading") (T "search.notEnabled")  -}}" autofocus="autofocus" class="w-full" />
             <i class="eva eva-search ml-4 block cursor-pointer text-gray-500"></i>
         </div>
         <div class="relative">

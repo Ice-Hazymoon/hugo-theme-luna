@@ -19,6 +19,7 @@ window.__theme = {
         excludeNodeNames: {{- .Site.Params.bionicReading.excludeNodeNames -}},
     },
     katex: {{- .Site.Params.katex -}},
+    search: {{- .Site.Params.search -}},
     backtop: {{- .Site.Params.backtop -}},
     pangu: {{- .Site.Params.pangu -}},
     autoDarkMode: {{- .Site.Params.autoDarkMode -}},
@@ -32,15 +33,19 @@ window.__theme = {
         search_svg: "{{- "images/search.svg" | relURL -}}",
     },
     i18n: {
-        untitled: "{{- i18n "post.untitled" -}}",
-        copySuccess: "{{- T "js.copySuccess" -}}",
-        copyFailed: "{{- T "js.copyFailed" -}}",
-        copyCode: "{{- T "js.copyCode" -}}",
-        searchLoadFailure: "{{- T "js.searchLoadFailure" -}}",
-        searchInput: "{{- T "js.searchInput" -}}",
-        searchResults: (results, keyword) => {{- safeJS (T "js.searchResults") -}},
+        copy: {
+            success: "{{- T "copy.success" -}}",
+            failed: "{{- T "copy.failed" -}}",
+            copyCode: "{{- T "copy.copyCode" -}}",
+        },
+        search: {
+            untitled: "{{- i18n "post.untitled" -}}",
+            loadFailure: "{{- T "search.loadFailure" -}}",
+            results: (results, keyword) => {{- safeJS (T "search.results") -}},
+            input: "{{- T "search.input" -}}",
+        }
     },
-    {{- if .Site.Params.runTime.enable -}}
+    {{- if .Site.Params.runTime.enabled -}}
     creatTime: "{{- .Site.Params.runTime.creatTime -}}"
     {{- end -}}
 }

@@ -1,9 +1,10 @@
 export default function() {
     const figuresEl = Array.from(document.querySelectorAll('.gallery-box figure.gallery-image')) as HTMLElement[];
-    let currentGallery = [];
+    let currentGallery = [] as HTMLElement[];
     if (figuresEl.length < 2) return false;
     for (const figure of figuresEl) {
-        if (figure.parentElement.classList.contains('gallery')) return false;
+        const parentElement = figure.parentElement as HTMLElement;
+        if (parentElement.classList.contains('gallery')) return false;
         if (!currentGallery.length) {
             /// First iteration
             currentGallery = [figure];

@@ -1,6 +1,8 @@
 import FlexSearch from 'flexsearch';
 
 async function initSearch() {
+    if (!window.__theme.search) return false;
+
     const node = document.getElementById('search-input');
     if (!node) return false;
 
@@ -24,13 +26,13 @@ async function initSearch() {
             }
             sessionStorage.setItem(`searchIndex_${window.__theme.lang}`, JSON.stringify(data));
         } catch (error) {
-            alert(window.__theme.i18n.searchLoadFailure);
-            node.setAttribute('placeholder', window.__theme.i18n.searchLoadFailure);
+            alert(window.__theme.i18n.search.loadFailure);
+            node.setAttribute('placeholder', window.__theme.i18n.search.loadFailure);
             console.log(error);
             return false;
         }
     }
-    node.setAttribute('placeholder', window.__theme.i18n.searchInput);
+    node.setAttribute('placeholder', window.__theme.i18n.search.input);
     node.removeAttribute('disabled');
     const index = new FlexSearch.Index({
         // cache: true,
@@ -56,10 +58,12 @@ async function initSearch() {
         const results = index.search(value).map(n => {
             return data[n]
         });
+        const searchImageEL = document.getElementById('search-image') as HTMLElement;
+        const searchResultsEL = document.getElementById('search-results') as HTMLElement;
         if (value) {
             const html = `<div class="p-6 md:px-10 pb-0">
                 <div class="font-bold text-2xl border-b dark:border-darkBorder pb-4">
-                    ${window.__theme.i18n.searchResults(results.length, value)}
+                    ${window.__theme.i18n.search.results(results.length, value)}
                 </div>
                 ` + results.map(n => {
                     const Regex = new RegExp(`.{0,50}?(${value.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')})(.{0,50})?`, 'mig');
@@ -76,7 +80,7 @@ async function initSearch() {
                             href="${n.permalink}"
                             class="border-b dark:border-darkBorder py-4 block search-results-items"
                         >
-                            <div class="text-2xl mb-2 line-clamp-1 transition duration-300 ease-[ease]">${titleHTML || window.__theme.i18n.untitled}</div>
+                            <div class="text-2xl mb-2 line-clamp-1 transition duration-300 ease-[ease]">${titleHTML || window.__theme.i18n.search.untitled}</div>
                             <div class="mb-2 line-clamp-2">${contentHTML}...</div>
                             <div class="text-xs flex items-center text-gray-500 dark:text-darkTextPlaceholder">
                                 <i class="eva eva-clock-outline mr-1"></i>
@@ -88,11 +92,11 @@ async function initSearch() {
                     }
                 }).join('') + `
             </div>`
-            document.getElementById('search-image').classList.add('hidden');
-            document.getElementById('search-results').innerHTML = html;
+            searchImageEL.classList.add('hidden');
+            searchResultsEL.innerHTML = html;
         } else {
-            document.getElementById('search-image').classList.remove('hidden');
-            document.getElementById('search-results').innerHTML = '';
+            searchImageEL.classList.remove('hidden');
+            searchResultsEL.innerHTML = '';
         }
     }
 }

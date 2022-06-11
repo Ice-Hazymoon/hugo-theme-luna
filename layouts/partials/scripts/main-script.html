@@ -9,6 +9,7 @@
 {{- $scratch.SetInMap "jsModules" "katex-render" (cond .Site.Params.katex "ts/modules/katex-render" "ts/_.ts") -}}
 {{- $scratch.SetInMap "jsModules" "katex-copy" (cond .Site.Params.katex "ts/modules/katex-copy" "ts/_.ts") -}}
 {{- $scratch.SetInMap "jsModules" "flexsearch" (cond .Site.Params.search "ts/modules/flexsearch" "ts/_.ts") -}}
+{{- $scratch.SetInMap "jsModules" "clipboard" "ts/modules/clipboard" -}}
 
 {{- $scratch.SetInMap "jsModules" "swup" (cond .Site.Params.pjax "ts/modules/swup.js" "ts/_.ts") -}}
 {{- $scratch.SetInMap "jsModules" "swupFadeTheme" (cond .Site.Params.pjax "ts/modules/swupFadeTheme.js" "ts/_.ts") -}}

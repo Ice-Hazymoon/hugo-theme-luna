@@ -50,7 +50,7 @@
     </div>
     <div class="flex items-center sm:hidden">
         {{- if .Params.tags -}}
-            {{- range first 4 .Params.tags -}}
+            {{- range first 3 .Params.tags -}}
                 <a
                     href="{{- "/tags/" | relLangURL -}}{{- . | urlize -}}"
                     title="{{- . -}}"

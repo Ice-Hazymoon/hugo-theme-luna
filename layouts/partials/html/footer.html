@@ -33,7 +33,7 @@
                 <div id="google_translate_element" class="overflow-hidden rounded border dark:border-darkBorder"></div>
             {{- end -}}
         </div>
-        {{- if .Site.Params.runTime.enable -}}
+        {{- if .Site.Params.runTime.enabled -}}
             {{- partial "components/run-time" . }}
         {{- end -}}
     </div>
@@ -68,7 +68,7 @@
     <!-- custom script tag -->
     {{- partial "custom/script" . -}}
 
-    {{- if and .Site.Params.customScript .Site.Params.customScript.enable -}}
+    {{- if and .Site.Params.customScript .Site.Params.customScript.enabled -}}
         {{- partial "scripts/custom" . -}}
     {{- end -}}
 </footer>

@@ -2,11 +2,11 @@
 
 type IdToElementMap = { [key: string]: HTMLElement };
 
-function buildIdToNavigationElementMap(navigation: NodeListOf<Element>): IdToElementMap {
+function buildIdToNavigationElementMap(navigation: NodeListOf<HTMLElement>): IdToElementMap {
     const sectionLinkRef: IdToElementMap = {};
     navigation.forEach((navigationElement: HTMLElement) => {
-        const link = navigationElement.querySelector("a");
-        const href = link.getAttribute("href");
+        const link = navigationElement.querySelector("a") as HTMLElement;
+        const href = link.getAttribute("href") as string;
         if (href.startsWith("#")) {
             sectionLinkRef[href.slice(1)] = navigationElement;
         }
@@ -18,17 +18,17 @@ function buildIdToNavigationElementMap(navigation: NodeListOf<Element>): IdToEle
 function renderToc() {
     const Toc = document.getElementById('TableOfContents');
 
-    const headers = Array.from(document.querySelectorAll('.article-content h1[id], .article-content h2[id], .article-content h3[id], .article-content h4[id], .article-content h5[id], .article-content h6[id]'));
+    const headers = Array.from(document.querySelectorAll('.article-content h1[id], .article-content h2[id], .article-content h3[id], .article-content h4[id], .article-content h5[id], .article-content h6[id]')) as HTMLElement[];
 
-    let sectionsOffsets = [];
+    let sectionsOffsets = [] as { id: string, offset: number }[];
     headers.forEach((header: HTMLElement) => { sectionsOffsets.push({ id: header.id, offset: header.offsetTop }) });
     sectionsOffsets.sort((a, b) => a.offset - b.offset);
 
-    let navigation = document.querySelectorAll('#TableOfContents li');
+    let navigation = document.querySelectorAll('#TableOfContents li') as NodeListOf<HTMLElement>;
 
     let idToNavigationElement: IdToElementMap = buildIdToNavigationElementMap(navigation);
 
-    let activeSectionLink: Element;
+    let activeSectionLink: HTMLElement;
 
     function scrollHandler() {
         const Toc = document.getElementById('TableOfContents');
@@ -46,7 +46,7 @@ function renderToc() {
 
         sectionsOffsets.forEach((section) => {
             if (scrollPosition >= section.offset - 20) {
-                newActiveSection = document.getElementById(section.id);
+                newActiveSection = document.getElementById(section.id) as HTMLElement;
             }
         });
 

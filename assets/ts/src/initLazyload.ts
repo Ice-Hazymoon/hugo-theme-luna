@@ -33,7 +33,7 @@ export default function() {
         this._noLazyload = (zoom: boolean) => {
             const images = Array.from(document.querySelectorAll('[data-zoomable]:not([data-lazyload]):not(.medium-zoom-image)')) as HTMLImageElement[];
             images.forEach(el => {
-                el.setAttribute('src', el.currentSrc || el.getAttribute('src'));
+                el.setAttribute('src', el.currentSrc || (el.getAttribute('src') as string));
                 el.removeAttribute('srcset');
                 if (zoom) this._zoom.attach(el);
             })

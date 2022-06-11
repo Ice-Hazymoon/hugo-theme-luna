@@ -1,5 +1,5 @@
 {{- $config := .Site.Params.outdatedInfoWarning -}}
-{{- if $config.enable -}}
+{{- if $config.enabled -}}
     {{- $updateTime := .Lastmod -}}
     {{- if .GitInfo -}}
         {{- if lt .GitInfo.AuthorDate.Unix .Lastmod.Unix -}}

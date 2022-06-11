@@ -51,7 +51,12 @@ post:
     untitled: "Без наслова"
 
 # search
-searchLoading: "Учитавање···"
+search:
+    loading: "Учитавање..."
+    searchLoadFailure: "Покретање машине за претраживање није успело"
+    searchInput: "Укуцајте нешто..."
+    searchResults: '`Пронађено <span class="text-theme">${results}</span> резултата за кључну реч <span class="text-theme">${keyword}</span>`'
+    notEnabled: "Search is not enabled"
 
 # taxonomy
 taxonomy:
@@ -104,14 +109,10 @@ page:
     page: "Страница {{ . }}"
     pagination: "Страница {{ .PageNumber }} од  {{ .TotalPages }}"
 
-# js
-js:
-    copySuccess: "Копирање успело"
-    copyFailed: "Копирање није успело"
+copy:
+    success: "Копирање успело"
+    failed: "Копирање није успело"
     copyCode: "Копирај код"
-    searchLoadFailure: "Покретање машине за претраживање није успело"
-    searchInput: "Укуцајте нешто..."
-    searchResults: '`Пронађено <span class="text-theme">${results}</span> резултата за кључну реч <span class="text-theme">${keyword}</span>`'
 
 # offline
 offline:

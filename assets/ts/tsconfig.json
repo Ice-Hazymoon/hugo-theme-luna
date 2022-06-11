@@ -1,5 +1,7 @@
 {
     "compilerOptions": {
+        "outDir": "./",
+        "allowJs": true,
         "paths": {
             "modules/*": [
                 "./modules/*"
@@ -7,5 +9,6 @@
         },
         "lib": ["es2021", "dom"],
     },
-    "include": ["./modules"]
+    "exclude": [],
+    "include": ["./modules"],
 }

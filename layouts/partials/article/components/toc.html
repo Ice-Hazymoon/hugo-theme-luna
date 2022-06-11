@@ -2,7 +2,7 @@
 
 {{- if isset .Params "toc" -}}
     {{- $showTOC = .Params.Toc -}}
-{{- else if .Site.Params.Toc.enable -}}
+{{- else if .Site.Params.Toc.enabled -}}
     {{- $showTOC = true -}}
 {{- end -}}
 

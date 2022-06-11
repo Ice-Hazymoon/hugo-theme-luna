@@ -15,9 +15,14 @@ export default function() {
         const hour = 24 * parseFloat('0.' + day.toString().replace(/\d+\.(\d*)/, '$1'));
         const minute = 60 * parseFloat('0.' + hour.toString().replace(/\d+\.(\d*)/, '$1'));
         const second = 60 * parseFloat('0.' + minute.toString().replace(/\d+\.(\d*)/, '$1'));
-        document.getElementById('run-time-d').innerText = (~~(day)).toString();
-        document.getElementById('run-time-h').innerText = (~~(hour)).toString();
-        document.getElementById('run-time-m').innerText = (~~(minute)).toString();
-        document.getElementById('run-time-s').innerText = (~~(second)).toString();
+
+        const dayEL = document.getElementById('run-time-d') as HTMLElement;
+        const hourEL = document.getElementById('run-time-h') as HTMLElement;
+        const minuteEL = document.getElementById('run-time-m') as HTMLElement;
+        const secondEL = document.getElementById('run-time-s') as HTMLElement;
+        dayEL.innerText = (~~(day)).toString();
+        hourEL.innerText = (~~(hour)).toString();
+        minuteEL.innerText = (~~(minute)).toString();
+        secondEL.innerText = (~~(second)).toString();
     }, 1000);
 }

@@ -51,7 +51,12 @@ post:
     untitled: "Untitled"
 
 # search
-searchLoading: "Loading···"
+search:
+    loading: "Loading..."
+    loadFailure: "Initialization of the search engine failed"
+    input: "Type something..."
+    results: '`Found <span class="text-theme">${results}</span> results for the keyword <span class="text-theme">${keyword}</span>`'
+    notEnabled: "Search is not enabled"
 
 # taxonomy
 taxonomy:
@@ -104,14 +109,10 @@ page:
     page: "Page {{ . }}"
     pagination: "Page {{ .PageNumber }} of  {{ .TotalPages }}th"
 
-# js
-js:
-    copySuccess: "Copy success"
-    copyFailed: "Copy failed"
+copy:
+    success: "Copy success"
+    failed: "Copy failed"
     copyCode: "Copy code"
-    searchLoadFailure: "Initialization of the search engine failed"
-    searchInput: "Type something..."
-    searchResults: '`Found <span class="text-theme">${results}</span> results for the keyword <span class="text-theme">${keyword}</span>`'
 
 # offline
 offline:
