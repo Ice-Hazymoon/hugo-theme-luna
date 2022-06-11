@@ -60,14 +60,6 @@ imaging:
   quality: 95
   anchor: smart
 
-outputFormats:
-  offline:
-    name: offline
-    baseName: offline
-    mediaType: text/html
-    notAlternative: true
-    permalinkable: true
-
 caches:
   getresource:
     dir: :resourceDir/_gen
