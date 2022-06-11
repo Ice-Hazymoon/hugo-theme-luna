@@ -316,7 +316,7 @@ params:
 
   # 开启本地搜索插件
   # enable local search plugin
-  search: false
+  search: true
 
   # 文章页显示最后修改时间
   # For outdated reminders
