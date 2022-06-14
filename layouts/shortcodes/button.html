@@ -1,0 +1,17 @@
+{{- $colors := newScratch -}}
+{{- $colors.Set "red" "bg-red-400" -}}
+{{- $colors.Set "green" "bg-green-400" -}}
+{{- $colors.Set "blue" "bg-blue-400" -}}
+{{- $colors.Set "orange" "bg-orange-400" -}}
+
+{{- if .Get "link" -}}
+<a href="{{- .Get "link" -}}" target="_blank" class="after:hidden px-4 cursor-pointer py-2 no-icon rounded my-4 inline-flex items-center hover:bg-opacity-80 ease-in-out transition-all {{ $colors.Get (.Get "color") }}">
+    <i class="mr-1 text-white {{ .Get "icon" }}"></i>
+    <span class=" text-white">{{- .Get "content" | markdownify -}}</span>
+</a>
+{{- else -}}
+<div class="px-4 cursor-pointer py-2 rounded text-white my-4 inline-flex items-center hover:bg-opacity-80 ease-in-out transition-all {{ $colors.Get (.Get "color") }}">
+    <i class="mr-1 {{ .Get "icon" }}"></i>
+    <span>{{- .Get "content" | markdownify -}}</span>
+</div>
+{{- end -}}

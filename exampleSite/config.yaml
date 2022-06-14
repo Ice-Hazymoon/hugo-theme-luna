@@ -153,7 +153,7 @@ languages:
         name: "署名 - 非商业性使用 - 禁止演绎 4.0"
         icon: "Cc-by-nc-nd.svg" # in assets folder
         url: "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh"
-      notification:
+      announcement:
         enabled: true
         file: "README.zh.md"
   en-us:
@@ -181,8 +181,8 @@ params:
   publicCDN: ""
 
   # 在首页顶部创建一个通知部分
-  # Create a notification section at the top of the home page
-  notification:
+  # Create a Announcement section at the top of the home page
+  announcement:
     enabled: true
     file: "README.md" # assets/README.md
 

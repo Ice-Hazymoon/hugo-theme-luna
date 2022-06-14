@@ -18,7 +18,37 @@ categories:
 {{</* abbr "MIT" "Massachusetts Institute of Technology" */>}}
 ```
 
-{{< abbr "MIT" "Massachusetts Institute of Technology" >}}
+## Color text
+
+```markdown
+Here is {{</* color "red" "the red" */>}} text
+Here is {{</* color "green" "the green" */>}} text
+Here is {{</* color "blue" "the blue" */>}} text
+Here is {{</* color "orange" "the orange" */>}} text
+Here is {{</* color "theme" "the theme" */>}} text
+Here is {{</* color "#a811ff" "the custom color" */>}} text
+```
+
+Here is {{< color "red" "the red" >}} text  
+Here is {{< color "green" "the green" >}} text  
+Here is {{< color "blue" "the blue" >}} text  
+Here is {{< color "orange" "the orange" >}} text  
+Here is {{< color "theme" "the theme" >}} text  
+Here is {{< color "#a811ff" "the custom color" >}} text
+
+## Button
+
+```markdown
+{{</* button color="red" icon="eva eva-home-outline" content="Here is the red button" link="https://google.com" */>}}  
+{{</* button color="green" icon="eva eva-twitter-outline" content="Here is the green button" link="https://google.com" */>}}  
+{{</* button color="blue" icon="eva eva-github-outline" content="Here is the blue button" link="https://google.com" */>}}  
+{{</* button color="orange" icon="eva eva-search-outline" content="Here is the orange button" link="https://google.com" */>}}  
+```
+
+{{< button color="red" icon="eva eva-home-outline" content="Here is the red button" link="https://google.com" >}}  
+{{< button color="green" icon="eva eva-twitter-outline" content="Here is the green button" link="https://google.com" >}}  
+{{< button color="blue" icon="eva eva-github-outline" content="Here is the blue button" link="https://google.com" >}}  
+{{< button color="orange" icon="eva eva-search-outline" content="Here is the orange button" link="https://google.com" >}}
 
 ## Text layout
 
@@ -125,7 +155,6 @@ This is a {{</* tag red "red tag" */>}}
 This is a {{</* tag green "green tag" */>}}  
 This is a {{</* tag blue "blue tag" */>}}  
 This is a {{</* tag orange "orange tag" */>}}  
-This is a {{</* tag theme "theme tag" */>}}  
 
 This is a {{</* tag-outlined red "red tag" */>}}  
 This is a {{</* tag-outlined green "green tag" */>}}  
@@ -137,7 +166,6 @@ This is a {{< tag red "red tag" >}}
 This is a {{< tag green "green tag" >}}  
 This is a {{< tag blue "blue tag" >}}  
 This is a {{< tag orange "orange tag" >}}  
-This is a {{< tag theme "theme tag" >}}  
 
 This is a {{< tag-outlined red "red tag" >}}  
 This is a {{< tag-outlined green "green tag" >}}  
@@ -151,14 +179,12 @@ This is a {{< tag-outlined orange "orange tag" >}}
 {{</* progress 77.54 red "Name of progress bar" */>}}
 {{</* progress 123.45 blue "Name of progress bar" */>}}
 {{</* progress 11.11 orange "Name of progress bar" */>}}
-{{</* progress 99.99 theme "Name of progress bar" */>}}
 ```
 
 {{< progress 80 green "Name of progress bar" >}}
 {{< progress 77.54 red "Name of progress bar" >}}
 {{< progress 123.45 blue "Name of progress bar" >}}
 {{< progress 11.11 orange "Name of progress bar" >}}
-{{< progress 99.99 theme "Name of progress bar" >}}
 
 ## Accordion
 

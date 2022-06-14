@@ -10,7 +10,9 @@
             >
                 <input type="checkbox" name="i18nlist-input" id="i18nlist-checkbox" />
                 <label for="i18nlist-checkbox">
-                    <i class="eva eva-globe-outline cursor-pointer text-xl leading-none group-hover:hidden"></i>
+                    <span class="cursor-pointer leading-none group-hover:hidden">
+                        {{- .Site.Data.luna.icon.i18n | safeHTML -}}
+                    </span>
                 </label>
                 <ul class="hidden border border-transparent pb-0 group-hover:block">
                     {{- range $.Translations -}}

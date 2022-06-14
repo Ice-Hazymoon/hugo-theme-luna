@@ -127,8 +127,10 @@ export default function() {
         }
         bionicReadingEL.addEventListener('click', () => {
             if (this._isBionic) {
+                bionicReadingEL.querySelector('svg').classList.remove('text-theme');
                 revoke();
             } else {
+                bionicReadingEL.querySelector('svg').classList.add('text-theme');
                 bionic();
             }
         });

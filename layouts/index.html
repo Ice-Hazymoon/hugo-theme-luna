@@ -5,13 +5,9 @@
                 <i class="eva eva-bar-chart-outline mr-2"></i>
                 <span>{{- T "post.archiveCounter" (len (where site.RegularPages "Type" "in" (slice "posts" "status"))) | safeHTML -}}</span>
             </div>
-            {{- if .Site.Params.notification.enabled -}}
-                {{- with resources.Get .Site.Params.notification.file -}}
-                    <div class="typo pb-6">
-                        {{- .Content | markdownify -}}
-                    </div>
-                {{- end -}}
-            {{- end -}}
+
+            {{- partial "components/announcement" . -}}
+
             <div>
                 {{- $paginator := .Paginate (where site.RegularPages "Type" "in" (slice "posts" "status")) -}}
                 {{- range $paginator.Pages -}}

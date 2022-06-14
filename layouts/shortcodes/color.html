@@ -1,0 +1,16 @@
+{{- $colors := newScratch -}}
+{{- $colors.Set "red" "text-red-400" -}}
+{{- $colors.Set "green" "text-green-400" -}}
+{{- $colors.Set "blue" "text-blue-400" -}}
+{{- $colors.Set "orange" "text-orange-400" -}}
+{{- $colors.Set "theme" "text-theme" -}}
+
+{{- $color := index .Params 0 -}}
+{{- $content := index .Params 1 | markdownify -}}
+
+{{- if ($colors.Get $color) -}}
+    <span class="{{- $colors.Get $color -}}">{{- $content -}}</span>
+{{- else -}}
+    <span style="color:{{- $color -}}">{{- $content -}}</span>
+{{- end -}}
+
