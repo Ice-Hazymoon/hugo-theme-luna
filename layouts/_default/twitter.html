@@ -168,6 +168,12 @@
                             </div>
                         </div>
                     {{- end -}}
+                    <div class=" flex">
+                        <div class="hidden w-36 flex-grow-0 text-sm sm:block"></div>
+                        <a title="@{{- $twitterConfig.id -}}" href="https://twitter.com/{{- $twitterConfig.id -}}" target="_blank" class="text-base rounded-full border inline-flex items-center justify-center p-2 transform -translate-x-1/2 text-gray-500 hover:bg-theme hover:text-white transition">
+                            <i class="eva eva-twitter"></i>
+                        </a>
+                    </div>
                 {{- else -}}
                     {{- warnf "!!! Twitter ID not set, Please check your config file" -}}
                     <div class=" text-xl">ERROR: {{- T "twitter.config" -}}</div>
