@@ -161,6 +161,6 @@
         c._ps = window.translateelement_styles;
         c._puh = 'translate.google.cn';
         _loadCss(c._ps);
-        _loadJs(b + `/translate_static/js/element/main_${navigator.language || navigator.userLanguage}.js`);
+        _loadJs(b + `/translate_static/js/element/main.js`);
     })();
 })();
