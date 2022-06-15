@@ -140,7 +140,7 @@ languages:
     contentDir: content/zh-hans
     languageName: 中文
     params:
-      icon: "images/i18n/zh-cn.svg" # in assets folder
+      languageIcon: "images/i18n/zh-cn.svg" # in assets folder
       twitter: 
         rsshub: "https://rsshub.rssforever.com"
         id: "Ice_Hazymoon"
@@ -160,7 +160,7 @@ languages:
     contentDir: content/en-us
     languageName: English
     params:
-      icon: "images/i18n/en-us.svg" # in assets folder
+      languageIcon: "images/i18n/en-us.svg" # in assets folder
 
 markup:
   highlight:
@@ -203,6 +203,15 @@ params:
   # 网站主题颜色
   # Site theme colors
   themeColor: "#dd6065"
+
+  # 输出一个漂亮的控制台日志
+  # Output a nice console log
+  console:
+    enabled: true
+    leftColor: "#dd6065"
+    leftText: "Hugo Theme Luna"
+    rightColor: "#feb462"
+    rightText: "Powered by Hugo ❤ Luna"
 
   # 标题计数器
   # Title counter

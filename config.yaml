@@ -17,6 +17,13 @@ params:
   sitemap: true
 
   themeColor: "#dd6065"
+  
+  console:
+    enabled: true
+    leftColor: "#dd6065"
+    leftText: "Hugo Theme Luna"
+    rightColor: "#feb462"
+    rightText: "Powered by Hugo ❤ Luna"
 
   headlineCounter: true
 

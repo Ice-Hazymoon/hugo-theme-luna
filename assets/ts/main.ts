@@ -1,5 +1,6 @@
 // import * as params from '@params';
 
+import initConsoleStyle from './src/initConsoleStyle';
 import initHugoEncrypt from './src/initHugoEncrypt';
 import initPjax from './src/initPjax';
 import initKatex from './src/initKatex';
@@ -62,6 +63,7 @@ class Luna {
         this.initActiveMenu = initActiveMenu.bind(this);
     }
     init() {
+        initConsoleStyle();
         this.initHugoEncrypt();
         this.initPjax();
         this.initKatex();

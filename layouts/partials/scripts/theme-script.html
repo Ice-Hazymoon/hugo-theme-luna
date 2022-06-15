@@ -28,6 +28,13 @@ window.__theme = {
         wrongPasswordText: '{{- i18n "encrypt.wrongPassword" -}}',
         userStorage: {{- if .Site.Params.HugoEncrypt.Storage -}} window['{{- .Site.Params.HugoEncrypt.Storage -}}Storage'] {{- else -}} localStorage {{- end -}},
     },
+    console: {
+        enabled: {{- .Site.Params.console.enabled -}},
+        leftColor: '{{- .Site.Params.console.leftColor -}}',
+        rightColor: '{{- .Site.Params.console.rightColor -}}',
+        leftText: '{{- .Site.Params.console.leftText -}}',
+        rightText: '{{- .Site.Params.console.rightText -}}',
+    },
     assets: {
         error_svg: "{{- "images/error.svg" | relURL -}}",
         search_svg: "{{- "images/search.svg" | relURL -}}",
