@@ -1,0 +1,134 @@
+backTop: "トップへ戻る"
+
+# hugo encrypt
+encrypt:
+    protectedByPassword: "パスワードで保護されたコンテンツが含まれています"
+    enterPassword: "パスワードを入力してください"
+    decrypt: "提出"
+    wrongPassword: "パスワードエラー"
+    encryptNoscript: "JavaScriptを有効にしてください"
+
+# links
+linksRank: "順番にリストされていない"
+
+# Archives
+archives:
+    title: "アーカイブ"
+    total: '合計 <span class="text-theme font-bold">{{ . }}</span> 件記事'
+    helloWorld: "Hello World!"
+    untitled: "タイトルなし"
+
+# date
+date:
+    day: "{{ . }}日"
+    d_m_y: "2006年01月02日"
+    m_y: "2006年01月"
+    d_m_h_s: "01月02日 15:04"
+    d_m: "01月02日"
+    normal: "2006年01月02日 15:04:05"
+
+# post
+post:
+    publishedIn: "发布于 {{ . }}"
+    readingTime: "読了時間: {{ .Count }}分"
+    wordCount: "{{ .Count }} 文字"
+    prevPost: "前の記事へ"
+    nextPost: "次の記事へ"
+    license: "特別な説明がない限り，このブログは以下のライセンスの条件に従う"
+    outdatedInfo: '最後更新日は : <span class="mx-1 font-bold"> {{.}} </span> 日前，記事の内容が古い可能性があります。'
+    lastmod: '最終更新：'
+    toc: "目次"
+    refs: "参考資料"
+    archiveCounter: '合計 <span class="mx-1 text-theme">{{ .Count }}</span> 件記事'
+    untitled: "タイトルなし"
+
+# search
+search:
+    loading: "イニシャライズ中、お待ちください"
+    loadFailure: "サーチエンジンのイニシャライズ失敗"
+    input: "入力..."
+    results: '`キーワード <span class="text-theme">${keyword}</span> で <span class="text-theme">${results}</span> 件の検索結果が見つかりました`'
+    notEnabled: "サーチ機能が起動起動していない"
+
+
+# taxonomy
+taxonomy:
+    _tags: "タグ"
+    _categories: "カテゴリ"
+    tag: 'タグ <b class="text-theme mx-1">「{{ .Title }}」</b> には <b class="text-theme mx-1">{{.Count}}</b> 件記事がある'
+    category: 'カテゴリ <b class="text-theme mx-1">「{{ .Title }}」</b> には <b class="text-theme mx-1">{{.Count}}</b> 件記事がある'
+    totalTags: 合計 <span class="text-theme font-bold mx-1">{{ . }}</span> タグ
+    totalCategories: 合計 <span class="text-theme font-bold mx-1">{{ . }}</span> タグ
+
+runTime:
+    text: "ランニングタイム:"
+    days: "日"
+    hours: "時間"
+    minutes: "分"
+    seconds: "秒"
+
+# navbar
+navbar:
+    home: "ホーム"
+    about: "关于我"
+    links: "リンクス"
+    github: "GitHub"
+    search: "検索"
+    archives: "アーカイブ"
+    twitter: "Twitter"
+    tags: "タグ"
+    categories: "カテゴリ"
+
+# share
+share:
+    twitter: "Twitter にシェアする"
+    facebook: "Facebook にシェアする"
+    weibo: "Weibo にシェアする"
+    copy: "リンクをコピーする"
+    qrcode: "QRコード"
+
+# pagination
+page:
+    prev: "前へ"
+    next: "次へ"
+    page: "第 {{ . }} ページ"
+    pagination: "{{ .PageNumber }} / {{ .TotalPages }} ページ"
+
+copy:
+    success: "コピー成功"
+    failed: "コピー失敗"
+    copyCode: "コピーコード"
+
+# offline
+offline:
+    title: "オフラインネットワーク"
+    h1: "オフラインネットワーク"
+    h3: "インターネットに接続できませんが、前のページを閲覧することはできます"
+    h4: "今、このかわいいウサギを見てください"
+    return: "クリックしてホームページに戻る"
+
+# github
+github:
+    goto: "GitHub で見る"
+    config: "「GitHub」の設定を確認してください"
+
+# twitter
+twitter:
+    title: "Twitter"
+    config: "「Twitter」の設定を確認してください"
+    link: "リンク"
+    like: "いいね"
+    reply: "返事"
+    forward: "リツイート"
+    goto: "Twitter で見る"
+
+# i18nlist
+switchLang: "言語を {{ . }} に変更する"
+
+noscript: "JavaScriptを有効にしてください"
+
+poweredBy: "Powered by {{ .Hugo }} {{ .Heart }} {{ .Theme }}"
+
+notFound: "指定されたページは存在しません。"
+
+bionicReading: "高速な読み取り"

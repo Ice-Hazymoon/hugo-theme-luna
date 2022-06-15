@@ -27,6 +27,7 @@ paginate: 10
 # 版权信息，默认为 author.name ↓
 # default: author.name ↓
 # copyright: "" 
+
 permalinks:
   # 文章链接的格式
   # Format of posts links
@@ -141,6 +142,7 @@ languages:
     languageName: 中文
     params:
       languageIcon: "images/i18n/zh-cn.svg" # in assets folder
+      font: "Times New Roman,Times,Heti Song,serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol"
       twitter: 
         rsshub: "https://rsshub.rssforever.com"
         id: "Ice_Hazymoon"
@@ -161,6 +163,13 @@ languages:
     languageName: English
     params:
       languageIcon: "images/i18n/en-us.svg" # in assets folder
+  ja:
+    contentDir: content/ja
+    languageName: 日本語
+    params:
+      languageIcon: "images/i18n/ja.svg"
+      font: "'-apple-system', BlinkMacSystemFont, 'Yu Gothic', '游ゴシック', YuGothic, '游ゴシック体', 'Noto Sans Japanese', 'ヒラギノ角ゴ Pro W3', 'メイリオ', 'Hiragino Kaku Gothic ProN', 'MS PGothic', Osaka, 'sans-serif'"
+      announcement: 
 
 markup:
   highlight:

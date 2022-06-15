@@ -29,7 +29,7 @@ date:
 
 # post
 post:
-    publishedIn: "发布于："
+    publishedIn: "发布于 {{ . }}"
     readingTime: "阅读约 {{ .Count }} 分钟"
     wordCount: "{{ .Count }} 字"
     prevPost: "上一篇"
@@ -123,7 +123,7 @@ twitter:
     goto: "前往 Twitter 查看"
 
 # i18nlist
-switchLang: "切换语言到 "
+switchLang: "切换语言到 {{ . }}"
 
 noscript: "请启用 JavaScript 来获取更好的体验"
 

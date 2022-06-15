@@ -17,9 +17,9 @@
                 <ul class="hidden border border-transparent pb-0 group-hover:block">
                     {{- range $.Translations -}}
                         <li class="mb-1.5 cursor-pointer last:mb-0">
-                            <a data-no-swup href="{{- .Permalink -}}" title="{{- T "switchLang" -}}{{- .Language.LanguageName -}}">
+                            <a data-no-swup href="{{- .Permalink -}}" title="{{- T "switchLang" .Language.LanguageName -}}">
                                 {{- $flag := resources.Get .Site.Params.languageIcon -}}
-                                <img class="w-6 cursor-pointer rounded-sm" src="{{- print $public_cdn $flag.RelPermalink -}}" alt="{{- .Lang -}}" />
+                                <img class="w-6 cursor-pointer rounded-sm border border-gray-50" src="{{- print $public_cdn $flag.RelPermalink -}}" alt="{{- .Lang -}}" />
                             </a>
                         </li>
                     {{- end -}}

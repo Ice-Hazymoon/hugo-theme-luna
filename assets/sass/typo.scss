@@ -7,7 +7,7 @@ html {
 }
 
 body {
-    font-family: $font;
+    font-family: var(--font);
     word-spacing: 0.5px;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
