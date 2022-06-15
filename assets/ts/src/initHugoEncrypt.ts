@@ -55,14 +55,22 @@ export default async function() {
         }
     };
 
-    const hugoEncryptBlocks = Array.from(document.querySelectorAll('.hugo-encrypt-button')) as HTMLElement[];
-    for (let index = 0; index < hugoEncryptBlocks.length; index++) {
-        const block = hugoEncryptBlocks[index];
-        block.addEventListener('click', async (e) => {
-            const id = (e.target as HTMLElement).getAttribute('data-hugo-encrypt-id');
-            const El = document.getElementById(`r${id}`) as HTMLElement;
-            const password = (El.querySelector('.hugo-encrypt-input') as HTMLInputElement).value;
-            await hugoDecrypt(password, 'input', El, id);
+    const hugoEncryptForms = Array.from(document.querySelectorAll('.hugo-encrypt-form')) as HTMLElement[];
+    for (let index = 0; index < hugoEncryptForms.length; index++) {
+        const button = hugoEncryptForms[index].querySelector('.hugo-encrypt-button') as HTMLElement;
+        const input = hugoEncryptForms[index].querySelector('.hugo-encrypt-input') as HTMLInputElement;
+        const id = button?.getAttribute('data-hugo-encrypt-id');
+        const el = document.getElementById(`r${id}`) as HTMLElement;
+        input.addEventListener('keyup', async (e) => {
+            if (e.key === "Enter") {
+                const password = input.value;
+                await hugoDecrypt(password, 'input', el, id);
+                this.renderPost();
+            }
+        })
+        button.addEventListener('click', async (e) => {
+            const password = input.value;
+            await hugoDecrypt(password, 'input', el, id);
             this.renderPost();
         })
     }
