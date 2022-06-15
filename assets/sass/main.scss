@@ -4,7 +4,6 @@ $font: {{.Param "font"}};
 $headlineCounter: {{.Param "headlineCounter"}};
 /* prettier-ignore-end */
 
-@import 'modules/normalize';
 @import 'modules/katex';
 @import 'modules/eva-icons';
 

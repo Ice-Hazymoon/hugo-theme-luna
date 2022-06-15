@@ -18,37 +18,57 @@ categories:
 {{</* abbr "MIT" "Massachusetts Institute of Technology" */>}}
 ```
 
+{{< abbr "MIT" "Massachusetts Institute of Technology" >}}
+
 ## Color text
 
 ```markdown
-Here is {{</* color "red" "the red" */>}} text
-Here is {{</* color "green" "the green" */>}} text
-Here is {{</* color "blue" "the blue" */>}} text
-Here is {{</* color "orange" "the orange" */>}} text
-Here is {{</* color "theme" "the theme" */>}} text
-Here is {{</* color "#a811ff" "the custom color" */>}} text
+{{</* color "red" "red" */>}} text
+{{</* color "green" "green" */>}} text
+{{</* color "blue" "blue" */>}} text
+{{</* color "orange" "orange" */>}} text
+{{</* color "theme" "theme" */>}} text
+{{</* color "#a811ff" "custom color" */>}} text
 ```
 
-Here is {{< color "red" "the red" >}} text  
-Here is {{< color "green" "the green" >}} text  
-Here is {{< color "blue" "the blue" >}} text  
-Here is {{< color "orange" "the orange" >}} text  
-Here is {{< color "theme" "the theme" >}} text  
-Here is {{< color "#a811ff" "the custom color" >}} text
+{{< color "red" "red" >}} text  
+{{< color "green" "green" >}} text  
+{{< color "blue" "blue" >}} text  
+{{< color "orange" "orange" >}} text  
+{{< color "theme" "theme" >}} text  
+{{< color "#a811ff" "custom color" >}} text
 
 ## Button
 
 ```markdown
-{{</* button color="red" icon="eva eva-home-outline" content="Here is the red button" link="https://google.com" */>}}  
-{{</* button color="green" icon="eva eva-twitter-outline" content="Here is the green button" link="https://google.com" */>}}  
-{{</* button color="blue" icon="eva eva-github-outline" content="Here is the blue button" link="https://google.com" */>}}  
-{{</* button color="orange" icon="eva eva-search-outline" content="Here is the orange button" link="https://google.com" */>}}  
+{{</* button content="Small" size="small" */>}}
+{{</* button content="Normal" size="normal" */>}}
+{{</* button content="Large" size="large" */>}}
+
+{{</* button color="red" icon="eva eva-home-outline" content="red button" link="https://google.com" */>}}
+{{</* button color="green" icon="eva eva-twitter-outline" content="green button" link="https://google.com" */>}}
+{{</* button color="blue" icon="eva eva-github-outline" content="blue button" link="https://google.com" */>}}
+{{</* button color="orange" icon="eva eva-search-outline" content="orange button" link="https://google.com" */>}}
+
+{{</* button-outline color="red" icon="eva eva-home-outline" content="red button" link="https://google.com" */>}}
+{{</* button-outline color="green" icon="eva eva-twitter-outline" content="green button" link="https://google.com" */>}}
+{{</* button-outline color="blue" icon="eva eva-github-outline" content="blue button" link="https://google.com" */>}}
+{{</* button-outline color="orange" icon="eva eva-search-outline" content="orange button" link="https://google.com" */>}}
 ```
 
-{{< button color="red" icon="eva eva-home-outline" content="Here is the red button" link="https://google.com" >}}  
-{{< button color="green" icon="eva eva-twitter-outline" content="Here is the green button" link="https://google.com" >}}  
-{{< button color="blue" icon="eva eva-github-outline" content="Here is the blue button" link="https://google.com" >}}  
-{{< button color="orange" icon="eva eva-search-outline" content="Here is the orange button" link="https://google.com" >}}
+{{< button content="Small" size="small" >}}
+{{< button content="Normal" size="normal" >}}
+{{< button content="Large" size="large" >}}
+
+{{< button color="red" icon="eva eva-home-outline" content="red button" link="https://google.com" >}}
+{{< button color="green" icon="eva eva-twitter-outline" content="green button" link="https://google.com" >}}
+{{< button color="blue" icon="eva eva-github-outline" content="blue button" link="https://google.com" >}}
+{{< button color="orange" icon="eva eva-search-outline" content="orange button" link="https://google.com" >}}
+
+{{< button-outline color="red" icon="eva eva-home-outline" content="red button" link="https://google.com" >}}
+{{< button-outline color="green" icon="eva eva-twitter-outline" content="green button" link="https://google.com" >}}
+{{< button-outline color="blue" icon="eva eva-github-outline" content="blue button" link="https://google.com" >}}
+{{< button-outline color="orange" icon="eva eva-search-outline" content="orange button" link="https://google.com" >}}
 
 ## Text layout
 

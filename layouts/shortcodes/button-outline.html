@@ -1,0 +1,24 @@
+{{- $colors := newScratch -}}
+{{- $colors.Set "red" "bg-red-500 text-red-500" -}}
+{{- $colors.Set "green" "bg-green-500 text-green-500" -}}
+{{- $colors.Set "blue" "bg-blue-500 text-blue-500" -}}
+{{- $colors.Set "orange" "bg-orange-500 text-orange-500" -}}
+{{- $color := $colors.Get (or (.Get "color") "blue") -}}
+
+{{- $sizes := newScratch -}}
+{{- $sizes.Set "small" "text-sm px-3 py-1.5" -}}
+{{- $sizes.Set "normal" "text-base px-4 py-2" -}}
+{{- $sizes.Set "large" "text-lg px-5 py-3" -}}
+{{- $size := $sizes.Get (or (.Get "size") "normal") -}}
+
+{{- if .Get "link" -}}
+<a href="{{- .Get "link" -}}" target="_blank" class="after:hidden m-1 cursor-pointer no-icon rounded inline-flex items-center hover:bg-opacity-5 transition bg-opacity-10 {{ $color}} {{ $size }}">
+    <i class="mr-1 text-inherit {{ .Get "icon" }}"></i>
+    <span class=" text-inherit">{{- .Get "content" | markdownify -}}</span>
+</a>
+{{- else -}}
+<div class="m-1 cursor-pointer rounded  inline-flex items-center hover:bg-opacity-5 transition bg-opacity-10 {{ $color}} {{ $size }}">
+    <i class="mr-1 {{ .Get "icon" }}"></i>
+    <span>{{- .Get "content" | markdownify -}}</span>
+</div>
+{{- end -}}

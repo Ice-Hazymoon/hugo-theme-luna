@@ -20,6 +20,56 @@ categories:
 
 {{< abbr "AWSL" "啊我死了" >}}
 
+## 彩色文字
+
+```markdown
+{{</* color "red" "红色" */>}} text
+{{</* color "green" "绿色" */>}} text
+{{</* color "blue" "蓝色" */>}} text
+{{</* color "orange" "橙色" */>}} text
+{{</* color "theme" "主题色" */>}} text
+{{</* color "#a811ff" "自定义颜色" */>}} text
+```
+
+{{< color "red" "红色" >}} text  
+{{< color "green" "绿色" >}} text  
+{{< color "blue" "蓝色" >}} text  
+{{< color "orange" "橙色" >}} text  
+{{< color "theme" "主题色" >}} text  
+{{< color "#a811ff" "自定义颜色" >}} text
+
+## 按钮
+
+```markdown
+{{</* button content="小按钮" size="small" */>}}
+{{</* button content="普通按钮" size="normal" */>}}
+{{</* button content="大按钮" size="large" */>}}
+
+{{</* button color="red" icon="eva eva-home-outline" content="red button" link="https://google.com" */>}}
+{{</* button color="green" icon="eva eva-twitter-outline" content="green button" link="https://google.com" */>}}
+{{</* button color="blue" icon="eva eva-github-outline" content="blue button" link="https://google.com" */>}}
+{{</* button color="orange" icon="eva eva-search-outline" content="orange button" link="https://google.com" */>}}
+
+{{</* button-outline color="red" icon="eva eva-home-outline" content="red button" link="https://google.com" */>}}
+{{</* button-outline color="green" icon="eva eva-twitter-outline" content="green button" link="https://google.com" */>}}
+{{</* button-outline color="blue" icon="eva eva-github-outline" content="blue button" link="https://google.com" */>}}
+{{</* button-outline color="orange" icon="eva eva-search-outline" content="orange button" link="https://google.com" */>}}
+```
+
+{{< button content="小按钮" size="small" >}}
+{{< button content="普通按钮" size="normal" >}}
+{{< button content="大按钮" size="large" >}}
+
+{{< button color="red" icon="eva eva-home-outline" content="红色按钮" link="https://google.com" >}}
+{{< button color="green" icon="eva eva-twitter-outline" content="绿色按钮" link="https://google.com" >}}
+{{< button color="blue" icon="eva eva-github-outline" content="蓝色按钮" link="https://google.com" >}}
+{{< button color="orange" icon="eva eva-search-outline" content="橙色按钮" link="https://google.com" >}}
+
+{{< button-outline color="red" icon="eva eva-home-outline" content="红色按钮" link="https://google.com" >}}
+{{< button-outline color="green" icon="eva eva-twitter-outline" content="绿色按钮" link="https://google.com" >}}
+{{< button-outline color="blue" icon="eva eva-github-outline" content="蓝色按钮" link="https://google.com" >}}
+{{< button-outline color="orange" icon="eva eva-search-outline" content="橙色按钮" link="https://google.com" >}}
+
 ## 文字排版
 
 ```markdown
@@ -129,7 +179,6 @@ categories:
 这是一个 {{</* tag green "绿色标签" */>}}  
 这是一个 {{</* tag blue "蓝色标签" */>}}  
 这是一个 {{</* tag orange "橘色标签" */>}}  
-这是一个 {{</* tag theme "主题色标签" */>}}  
 
 这是一个 {{</* tag-outlined red "红色标签" */>}}  
 这是一个 {{</* tag-outlined green "绿色标签" */>}}  
@@ -141,7 +190,6 @@ categories:
 这是一个 {{< tag green "绿色标签" >}}  
 这是一个 {{< tag blue "蓝色标签" >}}  
 这是一个 {{< tag orange "橘色标签" >}}  
-这是一个 {{< tag theme "主题色标签" >}}  
 
 这是一个 {{< tag-outlined red "红色标签" >}}  
 这是一个 {{< tag-outlined green "绿色标签" >}}  
@@ -155,14 +203,12 @@ categories:
 {{</* progress 77.54 red "进度条名称" */>}}
 {{</* progress 123.45 blue "进度条名称" */>}}
 {{</* progress 11.11 orange "进度条名称" */>}}
-{{</* progress 99.99 theme "进度条名称" */>}}
 ```
 
 {{< progress 80 green "进度条名称" >}}
 {{< progress 77.54 red "进度条名称" >}}
 {{< progress 123.45 blue "进度条名称" >}}
 {{< progress 11.11 orange "进度条名称" >}}
-{{< progress 99.99 theme "进度条名称" >}}
 
 ## 折叠面板
 
