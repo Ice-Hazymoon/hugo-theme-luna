@@ -23,20 +23,20 @@ categories:
 ## 彩色文字
 
 ```markdown
-{{</* color "red" "红色" */>}} text
-{{</* color "green" "绿色" */>}} text
-{{</* color "blue" "蓝色" */>}} text
-{{</* color "orange" "橙色" */>}} text
-{{</* color "theme" "主题色" */>}} text
-{{</* color "#a811ff" "自定义颜色" */>}} text
+{{</* color "red" "红色" */>}}
+{{</* color "green" "绿色" */>}}
+{{</* color "blue" "蓝色" */>}}
+{{</* color "orange" "橙色" */>}}
+{{</* color "theme" "主题色" */>}}
+{{</* color "#a811ff" "自定义颜色" */>}}
 ```
 
-{{< color "red" "红色" >}} text  
-{{< color "green" "绿色" >}} text  
-{{< color "blue" "蓝色" >}} text  
-{{< color "orange" "橙色" >}} text  
-{{< color "theme" "主题色" >}} text  
-{{< color "#a811ff" "自定义颜色" >}} text
+{{< color "red" "红色" >}}  
+{{< color "green" "绿色" >}}  
+{{< color "blue" "蓝色" >}}  
+{{< color "orange" "橙色" >}}  
+{{< color "theme" "主题色" >}}  
+{{< color "#a811ff" "自定义颜色" >}}
 
 ## 按钮
 
@@ -56,6 +56,7 @@ categories:
 {{</* button-outline color="orange" icon="eva eva-search-outline" content="orange button" link="https://google.com" */>}}
 ```
 
+<div style="font-size: 0;">
 {{< button content="小按钮" size="small" >}}
 {{< button content="普通按钮" size="normal" >}}
 {{< button content="大按钮" size="large" >}}
@@ -69,6 +70,7 @@ categories:
 {{< button-outline color="green" icon="eva eva-twitter-outline" content="绿色按钮" link="https://google.com" >}}
 {{< button-outline color="blue" icon="eva eva-github-outline" content="蓝色按钮" link="https://google.com" >}}
 {{< button-outline color="orange" icon="eva eva-search-outline" content="橙色按钮" link="https://google.com" >}}
+</div>
 
 ## 文字排版
 
