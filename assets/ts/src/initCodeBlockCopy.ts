@@ -6,7 +6,8 @@ export default function() {
         const header = document.createElement('header');
         const codeEl = el.querySelector('pre code[data-lang]') as HTMLElement;
         const lang = codeEl.getAttribute('data-lang');
-        const code = el.querySelector('table td:nth-child(2) pre') as HTMLElement;
+        let code = el.querySelector('table td:nth-child(2) pre') as HTMLElement;
+        if (!code) code = el.querySelector('pre') as HTMLElement;
         const codeText = code.textContent as string;
 
         header.innerHTML = `<div><span></span> <span></span> <span></span> ${lang}</div><i title="${window.__theme.i18n.copy.copyCode}" class="eva eva-clipboard-outline"></i>`
