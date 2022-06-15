@@ -211,9 +211,18 @@ input[type='checkbox'] {
     }
 
     .highlight {
-        @apply my-4 overflow-hidden rounded dark:border dark:border-darkBorder;
+        @apply relative my-4 overflow-hidden rounded dark:border dark:border-darkBorder;
         pre {
             @apply my-0 rounded-none bg-gray-800 dark:bg-transparent #{!important};
+        }
+        &[title] {
+            & > div {
+                @apply pt-4;
+            }
+        }
+        &::after {
+            content: attr(title);
+            @apply absolute w-full leading-6 py-2 left-0 top-0 text-center text-white;
         }
         header {
             color: #8b949e;
@@ -222,7 +231,7 @@ input[type='checkbox'] {
                 @apply cursor-pointer;
             }
             & + div {
-                @apply bg-gray-800 dark:bg-transparent #{!important};
+                @apply pt-0 bg-gray-800 dark:bg-transparent #{!important};
             }
             span {
                 @apply mr-0.5 inline-block h-2.5 w-2.5 rounded-full;

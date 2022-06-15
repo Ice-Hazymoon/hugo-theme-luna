@@ -25,7 +25,7 @@ The `@tailwindcss/typography` plugin is our attempt to give you what you _actual
 
 It adds a new `prose` class that you can slap on any block of vanilla HTML content and turn it into a beautiful, well-formatted document:
 
-```html {linenos=table,hl_lines=[8,"4-6"],linenostart=199}
+```html {linenos=table,hl_lines=[8,"4-6"],linenostart=199,title="index.html"}
 <article class="prose">
   <h1>Garlic bread with cheese: What the science tells us</h1>
   <p>
@@ -109,7 +109,7 @@ I think most people are going to use [highlight.js](https://highlightjs.org/) or
 
 Here's what a default `tailwind.config.js` file looks like at the time of writing:
 
-```js
+```js {title="tailwind.config.js"}
 module.exports = {
   purge: [],
   theme: {
@@ -200,7 +200,7 @@ Let's add a closing paragraph here so things end with a decently sized block of 
 
 What I've written here is probably long enough, but adding this final sentence can't hurt.
 
-## Math
+## LaTeX
 
 ```TeX
 this is a inline katex: $ E={\sqrt  {p^{2}c^{2}+m^{2}c^{4}}}=\gamma mc^{2} $
