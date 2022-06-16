@@ -6,10 +6,12 @@ export default function() {
         if (isDark) {
             _i.classList.remove('eva-moon');
             _i.classList.add('eva-sun');
+            el.title = window.__theme.i18n.darkMode.light;
             document.documentElement.classList.add('dark');
         } else {
             _i.classList.remove('eva-sun');
             _i.classList.add('eva-moon');
+            el.title = window.__theme.i18n.darkMode.dark;
             document.documentElement.classList.remove('dark');
         }
     }

@@ -44,6 +44,10 @@ declare global {
                     input: string,
                     results: Function,
                 },
+                darkMode: {
+                    dark: string,
+                    light: string
+                }
             },
             creatTime: VarDate
         }

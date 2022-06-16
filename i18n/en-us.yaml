@@ -147,3 +147,8 @@ poweredBy: "Powered by {{ .Hugo }} {{ .Heart }} {{ .Theme }}"
 notFound: "Page not found, click back to home page"
 
 bionicReading: "Faster Reads"
+
+darkmode:
+    switch: "Switch to {{ . }}"
+    dark: "dark mode"
+    light: "light mode"

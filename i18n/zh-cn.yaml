@@ -132,3 +132,8 @@ poweredBy: "由 {{ .Hugo }} {{ .Heart }} {{ .Theme }} 驱动"
 notFound: "未找到页面，点击返回首页"
 
 bionicReading: "更快的阅读"
+
+darkmode:
+    switch: "切换到{{ . }}"
+    dark: "夜间模式"
+    light: "日间模式"

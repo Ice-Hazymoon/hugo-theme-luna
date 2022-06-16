@@ -166,6 +166,26 @@ languages:
   ja:
     contentDir: content/ja
     languageName: 日本語
+    menu:
+      main:
+      - name: Home
+        weight: 10
+        identifier: home
+        params:
+          icon: eva eva-home
+        url: /
+      - name: Archives
+        weight: 20
+        identifier: archives
+        params:
+          icon: eva eva-bar-chart
+        url: /archives/
+      - name: Search
+        weight: 30
+        identifier: search
+        params:
+          icon: eva eva-search
+        url: /search/
     params:
       languageIcon: "images/i18n/ja.svg"
       font: "'-apple-system', BlinkMacSystemFont, 'Yu Gothic', '游ゴシック', YuGothic, '游ゴシック体', 'Noto Sans Japanese', 'ヒラギノ角ゴ Pro W3', 'メイリオ', 'Hiragino Kaku Gothic ProN', 'MS PGothic', Osaka, 'sans-serif'"

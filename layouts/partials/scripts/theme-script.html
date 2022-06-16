@@ -46,10 +46,13 @@ window.__theme = {
             copyCode: "{{- T "copy.copyCode" -}}",
         },
         search: {
-            untitled: "{{- i18n "post.untitled" -}}",
+            untitled: "{{- T "post.untitled" -}}",
             loadFailure: "{{- T "search.loadFailure" -}}",
-            results: (results, keyword) => `{{- safeJS (T "search.results") -}}`,
             input: "{{- T "search.input" -}}",
+        },
+        darkMode: {
+            dark: "{{- T "darkmode.switch" (T "darkmode.dark") -}}",
+            light: "{{- T "darkmode.switch" (T "darkmode.light") -}}"
         }
     },
     {{- if .Site.Params.runTime.enabled -}}

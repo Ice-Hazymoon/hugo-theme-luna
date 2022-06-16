@@ -132,3 +132,8 @@ poweredBy: "Powered by {{ .Hugo }} {{ .Heart }} {{ .Theme }}"
 notFound: "指定されたページは存在しません。"
 
 bionicReading: "高速な読み取り"
+
+darkmode:
+    switch: "{{ . }}へスイッチ"
+    dark: "ダークモード"
+    light: "ライトモード"

@@ -13,28 +13,12 @@ tags:
 
 ````markdown
 {{%/* hugo-encrypt 2022 */%}}
-### Here is the encrypted content
-
-test content
-
-![Night city](test.jpg)
-
-```js
-console.log('some codes');
-```
+![Night city](https://unsplash.it/1920/1080/?random=1)
 {{%/* /hugo-encrypt */%}}
 ````
 
 {{% hugo-encrypt 2022 %}}
-### Here is the encrypted content
-
-test content
-
 ![Night city](https://unsplash.it/1920/1080/?random=1)
-
-```js
-console.log('some codes');
-```
 {{% /hugo-encrypt %}}
 
 ***
