@@ -48,7 +48,7 @@ window.__theme = {
         search: {
             untitled: "{{- i18n "post.untitled" -}}",
             loadFailure: "{{- T "search.loadFailure" -}}",
-            results: (results, keyword) => {{- safeJS (T "search.results") -}},
+            results: (results, keyword) => `{{- safeJS (T "search.results") -}}`,
             input: "{{- T "search.input" -}}",
         }
     },

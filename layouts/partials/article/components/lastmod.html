@@ -7,11 +7,12 @@
         {{- end -}}
     {{- end -}}
     {{- $lastMod := int (div (now.Sub ($updateTime)).Hours 24) -}}
+    {{- $lastModHTML := printf `<span class="mx-1 font-bold">%s</span>` ($lastMod | string) -}}
     {{- if (gt $lastMod $config.day) -}}
         <div class="border-b bg-blue-100 bg-opacity-20 p-6 dark:border-darkBorder dark:bg-darkBg md:px-10">
             <time
                 {{ printf `datetime="%s"` ($updateTime.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr }}
-                >{{- (T "post.outdatedInfo" $lastMod) | safeHTML -}}</time
+                >{{- (T "post.outdatedInfo" $lastModHTML) | safeHTML -}}</time
             >
         </div>
     {{- end -}}

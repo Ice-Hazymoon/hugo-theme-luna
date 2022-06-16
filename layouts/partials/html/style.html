@@ -1,0 +1,18 @@
+<style>
+    {{- with .Site.Params.font -}}
+    :root {
+        --font: {{- . | safeCSS -}};
+    }
+    {{- end -}}
+
+    {{- if .Site.Params.blackAndWhite -}}
+    html {
+        filter: grayscale(100%); 
+        -webkit-filter: grayscale(100%); 
+        -moz-filter: grayscale(100%); 
+        -ms-filter: grayscale(100%); 
+        -o-filter: grayscale(100%); 
+        -webkit-filter: grayscale(1);
+    }
+    {{- end -}}
+</style>

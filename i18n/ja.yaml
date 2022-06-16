@@ -14,7 +14,7 @@ linksRank: "順番にリストされていない"
 # Archives
 archives:
     title: "アーカイブ"
-    total: '合計 <span class="text-theme font-bold">{{ . }}</span> 件記事'
+    total: '合計 {{ . }} 件記事'
     helloWorld: "Hello World!"
     untitled: "タイトルなし"
 
@@ -35,11 +35,11 @@ post:
     prevPost: "前の記事へ"
     nextPost: "次の記事へ"
     license: "特別な説明がない限り，このブログは以下のライセンスの条件に従う"
-    outdatedInfo: '最後更新日は : <span class="mx-1 font-bold"> {{.}} </span> 日前，記事の内容が古い可能性があります。'
+    outdatedInfo: '最後更新日は :{{ . }} 日前，記事の内容が古い可能性があります。'
     lastmod: '最終更新：'
     toc: "目次"
     refs: "参考資料"
-    archiveCounter: '合計 <span class="mx-1 text-theme">{{ .Count }}</span> 件記事'
+    archiveCounter: '合計 {{ . }} 件記事'
     untitled: "タイトルなし"
 
 # search
@@ -47,7 +47,7 @@ search:
     loading: "イニシャライズ中、お待ちください"
     loadFailure: "サーチエンジンのイニシャライズ失敗"
     input: "入力..."
-    results: '`キーワード <span class="text-theme">${keyword}</span> で <span class="text-theme">${results}</span> 件の検索結果が見つかりました`'
+    results: 'キーワード 「{{ .Keyword }}」 での検索結果 {{ .Count }} 件'
     notEnabled: "サーチ機能が起動起動していない"
 
 
@@ -55,10 +55,10 @@ search:
 taxonomy:
     _tags: "タグ"
     _categories: "カテゴリ"
-    tag: 'タグ <b class="text-theme mx-1">「{{ .Title }}」</b> には <b class="text-theme mx-1">{{.Count}}</b> 件記事がある'
-    category: 'カテゴリ <b class="text-theme mx-1">「{{ .Title }}」</b> には <b class="text-theme mx-1">{{.Count}}</b> 件記事がある'
-    totalTags: 合計 <span class="text-theme font-bold mx-1">{{ . }}</span> タグ
-    totalCategories: 合計 <span class="text-theme font-bold mx-1">{{ . }}</span> タグ
+    tag: 'タグ 「{{ .Title }}」 には {{ .Count }} 件記事がある'
+    category: 'カテゴリ 「{{ .Title }}」 には {{ .Count }} 件記事がある'
+    totalTags: 合計 {{ . }} タグ
+    totalCategories: 合計 {{ . }} タグ
 
 runTime:
     text: "ランニングタイム:"
@@ -70,7 +70,7 @@ runTime:
 # navbar
 navbar:
     home: "ホーム"
-    about: "关于我"
+    about: "プロファイル"
     links: "リンクス"
     github: "GitHub"
     search: "検索"

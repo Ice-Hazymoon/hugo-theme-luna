@@ -3,7 +3,9 @@
         <div class="article-list mx-auto">
             <div class="flex items-center py-6 text-xl">
                 <i class="eva eva-bar-chart-outline mr-2"></i>
-                <span>{{- T "post.archiveCounter" (len (where site.RegularPages "Type" "in" (slice "posts" "status"))) | safeHTML -}}</span>
+                {{- $totalPost := len (where site.RegularPages "Type" "in" (slice "posts" "status")) | string -}}
+                {{- $totalPostHTML := printf `<span class="mx-1 text-theme">%s</span>` $totalPost -}}
+                <span>{{- T "post.archiveCounter" $totalPostHTML | safeHTML -}}</span>
             </div>
 
             {{- partial "components/announcement" . -}}

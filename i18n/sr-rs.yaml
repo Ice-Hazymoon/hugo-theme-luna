@@ -15,8 +15,8 @@ linksRank: "Рангирање без посебног реда"
 archives:
     title: "Архиве"
     total: 
-        one: 'Укупно <span class="text-theme font-bold">{{.}}</span> пост'
-        other: 'Укупно <span class="text-theme font-bold">{{.}}</span> пост(ов)а'
+        one: 'Укупно {{ . }} пост'
+        other: 'Укупно {{ . }} пост(ов)а'
     helloWorld: "Здраво Свете!"
     untitled: "Без наслова"
 
@@ -41,13 +41,13 @@ post:
     prevPost: "Прет"
     nextPost: "След"
     license: "Осим ако није другачије наведено, овај блог је лиценциран под"
-    outdatedInfo: 'Последња измена пре <span class="mx-1 font-bold">{{.}}</span> дана, информација описана у тексту може бити измењена'
+    outdatedInfo: 'Последња измена пре {{ . }} дана, информација описана у тексту може бити измењена'
     lastmod: 'Последња измена: '
     toc: "Табела Садржаја"
     refs: "Везе"
     archiveCounter:
-        one: '<span class="mx-1 text-theme">{{ .Count }}</span> Пост Укупно'
-        other: '<span class="mx-1 text-theme">{{ .Count }}</span> Пост(ов)а Укупно'
+        one: '{{ . }} Пост Укупно'
+        other: '{{ . }} Пост(ов)а Укупно'
     untitled: "Без наслова"
 
 # search
@@ -55,7 +55,7 @@ search:
     loading: "Учитавање..."
     searchLoadFailure: "Покретање машине за претраживање није успело"
     searchInput: "Укуцајте нешто..."
-    searchResults: '`Пронађено <span class="text-theme">${results}</span> резултата за кључну реч <span class="text-theme">${keyword}</span>`'
+    searchResults: 'Пронађено {{ .Count }} резултата за кључну реч {{ .Keyword }}'
     notEnabled: "Search is not enabled"
 
 # taxonomy
@@ -63,17 +63,17 @@ taxonomy:
     _tags: "Тагови"
     _categories: "Категорије"
     tag:
-        one: 'Таг <b class="text-theme mx-1">{{.Title}}</b> има <b class="text-theme mx-1">{{.Count}}</b> пост'
-        other: 'Таг <b class="text-theme mx-1">{{.Title}}</b> има <b class="text-theme mx-1">{{.Count}}</b> постова'
+        one: 'Таг {{ . }} има {{ .Count }} пост'
+        other: 'Таг {{ . }} има {{ .Count }} постова'
     category:
-        one: 'Категорија <b class="text-theme mx-1">{{.Title}}</b> има <b class="text-theme mx-1">{{.Count}}</b> пост'
-        other: 'Категорија <b class="text-theme mx-1">{{.Title}}</b> има <b class="text-theme mx-1">{{.Count}}</b> постова'
+        one: 'Категорија {{ . }} има {{ .Count }} пост'
+        other: 'Категорија {{ . }} има {{ .Count }} постова'
     totalTags:
-        one: 'Укупно <span class="text-theme font-bold mx-1">{{.}}</span> Таг'
-        other: 'Укупно <span class="text-theme font-bold mx-1">{{.}}</span> Тагова'
+        one: 'Укупно {{ . }} Таг'
+        other: 'Укупно {{ . }} Тагова'
     totalCategories: 
-        one: 'Укупно <span class="text-theme font-bold mx-1">{{.}}</span> Категорија'
-        other: 'Укупно <span class="text-theme font-bold mx-1">{{.}}</span> Категориј(е)а'
+        one: 'Укупно {{ . }} Категорија'
+        other: 'Укупно {{ . }} Категориј(е)а'
 
 runTime:
     text: "Укупно време:"

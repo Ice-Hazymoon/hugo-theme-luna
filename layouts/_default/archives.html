@@ -6,8 +6,9 @@
                 <span>{{ T "archives.title" }}</span>
             </div>
             <div class="inline-block text-lg leading-none text-gray-500 dark:text-darkTextPlaceholder">
-                {{- $total_post := len (where site.RegularPages "Type" "in" (slice "posts" "status")) -}}
-                {{- T "archives.total" $total_post | safeHTML -}}
+                {{- $totalPost := len (where site.RegularPages "Type" "in" (slice "posts" "status")) | string -}}
+                {{- $totalPostHTML := printf `<span class="text-theme font-bold">%s</span>` $totalPost -}}
+                {{- T "archives.total" $totalPostHTML | safeHTML -}}
             </div>
         </div>
 

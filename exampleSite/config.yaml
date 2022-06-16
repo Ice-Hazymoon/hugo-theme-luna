@@ -169,7 +169,9 @@ languages:
     params:
       languageIcon: "images/i18n/ja.svg"
       font: "'-apple-system', BlinkMacSystemFont, 'Yu Gothic', '游ゴシック', YuGothic, '游ゴシック体', 'Noto Sans Japanese', 'ヒラギノ角ゴ Pro W3', 'メイリオ', 'Hiragino Kaku Gothic ProN', 'MS PGothic', Osaka, 'sans-serif'"
-      announcement: 
+      announcement:
+        enabled: true
+        file: "README.ja.md"
 
 markup:
   highlight:
@@ -212,6 +214,10 @@ params:
   # 网站主题颜色
   # Site theme colors
   themeColor: "#dd6065"
+
+  # 设置网站为黑白模式，通常用于哀悼活动
+  # Set website to black and white, usually for mourning events
+  blackAndWhite: false
 
   # 输出一个漂亮的控制台日志
   # Output a nice console log

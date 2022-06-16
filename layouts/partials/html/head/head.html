@@ -44,12 +44,4 @@
 <link rel="apple-touch-icon" href="{{- $icon -}}" />
 {{- partial "html/head/site-schema.html" . -}}
 
-{{- with .Site.Params.font -}}
-<style>
-    :root {
-        --font: {{- . | safeCSS -}};
-    }
-</style>
-{{- end -}}
-
 {{- partial "custom/head" . -}}

@@ -11,9 +11,13 @@
             </div>
             <div class="ml-2 inline-block text-lg leading-none text-gray-500 dark:text-darkTextPlaceholder">
                 {{- if eq .Title "Categories" -}}
-                    {{- T "taxonomy.totalCategories" (len .Site.Taxonomies.categories) | safeHTML -}}
+                    {{- $totalCategories := len .Site.Taxonomies.categories | string -}}
+                    {{- $totalCategoriesHTML := printf `<span class="text-theme font-bold mx-1">%s</span>` $totalCategories -}}
+                    {{- T "taxonomy.totalCategories" $totalCategoriesHTML | safeHTML -}}
                 {{- else -}}
-                    {{- T "taxonomy.totalTags" (len .Site.Taxonomies.tags) | safeHTML -}}
+                    {{- $totalTags := len .Site.Taxonomies.tags | string -}}
+                    {{- $totalTagsHTML := printf `<span class="text-theme font-bold mx-1">%s</span>` $totalTags -}}
+                    {{- T "taxonomy.totalTags" $totalTagsHTML | safeHTML -}}
                 {{- end -}}
             </div>
         </div>

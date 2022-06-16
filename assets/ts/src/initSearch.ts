@@ -59,44 +59,46 @@ async function initSearch() {
             return data[n]
         });
         const searchImageEL = document.getElementById('search-image') as HTMLElement;
-        const searchResultsEL = document.getElementById('search-results') as HTMLElement;
+        const searchResultsItems = document.getElementById('search-results-items') as HTMLElement;
+        const searchResultsTitle = document.getElementById('search-results-title') as HTMLElement;
+        const searchResultsCount = document.getElementById('search-results-count') as HTMLElement;
+        const searchResultsKeyword = document.getElementById('search-results-keyword') as HTMLElement;
         if (value) {
-            const html = `<div class="p-6 md:px-10 pb-0">
-                <div class="font-bold text-2xl border-b dark:border-darkBorder pb-4">
-                    ${window.__theme.i18n.search.results(results.length, value)}
-                </div>
-                ` + results.map(n => {
-                    const Regex = new RegExp(`.{0,50}?(${value.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')})(.{0,50})?`, 'mig');
-                    const ContentRegex = n.content.match(Regex)
-                    const TitleRegex = n.title.match(Regex)
-                    if (ContentRegex || TitleRegex) {
-                        const titleHTML = TitleRegex ? TitleRegex[0].replace(new RegExp(value, 'mi'), x => {
-                            return `<span class="text-theme">${x}</span>`
-                        }) : n.title;
-                        const contentHTML = ContentRegex ? ContentRegex[0].replace(new RegExp(value, 'mi'), x => {
-                            return `<span class="text-theme">${x}</span>`
-                        }) : n.content.slice(0, 50);
-                        return `<a
-                            href="${n.permalink}"
-                            class="border-b dark:border-darkBorder py-4 block search-results-items"
-                        >
-                            <div class="text-2xl mb-2 line-clamp-1 transition duration-300 ease-[ease]">${titleHTML || window.__theme.i18n.search.untitled}</div>
-                            <div class="mb-2 line-clamp-2">${contentHTML}...</div>
-                            <div class="text-xs flex items-center text-gray-500 dark:text-darkTextPlaceholder">
-                                <i class="eva eva-clock-outline mr-1"></i>
-                                <span>${n.date}</span>
-                            </div>
-                        </a>`
-                    } else {
-                        return ''
-                    }
-                }).join('') + `
-            </div>`
+            searchResultsTitle.classList.remove('hidden');
+            searchResultsCount.innerHTML = results.length;
+            searchResultsKeyword.innerHTML = value;
+            const html = results.map(n => {
+                const Regex = new RegExp(`.{0,50}?(${value.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')})(.{0,50})?`, 'mig');
+                const ContentRegex = n.content.match(Regex)
+                const TitleRegex = n.title.match(Regex)
+                if (ContentRegex || TitleRegex) {
+                    const titleHTML = TitleRegex ? TitleRegex[0].replace(new RegExp(value, 'mi'), x => {
+                        return `<span class="text-theme">${x}</span>`
+                    }) : n.title;
+                    const contentHTML = ContentRegex ? ContentRegex[0].replace(new RegExp(value, 'mi'), x => {
+                        return `<span class="text-theme">${x}</span>`
+                    }) : n.content.slice(0, 50);
+                    return `<a
+                        href="${n.permalink}"
+                        class="border-b dark:border-darkBorder py-4 block search-results-items"
+                    >
+                        <div class="text-2xl mb-2 line-clamp-1 transition duration-300 ease-[ease]">${titleHTML || window.__theme.i18n.search.untitled}</div>
+                        <div class="mb-2 line-clamp-2">${contentHTML}...</div>
+                        <div class="text-xs flex items-center text-gray-500 dark:text-darkTextPlaceholder">
+                            <i class="eva eva-clock-outline mr-1"></i>
+                            <span>${n.date}</span>
+                        </div>
+                    </a>`
+                } else {
+                    return ''
+                }
+            }).join('');
             searchImageEL.classList.add('hidden');
-            searchResultsEL.innerHTML = html;
+            searchResultsItems.innerHTML = html;
         } else {
             searchImageEL.classList.remove('hidden');
-            searchResultsEL.innerHTML = '';
+            searchResultsTitle.classList.add('hidden');
+            searchResultsItems.innerHTML = '';
         }
     }
 }

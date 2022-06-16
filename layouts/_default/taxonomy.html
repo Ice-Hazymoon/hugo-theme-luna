@@ -3,10 +3,12 @@
         <div class="article-list mx-auto">
             <div class="flex items-center py-6 text-xl">
                 <i class="eva eva-folder-remove-outline mr-2"></i>
+                {{- $coundHTML := printf `<b class="text-theme mx-1">%s</b>` (len .Pages | string) -}}
+                {{- $titleHTML := printf `<b class="text-theme mx-1">%s</b>` .Title -}}
                 {{- if eq .Data.Plural "tags" -}}
-                    {{- T "taxonomy.tag" (dict "Count" (len .Pages) "Title" .Title) | safeHTML -}}
+                    {{- T "taxonomy.tag" (dict "Count" $coundHTML "Title" $titleHTML) | safeHTML -}}
                 {{- else -}}
-                    {{- T "taxonomy.category" (dict "Count" (len .Pages) "Title" .Title) | safeHTML -}}
+                    {{- T "taxonomy.category" (dict "Count" $coundHTML "Title" $titleHTML) | safeHTML -}}
                 {{- end -}}
             </div>
             <div>

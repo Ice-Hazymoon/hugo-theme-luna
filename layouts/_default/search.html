@@ -18,7 +18,14 @@
                     class="pointer-events-none max-h-full max-w-xs md:max-w-sm"
                 />
             </div>
-            <div id="search-results"></div>
+            <div id="search-results"  class="p-6 md:px-10 pb-0">
+                <div id="search-results-title" class="hidden font-bold text-2xl border-b dark:border-darkBorder pb-4">
+                    {{- $countHTML := "<span id='search-results-count' class='text-theme'>${keyword}</span>" -}}
+                    {{- $keywordHTML := "<span id='search-results-keyword' class='text-theme'>${results}</span>" -}}
+                    {{- T "search.results" (dict "Count" $countHTML "Keyword" $keywordHTML) | safeHTML -}}
+                </div>
+                <div id="search-results-items"></div>
+            </div>
         </div>
     </div>
 {{- end -}}

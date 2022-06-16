@@ -11,6 +11,7 @@
                 {{- partial "html/header" . -}}
 
                 <main class="relative flex flex-grow {{ if .Site.Params.fixedNav }} mt-28 md:mt-20 {{ end }}" id="swup">
+                    {{- partial "html/style" . -}}
                     <div class="type-{{ .Type }} layout-{{ .Layout }} w-full">{{- block "main" . -}}{{- end -}}</div>
                 </main>
 

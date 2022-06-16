@@ -17,6 +17,8 @@ params:
   sitemap: true
 
   themeColor: "#dd6065"
+
+  blackAndWhite: false
   
   console:
     enabled: true

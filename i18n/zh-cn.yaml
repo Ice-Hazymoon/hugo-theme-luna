@@ -14,7 +14,7 @@ linksRank: "排名不分先后"
 # Archives
 archives:
     title: "归档"
-    total: '当前共计<span class="text-theme font-bold"> {{.}} </span>篇日志'
+    total: '当前共计 {{ . }} 篇日志'
     helloWorld: "你好世界！"
     untitled: "无标题"
 
@@ -35,11 +35,11 @@ post:
     prevPost: "上一篇"
     nextPost: "下一篇"
     license: "除特殊声明外，本博客一律使用以下协议进行授权"
-    outdatedInfo: '文章最后编辑于: <span class="mx-1 font-bold"> {{.}} </span> 天前，文中所描述的信息可能已发生改变'
+    outdatedInfo: '文章最后编辑于: {{ . }} 天前，文中所描述的信息可能已发生改变'
     lastmod: '最后修改于：'
     toc: "文章目录"
     refs: "引用链接"
-    archiveCounter: '共 <span class="mx-1 text-theme">{{ .Count }}</span> 篇文章'
+    archiveCounter: '共 {{ . }} 篇文章'
     untitled: "无标题"
 
 # search
@@ -47,7 +47,7 @@ search:
     loading: "初始化中，请稍后"
     loadFailure: "初始化搜索引擎失败"
     input: "请输入内容..."
-    results: '`关键字 <span class="text-theme">${keyword}</span> 中共找到 <span class="text-theme">${results}</span> 条结果`'
+    results: '关键字 {{ .Keyword }} 中共找到 {{ .Count }} 条结果'
     notEnabled: "搜索功能未启用"
 
 
@@ -55,10 +55,10 @@ search:
 taxonomy:
     _tags: "标签"
     _categories: "分类"
-    tag: '标签 <b class="text-theme mx-1">{{.Title}}</b> 下共有 <b class="text-theme mx-1">{{.Count}}</b> 篇文章'
-    category: '分类 <b class="text-theme mx-1">{{.Title}}</b> 下共有 <b class="text-theme mx-1">{{.Count}}</b> 篇文章'
-    totalTags: 当前共有<span class="text-theme font-bold mx-1"> {{.}} </span> 个标签
-    totalCategories: 当前共有<span class="text-theme font-bold mx-1"> {{.}} </span> 个分类
+    tag: '标签 {{ . }} 下共有 {{ .Count }} 篇文章'
+    category: '分类 {{ . }} 下共有 {{ .Count }} 篇文章'
+    totalTags: 当前共有 {{ . }} 个标签
+    totalCategories: 当前共有 {{ . }} 个分类
 
 runTime:
     text: "运行时间："
