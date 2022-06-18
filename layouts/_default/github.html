@@ -1,7 +1,7 @@
 {{- define "main" -}}
     {{- $githubConfig := .Site.Params.github -}}
     <div class="page-github relative py-8">
-        {{- if and $githubConfig (and $githubConfig.id $githubConfig.minStars) -}}
+        {{- if $githubConfig.id -}}
             <div class="mx-6 mb-2 inline-flex items-end pb-3 text-3xl md:mx-10">
                 <div class="mr-4 inline-flex items-center leading-none">
                     <i class="eva eva-github-outline mr-2"></i>
@@ -62,7 +62,8 @@
                 {{- end -}}
             </div>
         {{- else -}}
-            {{- T "github.config" -}}
+            {{- warnf "!!! GitHub ID not set, Please check your config file" -}}
+            <div class=" text-xl">ERROR: {{- T "github.config" -}}</div>
         {{- end -}}
     </div>
 {{- end -}}
