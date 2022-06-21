@@ -61,7 +61,9 @@ function renderToc() {
             if (activeSectionLink)
                 activeSectionLink.querySelector('a').classList.remove('toc-active');
             if (newActiveSectionLink) {
-                newActiveSectionLink.querySelector('a').classList.add('toc-active');
+                const a = newActiveSectionLink.querySelector('a');
+                a.classList.add('toc-active');
+                a?.focus();
             }
             activeSectionLink = newActiveSectionLink;
         }
@@ -69,8 +71,10 @@ function renderToc() {
 
     if (Toc && window.innerWidth >= 1536) {
         document.addEventListener("scroll", scrollHandler);
+        Toc.classList.add('toc-scroll');
     } else {
-        document.removeEventListener('scroll', scrollHandler)
+        document.removeEventListener('scroll', scrollHandler);
+        Toc?.classList.remove('toc-scroll');
     }
 }
 

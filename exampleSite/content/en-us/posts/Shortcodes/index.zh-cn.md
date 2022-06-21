@@ -45,15 +45,17 @@ categories:
 {{</* button content="普通按钮" size="normal" */>}}
 {{</* button content="大按钮" size="large" */>}}
 
-{{</* button color="red" icon="eva eva-home-outline" content="red button" link="https://google.com" */>}}
-{{</* button color="green" icon="eva eva-twitter-outline" content="green button" link="https://google.com" */>}}
-{{</* button color="blue" icon="eva eva-github-outline" content="blue button" link="https://google.com" */>}}
-{{</* button color="orange" icon="eva eva-search-outline" content="orange button" link="https://google.com" */>}}
+{{</* button color="theme" icon="eva eva-heart" content="主题色按钮" link="https://google.com" */>}}
+{{</* button color="red" icon="eva eva-home" content="红色按钮" link="https://google.com" */>}}
+{{</* button color="green" icon="eva eva-twitter" content="绿色按钮" link="https://google.com" */>}}
+{{</* button color="blue" icon="eva eva-github" content="蓝色按钮" link="https://google.com" */>}}
+{{</* button color="orange" icon="eva eva-search" content="橙色按钮" link="https://google.com" */>}}
 
-{{</* button-outline color="red" icon="eva eva-home-outline" content="red button" link="https://google.com" */>}}
-{{</* button-outline color="green" icon="eva eva-twitter-outline" content="green button" link="https://google.com" */>}}
-{{</* button-outline color="blue" icon="eva eva-github-outline" content="blue button" link="https://google.com" */>}}
-{{</* button-outline color="orange" icon="eva eva-search-outline" content="orange button" link="https://google.com" */>}}
+{{</* button-outline color="theme" icon="eva eva-heart" content="主题色按钮" link="https://google.com" */>}}
+{{</* button-outline color="red" icon="eva eva-home" content="红色按钮" link="https://google.com" */>}}
+{{</* button-outline color="green" icon="eva eva-twitter" content="绿色按钮" link="https://google.com" */>}}
+{{</* button-outline color="blue" icon="eva eva-github" content="蓝色按钮" link="https://google.com" */>}}
+{{</* button-outline color="orange" icon="eva eva-search" content="橙色按钮" link="https://google.com" */>}}
 ```
 
 <div style="font-size: 0;">
@@ -61,15 +63,17 @@ categories:
 {{< button content="普通按钮" size="normal" >}}
 {{< button content="大按钮" size="large" >}}
 
-{{< button color="red" icon="eva eva-home-outline" content="红色按钮" link="https://google.com" >}}
-{{< button color="green" icon="eva eva-twitter-outline" content="绿色按钮" link="https://google.com" >}}
-{{< button color="blue" icon="eva eva-github-outline" content="蓝色按钮" link="https://google.com" >}}
-{{< button color="orange" icon="eva eva-search-outline" content="橙色按钮" link="https://google.com" >}}
+{{< button color="theme" icon="eva eva-heart" content="主题色按钮" link="https://google.com" >}}
+{{< button color="red" icon="eva eva-home" content="红色按钮" link="https://google.com" >}}
+{{< button color="green" icon="eva eva-twitter" content="绿色按钮" link="https://google.com" >}}
+{{< button color="blue" icon="eva eva-github" content="蓝色按钮" link="https://google.com" >}}
+{{< button color="orange" icon="eva eva-search" content="橙色按钮" link="https://google.com" >}}
 
-{{< button-outline color="red" icon="eva eva-home-outline" content="红色按钮" link="https://google.com" >}}
-{{< button-outline color="green" icon="eva eva-twitter-outline" content="绿色按钮" link="https://google.com" >}}
-{{< button-outline color="blue" icon="eva eva-github-outline" content="蓝色按钮" link="https://google.com" >}}
-{{< button-outline color="orange" icon="eva eva-search-outline" content="橙色按钮" link="https://google.com" >}}
+{{< button-outline color="theme" icon="eva eva-heart" content="主题色按钮" link="https://google.com" >}}
+{{< button-outline color="red" icon="eva eva-home" content="红色按钮" link="https://google.com" >}}
+{{< button-outline color="green" icon="eva eva-twitter" content="绿色按钮" link="https://google.com" >}}
+{{< button-outline color="blue" icon="eva eva-github" content="蓝色按钮" link="https://google.com" >}}
+{{< button-outline color="orange" icon="eva eva-search" content="橙色按钮" link="https://google.com" >}}
 </div>
 
 ## 文字排版
@@ -177,22 +181,26 @@ categories:
 ## 标签
 
 ```markdown
+这是一个 {{</* tag theme "主题色标签" */>}}  
 这是一个 {{</* tag red "红色标签" */>}}  
 这是一个 {{</* tag green "绿色标签" */>}}  
 这是一个 {{</* tag blue "蓝色标签" */>}}  
 这是一个 {{</* tag orange "橘色标签" */>}}  
 
+这是一个 {{</* tag-outlined theme "主题色标签" */>}}  
 这是一个 {{</* tag-outlined red "红色标签" */>}}  
 这是一个 {{</* tag-outlined green "绿色标签" */>}}  
 这是一个 {{</* tag-outlined blue "蓝色标签" */>}}  
 这是一个 {{</* tag-outlined orange "橘色标签" */>}}  
 ```
 
+这是一个 {{< tag theme "主题色标签" >}}  
 这是一个 {{< tag red "红色标签" >}}  
 这是一个 {{< tag green "绿色标签" >}}  
 这是一个 {{< tag blue "蓝色标签" >}}  
 这是一个 {{< tag orange "橘色标签" >}}  
 
+这是一个 {{< tag-outlined theme "主题色标签" >}}  
 这是一个 {{< tag-outlined red "红色标签" >}}  
 这是一个 {{< tag-outlined green "绿色标签" >}}  
 这是一个 {{< tag-outlined blue "蓝色标签" >}}  
@@ -201,12 +209,14 @@ categories:
 ## 进度条
 
 ```markdown
+{{</* progress 999.99 theme "进度条名称" */>}}
 {{</* progress 80 green "进度条名称" */>}}
 {{</* progress 77.54 red "进度条名称" */>}}
 {{</* progress 123.45 blue "进度条名称" */>}}
 {{</* progress 11.11 orange "进度条名称" */>}}
 ```
 
+{{< progress 999.99 theme "进度条名称" >}}
 {{< progress 80 green "进度条名称" >}}
 {{< progress 77.54 red "进度条名称" >}}
 {{< progress 123.45 blue "进度条名称" >}}

@@ -45,15 +45,17 @@ categories:
 {{</* button content="Normal" size="normal" */>}}
 {{</* button content="Large" size="large" */>}}
 
-{{</* button color="red" icon="eva eva-home-outline" content="red button" link="https://google.com" */>}}
-{{</* button color="green" icon="eva eva-twitter-outline" content="green button" link="https://google.com" */>}}
-{{</* button color="blue" icon="eva eva-github-outline" content="blue button" link="https://google.com" */>}}
-{{</* button color="orange" icon="eva eva-search-outline" content="orange button" link="https://google.com" */>}}
+{{</* button color="theme" icon="eva eva-heart" content="Theme Button" link="https://google.com" */>}}
+{{</* button color="red" icon="eva eva-home" content="Red Button" link="https://google.com" */>}}
+{{</* button color="green" icon="eva eva-twitter" content="Green Button" link="https://google.com" */>}}
+{{</* button color="blue" icon="eva eva-github" content="Blue Button" link="https://google.com" */>}}
+{{</* button color="orange" icon="eva eva-search" content="Orange Button" link="https://google.com" */>}}
 
-{{</* button-outline color="red" icon="eva eva-home-outline" content="red button" link="https://google.com" */>}}
-{{</* button-outline color="green" icon="eva eva-twitter-outline" content="green button" link="https://google.com" */>}}
-{{</* button-outline color="blue" icon="eva eva-github-outline" content="blue button" link="https://google.com" */>}}
-{{</* button-outline color="orange" icon="eva eva-search-outline" content="orange button" link="https://google.com" */>}}
+{{</* button-outline color="theme" icon="eva eva-heart" content="Theme button" link="https://google.com" */>}}
+{{</* button-outline color="red" icon="eva eva-home" content="Red Button" link="https://google.com" */>}}
+{{</* button-outline color="green" icon="eva eva-twitter" content="Green Button" link="https://google.com" */>}}
+{{</* button-outline color="blue" icon="eva eva-github" content="Blue Button" link="https://google.com" */>}}
+{{</* button-outline color="orange" icon="eva eva-search" content="Orange Button" link="https://google.com" */>}}
 ```
 
 <div style="font-size: 0;">
@@ -61,15 +63,17 @@ categories:
 {{< button content="Normal" size="normal" >}}
 {{< button content="Large" size="large" >}}
 
-{{< button color="red" icon="eva eva-home-outline" content="Red button" link="https://google.com" >}}
-{{< button color="green" icon="eva eva-twitter-outline" content="Green button" link="https://google.com" >}}
-{{< button color="blue" icon="eva eva-github-outline" content="Blue button" link="https://google.com" >}}
-{{< button color="orange" icon="eva eva-search-outline" content="Orange button" link="https://google.com" >}}
+{{< button color="theme" icon="eva eva-heart" content="Theme Button" link="https://google.com" >}}
+{{< button color="red" icon="eva eva-home" content="Red Button" link="https://google.com" >}}
+{{< button color="green" icon="eva eva-twitter" content="Green Button" link="https://google.com" >}}
+{{< button color="blue" icon="eva eva-github" content="Blue Button" link="https://google.com" >}}
+{{< button color="orange" icon="eva eva-search" content="Orange Button" link="https://google.com" >}}
 
-{{< button-outline color="red" icon="eva eva-home-outline" content="Red button" link="https://google.com" >}}
-{{< button-outline color="green" icon="eva eva-twitter-outline" content="Green button" link="https://google.com" >}}
-{{< button-outline color="blue" icon="eva eva-github-outline" content="Blue button" link="https://google.com" >}}
-{{< button-outline color="orange" icon="eva eva-search-outline" content="Orange button" link="https://google.com" >}}
+{{< button-outline color="theme" icon="eva eva-heart" content="Theme Button" link="https://google.com" >}}
+{{< button-outline color="red" icon="eva eva-home" content="Red Button" link="https://google.com" >}}
+{{< button-outline color="green" icon="eva eva-twitter" content="Green Button" link="https://google.com" >}}
+{{< button-outline color="blue" icon="eva eva-github" content="Blue Button" link="https://google.com" >}}
+{{< button-outline color="orange" icon="eva eva-search" content="Orange Button" link="https://google.com" >}}
 </div>
 
 ## Text layout
@@ -173,22 +177,26 @@ And leaves the world to darkness and to me.
 ## Tags
 
 ```markdown
+This is a {{</* tag theme "theme tag" */>}}  
 This is a {{</* tag red "red tag" */>}}  
 This is a {{</* tag green "green tag" */>}}  
 This is a {{</* tag blue "blue tag" */>}}  
 This is a {{</* tag orange "orange tag" */>}}  
 
+This is a {{</* tag-outlined theme "theme tag" */>}}  
 This is a {{</* tag-outlined red "red tag" */>}}  
 This is a {{</* tag-outlined green "green tag" */>}}  
 This is a {{</* tag-outlined blue "blue tag" */>}}  
 This is a {{</* tag-outlined orange "orange tag" */>}}  
 ```
 
+This is a {{< tag theme "theme tag" >}}  
 This is a {{< tag red "red tag" >}}  
 This is a {{< tag green "green tag" >}}  
 This is a {{< tag blue "blue tag" >}}  
 This is a {{< tag orange "orange tag" >}}  
 
+This is a {{< tag-outlined theme "theme tag" >}}  
 This is a {{< tag-outlined red "red tag" >}}  
 This is a {{< tag-outlined green "green tag" >}}  
 This is a {{< tag-outlined blue "blue tag" >}}  
@@ -197,12 +205,14 @@ This is a {{< tag-outlined orange "orange tag" >}}
 ## Progress bar
 
 ```markdown
+{{</* progress 999.99 theme "Name of progress bar" */>}}
 {{</* progress 80 green "Name of progress bar" */>}}
 {{</* progress 77.54 red "Name of progress bar" */>}}
 {{</* progress 123.45 blue "Name of progress bar" */>}}
 {{</* progress 11.11 orange "Name of progress bar" */>}}
 ```
 
+{{< progress 999.99 theme "Name of progress bar" >}}
 {{< progress 80 green "Name of progress bar" >}}
 {{< progress 77.54 red "Name of progress bar" >}}
 {{< progress 123.45 blue "Name of progress bar" >}}
@@ -366,3 +376,13 @@ Las especies de Lilium, comúnmente llamadas azucenas o lirios, constituyen un g
 {{< /tab-panel >}}
 
 {{< /tab-view >}}
+
+## test
+
+## test
+
+## test
+
+## test
+
+## test
