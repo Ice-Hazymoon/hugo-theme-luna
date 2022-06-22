@@ -10,6 +10,16 @@ params:
     enabled: false
     file: "README.md"
 
+  comments:
+    enabled: false
+    provider: "custom"
+    giscus:
+      mapping: "title"
+      reactionsEnabled: 1
+      emitMetadata: 0
+      lang: "en"
+      lazy: true
+
   rss:
     enabled: true
     fullText: true

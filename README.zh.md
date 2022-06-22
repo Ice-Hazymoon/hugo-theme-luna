@@ -111,7 +111,13 @@ git submodule update --remote
 
 ### - 评论系统
 
-你可以在 [comment.html](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/layouts/partials/comment.html) 添加评论系统的 HTML 部分，然后在 [custom/head.html](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/layouts/partials/custom/head.html) 添加 css 和 js 资源
+你可以设置 `comments: false` 来单独关闭页面评论
+
+目前适配的评论系统：
+
+- [giscus](https://giscus.app/)
+
+自定义评论系统在：[layouts/partials/comments/provider/custom.html](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/layouts/partials/comments/provider/custom.html)
 
 ### - 短代码
 

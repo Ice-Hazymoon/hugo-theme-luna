@@ -1,0 +1,13 @@
+{{- $showComments := .Site.Params.comments.enabled -}}
+
+{{- if isset .Page.Params "comments" -}}
+    {{- if not .Page.Params.comments -}}
+        {{- $showComments = false -}}
+    {{- end -}}
+{{- end -}}
+
+{{- if $showComments -}}
+<div class="border-t py-6 px-6 md:px-8 dark:border-darkBorder">
+    {{ partial (printf "comments/provider/%s" .Site.Params.comments.provider) . }}
+</div>
+{{ end }}

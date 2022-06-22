@@ -79,119 +79,82 @@ sitemap:
   priority: 0.5
   filename: sitemap.xml
 
+# 所有支持的页面
+# all supported pages
+$manuMain:
+  - &mainMenuHome
+    name: Home
+    weight: 10
+    identifier: home
+    params:
+      icon: eva eva-home
+    url: /
+  - &mainMenuAbout
+    name: About
+    weight: 20
+    identifier: about
+    params:
+      icon: eva eva-heart
+    url: /about/
+  - &mainMenuLinks
+    name: Links
+    weight: 30
+    identifier: links
+    params:
+      icon: eva eva-people
+    url: /links/
+  - &mainMenuArchives
+    name: Archives
+    weight: 40
+    identifier: archives
+    params:
+      icon: eva eva-bar-chart
+    url: /archives/
+  - &mainMenuTags
+    name: Tags
+    weight: 50
+    identifier: tags
+    params:
+      icon: eva eva-hash
+    url: /tags/
+  - &mainMenuCategories
+    name: Categories
+    weight: 60
+    identifier: categories
+    params:
+      icon: eva eva-folder
+    url: /categories/
+  - &mainMenuTwitter
+    name: Twitter
+    weight: 70
+    identifier: twitter
+    params:
+      icon: eva eva-twitter
+    url: /twitter/
+  - &mainMenuGitHub
+    name: GitHub
+    weight: 80
+    identifier: github
+    params:
+      icon: eva eva-github
+    url: /github/
+  - &mainMenuSearch
+    name: Search
+    weight: 999
+    identifier: search
+    params:
+      icon: eva eva-search
+    url: /search/
+
 menu:
   main:
-    - name: Home
-      weight: 10
-      identifier: home
-      params:
-        icon: eva eva-home
-      url: /
-    - name: About
-      weight: 20
-      identifier: about
-      params:
-        icon: eva eva-heart
-      url: /about/
-    - name: Links
-      weight: 30
-      identifier: links
-      params:
-        icon: eva eva-people
-      url: /links/
-    - name: Archives
-      weight: 40
-      identifier: archives
-      params:
-        icon: eva eva-bar-chart
-      url: /archives/
-    # - name: Tags
-    #   weight: 50
-    #   identifier: tags
-    #   params:
-    #     icon: eva eva-hash
-    #   url: /tags/
-    # - name: Categories
-    #   weight: 60
-    #   identifier: categories
-    #   params:
-    #     icon: eva eva-folder
-    #   url: /categories/
-    - name: Twitter
-      weight: 70
-      identifier: twitter
-      params:
-        icon: eva eva-twitter
-      url: /twitter/
-    - name: GitHub
-      weight: 80
-      identifier: github
-      params:
-        icon: eva eva-github
-      url: /github/
-    - name: Search
-      weight: 999
-      identifier: search
-      params:
-        icon: eva eva-search
-      url: /search/
-
-languages:
-  zh-cn:
-    contentDir: content/zh-hans
-    languageName: 中文
-    params:
-      languageIcon: "images/i18n/zh-cn.svg" # in assets folder
-      font: "Times New Roman,Times,Heti Song,serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol"
-      twitter: 
-        rsshub: "https://rsshub.rssforever.com"
-        id: "Ice_Hazymoon"
-        imageProcessing: true
-      github:
-        id: "Ice-Hazymoon"
-        minStars: 10
-      license:
-        enabled: true
-        name: "署名 - 非商业性使用 - 禁止演绎 4.0"
-        icon: "Cc-by-nc-nd.svg" # in assets folder
-        url: "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh"
-      announcement:
-        enabled: true
-        file: "README.zh.md"
-  en-us:
-    contentDir: content/en-us
-    languageName: English
-    params:
-      languageIcon: "images/i18n/en-us.svg" # in assets folder
-  ja:
-    contentDir: content/ja
-    languageName: 日本語
-    menu:
-      main:
-      - name: Home
-        weight: 10
-        identifier: home
-        params:
-          icon: eva eva-home
-        url: /
-      - name: Archives
-        weight: 20
-        identifier: archives
-        params:
-          icon: eva eva-bar-chart
-        url: /archives/
-      - name: Search
-        weight: 30
-        identifier: search
-        params:
-          icon: eva eva-search
-        url: /search/
-    params:
-      languageIcon: "images/i18n/ja.svg"
-      font: "'-apple-system', BlinkMacSystemFont, 'Yu Gothic', '游ゴシック', YuGothic, '游ゴシック体', 'Noto Sans Japanese', 'ヒラギノ角ゴ Pro W3', 'メイリオ', 'Hiragino Kaku Gothic ProN', 'MS PGothic', Osaka, 'sans-serif'"
-      announcement:
-        enabled: true
-        file: "README.ja.md"
+    - *mainMenuHome
+    - *mainMenuAbout
+    - *mainMenuLinks
+    - *mainMenuArchives
+    - *mainMenuTwitter
+    - *mainMenuGitHub
+    - *mainMenuSearch
 
 markup:
   highlight:
@@ -216,6 +179,22 @@ params:
   announcement:
     enabled: true
     file: "README.md" # assets/README.md
+
+  # 评论系统
+  # Comment system
+  comments:
+    enabled: true
+    provider: "giscus" # custom | giscus
+    giscus: &giscus
+      repo: "Ice-Hazymoon/hugo-theme-luna"
+      repoID: "R_kgDOHQOwYw"
+      category: "Comments"
+      categoryID: "DIC_kwDOHQOwY84CP0Sy"
+      mapping: "title"
+      reactionsEnabled: 1
+      emitMetadata: 0
+      lazy: true
+      lang: "en"
 
   # Rss 配置
   # RSS configuration
@@ -434,3 +413,57 @@ params:
 
 build:
   noJSConfigInAssets: true
+
+languages:
+  zh-cn:
+    contentDir: content/zh-hans
+    languageName: 中文
+    params:
+      languageIcon: "images/i18n/zh-cn.svg" # in assets folder
+      font: "Times New Roman,Times,Heti Song,serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol"
+      twitter: 
+        rsshub: "https://rsshub.rssforever.com"
+        id: "Ice_Hazymoon"
+        imageProcessing: true
+      github:
+        id: "Ice-Hazymoon"
+        minStars: 10
+      license:
+        enabled: true
+        name: "署名 - 非商业性使用 - 禁止演绎 4.0"
+        icon: "Cc-by-nc-nd.svg" # in assets folder
+        url: "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh"
+      announcement:
+        enabled: true
+        file: "README.zh.md"
+      comments:
+        enabled: true
+        provider: "giscus"
+        giscus:
+          <<: *giscus
+          lang: "zh-CN"
+  en-us:
+    contentDir: content/en-us
+    languageName: English
+    params:
+      languageIcon: "images/i18n/en-us.svg" # in assets folder
+  ja:
+    contentDir: content/ja
+    languageName: 日本語
+    params:
+      languageIcon: "images/i18n/ja.svg"
+      font: "'-apple-system', BlinkMacSystemFont, 'Yu Gothic', '游ゴシック', YuGothic, '游ゴシック体', 'Noto Sans Japanese', 'ヒラギノ角ゴ Pro W3', 'メイリオ', 'Hiragino Kaku Gothic ProN', 'MS PGothic', Osaka, 'sans-serif'"
+      announcement:
+        enabled: true
+        file: "README.ja.md"
+      comments:
+        enabled: true
+        provider: "giscus"
+        giscus:
+          <<: *giscus
+          lang: "ja"
+    menu:
+      main:
+      - *mainMenuHome
+      - *mainMenuArchives
+      - *mainMenuSearch

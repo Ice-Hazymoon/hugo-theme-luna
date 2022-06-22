@@ -23,7 +23,7 @@
   - [- Install as git submodule](#--install-as-git-submodule)
   - [- Update theme](#--update-theme)
   - [- Configuration](#--configuration)
-  - [- Comment](#--comment)
+  - [- Comments](#--comments)
   - [- Shortcodes](#--shortcodes)
   - [- Encryption](#--encryption)
 - [Note:](#note)
@@ -100,9 +100,15 @@ You can find all available icons at [Eva icons](https://akveo.github.io/eva-icon
 
 You can create your website icons by adjusting the [assets/icon.png](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/exampleSite/assets/icon.png) file
 
-### - Comment
+### - Comments
 
-You can add the HTML part of the comment in [comment.html](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/layouts/partials/comment.html) and then add the js and css file links in [custom/head.html](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/layouts/partials/custom/head.html)
+You can set `comments: false` to turn off comments for some pages
+
+Comment system provider. Available options:
+
+- [giscus](https://giscus.app/)
+
+Custom comments at [layouts/partials/comments/provider/custom.html](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/layouts/partials/comments/provider/custom.html)
 
 ### - Shortcodes
 

@@ -13,9 +13,7 @@
         <div class="mx-6 md:mx-10">
             {{- .Content -}}
         </div>
-
-        <div class="mx-2">
-            {{- partial "comment.html" . -}}
-        </div>
     </div>
+
+    {{- partial "comments/include" . }}
 {{- end -}}
