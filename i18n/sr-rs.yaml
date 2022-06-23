@@ -149,6 +149,6 @@ notFound: "Страница није пронађена, кликни назад
 bionicReading: "Брже читање"
 
 darkmode:
-    switch: "Switch to {{ . }}"
-    dark: "dark mode"
-    light: "light mode"
+    switch: "Пређи на {{ . }}"
+    dark: "тамни мод"
+    light: "светли мод"
