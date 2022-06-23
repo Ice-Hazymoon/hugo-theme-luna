@@ -20,7 +20,7 @@
 
     {{- $processImage = partial "helper/image-process" (dict "Image" $featuredImage "Site" .Site) -}}
 
-    {{- $featuredImageUrl = print $public_cdn $processImage.Permalink -}}
+    {{- $featuredImageUrl = print $public_cdn $featuredImage.Permalink -}}
 {{- end }}
 
 

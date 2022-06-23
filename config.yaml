@@ -18,7 +18,7 @@ params:
       reactionsEnabled: 1
       emitMetadata: 0
       lang: "en"
-      lazy: true
+      lazy: false
 
   rss:
     enabled: true

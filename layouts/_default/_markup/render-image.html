@@ -1,86 +1,67 @@
+{{- $processImage := "" -}}
 {{- $lazyload := .Page.Site.Params.lazyload -}}
 {{- $imageZoom := .Page.Site.Params.imageZoom -}}
 {{- $public_cdn := cond .Page.Site.IsServer "" .Page.Site.Params.publicCDN -}}
 {{- $lazyload_image := print $public_cdn ("images/outload.svg" | relURL) -}}
-
+{{- $Permalink := .Destination | relURL | safeURL -}}
 {{- $Alt := .PlainText | safeHTML -}}
 
 {{- if (urls.Parse (.Destination | safeURL)).Scheme -}}
-    <figure class="gallery-image">
-        <picture class="noscript-hidden">
-            <img
-                {{ if $lazyload }}data-{{ end }}src="{{- .Destination | safeURL -}}"
-                {{ if $lazyload }}src="{{- $lazyload_image -}}"{{ end }}
-                {{- with $Alt -}}alt="{{- . -}}"{{- end -}}
-                {{ if $imageZoom }}data-zoomable{{ end }}
-                {{ if $lazyload }}data-lazyload{{ end }}
-            />
-        </picture>
-        <noscript data-lazyload-noscript>
-            <a class="after:hidden" href="{{ .Destination | relURL | safeURL }}" target="_blank" rel="noopener noreferrer">
-                <picture>
-                    <img
-                        src="{{ .Destination | relURL | safeURL }}"
-                        {{- with $Alt -}}alt="{{- . -}}"{{- end -}}
-                    />
-                </picture>
-            </a>
-        </noscript>
-        {{- with $Alt -}}
-            <figcaption>{{- . | markdownify -}}</figcaption>
-        {{- end -}}
-    </figure>
+    {{- $processImage = partial "helper/image-process" (dict "Image" .Destination "Site" .Site) -}}
 {{- else -}}
     {{- $Image := .Page.Resources.GetMatch (printf "%s" (.Destination | safeURL)) -}}
-    {{- $Permalink := .Destination | relURL | safeURL -}}
     {{- $galleryImage := false -}}
 
-    {{- $processImage := partial "helper/image-process" (dict "Image" $Image "Site" .Page.Site) -}}
+    {{- $processImage = partial "helper/image-process" (dict "Image" $Image "Site" .Page.Site) -}}
 
     {{- if $processImage.Processed -}}
         {{- $galleryImage = true -}}
+        {{- $Permalink = print $public_cdn $processImage.Permalink -}}
+    {{- else -}}
+        {{- $Permalink = print $public_cdn $Image -}}
     {{- end -}}
-    {{- $Permalink = print $public_cdn $processImage.Permalink -}}
+    
+{{- end -}}
 
-
-    <figure
-        {{ if $galleryImage }}
-            class="gallery-image" style=" flex-grow: {{- div (mul $Image.Width 100) $Image.Height -}}; flex-basis:
-            {{- div (mul $Image.Width 240) $Image.Height -}}px"
-        {{ end }}
-    >
-        <picture class="noscript-hidden">
-            {{- with $processImage.SrcsetWebp -}}<source {{ if $lazyload }}data-{{ end }}srcset="{{- . -}}" type="image/webp" />{{- end -}}
-            <img
-                {{ if $lazyload }}data-{{ end }}src="{{- $Permalink -}}"
-                {{ if $lazyload }}src="{{- $processImage.Placeholder -}}"{{ end }}
+<figure
+    {{ if $processImage.Processed }}
+        class="gallery-image" style=" flex-grow: {{- div (mul $processImage.Width 100) $processImage.Height -}}; flex-basis:
+        {{- div (mul $processImage.Width 240) $processImage.Height -}}px"
+    {{ end }}
+>
+    <picture class="noscript-hidden">
+        {{- with $processImage.SrcsetWebp -}}<source {{ if $lazyload }}data-{{ end }}srcset="{{- . -}}" type="image/webp" />{{- end -}}
+        <img
+            {{ if $lazyload }}data-{{ end }}src="{{- $Permalink -}}"
+            {{ if $lazyload }}src="{{- or $processImage.Placeholder $lazyload_image -}}"{{ end }}
+            {{ if $processImage.Processed }}
                 {{- with $processImage.Width -}}width="{{- . -}}"{{- end -}}
                 {{- with $processImage.Height -}}height="{{- . -}}"{{- end -}}
-                {{ if $lazyload }}data-{{ end }}{{- with $processImage.Srcset -}}srcset="{{- . -}}"{{- end -}}
-                {{- with $Alt -}}alt="{{- . -}}"{{- end -}}
-                {{ if $imageZoom }}data-zoomable{{ end }}
-                {{ if $lazyload }}data-lazyload data-lazyload-blur{{ end }}
-            />
-        </picture>
-        <noscript data-lazyload-noscript>
-            <a class="after:hidden" href="{{- $Permalink -}}" target="_blank" rel="noopener noreferrer">
-                <picture>
-                    {{- with $processImage.SrcsetWebp -}}<source srcset="{{- . -}}" type="image/webp" />{{- end -}}
-                    <img
-                        src="{{- $Permalink -}}"
-                        {{- with $processImage.Width -}}width="{{- . -}}"{{- end -}}
-                        {{- with $processImage.Height -}}height="{{- . -}}"{{- end -}}
-                        {{- with $processImage.Srcset -}}srcset="{{- . -}}"{{- end -}}
-                        {{- with $Alt -}}alt="{{- . -}}"{{- end -}}
-                    />
-                </picture>
-            </a>
-        </noscript>
+            {{ end }}
+            {{ if $lazyload }}data-{{ end }}{{- with $processImage.Srcset -}}srcset="{{- . -}}"{{- end -}}
+            {{- with $Alt -}}alt="{{- . -}}"{{- end -}}
+            {{ if $imageZoom }}data-zoomable{{ end }}
+            {{ if $lazyload }}data-lazyload data-lazyload-blur{{ end }}
+        />
+    </picture>
+    <noscript data-lazyload-noscript>
+        <a class="after:hidden" href="{{- $Permalink -}}" target="_blank" rel="noopener noreferrer">
+            <picture>
+                {{- if $processImage.Processed  -}}<source srcset="{{- $processImage.SrcsetWebp -}}" type="image/webp" />{{- end -}}
+                <img
+                    src="{{- $Permalink -}}"
+                    {{- if $processImage.Processed -}}width="{{- $processImage.Width -}}"{{- end -}}
+                    {{- if $processImage.Processed -}}height="{{- $processImage.Height -}}"{{- end -}}
+                    {{- if $processImage.Processed -}}srcset="{{- $processImage.Srcset -}}"{{- end -}}
+                    {{- with $Alt -}}alt="{{- . -}}"{{- end -}}
+                />
+            </picture>
+        </a>
+    </noscript>
 
-        {{- if not (eq $Alt .Page.Title) -}}
-            {{- with $Alt -}}
-                <figcaption>{{- . | markdownify -}}</figcaption>
-            {{- end -}}
+    {{- if not (eq $Alt .Page.Title) -}}
+        {{- with $Alt -}}
+            <figcaption>{{- . | markdownify -}}</figcaption>
         {{- end -}}
-    </figure>
-{{- end -}}
+    {{- end -}}
+</figure>

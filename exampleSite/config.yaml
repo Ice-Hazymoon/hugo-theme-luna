@@ -193,7 +193,7 @@ params:
       mapping: "title"
       reactionsEnabled: 1
       emitMetadata: 0
-      lazy: true
+      lazy: false
       lang: "en"
 
   # Rss 配置

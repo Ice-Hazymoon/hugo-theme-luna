@@ -12,7 +12,7 @@
 {{- else -}}
     {{- $featuredImage := .Resources.GetMatch .Params.featured_image -}}
     {{- $processImage = partial "helper/image-process" (dict "Image" $featuredImage "Site" .Page.Site) -}}
-    {{- $featuredImageUrl = print $public_cdn $processImage.Permalink -}}
+    {{- $featuredImageUrl = print $public_cdn $featuredImage.Permalink -}}
 {{- end -}}
 
 
