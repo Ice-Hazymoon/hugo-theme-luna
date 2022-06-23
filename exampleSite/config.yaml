@@ -385,7 +385,7 @@ params:
 
   # 默认文章封面图片，不会显示在内容页面
   # Default post card featured image, not displayed on content pages
-  defaultFeaturedImage: false # false | featured.png in assets folder | https://source.unsplash.com/random?t={{timestamp}}
+  defaultFeaturedImage: false # false | featured.png in assets folder | https://unsplash.it/1920/1080/?random={{timestamp}}
 
   # 自动调整图片大小并兼容 Webp 格式
   # Optimize your images and SEO
