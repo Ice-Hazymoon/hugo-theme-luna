@@ -7,7 +7,8 @@
 {{- $Alt := .PlainText | safeHTML -}}
 
 {{- if (urls.Parse (.Destination | safeURL)).Scheme -}}
-    {{- $processImage = partial "helper/image-process" (dict "Image" .Destination "Site" .Site) -}}
+    {{- $processImage = partial "helper/image-process" (dict "Image" $Permalink "Site" .Page.Site) -}}
+    {{- $Permalink = (replace $Permalink "{{timestamp}}" (delimit (shuffle (seq 1 9)) "")) -}}
 {{- else -}}
     {{- $Image := .Page.Resources.GetMatch (printf "%s" (.Destination | safeURL)) -}}
     {{- $galleryImage := false -}}

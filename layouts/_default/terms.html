@@ -36,6 +36,9 @@
             {{- else -}}
                 {{- range sort .Site.Taxonomies.tags "Count" "desc" -}}
                     {{- $size := add (mul .Count 0.15) 0.75 -}}
+                    {{- if gt $size 4  -}}
+                        {{- $size = 3 -}}
+                    {{- end -}}
                     <a
                         style="font-size: {{- $size -}}rem;"
                         class="mr-2 mb-2 inline-flex items-center rounded border bg-white px-2 py-1 transition duration-300 ease-[ease] hover:border-theme hover:text-theme dark:border-darkBorder dark:bg-darkBgAccent"

@@ -9,7 +9,7 @@
 
 {{- if (urls.Parse ($featuredImageUrl | safeURL)).Scheme -}}
     {{- $processImage = partial "helper/image-process" (dict "Image" $featuredImageUrl "Site" .Site) -}}
-    {{- $featuredImageUrl = $featuredImageUrl | safeURL -}}
+    {{- $featuredImageUrl = (replace $featuredImageUrl "{{timestamp}}" (delimit (shuffle (seq 1 9)) "")) | safeURL -}}
 {{- else -}}
     {{- $featuredImage := "" -}}
     {{- if .Params.featured_image -}}

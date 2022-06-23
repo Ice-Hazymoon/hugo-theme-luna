@@ -63,11 +63,11 @@ taxonomy:
     _tags: "Тагови"
     _categories: "Категорије"
     tag:
-        one: 'Таг {{ . }} има {{ .Count }} пост'
-        other: 'Таг {{ . }} има {{ .Count }} постова'
+        one: 'Таг {{ .Title }} има {{ .Count }} пост'
+        other: 'Таг {{ .Title }} има {{ .Count }} постова'
     category:
-        one: 'Категорија {{ . }} има {{ .Count }} пост'
-        other: 'Категорија {{ . }} има {{ .Count }} постова'
+        one: 'Категорија {{ .Title }} има {{ .Count }} пост'
+        other: 'Категорија {{ .Title }} има {{ .Count }} постова'
     totalTags:
         one: 'Укупно {{ . }} Таг'
         other: 'Укупно {{ . }} Тагова'

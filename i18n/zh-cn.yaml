@@ -55,8 +55,8 @@ search:
 taxonomy:
     _tags: "标签"
     _categories: "分类"
-    tag: '标签 {{ . }} 下共有 {{ .Count }} 篇文章'
-    category: '分类 {{ . }} 下共有 {{ .Count }} 篇文章'
+    tag: '标签 {{ .Title }} 下共有 {{ .Count }} 篇文章'
+    category: '分类 {{ .Title }} 下共有 {{ .Count }} 篇文章'
     totalTags: 当前共有 {{ . }} 个标签
     totalCategories: 当前共有 {{ . }} 个分类
 
