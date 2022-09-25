@@ -1,7 +1,7 @@
 module:
   hugoVersion:
     extended: true
-    min: "0.97.0"
+    min: "0.104.0"
 
 params:
   publicCDN: ""

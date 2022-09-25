@@ -229,7 +229,7 @@ params:
 
   # 标题计数器
   # Title counter
-  headlineCounter: true
+  headlineCounter: false
 
   # 固定导航栏
   # Fixed navigation bar
@@ -278,8 +278,7 @@ params:
     copyLinkText: true
     qrcode: true
   
-  # qrcodeAPI: "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data="
-  qrcodeAPI: "https://www.lofter.com/genBitmaxImage?url="
+  qrcodeAPI: "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data="
 
   # 文章许可设置
   # license
@@ -304,7 +303,9 @@ params:
   twitter:
     rsshub: "https://rsshub.rssforever.com" # rsshub url, see https://github.com/DIYgod/RSSHub
     id: "GenshinImpact" # Twitter ID
-    imageProcessing: true # 开启图片处理 / enable image processing
+    # 如果为 true，Hugo 将下载图片和视频并进行优化，如果你在中国大陆地区，请谨慎启用这个选项
+    # If enabled, Hugo will download videos and images from the Tweet and optimize them
+    imageProcessing: true
 
   # 开启图片放大功能
   # Image Zoom Plugin

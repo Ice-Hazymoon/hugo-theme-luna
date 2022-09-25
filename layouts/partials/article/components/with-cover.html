@@ -15,8 +15,10 @@
     {{- $featuredImageUrl = print $public_cdn $featuredImage.Permalink -}}
 {{- end -}}
 
-
-<div class="article-cover relative h-0 w-full">
+<div
+    {{ with $processImage.Colors }}style="background-image: linear-gradient(180deg, {{- . -}});"{{ end }}
+    class="article-cover relative h-0 w-full"
+>
     <picture class="noscript-hidden">
         {{- if $processImage.Processed -}}
             <source {{ if $lazyload }}data-{{ end }}srcset="{{- $processImage.SrcsetWebp -}}" type="image/webp" />
@@ -24,8 +26,8 @@
         <img
             {{ if $lazyload }}data-{{ end }}src="{{ $featuredImageUrl }}"
             {{ if $lazyload }}src="{{ or $processImage.Placeholder $lazyload_image }}"{{ end }}
-            {{ if $processImage.Processed }}width="{{ $processImage.Width }}"{{ end }}
-            {{ if $processImage.Processed }}height="{{ $processImage.Height }}"{{ end }}
+            {{ with $processImage.Width }}width="{{ . }}"{{ end }}
+            {{ with $processImage.Height }}height="{{ . }}"{{ end }}
             {{ if $lazyload }}data-{{ end }}{{- with $processImage.Srcset -}}srcset="{{ . }}"{{ end }}
             {{ with $Title }}alt="{{ . }}"{{ end }}
             class="absolute left-0 top-0 h-full w-full object-cover object-center"

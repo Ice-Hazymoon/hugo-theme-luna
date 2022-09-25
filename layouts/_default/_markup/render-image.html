@@ -31,14 +31,16 @@
     {{ end }}
 >
     <picture class="noscript-hidden">
-        {{- with $processImage.SrcsetWebp -}}<source {{ if $lazyload }}data-{{ end }}srcset="{{- . -}}" type="image/webp" />{{- end -}}
+        {{- with $processImage.SrcsetWebp -}}
+            <source {{ if $lazyload }}data-{{ end }}srcset="{{- . -}}" type="image/webp" />
+        {{- end -}}
+        
         <img
+            {{ with $processImage.Colors }}style="background-image: linear-gradient(180deg, {{- . -}});"{{ end }}
             {{ if $lazyload }}data-{{ end }}src="{{- $Permalink -}}"
             {{ if $lazyload }}src="{{- or $processImage.Placeholder $lazyload_image -}}"{{ end }}
-            {{ if $processImage.Processed }}
-                {{- with $processImage.Width -}}width="{{- . -}}"{{- end -}}
-                {{- with $processImage.Height -}}height="{{- . -}}"{{- end -}}
-            {{ end }}
+            {{- with $processImage.Width -}}width="{{- . -}}"{{- end -}}
+            {{- with $processImage.Height -}}height="{{- . -}}"{{- end -}}
             {{ if $lazyload }}data-{{ end }}{{- with $processImage.Srcset -}}srcset="{{- . -}}"{{- end -}}
             {{- with $Alt -}}alt="{{- . -}}"{{- end -}}
             {{ if $imageZoom }}data-zoomable{{ end }}
@@ -48,7 +50,9 @@
     <noscript data-lazyload-noscript>
         <a class="after:hidden" href="{{- $Permalink -}}" target="_blank" rel="noopener noreferrer">
             <picture>
-                {{- if $processImage.Processed  -}}<source srcset="{{- $processImage.SrcsetWebp -}}" type="image/webp" />{{- end -}}
+                {{- with $processImage.SrcsetWebp  -}}
+                    <source srcset="{{- . -}}" type="image/webp" />
+                {{- end -}}
                 <img
                     src="{{- $Permalink -}}"
                     {{- if $processImage.Processed -}}width="{{- $processImage.Width -}}"{{- end -}}

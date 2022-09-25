@@ -18,7 +18,7 @@
     .card-r {
         &::after {
             content: '';
-            @apply absolute top-0 left-0 block h-3 w-3 rounded-full bg-gray-500;
+            @apply absolute top-0 left-0 block h-3 w-3 rounded-full bg-gray-500 transition duration-150;
             margin-left: -(0.75rem/2) - (0.25rem/2);
         }
         &.end {

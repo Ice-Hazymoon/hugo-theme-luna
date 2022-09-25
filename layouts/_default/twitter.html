@@ -30,8 +30,8 @@
                         {{- $content := (trim (replaceRE "<br>" "\n" (replaceRE "<video(.+?)</video>|<img(.+?)>" "" .content)) "\n") | safeHTML -}}
                         {{- $pics := findRE "<img src=\"(.+?)\" referrerpolicy=\"no-referrer\">" .content -}}
                         {{- $videos := findRE "<video (.+?)></video>" .content -}}
+                        {{- $tweetId := index (findRE "([0-9]+$)" .link) 0 -}}
                         <div class="twitter-item flex">
-                            {{- $tweetId := index (findRE "([0-9]+$)" .link) 0 -}}
                             <div class="hidden w-36 flex-grow-0 text-sm sm:block">
                                 <div class="-mt-1 flex items-center text-gray-500">
                                     <i class="eva eva-clock-outline mr-1"></i>
@@ -52,76 +52,98 @@
                                     {{- $title := .title -}}
 
                                     {{- range $pics -}}
-                                        {{- $picURL := htmlUnescape (replaceRE "<img src=\"(.+?)\" referrerpolicy=\"no-referrer\">" `${1}` .) -}}
-
-                                        {{- with resources.GetRemote $picURL -}}
-                                            {{- with .Err -}}
-                                                {{- warnf "%s" . -}}
-                                            {{- else -}}
-                                                {{- $processImage := "" -}}
-                                                {{- $pic_placeholder := "" -}}
-                                                {{- $pic_webp := "" -}}
-                                                {{- $pic_srcset := "" -}}
+                                        <div class="relative inline-block w-1/2 pr-4 pb-4 lg:w-1/3 xl:w-1/4">
+                                            <div class="img-box relative overflow-hidden rounded border dark:border-darkBorder">
+                                                {{- $picURL := htmlUnescape (replaceRE "<img src=\"(.+?)\" referrerpolicy=\"no-referrer\">" `${1}` .) -}}
                                                 {{- if $twitterConfig.imageProcessing -}}
-                                                    {{- $processImage = partial "helper/image-process" (dict "Image" . "Site" $Site) -}}
-                                                {{- end -}}
-                                                <div class="relative inline-block w-1/2 pr-4 pb-4 lg:w-1/3 xl:w-1/4">
-                                                    <div class="img-box relative overflow-hidden rounded border dark:border-darkBorder">
-                                                        <picture class="noscript-hidden">
-                                                            {{- with $processImage.SrcsetWebp -}}
-                                                                <source {{ if $lazyload }}data-{{ end }}srcset="{{- . -}}" type="image/webp" />
-                                                            {{- end -}}
-                                                            <img
-                                                                {{ if $lazyload }}data-{{ end }}src="{{- print $public_cdn $processImage.Permalink -}}"
-                                                                {{ if $lazyload }}data-{{ end }}srcset="{{- $processImage.Srcset -}}"
-                                                                {{ if $lazyload }}src="{{- or $processImage.Placeholder $lazyload_image -}}"{{ end }}
-                                                                {{- with $title -}}alt="{{- . -}}"{{- end -}}
-                                                                class="w-full border border-x-0 border-solid border-gray-200 object-cover dark:border-darkBorder"
-                                                                {{ if $imageZoom }}data-zoomable{{ end }}
-                                                                {{ if $lazyload }}data-lazyload data-lazyload-blur{{ end }}
-                                                            />
-                                                        </picture>
-                                                        <noscript>
-                                                            <a
-                                                                href="{{- print $public_cdn $processImage.Permalink -}}"
-                                                                target="_blank"
-                                                                rel="noopener noreferrer"
+                                                
+                                                    <!-- 下载资源并处理 -->
+                                                    {{- with resources.GetRemote $picURL -}}
+                                                        {{- with .Err -}}
+                                                            {{- warnf "%s" . -}}
+                                                        {{- else -}}
+                                                            {{- $processImage := partial "helper/image-process" (dict "Image" . "Site" $Site) -}}
+                                                            
+                                                            <picture
+                                                                class="noscript-hidden"
+                                                                {{ with $processImage.Colors }}style="background-image: linear-gradient(180deg, {{- . -}});"{{ end }}
                                                             >
-                                                                <picture>
-                                                                    {{- with $processImage.SrcsetWebp -}}
-                                                                        <source srcset="{{- . -}}" type="image/webp" />
-                                                                    {{- end -}}
-                                                                    <img
-                                                                        srcset="{{- $processImage.Srcset -}}"
-                                                                        src="{{- print $public_cdn $processImage.Permalink -}}"
-                                                                        {{- with $title -}}alt="{{- . -}}"{{- end -}}
-                                                                        class="w-full border border-x-0 border-solid border-gray-200 object-cover dark:border-darkBorder"
-                                                                    />
-                                                                </picture>
-                                                            </a>
-                                                        </noscript>
-                                                    </div>
-                                                </div>
-                                            {{- end -}}
-                                        {{- end -}}
+                                                                {{- with $processImage.SrcsetWebp -}}
+                                                                    <source {{ if $lazyload }}data-{{ end }}srcset="{{- . -}}" type="image/webp" />
+                                                                {{- end -}}
+                                                                <img
+                                                                    {{ if $lazyload }}data-{{ end }}src="{{- print $public_cdn $processImage.Permalink -}}"
+                                                                    {{ if $lazyload }}data-{{ end }}srcset="{{- $processImage.Srcset -}}"
+                                                                    {{ if $lazyload }}src="{{- or $processImage.Placeholder $lazyload_image -}}"{{ end }}
+                                                                    {{- with $title -}}alt="{{- . -}}"{{- end -}}
+                                                                    class="w-full border border-x-0 border-solid border-gray-200 object-cover dark:border-darkBorder"
+                                                                    {{ if $imageZoom }}data-zoomable{{ end }}
+                                                                    {{ if $lazyload }}data-lazyload data-lazyload-blur{{ end }}
+                                                                />
+                                                            </picture>
+                                                            <noscript>
+                                                                <a
+                                                                    href="{{- print $public_cdn $processImage.Permalink -}}"
+                                                                    target="_blank"
+                                                                    rel="noopener noreferrer"
+                                                                >
+                                                                    <picture>
+                                                                        {{- with $processImage.SrcsetWebp -}}
+                                                                            <source srcset="{{- . -}}" type="image/webp" />
+                                                                        {{- end -}}
+                                                                        <img
+                                                                            srcset="{{- $processImage.Srcset -}}"
+                                                                            src="{{- print $public_cdn $processImage.Permalink -}}"
+                                                                            {{- with $title -}}alt="{{- . -}}"{{- end -}}
+                                                                            class="w-full border border-x-0 border-solid border-gray-200 object-cover dark:border-darkBorder"
+                                                                        />
+                                                                    </picture>
+                                                                </a>
+                                                            </noscript>
+                                                        {{- end -}}
+                                                    {{- end -}}
+                                                {{- else -}}
+                                                    <!-- 不下载资源 -->
+                                                    <picture class="noscript-hidden">
+                                                        <img
+                                                            {{ if $lazyload }}data-{{ end }}src="{{- $picURL -}}"
+                                                            {{ if $lazyload }}src="{{- $lazyload_image -}}"{{ end }}
+                                                            {{- with $title -}}alt="{{- . -}}"{{- end -}}
+                                                            class="w-full border border-x-0 border-solid border-gray-200 object-cover dark:border-darkBorder"
+                                                            {{ if $imageZoom }}data-zoomable{{ end }}
+                                                            {{ if $lazyload }}data-lazyload{{ end }}
+                                                        />
+                                                    </picture>
+                                                {{- end -}}
+                                            </div>
+                                        </div>
                                     {{- end -}}
 
                                     {{- range $videos -}}
-                                        {{- $videoURL := (replaceRE "<video src=\"(.+?)\"(.+?)></video>" `${1}` .) | safeHTML -}}
-                                        {{- with resources.GetRemote $videoURL -}}
-                                            {{- with .Err -}}
-                                                {{- warnf "%s" . -}}
+                                        <div class="relative inline-block w-full pr-4 pb-4 xl:w-2/3">
+                                            {{- $videoURL := (replaceRE "<video src=\"(.+?)\"(.+?)></video>" `${1}` .) | safeHTML -}}
+                                            {{- if $twitterConfig.imageProcessing -}}
+                                                {{- with resources.GetRemote $videoURL -}}
+                                                    {{- with .Err -}}
+                                                        {{- warnf "%s" . -}}
+                                                    {{- else -}}
+                                                        <video
+                                                            src="{{- print $public_cdn .RelPermalink -}}"
+                                                            class="max-h-80 max-w-full cursor-pointer rounded border border-gray-200 dark:border-darkBorder"
+                                                            controls="controls"
+                                                            alt="{{- $title -}}"
+                                                        ></video>
+                                                    {{- end -}}
+                                                {{- end -}}
                                             {{- else -}}
-                                                <div class="relative inline-block w-full pr-4 pb-4 xl:w-2/3">
-                                                    <video
-                                                        src="{{- print $public_cdn .RelPermalink -}}"
-                                                        class="max-h-80 max-w-full cursor-pointer rounded border border-gray-200 dark:border-darkBorder"
-                                                        controls="controls"
-                                                        alt="{{- $title -}}"
-                                                    ></video>
-                                                </div>
-                                            {{- end -}}
-                                        {{- end -}}
+                                                <video
+                                                    src="{{- $videoURL -}}"
+                                                    class="max-h-80 max-w-full cursor-pointer rounded border border-gray-200 dark:border-darkBorder"
+                                                    controls="controls"
+                                                    alt="{{- $title -}}"
+                                                ></video>
+                                            {{ end }}
+                                        </div>
                                     {{- end -}}
                                 </div>
                                 <div>

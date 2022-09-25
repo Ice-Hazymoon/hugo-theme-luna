@@ -23,8 +23,11 @@
     {{- $featuredImageUrl = print $public_cdn $featuredImage.Permalink -}}
 {{- end }}
 
-
-<a href="{{- .RelPermalink -}}" class="article-cover relative block h-0 w-full transition duration-100 ease-[ease]">
+<a
+    href="{{- .RelPermalink -}}"
+    class="article-cover relative block h-0 w-full transition duration-100 ease-[ease]"
+    {{ with $processImage.Colors }}style="background-image: linear-gradient(180deg, {{- . -}});"{{ end }}
+>
     <picture class="noscript-hidden">
         {{- if $processImage.Processed -}}
             <source {{ if $lazyload }}data-{{ end }}srcset="{{- $processImage.SrcsetWebp -}}" type="image/webp" />

@@ -54,6 +54,15 @@ async function initSearch() {
             render((event.target as HTMLInputElement).value.trim())
         }
     })
+    node.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            const first = document.querySelector('#search-results-items a') as HTMLLinkElement;
+            if (first) {
+                first.click();
+            }
+        }
+    })
     function render(value) {
         const results = index.search(value).map(n => {
             return data[n]
