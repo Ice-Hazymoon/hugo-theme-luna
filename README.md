@@ -68,8 +68,8 @@
 
 ### - Requirements
 
-- **hugo-extended** >= 0.97.0
-- **NodeJs**
+- **hugo-extended** >= 0.104.0
+- **NodeJs** >= 16.0.0
 - **postcss-cli**, Install using `npm install postcss-cli -g`
 
 For more information about Hugo's functionality, check [documentation of Hugo](https://gohugo.io/documentation/).

@@ -29,7 +29,7 @@ features = [
   "search",
   "multilingual"
 ]
-min_version = "0.97.0"
+min_version = "0.104.0"
 
 [author]
   name = "Ice-Hazymoon"

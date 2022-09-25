@@ -69,8 +69,8 @@
 
 注意，在使用该主题之前，请确保你遵循以下环境
 
-- **hugo-extended** 版本 >= 0.97.0
-- 已安装 **NodeJs**
+- **hugo-extended** 版本 >= 0.104.0
+- **NodeJs** >= 16.0.0
 - 已安装 **postcss-cli**，使用 `npm install postcss-cli -g` 安装
 
 第一次使用 Hugo 可以参考官方的安装手册：[https://gohugo.io/getting-started/installing/](https://gohugo.io/getting-started/installing/)
