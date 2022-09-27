@@ -1,8 +1,8 @@
 <header class="{{- if .Site.Params.fixedNav -}} fixed z-10 backdrop-blur-md bg-white/80 dark:bg-darkFg mx-auto w-full md:max-w-4xl xl:max-w-4xl 2xl:max-w-4xl {{- else -}} relative {{- end -}}">
+    {{- $RelPermalink := .RelPermalink -}}
+    {{- if .Site.Menus.main -}}
     <nav id="nav" class="navbar top-0 z-10 flex items-center border-b px-5 py-6 dark:border-darkBorder md:px-10">
         <div class="route-items flex w-full items-center justify-around">
-            {{- $RelPermalink := .RelPermalink -}}
-            <!-- Prevent tailwindcss ignore -->
             {{- range .Site.Menus.main -}}
                 {{- $url := .URL | relLangURL -}}
                 {{- $title := or (T (print "navbar." .Identifier)) .Name -}}
@@ -12,16 +12,39 @@
                     href="{{- $url -}}"
                     class="{{ if eq $RelPermalink ($url) }}
                         link-exact-active
-                    {{ end }} relative flex cursor-pointer flex-col items-center text-gray-700 transition duration-300 ease-[ease]"
+                    {{ end }} relative flex cursor-pointer flex-col items-center text-gray-700 transition duration-150 ease-[ease]"
                 >
                     <i
-                        class="{{ .Params.icon }} flex h-8 w-8 items-center justify-center text-3xl leading-none text-gray-500 transition duration-300 ease-[ease] dark:text-darkTextPlaceholder"
+                        class="{{ .Params.icon }} flex h-8 w-8 items-center justify-center text-3xl leading-none text-gray-500 transition duration-150 ease-[ease] dark:text-darkTextPlaceholder"
                     ></i>
                     <span class="mt-1 block text-xs text-gray-400 dark:text-darkText sm:text-sm md:hidden">{{- $title -}}</span>
                 </a>
             {{- end }}
         </div>
     </nav>
+    {{- end -}}
+
+    {{- if .Site.Menus.sub -}}
+    <nav class="sub-navbar z-10 flex items-center border-b px-5 py-2 dark:border-darkBorder md:px-10">
+        {{- range .Site.Menus.sub -}}
+            {{- $url := .URL | relLangURL -}}
+            {{- $title := or (T (print "navbar." .Identifier)) .Name -}}
+            <a
+                title="{{- $title -}}"
+                data-active-link="{{- $url -}}"
+                href="{{- $url -}}"
+                class="{{ if eq $RelPermalink ($url) }}
+                    link-exact-active
+                {{ end }} relative flex cursor-pointer items-center mr-4 text-gray-400 dark:text-darkText transition duration-150 ease-[ease] hover:text-theme"
+            >
+                <i
+                    class="{{ .Params.icon }} leading-none mr-1"
+                ></i>
+                <span>{{- $title -}}</span>
+            </a>
+        {{- end -}}
+    </nav>
+    {{- end -}}
 
     {{- partial "components/dark-mode" . -}}
 </header>

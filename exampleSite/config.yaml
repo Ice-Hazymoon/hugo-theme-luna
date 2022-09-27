@@ -146,6 +146,8 @@ $manuMain:
       icon: eva eva-search
     url: /search/
 
+# 如果你不想要导航栏，你可以删除这一段
+# If you don't want the navbar, you can delete this paragraph
 menu:
   main:
     - *mainMenuHome
@@ -155,6 +157,20 @@ menu:
     - *mainMenuTwitter
     - *mainMenuGitHub
     - *mainMenuSearch
+  # 副导航 / sub-navigation
+  # sub:
+  #   - name: Categories
+  #     weight: 20
+  #     identifier: categories
+  #     params:
+  #       icon: eva eva-folder
+  #     url: /categories/
+  #   - name: Tags
+  #     weight: 30
+  #     identifier: tags
+  #     params:
+  #       icon: eva eva-pricetags
+  #     url: /tags/
 
 markup:
   highlight:
@@ -383,6 +399,10 @@ params:
   # 开启返回顶部按钮
   # backtop button
   backtop: true
+
+  # 文章封面图片纵横比
+  # article image aspect ratio
+  featuredImageHeight: "40%" #40% | false
 
   # 默认文章封面图片，不会显示在内容页面
   # Default post card featured image, not displayed on content pages

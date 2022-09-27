@@ -10,7 +10,7 @@ img[data-lazyload] {
             opacity: 1;
         }
     }
-    &.lazy-error {
+    &.lazy-error, &.lazy-loaded {
         @apply opacity-100 bg-none #{!important};
     }
 }

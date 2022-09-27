@@ -24,13 +24,12 @@ date:
     d_m_y: "2006年01月02日"
     m_y: "2006年01月"
     d_m_h_s: "01月02日 15:04"
-    d_m: "01月02日"
     normal: "2006年01月02日 15:04:05"
 
 # post
 post:
     publishedIn: "发布于 {{ . }}"
-    readingTime: "読了時間: {{ .Count }}分"
+    readingTime: "読了時間 {{ .Count }}分"
     wordCount: "{{ .Count }} 文字"
     prevPost: "前の記事へ"
     nextPost: "次の記事へ"

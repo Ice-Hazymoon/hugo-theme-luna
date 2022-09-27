@@ -44,6 +44,12 @@
     }
 }
 
+.sub-navbar {
+    .link-exact-active {
+        @apply text-theme;
+    }
+}
+
 .dark {
     .link-exact-active::before {
         background-image: none !important;

@@ -21,16 +21,15 @@ archives:
 # date
 date:
     day: "{{ . }}日"
-    d_m_y: "2006年01月02日"
-    m_y: "2006年01月"
-    d_m_h_s: "01月02日 15:04"
-    d_m: "01月02日"
-    normal: "2006年01月02日 15:04:05"
+    d_m_y: "2006年1月2日"
+    m_y: "2006年1月"
+    d_m_h_s: "1月2日 15:04"
+    normal: "2006年1月2日 15:04:05"
 
 # post
 post:
     publishedIn: "发布于 {{ . }}"
-    readingTime: "阅读约 {{ .Count }} 分钟"
+    readingTime: "{{ .Count }} 分钟"
     wordCount: "{{ .Count }} 字"
     prevPost: "上一篇"
     nextPost: "下一篇"

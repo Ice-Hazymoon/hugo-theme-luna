@@ -5,6 +5,7 @@
 {{- $processImage := "" -}}
 {{- $lazyload := .Site.Params.lazyload -}}
 {{- $featuredImageUrl := or .Params.featured_image .Site.Params.defaultFeaturedImage -}}
+{{- $featuredImageHeight := .Site.Params.featuredImageHeight -}}
 
 
 {{- if (urls.Parse ($featuredImageUrl | safeURL)).Scheme -}}
@@ -25,8 +26,8 @@
 
 <a
     href="{{- .RelPermalink -}}"
-    class="article-cover relative block h-0 w-full transition duration-100 ease-[ease]"
-    {{ with $processImage.Colors }}style="background-image: linear-gradient(180deg, {{- . -}});"{{ end }}
+    class="article-cover relative block {{ if $featuredImageHeight }}h-0{{ . }}{{ end }} w-full transition duration-100 ease-[ease]"
+    style="{{- with $processImage.Colors -}}background-image: linear-gradient(180deg, {{- . -}});{{- end -}} {{- with $featuredImageHeight -}}padding-bottom: {{- . -}};{{- end -}}"
 >
     <picture class="noscript-hidden">
         {{- if $processImage.Processed -}}
@@ -40,7 +41,7 @@
             {{ end -}}
             {{ with .Title }}alt="{{- . -}}"{{ end }}
             {{ if not $processImage.Placeholder }}style="background-color: #fff;"{{ end }}
-            class="noscript-hidden absolute left-0 top-0 h-full w-full object-cover object-center transition duration-300 ease-[ease]"
+            class="noscript-hidden {{ if $featuredImageHeight }}absolute{{ end }} left-0 top-0 h-full w-full object-cover object-center transition duration-300 ease-[ease]"
             {{ if $lazyload }}data-lazyload data-lazyload-blur{{ end }}
         />
     </picture>

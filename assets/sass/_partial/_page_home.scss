@@ -31,7 +31,7 @@
             background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.4), cubic-bezier(0.25, 0, 0.5, 1), transparent);
         }
         &-cover {
-            padding-bottom: 42%;
+            // padding-bottom: 42%;
             transform: scale(1);
             &::after {
                 content: '';

@@ -127,6 +127,8 @@ params:
 
   defaultFeaturedImage: false
 
+  featuredImageHeight: false
+
   imageProcessing:
     cover: true
     content: true
