@@ -127,7 +127,7 @@ params:
 
   defaultFeaturedImage: false
 
-  featuredImageHeight: false
+  featuredImageHeight: "42%"
 
   imageProcessing:
     cover: true

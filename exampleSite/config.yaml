@@ -402,7 +402,7 @@ params:
 
   # 文章封面图片纵横比
   # article image aspect ratio
-  featuredImageHeight: "40%" #40% | false
+  featuredImageHeight: "42%" #42% | false
 
   # 默认文章封面图片，不会显示在内容页面
   # Default post card featured image, not displayed on content pages
