@@ -6,6 +6,8 @@ module:
 params:
   publicCDN: ""
 
+  topTitle: false
+
   announcement:
     enabled: false
     file: "README.md"

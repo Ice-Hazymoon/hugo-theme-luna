@@ -76,7 +76,7 @@
                                                                     {{ if $lazyload }}data-{{ end }}srcset="{{- $processImage.Srcset -}}"
                                                                     {{ if $lazyload }}src="{{- or $processImage.Placeholder $lazyload_image -}}"{{ end }}
                                                                     {{- with $title -}}alt="{{- . -}}"{{- end -}}
-                                                                    class="w-full border border-x-0 border-solid border-gray-200 object-cover dark:border-darkBorder"
+                                                                    class="w-full border border-x-0 border-solid border-gray-100 object-cover dark:border-darkBorder"
                                                                     {{ if $imageZoom }}data-zoomable{{ end }}
                                                                     {{ if $lazyload }}data-lazyload data-lazyload-blur{{ end }}
                                                                 />
@@ -95,7 +95,7 @@
                                                                             srcset="{{- $processImage.Srcset -}}"
                                                                             src="{{- print $public_cdn $processImage.Permalink -}}"
                                                                             {{- with $title -}}alt="{{- . -}}"{{- end -}}
-                                                                            class="w-full border border-x-0 border-solid border-gray-200 object-cover dark:border-darkBorder"
+                                                                            class="w-full border border-x-0 border-solid border-gray-100 object-cover dark:border-darkBorder"
                                                                         />
                                                                     </picture>
                                                                 </a>
@@ -109,7 +109,7 @@
                                                             {{ if $lazyload }}data-{{ end }}src="{{- $picURL -}}"
                                                             {{ if $lazyload }}src="{{- $lazyload_image -}}"{{ end }}
                                                             {{- with $title -}}alt="{{- . -}}"{{- end -}}
-                                                            class="w-full border border-x-0 border-solid border-gray-200 object-cover dark:border-darkBorder"
+                                                            class="w-full border border-x-0 border-solid border-gray-100 object-cover dark:border-darkBorder"
                                                             {{ if $imageZoom }}data-zoomable{{ end }}
                                                             {{ if $lazyload }}data-lazyload{{ end }}
                                                         />

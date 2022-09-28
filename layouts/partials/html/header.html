@@ -1,4 +1,11 @@
 <header class="{{- if .Site.Params.fixedNav -}} fixed z-10 backdrop-blur-md bg-white/80 dark:bg-darkFg mx-auto w-full md:max-w-4xl xl:max-w-4xl 2xl:max-w-4xl {{- else -}} relative {{- end -}}">
+    {{- if .Site.Params.topTitle -}}
+    <div class=" text-center py-6 border-b dark:border-darkBorder">
+        {{- with .Site.Title -}}<div class="text-3xl">{{- . -}}</div>{{- end -}}
+        {{- with .Site.Params.Description -}}<div class="text-lg mt-4 text-gray-400">{{- . -}}</div>{{- end -}}
+    </div>
+    {{- end -}}
+    
     {{- $RelPermalink := .RelPermalink -}}
     {{- if .Site.Menus.main -}}
     <nav id="nav" class="navbar top-0 z-10 flex items-center border-b px-5 py-6 dark:border-darkBorder md:px-10">
