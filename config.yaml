@@ -83,6 +83,7 @@ params:
     minStars: 5
 
   twitter:
+    enabled: true
     rsshub: "https://rsshub.rssforever.com"
     id: ""
     imageProcessing: true

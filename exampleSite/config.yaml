@@ -321,6 +321,7 @@ params:
   # Twitter 页面设置
   # tweet page
   twitter:
+    enabled: true
     rsshub: "https://rsshub.rssforever.com" # rsshub url, see https://github.com/DIYgod/RSSHub
     id: "GenshinImpact" # Twitter ID
     # 如果为 true，Hugo 将下载图片和视频并进行优化，如果你在中国大陆地区，请谨慎启用这个选项

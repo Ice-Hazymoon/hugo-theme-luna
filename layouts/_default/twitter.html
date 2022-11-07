@@ -8,6 +8,7 @@
     {{- $Site := .Site -}}
     <div class="page-twitter relative py-8">
         <div class="mx-6 md:mx-10">
+            {{- if $twitterConfig.enabled -}}
             <div class="mb-10 inline-flex items-end pb-3 text-3xl">
                 <div class="mr-4 inline-flex items-center leading-none">
                     <i class="eva eva-twitter-outline mr-2"></i>
@@ -24,7 +25,8 @@
 
             <div id="twitter">
                 {{- if $twitterConfig.id -}}
-                    {{- $twitterData := getJSON (print "https://api.rss2json.com/v1/api.json?rss_url=" $twitterConfig.rsshub "/twitter/user/" $twitterConfig.id) -}}
+                    {{- $apiurl := (print "https://api.rss2json.com/v1/api.json?" (querify "rss_url" (print $twitterConfig.rsshub "/twitter/user/" $twitterConfig.id))) -}}
+                    {{- $twitterData := getJSON $apiurl -}}
                     {{- range (index $twitterData "items") -}}
                         {{- $pubDate := dateFormat (T "date.d_m_h_s") .pubDate -}}
                         {{- $content := (trim (replaceRE "<br>" "\n" (replaceRE "<video(.+?)</video>|<img(.+?)>" "" .content)) "\n") | safeHTML -}}
@@ -201,6 +203,9 @@
                     <div class=" text-xl">ERROR: {{- T "twitter.config" -}}</div>
                 {{- end -}}
             </div>
+            {{- else -}}
+            <div class=" text-xl">Twitter page is not enabled</div>
+            {{- end -}}
         </div>
     </div>
 {{- end -}}
