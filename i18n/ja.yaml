@@ -9,7 +9,7 @@ encrypt:
     encryptNoscript: "JavaScriptを有効にしてください"
 
 # links
-linksRank: "順番にリストされていない"
+linksRank: "顺位は区别しません"
 
 # Archives
 archives:
@@ -28,7 +28,7 @@ date:
 
 # post
 post:
-    publishedIn: "发布于 {{ . }}"
+    publishedIn: "{{ . }}に掲載された"
     readingTime: "読了時間 {{ .Count }}分"
     wordCount: "{{ .Count }} 文字"
     prevPost: "前の記事へ"
@@ -56,8 +56,8 @@ taxonomy:
     _categories: "カテゴリ"
     tag: 'タグ 「{{ .Title }}」 には {{ .Count }} 件記事がある'
     category: 'カテゴリ 「{{ .Title }}」 には {{ .Count }} 件記事がある'
-    totalTags: 合計 {{ . }} タグ
-    totalCategories: 合計 {{ . }} タグ
+    totalTags: '合計 {{ . }} タグ'
+    totalCategories: '合計 {{ . }} タグ'
 
 runTime:
     text: "ランニングタイム:"
@@ -117,7 +117,7 @@ twitter:
     config: "「Twitter」の設定を確認してください"
     link: "リンク"
     like: "いいね"
-    reply: "返事"
+    reply: "返信"
     forward: "リツイート"
     goto: "Twitter で見る"
 
