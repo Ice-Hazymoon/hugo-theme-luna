@@ -2,7 +2,7 @@ backTop: "返回頁首"
 
 # hugo encrypt
 encrypt:
-    protectedByPassword: "此處為受密碼保護的內容"    
+    protectedByPassword: "此為受密碼保護的內容"
     enterPassword: "請輸入密碼"
     decrypt: "送出"
     wrongPassword: "密碼錯誤"
@@ -15,8 +15,8 @@ linksRank: "排序沒有先後之別"
 archives:
     title: "歸檔文章"
     total: "目前共有 {{ . }} 篇文章"
-    helloWorld: "你好世界！"
-    untitled: "沒有標題"
+    helloWorld: "你好，世界！"
+    untitled: "無標題"
 
 # date
 date:
@@ -39,7 +39,7 @@ post:
     toc: "文章目錄"
     refs: "引用連結"
     archiveCounter: '共 {{ . }} 篇文章'
-    untitled: "沒有標題"
+    untitled: "無標題"
 
 # search
 search:
@@ -102,7 +102,7 @@ copy:
 offline:
     title: "網路離線"
     h1: "喔哦，網路離線嘍！"
-    h3: "你的網路好像有點狀況，沒關係，你仍可以瀏覽之前訪問過的頁面"
+    h3: "你的網路好像有點狀況，沒關係，你還是可以瀏覽之前訪問過的頁面"
     h4: "現在請盡情欣賞下面可愛的兔猻吧"
     return: "點擊返回首頁"
 
@@ -128,7 +128,7 @@ noscript: "請啟用 JavaScript 以獲得更好的使用體驗"
 
 poweredBy: "以 {{ .Hugo }} {{ .Heart }} {{ .Theme }} 製作"
 
-notFound: "頁面不存在，點擊返回首頁"
+notFound: "網頁不存在，點擊返回首頁"
 
 bionicReading: "更快的閱讀"
 
