@@ -468,6 +468,26 @@ languages:
         giscus:
           <<: *giscus
           lang: "zh-CN"
+  zh-tw:
+    contentDir: content/zh-hant
+    languageName: 正體中文
+    params:
+      languageIcon: "images/i18n/zh-tw.svg" # in assets folder
+      font: "Lato,'Roboto Condensed','Noto Sans TC','PingFang TC','Helvetica Neue','SF Pro TC',Helvetica,arial,'Microsoft JhengHei','Microsoft YaHei',Arial,sans-serif"
+      license:
+        enabled: true
+        name: "姓名標示-非商業性-禁止改作 3.0 台灣"
+        icon: "Cc-by-nc-nd.svg" # in assets folder
+        url: "https://creativecommons.org/licenses/by-nc-nd/3.0/tw/"
+      announcement:
+        enabled: true
+        file: "README.zh.md"
+      comments:
+        enabled: true
+        provider: "giscus"
+        giscus:
+          <<: *giscus
+          lang: "zh-TW"
   en-us:
     contentDir: content/en-us
     languageName: English

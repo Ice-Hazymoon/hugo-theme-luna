@@ -1,0 +1,138 @@
+backTop: "返回頁首"
+
+# hugo encrypt
+encrypt:
+    protectedByPassword: "此為受密碼保護的內容"
+    enterPassword: "請輸入密碼"
+    decrypt: "送出"
+    wrongPassword: "密碼錯誤"
+    encryptNoscript: "需要啟用 Javascript 來解開受保護的內容"
+
+# links
+linksRank: "排序沒有先後之別"
+
+# Archives
+archives:
+    title: "歸檔文章"
+    total: "目前共有 {{ . }} 篇文章"
+    helloWorld: "你好，世界！"
+    untitled: "無標題"
+
+# date
+date:
+    day: "{{ . }}日"
+    d_m_y: "2006年1月2日"
+    m_y: "2006年1月"
+    d_m_h_s: "1月2日 15:04"
+    normal: "2006年1月2日 15:04:05"
+
+# post
+post:
+    publishedIn: "發佈於 {{ . }}"
+    readingTime: "{{ .Count }} 分鐘"
+    wordCount: "{{ .Count }} 字"
+    prevPost: "上一篇"
+    nextPost: "下一篇"
+    license: "除了特殊聲明之外，本部落格一律使用以下版權協議授權"
+    outdatedInfo: "文章最後編輯於: {{ . }} 天前，文章中描述的資訊可能已發生改變"
+    lastmod: "最後編輯時間："
+    toc: "文章目錄"
+    refs: "引用連結"
+    archiveCounter: '共 {{ . }} 篇文章'
+    untitled: "無標題"
+
+# search
+search:
+    loading: "初始化中，請稍等"
+    loadFailure: "初始化搜尋引擎失敗"
+    input: "請輸入搜尋內容..."
+    results: "關鍵字 {{ .Keyword }} 共搜尋到 {{ .Count }} 個結果"
+    notEnabled: "搜尋功能尚未啟用"
+
+
+# taxonomy
+taxonomy:
+    _tags: "標籤"
+    _categories: "分類"
+    tag: "標籤 {{ .Title }} 有 {{ .Count }} 篇文章"
+    category: "分類 {{ .Title }} 有 {{ .Count }} 篇文章"
+    totalTags: "共有 {{ . }} 個標籤"
+    totalCategories: "共有 {{ . }} 個分類"
+
+runTime:
+    text: "運行時間："
+    days: "天"
+    hours: "小時"
+    minutes: "分鐘"
+    seconds: "秒"
+
+# navbar
+navbar:
+    home: "首頁"
+    about: "關於我"
+    links: "連結"
+    github: "GitHub"
+    search: "搜尋"
+    archives: "歸檔"
+    twitter: "Twitter"
+    tags: "標籤"
+    categories: "分類"
+
+# share
+share:
+    twitter: "分享到 Twitter"
+    facebook: "分享到 Facebook"
+    weibo: "分享到微博"
+    copy: "複製文章連結"
+    qrcode: "二維條碼"
+
+# pagination
+page:
+    prev: "上一頁"
+    next: "下一頁"
+    page: "第 {{ . }} 頁"
+    pagination: "第 {{ .PageNumber }} 頁，共 {{ .TotalPages }} 頁"
+
+copy:
+    success: "複製成功"
+    failed: "複製失敗，請手動複製"
+    copyCode: "複製程式碼"
+
+# offline
+offline:
+    title: "網路離線"
+    h1: "喔哦，網路離線嘍！"
+    h3: "你的網路好像有點狀況，沒關係，你還是可以瀏覽之前訪問過的頁面"
+    h4: "現在請盡情欣賞下面可愛的兔猻吧"
+    return: "點擊返回首頁"
+
+# github
+github:
+    goto: "前往 GitHub"
+    config: "未偵測到有關 GitHub 設定"
+
+# twitter
+twitter:
+    title: "近期動態"
+    config: "未偵測到有關 twitter 設定"
+    link: "查看原推文"
+    like: "點讚"
+    reply: "回覆"
+    forward: "轉發"
+    goto: "前往 Twitter"
+
+# i18nlist
+switchLang: "切換語言至 {{ . }}"
+
+noscript: "請啟用 JavaScript 以獲得更好的使用體驗"
+
+poweredBy: "以 {{ .Hugo }} {{ .Heart }} {{ .Theme }} 製作"
+
+notFound: "網頁不存在，點擊返回首頁"
+
+bionicReading: "更快的閱讀"
+
+darkmode:
+    switch: "切換至{{ . }}"
+    dark: "深色模式"
+    light: "淺色模式"
