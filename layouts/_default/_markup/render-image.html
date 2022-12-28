@@ -19,7 +19,7 @@
         {{- $galleryImage = true -}}
         {{- $Permalink = print $public_cdn $processImage.Permalink -}}
     {{- else -}}
-        {{- $Permalink = print $public_cdn $Image -}}
+        {{- $Permalink = print $public_cdn (or $Image $Permalink) -}}
     {{- end -}}
     
 {{- end -}}

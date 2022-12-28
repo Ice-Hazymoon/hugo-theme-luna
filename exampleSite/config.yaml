@@ -448,6 +448,7 @@ languages:
       languageIcon: "images/i18n/zh-cn.svg" # in assets folder
       font: "Times New Roman,Times,Heti Song,serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol"
       twitter: 
+        enabled: true
         rsshub: "https://rsshub.rssforever.com"
         id: "Ice_Hazymoon"
         imageProcessing: true
@@ -493,3 +494,6 @@ languages:
       - *mainMenuHome
       - *mainMenuArchives
       - *mainMenuSearch
+
+staticDir:
+  - static
