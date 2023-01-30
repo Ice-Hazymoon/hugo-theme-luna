@@ -1,4 +1,12 @@
 <header class="{{- if .Site.Params.fixedNav -}} fixed z-10 backdrop-blur-md bg-white/80 dark:bg-darkFg mx-auto w-full md:max-w-4xl xl:max-w-4xl 2xl:max-w-4xl {{- else -}} relative {{- end -}}">
+    {{- if .Site.Params.fixedNav -}}
+    <style>
+        .typo h1, .typo h2, .typo h3, .typo h4, .typo h5, .typo h6 {
+            scroll-margin-top: 100px;
+        }
+    </style>
+    {{- end -}}
+
     {{- if .Site.Params.topTitle -}}
     <div class=" text-center py-6 border-b dark:border-darkBorder">
         {{- with .Site.Title -}}<div class="text-3xl">{{- . -}}</div>{{- end -}}
