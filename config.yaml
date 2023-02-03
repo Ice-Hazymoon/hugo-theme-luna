@@ -81,6 +81,7 @@ params:
   github:
     id: ""
     minStars: 5
+    ids: []
 
   twitter:
     enabled: true

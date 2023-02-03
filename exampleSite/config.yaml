@@ -317,6 +317,7 @@ params:
   github:
     id: "torvalds" # github user id
     minStars: 5 # 最小 star 项目 / min stars
+    ids: ["torvalds", "Ice-Hazymoon"]
 
   # Twitter 页面设置
   # tweet page
