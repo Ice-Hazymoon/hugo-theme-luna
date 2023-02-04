@@ -315,7 +315,7 @@ params:
   # GitHub 页面设置
   # github page
   github:
-    id: "torvalds" # github user id
+    id: "torvalds" # or ["torvalds", "gvanrossum"]
     minStars: 5 # 最小 star 项目 / min stars
 
   # Twitter 页面设置
