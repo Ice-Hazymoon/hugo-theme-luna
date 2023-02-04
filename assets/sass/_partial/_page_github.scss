@@ -14,4 +14,17 @@
         margin-right: 6px;
         @apply rounded-full;
     }
+    .github-tabs {
+        input {
+            &[type='radio'] {
+                @apply hidden;
+            }
+            &[type='radio']:checked + label {
+                @apply border-b-2 border-b-theme text-theme rounded-sm bg-gray-50;
+            }
+            &[type='radio']:checked + label + .github-tab {
+                @apply block;
+            }
+        }
+    }
 }
