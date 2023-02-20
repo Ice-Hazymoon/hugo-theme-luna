@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="https://github.com/gohugoio/hugo" target="_blank"><img src="https://img.shields.io/badge/Hugo-0.97-green?style=for-the-badge&logo=hugo&logoColor=white" /></a>
-  <a href="https://github.com/Ice-Hazymoon/hugo-theme-luna/actions/workflows/main.yml" target="_blank"><img src="https://img.shields.io/github/workflow/status/Ice-Hazymoon/hugo-theme-luna/CI?style=for-the-badge&logo=github&logoColor=white" /></a>
+  <a href="https://github.com/Ice-Hazymoon/hugo-theme-luna/actions/workflows/main.yml" target="_blank"><img src="https://img.shields.io/github/actions/workflow/status/Ice-Hazymoon/hugo-theme-luna/main.yml?style=for-the-badge&branch=master&logo=github&logoColor=white" /></a>
   <a href="https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/LICENSE" target="_blank"><img src="https://img.shields.io/github/license/Ice-Hazymoon/hugo-theme-luna?style=for-the-badge" /></a>
 </p>
 
@@ -13,31 +13,37 @@
 [👉在线预览](https://hugo-theme-luna.imiku.me/zh-cn) | [English](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/README.md)
 
 ![](https://img.shields.io/github/last-commit/Ice-Hazymoon/hugo-theme-luna?style=flat-square) ![](https://img.shields.io/github/languages/code-size/Ice-Hazymoon/hugo-theme-luna?style=flat-square)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/085457b4-c6d2-419e-af64-1f2f8b948779/deploy-status)](https://app.netlify.com/sites/hugo-theme-luna/deploys)
+[![Vercel](https://img.shields.io/badge/Vercel-black?style=style=flat-square&logo=vercel&logoColor=white)](https://hugo-theme-luna-dusky.vercel.app/_src)
 
 <details open>
 <summary>目录</summary>
 
-- [特性](#特性)
-- [使用](#使用)
-  - [- 环境](#--环境)
-  - [- 安装主题](#--安装主题)
-  - [- 更新主题](#--更新主题)
-  - [- 配置](#--配置)
-  - [- 评论系统](#--评论系统)
-  - [- 短代码](#--短代码)
-  - [- 加密文章](#--加密文章)
-- [注意](#注意)
-- [GitHub Action](#github-action)
-- [自定义](#自定义)
-- [开发](#开发)
-- [截图：](#截图)
-  - [- 性能测试（关闭 pjax 和 katex 后）](#--性能测试关闭-pjax-和-katex-后)
-  - [- 页面截图](#--页面截图)
-- [致谢](#致谢)
-- [License](#license)
+- [👋 特性](#-特性)
+- [💻 使用](#-使用)
+  - [- 📋 环境](#---环境)
+  - [- 📥 安装主题](#---安装主题)
+  - [- 🔄 更新主题](#---更新主题)
+  - [- 🚀 运行在 GitHub Pages](#---运行在-github-pages)
+  - [- ☁️ 运行在 Netlify](#--️-运行在-netlify)
+  - [- ⚡ 运行在 Vercel](#---运行在-vercel)
+  - [- 🌩️ 运行在 Cloudflare Pages](#--️-运行在-cloudflare-pages)
+  - [- ⚙️ 配置](#--️-配置)
+  - [- 💬 评论系统](#---评论系统)
+  - [- 📜 短代码](#---短代码)
+  - [- 🔒 加密文章](#---加密文章)
+- [📝 注意](#-注意)
+- [🐙 GitHub Action](#-github-action)
+- [🎨 自定义](#-自定义)
+- [🛠️ 开发](#️-开发)
+- [📷 截图：](#-截图)
+  - [- 📈 性能测试（关闭 pjax 和 katex 后）](#---性能测试关闭-pjax-和-katex-后)
+  - [- 🖼️ 页面截图](#--️-页面截图)
+- [👏 致谢](#-致谢)
+- [📜 License](#-license)
 </details>
 
-## 特性
+## 👋 特性
 
 - 使用 [Tailwindcss](https://tailwindcss.com) 构建，界面美观，SEO友好
 - 动态导入 JS 模块
@@ -63,9 +69,9 @@
 - [GitHub Actions](https://github.com/features/actions) 支持
 - 和更多......
 
-## 使用
+## 💻 使用
 
-### - 环境
+### - 📋 环境
 
 注意，在使用该主题之前，请确保你遵循以下环境
 
@@ -81,9 +87,7 @@
 scoop install hugo-extended
 ```
 
-### - 安装主题
-
-在 Hugo 根目录执行
+### - 📥 安装主题
 
 ```bash
 git submodule add -b master https://github.com/Ice-Hazymoon/hugo-theme-luna themes/hugo-theme-luna
@@ -93,13 +97,48 @@ npm install --production
 
 在主题 [`exampleSite`](https://github.com/Ice-Hazymoon/hugo-theme-luna/tree/main/exampleSite) 目录有一个 [`config.yaml`](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/exampleSite/config.yaml) 文件，将该文件复制到你的站点目录下并根据需求修改相关内容。
 
-### - 更新主题
+### - 🔄 更新主题
 
 ```bash
 git submodule update --remote
 ```
 
-### - 配置
+
+### - 🚀 运行在 GitHub Pages
+
+参考 [GitHub Actions](#---运行在-github-pages)
+
+### - ☁️ 运行在 Netlify
+
+参考 [netlify.toml](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/exampleSite/netlify.toml)
+
+### - ⚡ 运行在 Vercel
+
+参考 [vercel.json](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/exampleSite/vercel.json)
+
+### - 🌩️ 运行在 Cloudflare Pages
+
+Environment variables
+
+```
+HUGO_THEME: repo
+HUGO_VERSION: 0.104.3
+NODE_VERSION: 17.3.0
+```
+
+Build command
+
+```bash
+$ cd themes/hugo-theme-luna && npm install postcss-cli -g && npm install --production && cd ../../ && hugo --gc -v --minify --cleanDestinationDir --enableGitInfo
+```
+
+Build output directory
+
+```
+/public
+```
+
+### - ⚙️ 配置
 
 请参考 [`config.yaml`](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/exampleSite/config.yaml) 文件来配置你的博客
 
@@ -109,7 +148,7 @@ git submodule update --remote
 
 你可以通过创建 [assets/icon.png](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/exampleSite/assets/icon.png) 文件来修改你的网站图标
 
-### - 评论系统
+### - 💬 评论系统
 
 你可以设置 `comments: false` 来单独关闭页面评论
 
@@ -119,11 +158,11 @@ git submodule update --remote
 
 自定义评论系统在：[layouts/partials/comments/provider/custom.html](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/layouts/partials/comments/provider/custom.html)
 
-### - 短代码
+### - 📜 短代码
 
 Luna 主题支持大量的 Shortcodes，请查看：[Shortcodes](https://hugo-theme-luna.imiku.me/zh-cn/2022/05/02/shortcodes.html/)
 
-### - 加密文章
+### - 🔒 加密文章
 
 我建议你使用两个仓库用来管理你的博客，一个私有用于存放博客的源代码，一个公开仓库用于启用 GitHub Pages，如果你需要使用文章加密功能，请一定不要把你的源代码放到公开的仓库上。
 
@@ -141,7 +180,7 @@ Luna 主题支持大量的 Shortcodes，请查看：[Shortcodes](https://hugo-th
 {{% /hugo-encrypt %}}
 ````
 
-## 注意
+## 📝 注意
 
 如果你所在的国家或地区无法访问 Twitter 或 GitHub，请不要使用这两个模板文件，否则会出现错误。
 
@@ -153,7 +192,7 @@ Luna 主题支持大量的 Shortcodes，请查看：[Shortcodes](https://hugo-th
 
 如果你开启了 pjax 并且使用了额外的 `<script>` 标签，请在标签上添加 `data-swup-reload-script` 属性，请查看：[https://swup.js.org/plugins/scripts-plugin](https://swup.js.org/plugins/scripts-plugin)
 
-## GitHub Action
+## 🐙 GitHub Action
 
 将自动部署你的博客到公开仓库
 
@@ -169,7 +208,7 @@ Luna 主题支持大量的 Shortcodes，请查看：[Shortcodes](https://hugo-th
 
 在 **github.com/{username}/{project}/settings/secrets/actions** 添加一个 `TOKEN` 字段，输入刚才生成的 token
 
-## 自定义
+## 🎨 自定义
 
 如果你需要自定义主题，我建议你更改以下文件，而不是直接修改主题
 
@@ -182,7 +221,7 @@ Luna 主题支持大量的 Shortcodes，请查看：[Shortcodes](https://hugo-th
 
 如果你不想修改主题文件，你可以在网站根目录创建一个同名的文件来修改它，例如：`myblog/layouts/partials/custom/head.html`
 
-## 开发
+## 🛠️ 开发
 
 ```sh
 git clone https://github.com/Ice-Hazymoon/hugo-theme-luna/
@@ -191,17 +230,17 @@ npm install
 hugo server -s ./exampleSite -D --themesDir "../.."
 ```
 
-## 截图：
+## 📷 截图：
 
 > [https://imiku.me](https://imiku.me)
 
-### - 性能测试（关闭 pjax 和 katex 后）
+### - 📈 性能测试（关闭 pjax 和 katex 后）
 
 | Lighthouse                                                                                                      | GTmetrix                                                                                                      |
 | --------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
 | ![Lighthouse](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/lighthouse.png) | ![GTmetrix](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/gtmetrix.png) |
 
-### - 页面截图
+### - 🖼️ 页面截图
 
 | <p align="center">首页</p> ![Home](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/screen-home.png)           | <p align="center">首页 (夜间模式)</p> ![Home(dark)](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/screen-home-dark.png) |
 | ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -209,7 +248,7 @@ hugo server -s ./exampleSite -D --themesDir "../.."
 | <p align="center">Twitter</p> ![Twitter](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/screen-twitter.png)  | <p align="center">GitHub</p> ![GitHub](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/screen-github.png)                 |
 | <p align="center">搜索页</p> ![Search](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/screen-search.png)     | <p align="center">画廊页</p> ![Gallery](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/screen-gallery.png)               |
 
-## 致谢
+## 👏 致谢
 
 - [Unsplash](https://unsplash.com/)
 - [hugo-theme-even](https://github.com/olOwOlo/hugo-theme-even)
@@ -218,7 +257,7 @@ hugo server -s ./exampleSite -D --themesDir "../.."
 - [Some shortcodes](https://guanqr.com/tech/website/hugo-shortcodes-customization)
 - [Carousel component](https://codepen.io/onediv/details/VaQbrq)
 
-## License
+## 📜 License
 
 主题 使用 [GPL V3.0](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/LICENSE) 协议开源，请遵守此协议进行二次开发等。
 

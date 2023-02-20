@@ -45,8 +45,8 @@ jobs:
             - name: Deploy
               uses: peaceiris/actions-gh-pages@v3
               with:
-                personal_token: ${{ secrets.TOKEN }}
-                external_repository: "Ice-Hazymoon/blog-hugo-pages"
+                personal_token: ${{ secrets.TOKEN }} # https://github.com/settings/tokens
+                external_repository: "Ice-Hazymoon/blog-hugo-pages" # The build will be pushed to this repository when it is complete
                 publish_branch: master
                 publish_dir: ./public
                 user_name: Ice-Hazymoon

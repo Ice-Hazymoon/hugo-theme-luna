@@ -3,7 +3,7 @@
 <h3 align="center"><i>A simple, performance-first, SEO-friendly Hugo theme</i></h3>
 
 <p align="center">
-  <a href="https://github.com/gohugoio/hugo" target="_blank"><img src="https://img.shields.io/badge/Hugo-≥0.97-green?style=for-the-badge&logo=hugo&logoColor=white" /></a>
+  <a href="https://github.com/gohugoio/hugo" target="_blank"><img src="https://img.shields.io/badge/Hugo-≥0.104-green?style=for-the-badge&logo=hugo&logoColor=white" /></a>
   <a href="https://github.com/Ice-Hazymoon/hugo-theme-luna/actions/workflows/main.yml" target="_blank"><img src="https://img.shields.io/github/actions/workflow/status/Ice-Hazymoon/hugo-theme-luna/main.yml?style=for-the-badge&branch=master&logo=github&logoColor=white" /></a>
   <a href="https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/LICENSE" target="_blank"><img src="https://img.shields.io/github/license/Ice-Hazymoon/hugo-theme-luna?style=for-the-badge" /></a>
 </p>
@@ -19,31 +19,31 @@
 <details open>
 <summary>Table of Contents</summary>
 
-- [Introduction](#introduction)
-- [Usage](#usage)
-  - [- Requirements](#--requirements)
-  - [- Install as git submodule](#--install-as-git-submodule)
-  - [- Deploy to GitHub Pages](#--deploy-to-github-pages)
-  - [- Deploy to Netlify](#--deploy-to-netlify)
-  - [- Deploy to Vercel](#--deploy-to-vercel)
-  - [- Deploy to Cloudflare Pages](#--deploy-to-cloudflare-pages)
-  - [- Update theme](#--update-theme)
-  - [- Configuration](#--configuration)
-  - [- Comments](#--comments)
-  - [- Shortcodes](#--shortcodes)
-  - [- Encryption](#--encryption)
-- [Note:](#note)
-- [GitHub Action](#github-action)
-- [Custom](#custom)
-- [Development](#development)
-- [Screenshots](#screenshots)
-  - [- Performance tests (with pjax and katex turned off)](#--performance-tests-with-pjax-and-katex-turned-off)
-  - [- Screenshots](#--screenshots)
-- [Acknowledgements](#acknowledgements)
-- [License](#license)
+- [👋 Introduction](#-introduction)
+- [💻 Usage](#-usage)
+  - [- 📋 Requirements](#---requirements)
+  - [- 📥 Install as git submodule](#---install-as-git-submodule)
+  - [- 🔄 Update theme](#---update-theme)
+  - [- 🚀 Deploy to GitHub Pages](#---deploy-to-github-pages)
+  - [- ☁️ Deploy to Netlify](#--️-deploy-to-netlify)
+  - [- ⚡ Deploy to Vercel](#---deploy-to-vercel)
+  - [- 🌩️ Deploy to Cloudflare Pages](#--️-deploy-to-cloudflare-pages)
+  - [- ⚙️ Configuration](#--️-configuration)
+  - [- 💬 Comments](#---comments)
+  - [- 📜 Shortcodes](#---shortcodes)
+  - [- 🔒 Encryption](#---encryption)
+- [📝 Note:](#-note)
+- [🐙 GitHub Action](#-github-action)
+- [🎨 Custom](#-custom)
+- [🛠️ Development](#️-development)
+- [📷 Screenshots](#-screenshots)
+  - [- 📈 Performance tests (with pjax and katex turned off)](#---performance-tests-with-pjax-and-katex-turned-off)
+  - [- 🖼️ Screenshots](#--️-screenshots)
+- [👏 Acknowledgements](#-acknowledgements)
+- [📜 License](#-license)
 </details>
 
-## Introduction
+## 👋 Introduction
 
 - Using [Tailwindcss](https://tailwindcss.com)
 - Dynamic import of JS modules、
@@ -70,17 +70,15 @@
 - [GitHub Actions](https://github.com/features/actions)
 - and more......
 
-## Usage
+## 💻 Usage
 
-### - Requirements
+### - 📋 Requirements
 
 - **hugo-extended** >= 0.104.0
 - **NodeJs** >= 16.0.0
 - **postcss-cli**, Install using `npm install postcss-cli -g`
 
-For more information about Hugo's functionality, check [documentation of Hugo](https://gohugo.io/documentation/).
-
-### - Install as git submodule
+### - 📥 Install as git submodule
 
 ```bash
 git submodule add -b master https://github.com/Ice-Hazymoon/hugo-theme-luna themes/hugo-theme-luna
@@ -90,19 +88,32 @@ npm install --production
 
 There is a [`config.yaml`](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/exampleSite/config.yaml) file in the [`exampleSite`](https://github.com/Ice-Hazymoon/hugo-theme-luna/tree/main/exampleSite) directory, copy the file to your site directory and modify the contents.
 
-### - Deploy to GitHub Pages
+### - 🔄 Update theme
 
-Refer to [GitHub Actions](#github-action)
+```bash
+cd themes/hugo-theme-luna
+git pull
+```
 
-### - Deploy to Netlify
+or use git submodule
+
+```bash
+git submodule update --remote
+```
+
+### - 🚀 Deploy to GitHub Pages
+
+Refer to [GitHub Actions](#-github-action)
+
+### - ☁️ Deploy to Netlify
 
 Refer to [netlify.toml](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/exampleSite/netlify.toml)
 
-### - Deploy to Vercel
+### - ⚡ Deploy to Vercel
 
 Refer to [vercel.json](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/exampleSite/vercel.json)
 
-### - Deploy to Cloudflare Pages
+### - 🌩️ Deploy to Cloudflare Pages
 
 Environment variables
 
@@ -124,13 +135,7 @@ Build output directory
 /public
 ```
 
-### - Update theme
-
-```bash
-git submodule update --remote
-```
-
-### - Configuration
+### - ⚙️ Configuration
 
 See [`config.yaml`](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/exampleSite/config.yaml) file to configure your site
 
@@ -140,7 +145,7 @@ You can find all available icons at [Eva icons](https://akveo.github.io/eva-icon
 
 You can create your website icons by adjusting the [assets/icon.png](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/exampleSite/assets/icon.png) file
 
-### - Comments
+### - 💬 Comments
 
 You can set `comments: false` to turn off comments for some pages
 
@@ -150,13 +155,13 @@ Comment system provider. Available options:
 
 Custom comments at [layouts/partials/comments/provider/custom.html](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/layouts/partials/comments/provider/custom.html)
 
-### - Shortcodes
+### - 📜 Shortcodes
 
 The luna theme supports many shortcodes, see: [Shortcodes](https://hugo-theme-luna.imiku.me/2022/05/02/shortcodes.html/)
 
-### - Encryption
+### - 🔒 Encryption
 
-**Do not encrypt any important content with the encryption function**
+**⚠️Do not encrypt any important content with the encryption function⚠️**
 
 Please be careful with functions such as `.RawContent` to avoid exposing the body
 
@@ -172,7 +177,7 @@ Here is what needs to be encrypted
 {{% /hugo-encrypt %}}
 ````
 
-## Note:
+## 📝 Note:
 
 The images in the blog use Hugo's [Image Processing](https://gohugo.io/content-management/image-processing/) feature, which automatically crops them to the right size to optimize page load speed, and can be time-consuming to generate the first time.
 
@@ -180,7 +185,7 @@ The local search function removes the shortcode and code blocks in order to redu
 
 If you have pjax enabled and have added additional `<script>` tags, add the `data-swup-reload-script` attribute to the tags, see: [https://swup.js.org/plugins/scripts-plugin](https://swup.js.org/plugins/scripts-plugin)
 
-## GitHub Action
+## 🐙 GitHub Action
 
 Copy the [`.github/workflows/main_example.yml`](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/.github/workflows/main_example.yml) file in the theme root directory to your blog's `.github/workflows` directory
 
@@ -194,7 +199,7 @@ Create a Token for deployment at [https://github.com/settings/tokens](https://gi
 
 Add a `TOKEN` field to **github.com/{username}/{project}/settings/secrets/actions** and enter the token you just generated
 
-## Custom
+## 🎨 Custom
 
 - [custom.ts](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/assets/ts/custom.ts)
 - [custom.scss](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/assets/sass/custom.scss)
@@ -205,7 +210,7 @@ Add a `TOKEN` field to **github.com/{username}/{project}/settings/secrets/action
 
 If you don't want to modify the theme file, you can create a file with the same name in the root of your website to modify it, e.g. `myblog/layouts/partials/custom/head.html`
 
-## Development
+## 🛠️ Development
 
 ```sh
 git clone https://github.com/Ice-Hazymoon/hugo-theme-luna/
@@ -214,17 +219,17 @@ npm install
 hugo server -s ./exampleSite -D --themesDir "../.."
 ```
 
-## Screenshots
+## 📷 Screenshots
 
 > [https://imiku.me](https://imiku.me)
 
-### - Performance tests (with pjax and katex turned off)
+### - 📈 Performance tests (with pjax and katex turned off)
 
 | Lighthouse                                                                                                      | GTmetrix                                                                                                      |
 | --------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
 | ![Lighthouse](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/lighthouse.png) | ![GTmetrix](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/gtmetrix.png) |
 
-### - Screenshots
+### - 🖼️ Screenshots
 
 | <p align="center">Home</p> ![Home](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/screen-home.png)                             | <p align="center">Home(Dark)</p> ![Home(dark)](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/screen-home-dark.png)         |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -232,7 +237,7 @@ hugo server -s ./exampleSite -D --themesDir "../.."
 | <p align="center">Twitter</p> ![Twitter](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/screen-twitter.png)                       | <p align="center">GitHub</p> ![GitHub](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/screen-github.png)                 |
 | <p align="center">Search</p> ![Search](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/screen-search.png) | <p align="center">Gallery</p> ![Gallery](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/screen-gallery.png) |
 
-## Acknowledgements
+## 👏 Acknowledgements
 
 - [Unsplash](https://unsplash.com/)
 - [hugo-theme-even](https://github.com/olOwOlo/hugo-theme-even)
@@ -241,6 +246,6 @@ hugo server -s ./exampleSite -D --themesDir "../.."
 - [Some shortcodes](https://guanqr.com/tech/website/hugo-shortcodes-customization)
 - [Carousel component](https://codepen.io/onediv/details/VaQbrq)
 
-## License
+## 📜 License
 
 The theme uses the [GPL V3.0](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/LICENSE) protocol open source, please comply with this agreement for secondary development and so on.
