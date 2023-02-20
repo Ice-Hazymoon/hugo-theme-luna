@@ -1,5 +1,5 @@
 [build]
-  command = "npm install --production && hugo --gc --minify --cleanDestinationDir -s ./exampleSite --themesDir ../.. -v"
+  command = "rm ./go.mod && npm install --production && hugo --gc -v --minify --cleanDestinationDir  -s ./exampleSite --themesDir ../.. --enableGitInfo"
   publish = "public"
 
 [build.environment]
