@@ -1,0 +1,6 @@
+[build]
+  command = "npm install --production && hugo --gc --minify --cleanDestinationDir -s ./exampleSite --themesDir ../.. -v"
+  publish = "public"
+
+[build.environment]
+  HUGO_VERSION = "0.104.3"

@@ -61,10 +61,10 @@ imaging:
   quality: 95
   anchor: smart
 
-caches:
-  getresource:
-    dir: :resourceDir/_gen
-    maxAge: 24h
+# caches:
+#   getresource:
+#     dir: :resourceDir/_gen
+#     maxAge: 24h
 
 # 隐私政策，请查看 https://gohugo.io/about/hugo-and-gdpr/
 # See https://gohugo.io/about/hugo-and-gdpr/

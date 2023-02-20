@@ -1,0 +1,6 @@
+[build]
+  command = "cd themes/hugo-theme-luna && npm install --production && cd ../../ hugo --gc --minify --cleanDestinationDir -v"
+  publish = "public"
+
+[build.environment]
+  HUGO_VERSION = "0.104.3"
