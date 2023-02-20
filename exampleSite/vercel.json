@@ -1,0 +1,10 @@
+{
+    "build": {
+        "env": {
+            "HUGO_VERSION": "0.104.3"
+        }
+    },
+    "buildCommand": "hugo --gc -v --minify --cleanDestinationDir --enableGitInfo",
+    "installCommand": "cd themes/hugo-theme-luna && npm install postcss-cli -g && npm install --production && cd ../../",
+    "outputDirectory": "exampleSite/public"
+}
