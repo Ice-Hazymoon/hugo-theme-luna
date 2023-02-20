@@ -1,6 +1,6 @@
 [build]
   command = "npm install postcss-cli -g && npm install --production && hugo --gc -v --minify --cleanDestinationDir  -s ./exampleSite --themesDir ../.. --enableGitInfo"
-  publish = "public"
+  publish = "exampleSite/public"
 
 [build.environment]
   HUGO_VERSION = "0.104.3"
