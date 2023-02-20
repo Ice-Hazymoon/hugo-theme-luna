@@ -14,6 +14,7 @@
 
 ![](https://img.shields.io/github/last-commit/Ice-Hazymoon/hugo-theme-luna?style=flat-square) ![](https://img.shields.io/github/languages/code-size/Ice-Hazymoon/hugo-theme-luna?style=flat-square)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/085457b4-c6d2-419e-af64-1f2f8b948779/deploy-status)](https://app.netlify.com/sites/hugo-theme-luna/deploys)
+[![Vercel](https://img.shields.io/badge/Vercel-%E2%89%A50.97-white?style=style=flat-square&logo=vercel&logoColor=white&labelColor=black)](https://hugo-theme-luna-dusky.vercel.app/_src)
 
 <details open>
 <summary>Table of Contents</summary>
