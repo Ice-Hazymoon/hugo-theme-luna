@@ -13,13 +13,17 @@
 {{- $size := $sizes.Get (or (.Get "size") "normal") -}}
 
 {{- if .Get "link" -}}
-<a href="{{- .Get "link" -}}" target="_blank" class="after:hidden m-1 cursor-pointer no-icon rounded inline-flex items-center transition {{ $color}} {{ $size }}">
-    <i class="mr-1 text-inherit {{ .Get "icon" }}"></i>
-    <span class=" text-inherit">{{- .Get "content" | markdownify -}}</span>
-</a>
+    <a
+        href="{{- .Get "link" -}}"
+        target="_blank"
+        class="no-icon {{ $color }} {{ $size }} m-1 inline-flex cursor-pointer items-center rounded transition after:hidden"
+    >
+        <i class="{{ .Get "icon" }} mr-1 text-inherit"></i>
+        <span class=" text-inherit">{{- .Get "content" | markdownify -}}</span>
+    </a>
 {{- else -}}
-<div class="m-1 cursor-pointer rounded  inline-flex items-center transition {{ $color}} {{ $size }}">
-    <i class="mr-1 {{ .Get "icon" }}"></i>
-    <span>{{- .Get "content" | markdownify -}}</span>
-</div>
+    <div class="{{ $color }} {{ $size }} m-1  inline-flex cursor-pointer items-center rounded transition">
+        <i class="{{ .Get "icon" }} mr-1"></i>
+        <span>{{- .Get "content" | markdownify -}}</span>
+    </div>
 {{- end -}}

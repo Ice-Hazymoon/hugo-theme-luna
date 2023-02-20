@@ -14,7 +14,7 @@
         href="{{- $url -}}"
         target="_blank"
         rel="noopener noreferrer"
-        class="link-item relative z-10 inline-flex w-full cursor-pointer overflow-hidden rounded border bg-white p-4 align-top transition duration-150 ease-[ease] hover:border-theme hover:text-white hover:bg-theme dark:border-darkBorder dark:bg-darkBgAccent dark:hover:text-darkText dark:hover:bg-theme"
+        class="link-item relative z-10 inline-flex w-full cursor-pointer overflow-hidden rounded border bg-white p-4 align-top transition duration-150 ease-[ease] hover:border-theme hover:bg-theme hover:text-white dark:border-darkBorder dark:bg-darkBgAccent dark:hover:bg-theme dark:hover:text-darkText"
     >
         <img
             {{ if $lazyload }}data-lazyload{{ end }}
@@ -33,7 +33,7 @@
         </noscript>
 
         <div class="nr">
-            <div class="whitespace-no-wrap n-name overflow-hidden text-xl text-ellipsis">{{- $title -}}</div>
+            <div class="whitespace-no-wrap n-name overflow-hidden text-ellipsis text-xl">{{- $title -}}</div>
             <div class="h-12 line-clamp-2" title="{{- $desc -}}">{{- $desc -}}</div>
         </div>
     </a>

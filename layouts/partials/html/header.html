@@ -1,24 +1,58 @@
-<header class="{{- if .Site.Params.fixedNav -}} fixed z-20 backdrop-blur-md bg-white/80 dark:bg-darkFg mx-auto w-full md:max-w-4xl xl:max-w-4xl 2xl:max-w-4xl {{- else -}} relative {{- end -}}">
+<header
+    class="{{- if .Site.Params.fixedNav -}}
+        fixed z-20 backdrop-blur-md bg-white/80 dark:bg-darkFg mx-auto w-full md:max-w-4xl xl:max-w-4xl 2xl:max-w-4xl
+    {{- else -}}
+        relative
+    {{- end -}}"
+>
     {{- if .Site.Params.fixedNav -}}
-    <style>
-        .typo h1, .typo h2, .typo h3, .typo h4, .typo h5, .typo h6 {
-            scroll-margin-top: 100px;
-        }
-    </style>
+        <style>
+            .typo h1,
+            .typo h2,
+            .typo h3,
+            .typo h4,
+            .typo h5,
+            .typo h6 {
+                scroll-margin-top: 100px;
+            }
+        </style>
     {{- end -}}
 
     {{- if .Site.Params.topTitle -}}
-    <div class=" text-center py-6 border-b dark:border-darkBorder">
-        {{- with .Site.Title -}}<div class="text-3xl">{{- . -}}</div>{{- end -}}
-        {{- with .Site.Params.Description -}}<div class="text-lg mt-4 text-gray-400">{{- . -}}</div>{{- end -}}
-    </div>
+        <div class=" border-b py-6 text-center dark:border-darkBorder">
+            {{- with .Site.Title -}}<div class="text-3xl">{{- . -}}</div>{{- end -}}
+            {{- with .Site.Params.Description -}}<div class="mt-4 text-lg text-gray-400">{{- . -}}</div>{{- end -}}
+        </div>
     {{- end -}}
-    
+
     {{- $RelPermalink := .RelPermalink -}}
     {{- if .Site.Menus.main -}}
-    <nav id="nav" class="navbar top-0 z-10 flex items-center border-b px-5 py-6 dark:border-darkBorder md:px-10">
-        <div class="route-items flex w-full items-center justify-around">
-            {{- range .Site.Menus.main -}}
+        <nav id="nav" class="navbar top-0 z-10 flex items-center border-b px-5 py-6 dark:border-darkBorder md:px-10">
+            <div class="route-items flex w-full items-center justify-around">
+                {{- range .Site.Menus.main -}}
+                    {{- $url := .URL | relLangURL -}}
+                    {{- $title := or (T (print "navbar." .Identifier)) .Name -}}
+                    <a
+                        title="{{- $title -}}"
+                        data-active-link="{{- $url -}}"
+                        href="{{- $url -}}"
+                        class="{{ if eq $RelPermalink ($url) }}
+                            link-exact-active
+                        {{ end }} relative flex cursor-pointer flex-col items-center text-gray-700 transition duration-150 ease-[ease]"
+                    >
+                        <i
+                            class="{{ .Params.icon }} flex h-8 w-8 items-center justify-center text-3xl leading-none text-gray-500 transition duration-150 ease-[ease] dark:text-darkTextPlaceholder"
+                        ></i>
+                        <span class="mt-1 block text-xs text-gray-400 dark:text-darkText sm:text-sm md:hidden">{{- $title -}}</span>
+                    </a>
+                {{- end }}
+            </div>
+        </nav>
+    {{- end -}}
+
+    {{- if .Site.Menus.sub -}}
+        <nav class="sub-navbar z-10 flex items-center border-b px-5 py-2 dark:border-darkBorder md:px-10">
+            {{- range .Site.Menus.sub -}}
                 {{- $url := .URL | relLangURL -}}
                 {{- $title := or (T (print "navbar." .Identifier)) .Name -}}
                 <a
@@ -27,38 +61,13 @@
                     href="{{- $url -}}"
                     class="{{ if eq $RelPermalink ($url) }}
                         link-exact-active
-                    {{ end }} relative flex cursor-pointer flex-col items-center text-gray-700 transition duration-150 ease-[ease]"
+                    {{ end }} relative mr-4 flex cursor-pointer items-center text-gray-400 transition duration-150 ease-[ease] hover:text-theme dark:text-darkText"
                 >
-                    <i
-                        class="{{ .Params.icon }} flex h-8 w-8 items-center justify-center text-3xl leading-none text-gray-500 transition duration-150 ease-[ease] dark:text-darkTextPlaceholder"
-                    ></i>
-                    <span class="mt-1 block text-xs text-gray-400 dark:text-darkText sm:text-sm md:hidden">{{- $title -}}</span>
+                    <i class="{{ .Params.icon }} mr-1 leading-none"></i>
+                    <span>{{- $title -}}</span>
                 </a>
-            {{- end }}
-        </div>
-    </nav>
-    {{- end -}}
-
-    {{- if .Site.Menus.sub -}}
-    <nav class="sub-navbar z-10 flex items-center border-b px-5 py-2 dark:border-darkBorder md:px-10">
-        {{- range .Site.Menus.sub -}}
-            {{- $url := .URL | relLangURL -}}
-            {{- $title := or (T (print "navbar." .Identifier)) .Name -}}
-            <a
-                title="{{- $title -}}"
-                data-active-link="{{- $url -}}"
-                href="{{- $url -}}"
-                class="{{ if eq $RelPermalink ($url) }}
-                    link-exact-active
-                {{ end }} relative flex cursor-pointer items-center mr-4 text-gray-400 dark:text-darkText transition duration-150 ease-[ease] hover:text-theme"
-            >
-                <i
-                    class="{{ .Params.icon }} leading-none mr-1"
-                ></i>
-                <span>{{- $title -}}</span>
-            </a>
-        {{- end -}}
-    </nav>
+            {{- end -}}
+        </nav>
     {{- end -}}
 
     {{- partial "components/dark-mode" . -}}

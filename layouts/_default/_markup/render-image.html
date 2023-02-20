@@ -8,7 +8,7 @@
 
 {{- if (urls.Parse (.Destination | safeURL)).Scheme -}}
     {{- $processImage = partial "helper/image-process" (dict "Image" $Permalink "Site" .Page.Site) -}}
-    {{- $Permalink = (replace $Permalink "{{timestamp}}" (delimit (shuffle (seq 1 9)) "")) -}}
+    {{- $Permalink = (replace $Permalink "{{timestamp }}" (delimit (shuffle (seq 1 9)) "")) -}}
 {{- else -}}
     {{- $Image := .Page.Resources.GetMatch (printf "%s" (.Destination | safeURL)) -}}
     {{- $galleryImage := false -}}
@@ -21,7 +21,6 @@
     {{- else -}}
         {{- $Permalink = print $public_cdn (or $Image $Permalink) -}}
     {{- end -}}
-    
 {{- end -}}
 
 <figure
@@ -34,7 +33,7 @@
         {{- with $processImage.SrcsetWebp -}}
             <source {{ if $lazyload }}data-{{ end }}srcset="{{- . -}}" type="image/webp" />
         {{- end -}}
-        
+
         <img
             {{ with $processImage.Colors }}style="background-image: linear-gradient(180deg, {{- . -}});"{{ end }}
             {{ if $lazyload }}data-{{ end }}src="{{- $Permalink -}}"
@@ -50,7 +49,7 @@
     <noscript data-lazyload-noscript>
         <a class="after:hidden" href="{{- $Permalink -}}" target="_blank" rel="noopener noreferrer">
             <picture>
-                {{- with $processImage.SrcsetWebp  -}}
+                {{- with $processImage.SrcsetWebp -}}
                     <source srcset="{{- . -}}" type="image/webp" />
                 {{- end -}}
                 <img

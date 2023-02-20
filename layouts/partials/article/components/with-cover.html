@@ -9,7 +9,7 @@
 
 {{- if (urls.Parse ($featuredImageUrl | safeURL)).Scheme -}}
     {{- $processImage = partial "helper/image-process" (dict "Image" $featuredImageUrl "Site" .Page.Site) -}}
-    {{- $featuredImageUrl = (replace $featuredImageUrl "{{timestamp}}" (delimit (shuffle (seq 1 9)) "")) | safeURL -}}
+    {{- $featuredImageUrl = (replace $featuredImageUrl "{{timestamp }}" (delimit (shuffle (seq 1 9)) "")) | safeURL -}}
 {{- else -}}
     {{- $featuredImage := .Resources.GetMatch .Params.featured_image -}}
     {{- $processImage = partial "helper/image-process" (dict "Image" $featuredImage "Site" .Page.Site) -}}
@@ -17,8 +17,10 @@
 {{- end -}}
 
 <div
-    style="{{- with $processImage.Colors -}}background-image: linear-gradient(180deg, {{- . -}});{{- end -}} {{- with $featuredImageHeight -}}padding-bottom: {{- . -}};{{- end -}}"
-    class="article-cover relative {{ if $featuredImageHeight }}h-0{{ . }}{{ end }} w-full"
+    style="{{- with $processImage.Colors -}}background-image: linear-gradient(180deg, {{- . -}});{{- end -}} {{- with $featuredImageHeight -}}
+        padding-bottom: {{- . -}};
+    {{- end -}}"
+    class="article-cover {{ if $featuredImageHeight }}h-0{{ . }}{{ end }} relative w-full"
 >
     <picture class="noscript-hidden">
         {{- if $processImage.Processed -}}

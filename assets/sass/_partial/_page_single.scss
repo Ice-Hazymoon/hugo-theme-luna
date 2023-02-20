@@ -15,7 +15,7 @@
     }
     .toc {
         #TableOfContents {
-            @apply text-sm overflow-y-auto;
+            @apply overflow-y-auto text-sm;
             &.toc-scroll {
                 max-height: calc(100vh - 7.5rem);
             }
@@ -31,7 +31,7 @@
                     a {
                         @apply align-middle hover:text-theme 2xl:hover:text-text;
                         &.toc-active {
-                            @apply text-theme hover:text-theme outline-none;
+                            @apply text-theme outline-none hover:text-theme;
                         }
                     }
                 }

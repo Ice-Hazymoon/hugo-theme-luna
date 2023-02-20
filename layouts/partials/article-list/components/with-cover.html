@@ -7,10 +7,9 @@
 {{- $featuredImageUrl := or .Params.featured_image .Site.Params.defaultFeaturedImage -}}
 {{- $featuredImageHeight := .Site.Params.featuredImageHeight -}}
 
-
 {{- if (urls.Parse ($featuredImageUrl | safeURL)).Scheme -}}
     {{- $processImage = partial "helper/image-process" (dict "Image" $featuredImageUrl "Site" .Site) -}}
-    {{- $featuredImageUrl = (replace $featuredImageUrl "{{timestamp}}" (delimit (shuffle (seq 1 9)) "")) | safeURL -}}
+    {{- $featuredImageUrl = (replace $featuredImageUrl "{{timestamp }}" (delimit (shuffle (seq 1 9)) "")) | safeURL -}}
 {{- else -}}
     {{- $featuredImage := "" -}}
     {{- if .Params.featured_image -}}
@@ -26,8 +25,10 @@
 
 <a
     href="{{- .RelPermalink -}}"
-    class="article-cover relative block {{ if $featuredImageHeight }}h-0{{ . }}{{ end }} w-full transition duration-100 ease-[ease]"
-    style="{{- with $processImage.Colors -}}background-image: linear-gradient(180deg, {{- . -}});{{- end -}} {{- with $featuredImageHeight -}}padding-bottom: {{- . -}};{{- end -}}"
+    class="article-cover {{ if $featuredImageHeight }}h-0{{ . }}{{ end }} relative block w-full transition duration-100 ease-[ease]"
+    style="{{- with $processImage.Colors -}}background-image: linear-gradient(180deg, {{- . -}});{{- end -}} {{- with $featuredImageHeight -}}
+        padding-bottom: {{- . -}};
+    {{- end -}}"
 >
     <picture class="noscript-hidden">
         {{- if $processImage.Processed -}}
@@ -41,7 +42,9 @@
             {{ end -}}
             {{ with .Title }}alt="{{- . -}}"{{ end }}
             {{ if not $processImage.Placeholder }}style="background-color: #fff;"{{ end }}
-            class="noscript-hidden {{ if $featuredImageHeight }}absolute{{ end }} left-0 top-0 h-full w-full object-cover object-center transition duration-300 ease-[ease]"
+            class="noscript-hidden {{ if $featuredImageHeight }}
+                absolute
+            {{ end }} left-0 top-0 h-full w-full object-cover object-center transition duration-300 ease-[ease]"
             {{ if $lazyload }}data-lazyload data-lazyload-blur{{ end }}
         />
     </picture>

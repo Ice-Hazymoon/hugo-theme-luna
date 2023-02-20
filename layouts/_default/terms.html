@@ -36,7 +36,7 @@
             {{- else -}}
                 {{- range sort .Site.Taxonomies.tags "Count" "desc" -}}
                     {{- $size := add (mul .Count 0.15) 0.75 -}}
-                    {{- if gt $size 4  -}}
+                    {{- if gt $size 4 -}}
                         {{- $size = 3 -}}
                     {{- end -}}
                     <a

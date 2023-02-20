@@ -12,7 +12,7 @@
         <!-- Paginated. Append page number to title -->
         {{ $title = printf "%s - %s" (T "page.page" (string .Paginator.PageNumber)) $siteTitle }}
     {{ else }}
-        {{ $title = $siteTitle}}
+        {{ $title = $siteTitle }}
     {{ end }}
 {{- else if eq .Kind "term" -}}
     <!-- Taxonomy page -->
@@ -21,13 +21,14 @@
     {{ $pages := where .Pages "Type" "in" (slice "posts" "status") }}
     {{ $pag := .Paginate $pages }}
 
+
     <!-- {TAXONOMY_TYPE}: {TAXONOMY_TERM} -->
     {{ $title = slice (T (printf `taxonomy._%s` .Data.Plural)) ": " $title }}
 
     {{ if .Paginator.HasPrev }}
         <!-- Add page number-->
         {{ $title = $title | append " - " (T "page.page" (string .Paginator.PageNumber)) }}
-    {{ end }} 
+    {{ end }}
 
     {{ $title = $title | append " - " $siteTitle }}
     {{ $title = delimit $title "" }}

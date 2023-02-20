@@ -4,7 +4,14 @@
 
     <div class="page-search">
         <div class="search-input flex items-center border-b bg-gray-100 px-3 py-2 text-2xl dark:border-darkBorder dark:bg-darkBgAccent">
-            <input id="search-input" type="search" disabled placeholder="{{- cond .Site.Params.search (T "search.loading") (T "search.notEnabled")  -}}" autofocus="autofocus" class="w-full" />
+            <input
+                id="search-input"
+                type="search"
+                disabled
+                placeholder="{{- cond .Site.Params.search (T "search.loading") (T "search.notEnabled") -}}"
+                autofocus="autofocus"
+                class="w-full"
+            />
             <i class="eva eva-search ml-4 block cursor-pointer text-gray-500"></i>
         </div>
         <div class="relative">
@@ -18,8 +25,8 @@
                     class="pointer-events-none max-h-full max-w-xs md:max-w-sm"
                 />
             </div>
-            <div id="search-results"  class="p-6 md:px-10 pb-0">
-                <div id="search-results-title" class="hidden font-bold text-2xl border-b dark:border-darkBorder pb-4">
+            <div id="search-results" class="p-6 pb-0 md:px-10">
+                <div id="search-results-title" class="hidden border-b pb-4 text-2xl font-bold dark:border-darkBorder">
                     {{- $countHTML := "<span id='search-results-count' class='text-theme'>${keyword}</span>" -}}
                     {{- $keywordHTML := "<span id='search-results-keyword' class='text-theme'>${results}</span>" -}}
                     {{- T "search.results" (dict "Count" $countHTML "Keyword" $keywordHTML) | safeHTML -}}

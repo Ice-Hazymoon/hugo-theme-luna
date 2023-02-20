@@ -6,7 +6,11 @@
         {{- if .IsTranslated -}}
             <div
                 style="font-size: 0;"
-                class="{{ if .Site.Params.fixedNav }} fixed {{ else }} absolute {{ end }} left-0 top-0 z-50 rounded rounded-tl-none rounded-bl-none md:bg-white p-1.5 md:shadow-custom dark:bg-darkBgAccent"
+                class="{{ if .Site.Params.fixedNav }}
+                    fixed
+                {{ else }}
+                    absolute
+                {{ end }} left-0 top-0 z-50 rounded rounded-tl-none rounded-bl-none p-1.5 dark:bg-darkBgAccent md:bg-white md:shadow-custom"
             >
                 <input type="checkbox" name="i18nlist-input" id="i18nlist-checkbox" />
                 <label for="i18nlist-checkbox">
@@ -19,7 +23,11 @@
                         <li class="mb-1.5 cursor-pointer last:mb-0">
                             <a data-no-swup href="{{- .Permalink -}}" title="{{- T "switchLang" .Language.LanguageName -}}">
                                 {{- $flag := resources.Get .Site.Params.languageIcon -}}
-                                <img class="w-6 cursor-pointer rounded-sm border border-gray-50" src="{{- print $public_cdn $flag.RelPermalink -}}" alt="{{- .Lang -}}" />
+                                <img
+                                    class="w-6 cursor-pointer rounded-sm border border-gray-50"
+                                    src="{{- print $public_cdn $flag.RelPermalink -}}"
+                                    alt="{{- .Lang -}}"
+                                />
                             </a>
                         </li>
                     {{- end -}}

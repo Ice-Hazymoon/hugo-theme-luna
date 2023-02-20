@@ -9,202 +9,209 @@
     <div class="page-twitter relative py-8">
         <div class="mx-6 md:mx-10">
             {{- if $twitterConfig.enabled -}}
-            <div class="mb-10 inline-flex items-end pb-3 text-3xl">
-                <div class="mr-4 inline-flex items-center leading-none">
-                    <i class="eva eva-twitter-outline mr-2"></i>
-                    <span>{{- T "twitter.title" -}}</span>
+                <div class="mb-10 inline-flex items-end pb-3 text-3xl">
+                    <div class="mr-4 inline-flex items-center leading-none">
+                        <i class="eva eva-twitter-outline mr-2"></i>
+                        <span>{{- T "twitter.title" -}}</span>
+                    </div>
+                    {{- if $twitterConfig.id -}}
+                        <div class="inline-block text-lg leading-none text-gray-500 hover:text-theme dark:text-darkTextPlaceholder">
+                            <a href="https://twitter.com/{{- $twitterConfig.id -}}" target="_blank" rel="noopener noreferrer" title="{{- T "twitter.goto" -}}"
+                                >@{{- $twitterConfig.id -}}</a
+                            >
+                        </div>
+                    {{- end -}}
                 </div>
-                {{- if $twitterConfig.id -}}
-                <div class="inline-block text-lg leading-none text-gray-500 hover:text-theme dark:text-darkTextPlaceholder">
-                    <a href="https://twitter.com/{{- $twitterConfig.id -}}" target="_blank" rel="noopener noreferrer" title="{{- T "twitter.goto" -}}"
-                        >@{{- $twitterConfig.id -}}</a
-                    >
-                </div>
-                {{- end -}}
-            </div>
 
-            <div id="twitter">
-                {{- if $twitterConfig.id -}}
-                    {{- $apiurl := (print "https://api.rss2json.com/v1/api.json?" (querify "rss_url" (print $twitterConfig.rsshub "/twitter/user/" $twitterConfig.id))) -}}
-                    {{- $twitterData := getJSON $apiurl -}}
-                    {{- range (index $twitterData "items") -}}
-                        {{- $pubDate := dateFormat (T "date.d_m_h_s") .pubDate -}}
-                        {{- $content := (trim (replaceRE "<br>" "\n" (replaceRE "<video(.+?)</video>|<img(.+?)>" "" .content)) "\n") | safeHTML -}}
-                        {{- $pics := findRE "<img src=\"(.+?)\" referrerpolicy=\"no-referrer\">" .content -}}
-                        {{- $videos := findRE "<video (.+?)></video>" .content -}}
-                        {{- $tweetId := index (findRE "([0-9]+$)" .link) 0 -}}
-                        <div class="twitter-item flex">
-                            <div class="hidden w-36 flex-grow-0 text-sm sm:block">
-                                <div class="-mt-1 flex items-center text-gray-500">
-                                    <i class="eva eva-clock-outline mr-1"></i>
-                                    <span>{{- $pubDate -}}</span>
-                                </div>
-                            </div>
-                            <div class="card-r relative w-1 flex-grow border-l-4 border-gray-200 pl-8 pb-10 dark:border-darkBorder">
-                                <div class="{{ if $content }}mb-4{{ else }}mb-2{{ end }} text-bases typo -mt-1 break-all">
-                                    <div class="mb-2 flex items-center text-sm text-gray-600 sm:hidden">
+                <div id="twitter">
+                    {{- if $twitterConfig.id -}}
+                        {{- $apiurl := (print "https://api.rss2json.com/v1/api.json?" (querify "rss_url" (print $twitterConfig.rsshub "/twitter/user/" $twitterConfig.id))) -}}
+                        {{- $twitterData := getJSON $apiurl -}}
+                        {{- range (index $twitterData "items") -}}
+                            {{- $pubDate := dateFormat (T "date.d_m_h_s") .pubDate -}}
+                            {{- $content := (trim (replaceRE "<br>" "\n" (replaceRE "<video(.+?)</video>|<img(.+?)>" "" .content)) "\n") | safeHTML -}}
+                            {{- $pics := findRE "<img src=\"(.+?)\" referrerpolicy=\"no-referrer\">" .content -}}
+                            {{- $videos := findRE "<video (.+?)></video>" .content -}}
+                            {{- $tweetId := index (findRE "([0-9]+$)" .link) 0 -}}
+                            <div class="twitter-item flex">
+                                <div class="hidden w-36 flex-grow-0 text-sm sm:block">
+                                    <div class="-mt-1 flex items-center text-gray-500">
                                         <i class="eva eva-clock-outline mr-1"></i>
-                                        <span class="text-gray-500">{{- $pubDate -}}</span>
+                                        <span>{{- $pubDate -}}</span>
                                     </div>
-                                    {{- if $content -}}
-                                        <div class="whitespace-pre-line">{{- $content -}}</div>
-                                    {{- end -}}
                                 </div>
-                                <div class="w-full">
-                                    {{- $title := .title -}}
+                                <div class="card-r relative w-1 flex-grow border-l-4 border-gray-200 pl-8 pb-10 dark:border-darkBorder">
+                                    <div class="{{ if $content }}mb-4{{ else }}mb-2{{ end }} text-bases typo -mt-1 break-all">
+                                        <div class="mb-2 flex items-center text-sm text-gray-600 sm:hidden">
+                                            <i class="eva eva-clock-outline mr-1"></i>
+                                            <span class="text-gray-500">{{- $pubDate -}}</span>
+                                        </div>
+                                        {{- if $content -}}
+                                            <div class="whitespace-pre-line">{{- $content -}}</div>
+                                        {{- end -}}
+                                    </div>
+                                    <div class="w-full">
+                                        {{- $title := .title -}}
 
-                                    {{- range $pics -}}
-                                        <div class="relative inline-block w-1/2 pr-4 pb-4 lg:w-1/3 xl:w-1/4">
-                                            <div class="img-box relative overflow-hidden rounded border dark:border-darkBorder">
-                                                {{- $picURL := htmlUnescape (replaceRE "<img src=\"(.+?)\" referrerpolicy=\"no-referrer\">" `${1}` .) -}}
+                                        {{- range $pics -}}
+                                            <div class="relative inline-block w-1/2 pr-4 pb-4 lg:w-1/3 xl:w-1/4">
+                                                <div class="img-box relative overflow-hidden rounded border dark:border-darkBorder">
+                                                    {{- $picURL := htmlUnescape (replaceRE "<img src=\"(.+?)\" referrerpolicy=\"no-referrer\">" `${1}` .) -}}
+                                                    {{- if $twitterConfig.imageProcessing -}}
+
+                                                        <!-- 下载资源并处理 -->
+                                                        {{- with resources.GetRemote $picURL -}}
+                                                            {{- with .Err -}}
+                                                                {{- warnf "%s" . -}}
+                                                            {{- else -}}
+                                                                {{- $processImage := partial "helper/image-process" (dict "Image" . "Site" $Site) -}}
+
+                                                                <picture
+                                                                    class="noscript-hidden"
+                                                                    {{ with $processImage.Colors }}
+                                                                        style="background-image: linear-gradient(180deg, {{- . -}});"
+                                                                    {{ end }}
+                                                                >
+                                                                    {{- with $processImage.SrcsetWebp -}}
+                                                                        <source {{ if $lazyload }}data-{{ end }}srcset="{{- . -}}" type="image/webp" />
+                                                                    {{- end -}}
+                                                                    <img
+                                                                        {{ if $lazyload }}data-{{ end }}src="{{- print $public_cdn $processImage.Permalink -}}"
+                                                                        {{ if $lazyload }}data-{{ end }}srcset="{{- $processImage.Srcset -}}"
+                                                                        {{ if $lazyload }}src="{{- or $processImage.Placeholder $lazyload_image -}}"{{ end }}
+                                                                        {{- with $title -}}alt="{{- . -}}"{{- end -}}
+                                                                        class="w-full border border-x-0 border-solid border-gray-100 object-cover dark:border-darkBorder"
+                                                                        {{ if $imageZoom }}data-zoomable{{ end }}
+                                                                        {{ if $lazyload }}data-lazyload data-lazyload-blur{{ end }}
+                                                                    />
+                                                                </picture>
+                                                                <noscript>
+                                                                    <a
+                                                                        href="{{- print $public_cdn $processImage.Permalink -}}"
+                                                                        target="_blank"
+                                                                        rel="noopener noreferrer"
+                                                                    >
+                                                                        <picture>
+                                                                            {{- with $processImage.SrcsetWebp -}}
+                                                                                <source srcset="{{- . -}}" type="image/webp" />
+                                                                            {{- end -}}
+                                                                            <img
+                                                                                srcset="{{- $processImage.Srcset -}}"
+                                                                                src="{{- print $public_cdn $processImage.Permalink -}}"
+                                                                                {{- with $title -}}alt="{{- . -}}"{{- end -}}
+                                                                                class="w-full border border-x-0 border-solid border-gray-100 object-cover dark:border-darkBorder"
+                                                                            />
+                                                                        </picture>
+                                                                    </a>
+                                                                </noscript>
+                                                            {{- end -}}
+                                                        {{- end -}}
+                                                    {{- else -}}
+                                                        <!-- 不下载资源 -->
+                                                        <picture class="noscript-hidden">
+                                                            <img
+                                                                {{ if $lazyload }}data-{{ end }}src="{{- $picURL -}}"
+                                                                {{ if $lazyload }}src="{{- $lazyload_image -}}"{{ end }}
+                                                                {{- with $title -}}alt="{{- . -}}"{{- end -}}
+                                                                class="w-full border border-x-0 border-solid border-gray-100 object-cover dark:border-darkBorder"
+                                                                {{ if $imageZoom }}data-zoomable{{ end }}
+                                                                {{ if $lazyload }}data-lazyload{{ end }}
+                                                            />
+                                                        </picture>
+                                                    {{- end -}}
+                                                </div>
+                                            </div>
+                                        {{- end -}}
+
+                                        {{- range $videos -}}
+                                            <div class="relative inline-block w-full pr-4 pb-4 xl:w-2/3">
+                                                {{- $videoURL := (replaceRE "<video src=\"(.+?)\"(.+?)></video>" `${1}` .) | safeHTML -}}
                                                 {{- if $twitterConfig.imageProcessing -}}
-                                                
-                                                    <!-- 下载资源并处理 -->
-                                                    {{- with resources.GetRemote $picURL -}}
+                                                    {{- with resources.GetRemote $videoURL -}}
                                                         {{- with .Err -}}
                                                             {{- warnf "%s" . -}}
                                                         {{- else -}}
-                                                            {{- $processImage := partial "helper/image-process" (dict "Image" . "Site" $Site) -}}
-                                                            
-                                                            <picture
-                                                                class="noscript-hidden"
-                                                                {{ with $processImage.Colors }}style="background-image: linear-gradient(180deg, {{- . -}});"{{ end }}
-                                                            >
-                                                                {{- with $processImage.SrcsetWebp -}}
-                                                                    <source {{ if $lazyload }}data-{{ end }}srcset="{{- . -}}" type="image/webp" />
-                                                                {{- end -}}
-                                                                <img
-                                                                    {{ if $lazyload }}data-{{ end }}src="{{- print $public_cdn $processImage.Permalink -}}"
-                                                                    {{ if $lazyload }}data-{{ end }}srcset="{{- $processImage.Srcset -}}"
-                                                                    {{ if $lazyload }}src="{{- or $processImage.Placeholder $lazyload_image -}}"{{ end }}
-                                                                    {{- with $title -}}alt="{{- . -}}"{{- end -}}
-                                                                    class="w-full border border-x-0 border-solid border-gray-100 object-cover dark:border-darkBorder"
-                                                                    {{ if $imageZoom }}data-zoomable{{ end }}
-                                                                    {{ if $lazyload }}data-lazyload data-lazyload-blur{{ end }}
-                                                                />
-                                                            </picture>
-                                                            <noscript>
-                                                                <a
-                                                                    href="{{- print $public_cdn $processImage.Permalink -}}"
-                                                                    target="_blank"
-                                                                    rel="noopener noreferrer"
-                                                                >
-                                                                    <picture>
-                                                                        {{- with $processImage.SrcsetWebp -}}
-                                                                            <source srcset="{{- . -}}" type="image/webp" />
-                                                                        {{- end -}}
-                                                                        <img
-                                                                            srcset="{{- $processImage.Srcset -}}"
-                                                                            src="{{- print $public_cdn $processImage.Permalink -}}"
-                                                                            {{- with $title -}}alt="{{- . -}}"{{- end -}}
-                                                                            class="w-full border border-x-0 border-solid border-gray-100 object-cover dark:border-darkBorder"
-                                                                        />
-                                                                    </picture>
-                                                                </a>
-                                                            </noscript>
+                                                            <video
+                                                                src="{{- print $public_cdn .RelPermalink -}}"
+                                                                class="max-h-80 max-w-full cursor-pointer rounded border border-gray-200 dark:border-darkBorder"
+                                                                controls="controls"
+                                                                alt="{{- $title -}}"
+                                                            ></video>
                                                         {{- end -}}
                                                     {{- end -}}
                                                 {{- else -}}
-                                                    <!-- 不下载资源 -->
-                                                    <picture class="noscript-hidden">
-                                                        <img
-                                                            {{ if $lazyload }}data-{{ end }}src="{{- $picURL -}}"
-                                                            {{ if $lazyload }}src="{{- $lazyload_image -}}"{{ end }}
-                                                            {{- with $title -}}alt="{{- . -}}"{{- end -}}
-                                                            class="w-full border border-x-0 border-solid border-gray-100 object-cover dark:border-darkBorder"
-                                                            {{ if $imageZoom }}data-zoomable{{ end }}
-                                                            {{ if $lazyload }}data-lazyload{{ end }}
-                                                        />
-                                                    </picture>
-                                                {{- end -}}
+                                                    <video
+                                                        src="{{- $videoURL -}}"
+                                                        class="max-h-80 max-w-full cursor-pointer rounded border border-gray-200 dark:border-darkBorder"
+                                                        controls="controls"
+                                                        alt="{{- $title -}}"
+                                                    ></video>
+                                                {{ end }}
                                             </div>
-                                        </div>
-                                    {{- end -}}
-
-                                    {{- range $videos -}}
-                                        <div class="relative inline-block w-full pr-4 pb-4 xl:w-2/3">
-                                            {{- $videoURL := (replaceRE "<video src=\"(.+?)\"(.+?)></video>" `${1}` .) | safeHTML -}}
-                                            {{- if $twitterConfig.imageProcessing -}}
-                                                {{- with resources.GetRemote $videoURL -}}
-                                                    {{- with .Err -}}
-                                                        {{- warnf "%s" . -}}
-                                                    {{- else -}}
-                                                        <video
-                                                            src="{{- print $public_cdn .RelPermalink -}}"
-                                                            class="max-h-80 max-w-full cursor-pointer rounded border border-gray-200 dark:border-darkBorder"
-                                                            controls="controls"
-                                                            alt="{{- $title -}}"
-                                                        ></video>
-                                                    {{- end -}}
-                                                {{- end -}}
-                                            {{- else -}}
-                                                <video
-                                                    src="{{- $videoURL -}}"
-                                                    class="max-h-80 max-w-full cursor-pointer rounded border border-gray-200 dark:border-darkBorder"
-                                                    controls="controls"
-                                                    alt="{{- $title -}}"
-                                                ></video>
-                                            {{ end }}
-                                        </div>
-                                    {{- end -}}
-                                </div>
-                                <div>
-                                    <a
-                                        href="{{- .link -}}"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        class="inline-flex items-center text-xs text-gray-500 text-opacity-90 hover:text-theme hover:text-opacity-100 dark:hover:text-darkText"
-                                    >
-                                        <i class="eva eva-external-link-outline mr-1"></i>
-                                        <span>{{- T "twitter.link" -}}</span>
-                                    </a>
-                                    <a
-                                        onclick="window.open('https://twitter.com/intent/favorite?tweet_id={{- $tweetId -}}','Twitter','width=600,height=300,left='+(screen.availWidth/2-300)+',top='+(screen.availHeight/2-150)+''); return false;"
-                                        href="https://twitter.com/intent/favorite?tweet_id={{- $tweetId -}}"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        class="ml-4 inline-flex items-center text-xs text-gray-500 text-opacity-90 hover:text-theme hover:text-opacity-100 dark:hover:text-darkText"
-                                    >
-                                        <i class="eva eva-heart-outline mr-1"></i>
-                                        <span>{{- T "twitter.like" -}}</span>
-                                    </a>
-                                    <a
-                                        onclick="window.open('https://twitter.com/intent/retweet?tweet_id={{- $tweetId -}}','Twitter','width=600,height=300,left='+(screen.availWidth/2-300)+',top='+(screen.availHeight/2-150)+''); return false;"
-                                        href="https://twitter.com/intent/retweet?tweet_id={{- $tweetId -}}"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        class="ml-4 inline-flex items-center text-xs text-gray-500 text-opacity-90 hover:text-theme hover:text-opacity-100 dark:hover:text-darkText"
-                                    >
-                                        <i class="eva eva-flip-2-outline mr-1"></i>
-                                        <span>{{- T "twitter.reply" -}}</span>
-                                    </a>
-                                    <a
-                                        onclick="window.open('https://twitter.com/intent/tweet?in_reply_to={{- $tweetId -}}','Twitter','width=600,height=300,left='+(screen.availWidth/2-300)+',top='+(screen.availHeight/2-150)+''); return false;"
-                                        href="https://twitter.com/intent/tweet?in_reply_to={{- $tweetId -}}"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        class="ml-4 inline-flex items-center text-xs text-gray-500 text-opacity-90 hover:text-theme hover:text-opacity-100 dark:hover:text-darkText"
-                                    >
-                                        <i class="eva eva-undo-outline mr-1 hover:opacity-100 md:opacity-80"></i>
-                                        <span>{{- T "twitter.forward" -}}</span>
-                                    </a>
+                                        {{- end -}}
+                                    </div>
+                                    <div>
+                                        <a
+                                            href="{{- .link -}}"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="inline-flex items-center text-xs text-gray-500 text-opacity-90 hover:text-theme hover:text-opacity-100 dark:hover:text-darkText"
+                                        >
+                                            <i class="eva eva-external-link-outline mr-1"></i>
+                                            <span>{{- T "twitter.link" -}}</span>
+                                        </a>
+                                        <a
+                                            onclick="window.open('https://twitter.com/intent/favorite?tweet_id={{- $tweetId -}}','Twitter','width=600,height=300,left='+(screen.availWidth/2-300)+',top='+(screen.availHeight/2-150)+''); return false;"
+                                            href="https://twitter.com/intent/favorite?tweet_id={{- $tweetId -}}"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="ml-4 inline-flex items-center text-xs text-gray-500 text-opacity-90 hover:text-theme hover:text-opacity-100 dark:hover:text-darkText"
+                                        >
+                                            <i class="eva eva-heart-outline mr-1"></i>
+                                            <span>{{- T "twitter.like" -}}</span>
+                                        </a>
+                                        <a
+                                            onclick="window.open('https://twitter.com/intent/retweet?tweet_id={{- $tweetId -}}','Twitter','width=600,height=300,left='+(screen.availWidth/2-300)+',top='+(screen.availHeight/2-150)+''); return false;"
+                                            href="https://twitter.com/intent/retweet?tweet_id={{- $tweetId -}}"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="ml-4 inline-flex items-center text-xs text-gray-500 text-opacity-90 hover:text-theme hover:text-opacity-100 dark:hover:text-darkText"
+                                        >
+                                            <i class="eva eva-flip-2-outline mr-1"></i>
+                                            <span>{{- T "twitter.reply" -}}</span>
+                                        </a>
+                                        <a
+                                            onclick="window.open('https://twitter.com/intent/tweet?in_reply_to={{- $tweetId -}}','Twitter','width=600,height=300,left='+(screen.availWidth/2-300)+',top='+(screen.availHeight/2-150)+''); return false;"
+                                            href="https://twitter.com/intent/tweet?in_reply_to={{- $tweetId -}}"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="ml-4 inline-flex items-center text-xs text-gray-500 text-opacity-90 hover:text-theme hover:text-opacity-100 dark:hover:text-darkText"
+                                        >
+                                            <i class="eva eva-undo-outline mr-1 hover:opacity-100 md:opacity-80"></i>
+                                            <span>{{- T "twitter.forward" -}}</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
+                        {{- end -}}
+                        <div class=" flex">
+                            <div class="hidden w-36 flex-grow-0 text-sm sm:block"></div>
+                            <a
+                                title="@{{- $twitterConfig.id -}}"
+                                href="https://twitter.com/{{- $twitterConfig.id -}}"
+                                target="_blank"
+                                class="inline-flex -translate-x-1/2 transform items-center justify-center rounded-full border p-2 text-base text-gray-500 transition hover:bg-theme hover:text-white"
+                            >
+                                <i class="eva eva-twitter"></i>
+                            </a>
                         </div>
+                    {{- else -}}
+                        {{- warnf "!!! Twitter ID not set, Please check your config file" -}}
+                        <div class=" text-xl">ERROR: {{- T "twitter.config" -}}</div>
                     {{- end -}}
-                    <div class=" flex">
-                        <div class="hidden w-36 flex-grow-0 text-sm sm:block"></div>
-                        <a title="@{{- $twitterConfig.id -}}" href="https://twitter.com/{{- $twitterConfig.id -}}" target="_blank" class="text-base rounded-full border inline-flex items-center justify-center p-2 transform -translate-x-1/2 text-gray-500 hover:bg-theme hover:text-white transition">
-                            <i class="eva eva-twitter"></i>
-                        </a>
-                    </div>
-                {{- else -}}
-                    {{- warnf "!!! Twitter ID not set, Please check your config file" -}}
-                    <div class=" text-xl">ERROR: {{- T "twitter.config" -}}</div>
-                {{- end -}}
-            </div>
+                </div>
             {{- else -}}
-            <div class=" text-xl">Twitter page is not enabled</div>
+                <div class=" text-xl">Twitter page is not enabled</div>
             {{- end -}}
         </div>
     </div>

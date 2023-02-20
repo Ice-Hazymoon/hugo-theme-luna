@@ -20,7 +20,7 @@
                 @apply hidden;
             }
             &[type='radio']:checked + label {
-                @apply border-b-2 border-b-theme text-theme rounded-sm bg-gray-50;
+                @apply rounded-sm border-b-2 border-b-theme bg-gray-50 text-theme;
             }
             &[type='radio']:checked + label + .github-tab {
                 @apply block;

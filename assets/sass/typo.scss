@@ -130,7 +130,7 @@ input[type='checkbox'] {
         }
     }
     blockquote:not(.quote) {
-        @apply my-4 ml-0 rounded border-l-4 border-theme p-5 bg-gray-50 dark:bg-darkBgAccent;
+        @apply my-4 ml-0 rounded border-l-4 border-theme bg-gray-50 p-5 dark:bg-darkBgAccent;
         p {
             @apply first:mt-0 last:mb-0;
         }
@@ -222,7 +222,7 @@ input[type='checkbox'] {
         }
         &::after {
             content: attr(title);
-            @apply absolute w-full leading-6 py-2 left-0 top-0 text-center text-white;
+            @apply absolute left-0 top-0 w-full py-2 text-center leading-6 text-white;
         }
         header {
             color: #8b949e;
@@ -231,7 +231,7 @@ input[type='checkbox'] {
                 @apply cursor-pointer;
             }
             & + div {
-                @apply pt-0 bg-gray-800 dark:bg-transparent #{!important};
+                @apply bg-gray-800 pt-0 dark:bg-transparent #{!important};
             }
             span {
                 @apply mr-0.5 inline-block h-2.5 w-2.5 rounded-full;
@@ -284,20 +284,19 @@ input[type='checkbox'] {
         @apply my-4 w-full rounded dark:border-darkBorder;
     }
 
-    
     @if $headlineCounter {
         counter-reset: h2 0 h3 0 h4 0 h5 0 h6 0;
         $content: counter(h2);
         @for $i from 1 through 5 {
             h#{$i} {
-                counter-reset: h#{$i+1};
+                counter-reset: h#{$i + 1};
             }
-            h#{$i+1}::before {
-                counter-increment: h#{$i+1};
+            h#{$i + 1}::before {
+                counter-increment: h#{$i + 1};
                 content: $content;
-                @apply text-gray-400 mr-6;
+                @apply mr-6 text-gray-400;
             }
-            $content: $content "." counter(h#{$i+2});
+            $content: $content '.' counter(h#{$i + 2});
         }
     } @else {
         h4,

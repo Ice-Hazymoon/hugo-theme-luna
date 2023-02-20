@@ -1,6 +1,6 @@
 {{- if .Site.Params.announcement.enabled -}}
     {{- with resources.Get .Site.Params.announcement.file -}}
-        <div class="typo mb-6 py-2 px-4 bg-gray-50 rounded dark:bg-darkBgAccent">
+        <div class="typo mb-6 rounded bg-gray-50 py-2 px-4 dark:bg-darkBgAccent">
             <!--  before:text-theme before:opacity-60 before:mr-4 before:content-['\ebe0'] before:font-['Eva-Icons'] -->
             {{- .Content | markdownify -}}
         </div>

@@ -2,7 +2,7 @@
 {{- $text := (trim (replaceRE "\r?\n" "" (.Summary | plainify)) " ") | safeURL -}}
 {{- $config := .Site.Params.share -}}
 {{- if $config -}}
-    <div class="px-6 pb-5 pt-4 text-center text-xl text-gray-500 md:px-10 md:pb-10 md:pt-14 flex items-center justify-center">
+    <div class="flex items-center justify-center px-6 pb-5 pt-4 text-center text-xl text-gray-500 md:px-10 md:pb-10 md:pt-14">
         {{- if (index $config "twitter") -}}
             <a
                 class="mr-4 inline-flex h-5 w-5 items-center"
@@ -33,7 +33,7 @@
                 target="_blank"
                 rel="noopener noreferrer"
             >
-            {{- $.Site.Data.luna.icon.weibo | safeHTML -}}
+                {{- $.Site.Data.luna.icon.weibo | safeHTML -}}
             </a>
         {{- end -}}
         {{- if (index $config "copyLinkText") -}}
@@ -41,10 +41,10 @@
         {{- end -}}
 
         {{- if (index $config "qrcode") -}}
-            <div class="group h-5 w-5 relative hidden cursor-pointer sm:inline-block">
+            <div class="group relative hidden h-5 w-5 cursor-pointer sm:inline-block">
                 <i title="{{- T "share.qrcode" -}}" class="eva show-qrcode eva-smartphone hover:text-theme"></i>
                 <div
-                    class="qrcode-wrapper p-2 pointer-events-none absolute left-2/4 bottom-10 h-32 w-32 -translate-x-1/2 overflow-hidden rounded border border-gray-300 bg-white opacity-0 transition duration-300 ease-[ease] group-hover:opacity-100"
+                    class="qrcode-wrapper pointer-events-none absolute left-2/4 bottom-10 h-32 w-32 -translate-x-1/2 overflow-hidden rounded border border-gray-300 bg-white p-2 opacity-0 transition duration-300 ease-[ease] group-hover:opacity-100"
                 >
                     <img class="h-full w-full" src="{{- .Site.Params.qrcodeAPI -}}{{- $url -}}" alt="{{- T "share.qrcode" -}}" />
                 </div>

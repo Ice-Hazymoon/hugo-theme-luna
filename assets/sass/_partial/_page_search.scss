@@ -11,9 +11,9 @@
         &:first-child {
             @apply relative;
             &:after {
-                content: "\ea90";
+                content: '\ea90';
                 font-family: Eva-Icons;
-                @apply right-0 opacity-50 top-2 absolute;
+                @apply absolute right-0 top-2 opacity-50;
             }
         }
     }

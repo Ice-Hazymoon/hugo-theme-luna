@@ -13,5 +13,5 @@
 
 {{- if .Site.Params.opengraph.image -}}
     {{- $image := partial "data/image" . .RelPermalink -}}
-    <meta name="twitter:image" content="{{- $image.Permalink}}" />
+    <meta name="twitter:image" content="{{- $image.Permalink }}" />
 {{- end -}}

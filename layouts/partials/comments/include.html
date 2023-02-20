@@ -7,7 +7,7 @@
 {{- end -}}
 
 {{- if $showComments -}}
-<div class="border-t py-6 px-6 md:px-8 dark:border-darkBorder">
-    {{ partial (printf "comments/provider/%s" .Site.Params.comments.provider) . }}
-</div>
+    <div class="border-t py-6 px-6 dark:border-darkBorder md:px-8">
+        {{ partial (printf "comments/provider/%s" .Site.Params.comments.provider) . }}
+    </div>
 {{ end }}
