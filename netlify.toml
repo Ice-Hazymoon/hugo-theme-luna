@@ -1,6 +1,14 @@
 [build]
-  command = "rm ./go.mod && npm install --production && hugo --gc -v --minify --cleanDestinationDir  -s ./exampleSite --themesDir ../.. --enableGitInfo"
+  command = "npm install postcss-cli -g && npm install --production && hugo --gc -v --minify --cleanDestinationDir  -s ./exampleSite --themesDir ../.. --enableGitInfo"
   publish = "public"
 
 [build.environment]
   HUGO_VERSION = "0.104.3"
+  HUGO_THEME = "repo"
+
+[[plugins]]
+    package = "netlify-plugin-hugo-cache-resources"
+        [plugins.inputs]
+            debug = true
+            # Relative path to source directory in case you use Hugo's "--s" option
+            srcdir = "exampleSite"
