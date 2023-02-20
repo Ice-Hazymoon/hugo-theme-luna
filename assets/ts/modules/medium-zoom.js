@@ -1,4 +1,4 @@
-/*! medium-zoom 1.0.6 | MIT License | https://github.com/francoischalifour/medium-zoom */
+/*! medium-zoom 1.0.8 | MIT License | https://github.com/francoischalifour/medium-zoom */
 (function(global, factory) {
   typeof exports === "object" && typeof module !== "undefined" ? module.exports = factory() : typeof define === "function" && define.amd ? define(factory) : (global = global || self, 
   global.mediumZoom = factory());
@@ -242,8 +242,8 @@
         var naturalWidth = isSvg(zoomTarget) ? viewportWidth : zoomTarget.naturalWidth || viewportWidth;
         var naturalHeight = isSvg(zoomTarget) ? viewportHeight : zoomTarget.naturalHeight || viewportHeight;
         var _zoomTarget$getBoundi = zoomTarget.getBoundingClientRect(), top = _zoomTarget$getBoundi.top, left = _zoomTarget$getBoundi.left, width = _zoomTarget$getBoundi.width, height = _zoomTarget$getBoundi.height;
-        var scaleX = Math.min(naturalWidth, viewportWidth) / width;
-        var scaleY = Math.min(naturalHeight, viewportHeight) / height;
+        var scaleX = Math.min(Math.max(width, naturalWidth), viewportWidth) / width;
+        var scaleY = Math.min(Math.max(height, naturalHeight), viewportHeight) / height;
         var scale = Math.min(scaleX, scaleY);
         var translateX = (-left + (viewportWidth - width) / 2 + zoomOptions.margin + container.left) / scale;
         var translateY = (-top + (viewportHeight - height) / 2 + zoomOptions.margin + container.top) / scale;
@@ -296,6 +296,9 @@
           active.template.appendChild(template.content.cloneNode(true));
           document.body.appendChild(active.template);
         }
+        if (active.original.parentElement && active.original.parentElement.tagName === "PICTURE" && active.original.currentSrc) {
+          active.zoomed.src = active.original.currentSrc;
+        }
         document.body.appendChild(active.zoomed);
         window.requestAnimationFrame(function() {
           document.body.classList.add("medium-zoom--opened");
@@ -308,6 +311,7 @@
           active.zoomedHd = active.zoomed.cloneNode();
           active.zoomedHd.removeAttribute("srcset");
           active.zoomedHd.removeAttribute("sizes");
+          active.zoomedHd.removeAttribute("loading");
           active.zoomedHd.src = active.zoomed.getAttribute("data-zoom-src");
           active.zoomedHd.onerror = function() {
             clearInterval(getZoomTargetSize);

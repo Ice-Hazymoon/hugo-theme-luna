@@ -143,7 +143,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var SwupProgressPlugin = function (_Plugin) {
 	_inherits(SwupProgressPlugin, _Plugin);
 
-	function SwupProgressPlugin(options) {
+	function SwupProgressPlugin() {
+		var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
 		_classCallCheck(this, SwupProgressPlugin);
 
 		var _this = _possibleConstructorReturn(this, (SwupProgressPlugin.__proto__ || Object.getPrototypeOf(SwupProgressPlugin)).call(this));
@@ -165,43 +167,55 @@ var SwupProgressPlugin = function (_Plugin) {
 		};
 
 		_this.showProgressBar = function () {
-			if (_this.hideProgressBarTimeout != null) {
-				window.clearTimeout(_this.hideProgressBarTimeout);
-				delete _this.hideProgressBarTimeout;
-			}
+			_this.cancelHideProgressBarTimeout();
 			_this.progressBar.show();
 		};
 
 		_this.showProgressBarAfterDelay = function () {
+			_this.cancelShowProgressBarTimeout();
+			_this.cancelHideProgressBarTimeout();
 			_this.showProgressBarTimeout = window.setTimeout(_this.showProgressBar, _this.options.delay);
 		};
 
 		_this.hideProgressBar = function () {
+			_this.cancelShowProgressBarTimeout();
 			_this.progressBar.hide();
 		};
 
 		_this.finishAnimationAndHideProgressBar = function () {
+			_this.cancelShowProgressBarTimeout();
 			_this.hideProgressBarTimeout = window.setTimeout(_this.hideProgressBar, _this.options.transition);
+		};
 
-			if (_this.showProgressBarTimeout != null) {
-				window.clearTimeout(_this.showProgressBarTimeout);
-				delete _this.showProgressBarTimeout;
-			}
+		_this.cancelShowProgressBarTimeout = function () {
+			window.clearTimeout(_this.showProgressBarTimeout);
+			delete _this.showProgressBarTimeout;
+		};
+
+		_this.cancelHideProgressBarTimeout = function () {
+			window.clearTimeout(_this.hideProgressBarTimeout);
+			delete _this.hideProgressBarTimeout;
 		};
 
 		var defaultOptions = {
 			className: 'swup-progress-bar',
-			transition: 300,
 			delay: 300,
+			transition: undefined,
+			minValue: undefined,
+			initialValue: undefined,
 			hideImmediately: true
 		};
 
 		_this.options = _extends({}, defaultOptions, options);
 
 		_this.showProgressBarTimeout = null;
+		_this.hideProgressBarTimeout = null;
+
 		_this.progressBar = new _ProgressBar2.default({
 			className: _this.options.className,
-			animationDuration: _this.options.transition
+			animationDuration: _this.options.transition,
+			minValue: _this.options.minValue,
+			initialValue: _this.options.initialValue
 		});
 		return _this;
 	}
@@ -295,49 +309,54 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var ProgressBar = function () {
-	function ProgressBar(_ref) {
+	function ProgressBar() {
 		var _this = this;
 
-		var _ref$className = _ref.className,
-		    className = _ref$className === undefined ? null : _ref$className,
+		var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+		    _ref$className = _ref.className,
+		    className = _ref$className === undefined ? 'progress-bar' : _ref$className,
+		    _ref$styleAttr = _ref.styleAttr,
+		    styleAttr = _ref$styleAttr === undefined ? 'data-progressbar-styles' : _ref$styleAttr,
 		    _ref$animationDuratio = _ref.animationDuration,
-		    animationDuration = _ref$animationDuratio === undefined ? null : _ref$animationDuratio;
+		    animationDuration = _ref$animationDuratio === undefined ? 300 : _ref$animationDuratio,
+		    _ref$minValue = _ref.minValue,
+		    minValue = _ref$minValue === undefined ? 0.1 : _ref$minValue,
+		    _ref$initialValue = _ref.initialValue,
+		    initialValue = _ref$initialValue === undefined ? 0.25 : _ref$initialValue,
+		    _ref$trickleValue = _ref.trickleValue,
+		    trickleValue = _ref$trickleValue === undefined ? 0.03 : _ref$trickleValue;
 
 		_classCallCheck(this, ProgressBar);
 
-		this.className = 'progress-bar';
-		this.animationDuration = 300;
-		this.minValue = 0.1;
-		this.stylesheetElement = null;
+		this.styleElement = null;
 		this.progressElement = null;
-		this.hiding = false;
-		this.trickleInterval = null;
 		this.value = 0;
 		this.visible = false;
+		this.hiding = false;
+		this.trickleInterval = null;
 
 		this.trickle = function () {
-			var advance = Math.random() * 3 / 100;
+			var advance = Math.random() * _this.trickleValue;
 			_this.setValue(_this.value + advance);
 		};
 
-		if (className !== null) {
-			this.className = className;
-		}
-		if (animationDuration !== null) {
-			this.animationDuration = animationDuration;
-		}
+		this.className = className;
+		this.styleAttr = styleAttr;
+		this.animationDuration = animationDuration;
+		this.minValue = minValue;
+		this.initialValue = initialValue;
+		this.trickleValue = trickleValue;
 
-		this.stylesheetElement = this.createStylesheetElement();
+		this.styleElement = this.createStyleElement();
 		this.progressElement = this.createProgressElement();
-	} // ms
-
+	}
 
 	_createClass(ProgressBar, [{
 		key: 'show',
 		value: function show() {
 			if (!this.visible) {
 				this.visible = true;
-				this.installStylesheetElement();
+				this.installStyleElement();
 				this.installProgressElement();
 				this.startTrickling();
 			}
@@ -360,24 +379,25 @@ var ProgressBar = function () {
 	}, {
 		key: 'setValue',
 		value: function setValue(value) {
-			this.value = Math.max(this.minValue, value);
+			this.value = Math.min(1, Math.max(this.minValue, value));
 			this.refresh();
 		}
 
 		// Private
 
 	}, {
-		key: 'installStylesheetElement',
-		value: function installStylesheetElement() {
-			document.head.insertBefore(this.stylesheetElement, document.head.firstChild);
+		key: 'installStyleElement',
+		value: function installStyleElement() {
+			document.head.insertBefore(this.styleElement, document.head.firstChild);
 		}
 	}, {
 		key: 'installProgressElement',
 		value: function installProgressElement() {
-			this.progressElement.style.width = '0';
+			this.progressElement.style.width = '0%';
 			this.progressElement.style.opacity = '1';
 			document.documentElement.insertBefore(this.progressElement, document.body);
-			this.refresh();
+			this.progressElement.scrollTop = 0; // Force reflow to ensure initial style takes effect
+			this.setValue(Math.random() * this.initialValue);
 		}
 	}, {
 		key: 'fadeProgressElement',
@@ -411,15 +431,15 @@ var ProgressBar = function () {
 			var _this3 = this;
 
 			requestAnimationFrame(function () {
-				_this3.progressElement.style.width = 10 + _this3.value * 90 + '%';
+				_this3.progressElement.style.width = _this3.value * 100 + '%';
 			});
 		}
 	}, {
-		key: 'createStylesheetElement',
-		value: function createStylesheetElement() {
+		key: 'createStyleElement',
+		value: function createStyleElement() {
 			var element = document.createElement('style');
-			element.setAttribute('data-progressbar-styles', '');
-			element.textContent = this.defaultCSS;
+			element.setAttribute(this.styleAttr, '');
+			element.textContent = this.defaultStyles;
 			return element;
 		}
 	}, {
@@ -430,9 +450,9 @@ var ProgressBar = function () {
 			return element;
 		}
 	}, {
-		key: 'defaultCSS',
+		key: 'defaultStyles',
 		get: function get() {
-			return '\n    .' + this.className + ' {\n        position: fixed;\n        display: block;\n        top: 0;\n        left: 0;\n        height: 3px;\n        background-color: black;\n        z-index: 9999;\n        transition:\n          width ' + this.animationDuration + 'ms ease-out,\n          opacity ' + this.animationDuration / 2 + 'ms ' + this.animationDuration / 2 + 'ms ease-in;\n        transform: translate3d(0, 0, 0);\n      }\n    ';
+			return '\n\t\t.' + this.className + ' {\n\t\t\t\tposition: fixed;\n\t\t\t\tdisplay: block;\n\t\t\t\ttop: 0;\n\t\t\t\tleft: 0;\n\t\t\t\theight: 3px;\n\t\t\t\tbackground-color: black;\n\t\t\t\tz-index: 9999;\n\t\t\t\ttransition:\n\t\t\t\t\twidth ' + this.animationDuration + 'ms ease-out,\n\t\t\t\t\topacity ' + this.animationDuration / 2 + 'ms ' + this.animationDuration / 2 + 'ms ease-in;\n\t\t\t\ttransform: translate3d(0, 0, 0);\n\t\t\t}\n\t\t';
 		}
 	}]);
 

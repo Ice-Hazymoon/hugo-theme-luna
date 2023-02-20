@@ -164,12 +164,24 @@ var SwupMorphPlugin = function (_Plugin) {
 	_createClass(SwupMorphPlugin, [{
 		key: 'mount',
 		value: function mount() {
+			this.validateContainers();
 			this.swup.on('contentReplaced', this.contentReplacedHandler);
 		}
 	}, {
 		key: 'unmount',
 		value: function unmount() {
 			this.swup.off('contentReplaced', this.contentReplacedHandler);
+		}
+	}, {
+		key: 'validateContainers',
+		value: function validateContainers() {
+			var _this2 = this;
+
+			this.swup.options.containers.forEach(function (entry) {
+				if (_this2.options.containers.includes(entry)) {
+					throw new Error('[swup-morph-plugin] Please remove \'' + entry + '\' from the swup main options to let morph plugin take over.');
+				}
+			});
 		}
 	}, {
 		key: 'getContainers',
