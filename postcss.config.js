@@ -1,25 +1,23 @@
 const path = require('path');
-
 const isDev = process.env.HUGO_ENVIRONMENT !== 'production';
-
 module.exports = {
     modules: true,
-    plugins: !isDev ? {
-        tailwindcss: {
-            config: path.join(__dirname, '/tailwind.config.js'),
-        },
-        'postcss-pxtorem': {
+    plugins: !isDev ? [
+        require('tailwindcss')({
+            config: path.join(__dirname, '/tailwind.config.js')
+        }),
+        require('postcss-pxtorem')({
             rootValue: 16,
             propList: ['*'],
             selectorBlackList: ['html']
-        },
-        autoprefixer: {},
-        'postcss-easing-gradients': {},
-        'postcss-font-display': {
+        }),
+        require('autoprefixer')({}),
+        require('postcss-easing-gradients')({}),
+        require('postcss-font-display')({
             display: 'swap',
             replace: false
-        },
-        '@fullhuman/postcss-purgecss': {
+        }),
+        require('@fullhuman/postcss-purgecss')({
             content: [
                 path.join(__dirname, '/data/luna/icon.yaml').split(path.sep).join(path.posix.sep),
                 path.join(__dirname, '/layouts/**/*.html').split(path.sep).join(path.posix.sep),
@@ -38,18 +36,18 @@ module.exports = {
             fontFace: false,
             variables: false,
             rejected: true,
-        },
-        cssnano: {
+        }),
+        require('cssnano')({
             preset: ['cssnano-preset-advanced', {
                 discardComments: {
                     removeAll: true,
                 }
             }]
-        },
-    }: {
-        tailwindcss: {
-            config: path.join(__dirname, '/tailwind.config.js'),
-        },
-        'postcss-easing-gradients': {},
-    }
+        }),
+    ] : [
+        require('tailwindcss')({
+            config: path.join(__dirname, '/tailwind.config.js')
+        }),
+        require('postcss-easing-gradients')({}),
+    ]
 }
