@@ -13,6 +13,7 @@
 [👉 Example](https://hugo-theme-luna.imiku.me) | [中文文档](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/README.zh.md)
 
 ![](https://img.shields.io/github/last-commit/Ice-Hazymoon/hugo-theme-luna?style=flat-square) ![](https://img.shields.io/github/languages/code-size/Ice-Hazymoon/hugo-theme-luna?style=flat-square)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/085457b4-c6d2-419e-af64-1f2f8b948779/deploy-status)](https://app.netlify.com/sites/hugo-theme-luna/deploys)
 
 <details open>
 <summary>Table of Contents</summary>
