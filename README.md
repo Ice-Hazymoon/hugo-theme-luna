@@ -118,7 +118,6 @@ Refer to [vercel.json](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/mast
 Environment variables
 
 ```
-HUGO_THEME: repo
 HUGO_VERSION: 0.104.3
 NODE_VERSION: 17.3.0
 ```
