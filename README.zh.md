@@ -231,6 +231,7 @@ hugo server -s ./exampleSite -D --themesDir "../.."
 ## 📈 性能测试
 
 > [https://imiku.me](https://imiku.me)
+> 
 > （关闭 pjax 和 katex 后）
 
 | Lighthouse                                                                                                      | GTmetrix                                                                                                      |

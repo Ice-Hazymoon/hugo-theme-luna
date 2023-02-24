@@ -37,7 +37,7 @@
 - [🎨 Custom](#-custom)
 - [🛠️ Development](#️-development)
 - [📈 Performance tests](#-performance-tests)
-- [� Acknowledgements](#-acknowledgements)
+- [👏 Acknowledgements](#-acknowledgements)
 - [📜 License](#-license)
 </details>
 
@@ -219,6 +219,7 @@ hugo server -s ./exampleSite -D --themesDir "../.."
 ## 📈 Performance tests
 
 > [https://imiku.me](https://imiku.me)
+> 
 > with pjax and katex turned off
 
 | Lighthouse                                                                                                      | GTmetrix                                                                                                      |
