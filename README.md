@@ -116,7 +116,6 @@ Refer to [vercel.json](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/mast
 Environment variables
 
 ```
-HUGO_THEME: repo
 HUGO_VERSION: 0.104.3
 NODE_VERSION: 17.3.0
 ```
@@ -124,7 +123,7 @@ NODE_VERSION: 17.3.0
 Build command
 
 ```bash
-$ cd themes/hugo-theme-luna && npm install postcss-cli -g && npm install --production && cd ../../ && hugo --gc -v --minify --cleanDestinationDir --enableGitInfo
+cd themes/hugo-theme-luna && npm install postcss-cli -g && npm install --production && cd ../../ && hugo --gc -v --minify --cleanDestinationDir --enableGitInfo
 ```
 
 Build output directory
