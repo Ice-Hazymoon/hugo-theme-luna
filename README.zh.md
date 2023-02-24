@@ -36,9 +36,7 @@
 - [🐙 GitHub Action](#-github-action)
 - [🎨 自定义](#-自定义)
 - [🛠️ 开发](#️-开发)
-- [📷 截图：](#-截图)
-  - [- 📈 性能测试（关闭 pjax 和 katex 后）](#---性能测试关闭-pjax-和-katex-后)
-  - [- 🖼️ 页面截图](#--️-页面截图)
+- [📈 性能测试](#-性能测试)
 - [👏 致谢](#-致谢)
 - [📜 License](#-license)
 </details>
@@ -230,23 +228,14 @@ npm install
 hugo server -s ./exampleSite -D --themesDir "../.."
 ```
 
-## 📷 截图：
+## 📈 性能测试
 
 > [https://imiku.me](https://imiku.me)
-
-### - 📈 性能测试（关闭 pjax 和 katex 后）
+> （关闭 pjax 和 katex 后）
 
 | Lighthouse                                                                                                      | GTmetrix                                                                                                      |
 | --------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
 | ![Lighthouse](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/lighthouse.png) | ![GTmetrix](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/gtmetrix.png) |
-
-### - 🖼️ 页面截图
-
-| <p align="center">首页</p> ![Home](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/screen-home.png)           | <p align="center">首页 (夜间模式)</p> ![Home(dark)](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/screen-home-dark.png) |
-| ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| <p align="center">归档页</p> ![Archives](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/screen-archives.png) | <p align="center">友情链接</p> ![Links](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/screen-links.png)                 |
-| <p align="center">Twitter</p> ![Twitter](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/screen-twitter.png)  | <p align="center">GitHub</p> ![GitHub](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/screen-github.png)                 |
-| <p align="center">搜索页</p> ![Search](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/screen-search.png)     | <p align="center">画廊页</p> ![Gallery](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/screen-gallery.png)               |
 
 ## 👏 致谢
 

@@ -188,7 +188,7 @@ markup:
 params:
   # CDN 地址
   # CDN URL
-  publicCDN: ""
+  publicCDN: "" # e.g. https://cdn.jsdelivr.net/gh/{{user}}/{{repo}}@latest/
 
   # 在网站顶部显示标题和摘要，使用 .Site.Title 和 .Site.Params.Description
   # Display title and description at the top of the page, use .Site.Title and .Site.Params.Description

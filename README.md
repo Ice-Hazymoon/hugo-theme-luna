@@ -36,10 +36,8 @@
 - [🐙 GitHub Action](#-github-action)
 - [🎨 Custom](#-custom)
 - [🛠️ Development](#️-development)
-- [📷 Screenshots](#-screenshots)
-  - [- 📈 Performance tests (with pjax and katex turned off)](#---performance-tests-with-pjax-and-katex-turned-off)
-  - [- 🖼️ Screenshots](#--️-screenshots)
-- [👏 Acknowledgements](#-acknowledgements)
+- [📈 Performance tests](#-performance-tests)
+- [� Acknowledgements](#-acknowledgements)
 - [📜 License](#-license)
 </details>
 
@@ -219,23 +217,14 @@ npm install
 hugo server -s ./exampleSite -D --themesDir "../.."
 ```
 
-## 📷 Screenshots
+## 📈 Performance tests
 
 > [https://imiku.me](https://imiku.me)
-
-### - 📈 Performance tests (with pjax and katex turned off)
+> with pjax and katex turned off
 
 | Lighthouse                                                                                                      | GTmetrix                                                                                                      |
 | --------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
 | ![Lighthouse](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/lighthouse.png) | ![GTmetrix](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/gtmetrix.png) |
-
-### - 🖼️ Screenshots
-
-| <p align="center">Home</p> ![Home](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/screen-home.png)                             | <p align="center">Home(Dark)</p> ![Home(dark)](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/screen-home-dark.png)         |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <p align="center">Archives</p> ![Archives](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/screen-archives.png)                     | <p align="center">Links</p> ![Links](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/screen-links.png)                   |
-| <p align="center">Twitter</p> ![Twitter](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/screen-twitter.png)                       | <p align="center">GitHub</p> ![GitHub](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/screen-github.png)                 |
-| <p align="center">Search</p> ![Search](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/screen-search.png) | <p align="center">Gallery</p> ![Gallery](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/screen-gallery.png) |
 
 ## 👏 Acknowledgements
 
