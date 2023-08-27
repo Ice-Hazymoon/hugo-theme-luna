@@ -7,7 +7,7 @@
 {{- range $filtered -}}
     {{- $data := slice (slice .Title (.Date.Format "2006年01月01日") .RelPermalink (replaceRE "( )+?|\r?\n" " " (replaceRE "```(.|\n)+?```|{{.+?}}(.|\r?\n?)+?{{.+?}}|{{.+?}}|`(.+?)`" " " .RawContent | markdownify | plainify)) ) -}}
 
-    {{- $result = $result | append $data -}}
+    {{- $result = $result | append slice (slice .Title (.Date.Format "2006年01月01日") .RelPermalink (replaceRE "( )+?|\r?\n" " " (replaceRE "```(.|\n)+?```|{{.+?}}(.|\r?\n?)+?{{.+?}}|{{.+?}}|`(.+?)`" " " .RawContent | markdownify | plainify)) ) -}}
 {{- end -}}
 
 {{- jsonify $result -}}
