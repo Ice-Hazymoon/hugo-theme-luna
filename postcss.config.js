@@ -26,7 +26,7 @@ module.exports = {
             ],
             safelist: {
                 // xx
-                standard: [/scrollbar/, /sm|md|lg|xl|2xl|[0-9]{1,2}\.[0-9]{1,2}/, /\//, /h[1-6]|hover|dark|last|after|before/, 'a', 'blockquote', 'body', 'code', 'fieldset', 'figure', 'hr', 'html', 'img', 'kbd', 'ol', 'p', 'pre', 'strong', 'sup', 'table', 'ul'],
+                standard: [/scrollbar/, /sm|md|lg|xl|2xl|[0-9]{1,2}\.[0-9]{1,2}/, /:/, /\//, /h[1-6]|hover|dark|last|after|before/, 'a', 'blockquote', 'body', 'code', 'fieldset', 'figure', 'hr', 'html', 'img', 'kbd', 'ol', 'p', 'pre', 'strong', 'sup', 'table', 'ul'],
                 // xx包括子项
                 deep: [/skiptranslate/, /goog-te/, /katex/, /hugo-encrypt/, /medium-zoom/, /lazy/, /swup/, /eva/],
                 // button.bg-xx.other-class
