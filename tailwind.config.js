@@ -35,7 +35,6 @@ module.exports = {
         },
     },
     plugins: [
-        require('@tailwindcss/line-clamp'),
         plugin(function({ addUtilities, addComponents, e, prefix, config }) {
             const obj = {};
             // obj[`.line-clamp-1`] = {

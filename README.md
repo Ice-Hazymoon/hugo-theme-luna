@@ -62,7 +62,6 @@
 - \<noscript\>
 - Table of contents
 - Local search, use [flexsearch](https://github.com/nextapps-de/flexsearch)
-- Twitter page template
 - GitHub page template
 - Archive page template
 - [GitHub Actions](https://github.com/features/actions)

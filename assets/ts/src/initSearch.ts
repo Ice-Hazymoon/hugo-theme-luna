@@ -116,7 +116,7 @@ export default async function() {
     window.Luna.initSearch = initSearch;
     window.Luna.initSearch();
     if (window.Luna.swup) {
-        window.Luna.swup.on('pageView', async function(n) {
+        window.Luna.swup.hooks.on('page:view', async function(n) {
             window.Luna.initSearch();
         })
     }

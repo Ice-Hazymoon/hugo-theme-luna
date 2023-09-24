@@ -1,5 +1,5 @@
 // import * as params from '@params';
-
+import './window.d.ts';
 import initConsoleStyle from './src/initConsoleStyle';
 import initHugoEncrypt from './src/initHugoEncrypt';
 import initPjax from './src/initPjax';

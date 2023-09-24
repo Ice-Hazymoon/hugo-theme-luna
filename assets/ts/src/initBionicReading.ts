@@ -125,14 +125,22 @@ export default function() {
         if (config.autoBionic) {
             bionic();
         }
-        bionicReadingEL.addEventListener('click', () => {
-            if (this._isBionic) {
-                bionicReadingEL.querySelector('svg').classList.remove('text-theme');
-                revoke();
-            } else {
-                bionicReadingEL.querySelector('svg').classList.add('text-theme');
-                bionic();
-            }
-        });
+        if (bionicReadingEL) {
+            bionicReadingEL.addEventListener('click', () => {
+                if (this._isBionic) {
+                    const svg = bionicReadingEL.querySelector('svg');
+                    if (svg) {
+                        svg.classList.remove('text-theme');
+                    }
+                    revoke();
+                } else {
+                    const svg = bionicReadingEL.querySelector('svg');
+                    if (svg) {
+                        svg.classList.add('text-theme');
+                    }
+                    bionic();
+                }
+            });
+        }
     }
 }

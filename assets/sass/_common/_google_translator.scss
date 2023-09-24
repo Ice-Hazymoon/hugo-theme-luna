@@ -20,4 +20,7 @@
     .skiptranslate {
         margin-bottom: 0px;
     }
+    span[style="white-space:nowrap"] {
+        display: none;
+    }
 }

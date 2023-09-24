@@ -61,7 +61,6 @@
 - 图片懒加载
 - noscript 支持
 - 本地搜索支持，使用 [flexsearch](https://github.com/nextapps-de/flexsearch)
-- Twitter 页面
 - GitHub 页面
 - 归档页面
 - [GitHub Actions](https://github.com/features/actions) 支持
@@ -180,7 +179,7 @@ Luna 主题支持大量的 Shortcodes，请查看：[Shortcodes](https://hugo-th
 
 ## 📝 注意
 
-如果你所在的国家或地区无法访问 Twitter 或 GitHub，请不要使用这两个模板文件，否则会出现错误。
+如果你所在的国家或地区无法访问 GitHub，请不要使用这个模板文件，否则会出现错误。
 
 博客内图片均使用了 Hugo 的 [Image Processing](https://gohugo.io/content-management/image-processing/) 功能，自动裁剪成合适的大小来优化页面加载速度，首次生成可能较为耗费时间。
 

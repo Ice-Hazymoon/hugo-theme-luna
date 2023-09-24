@@ -124,13 +124,6 @@ $manuMain:
     params:
       icon: eva eva-folder
     url: /categories/
-  - &mainMenuTwitter
-    name: Twitter
-    weight: 70
-    identifier: twitter
-    params:
-      icon: eva eva-twitter
-    url: /twitter/
   - &mainMenuGitHub
     name: GitHub
     weight: 80
@@ -154,7 +147,6 @@ menu:
     - *mainMenuAbout
     - *mainMenuLinks
     - *mainMenuArchives
-    - *mainMenuTwitter
     - *mainMenuGitHub
     - *mainMenuSearch
   # 副导航 / sub-navigation
@@ -318,16 +310,6 @@ params:
     id: "torvalds" # or ["torvalds", "gvanrossum"]
     minStars: 5 # 最小 star 项目 / min stars
 
-  # Twitter 页面设置
-  # tweet page
-  twitter:
-    enabled: true
-    rsshub: "https://rsshub.rssforever.com" # rsshub url, see https://github.com/DIYgod/RSSHub
-    id: "GenshinImpact" # Twitter ID
-    # 如果为 true，Hugo 将下载图片和视频并进行优化，如果你在中国大陆地区，请谨慎启用这个选项
-    # If enabled, Hugo will download videos and images from the Tweet and optimize them
-    imageProcessing: true
-
   # 开启图片放大功能
   # Image Zoom Plugin
   # see https://github.com/francoischalifour/medium-zoom
@@ -447,11 +429,6 @@ languages:
     params:
       languageIcon: "images/i18n/zh-cn.svg" # in assets folder
       font: "Times New Roman,Times,Heti Song,serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol"
-      twitter: 
-        enabled: true
-        rsshub: "https://rsshub.rssforever.com"
-        id: "Ice_Hazymoon"
-        imageProcessing: true
       github:
         id: "Ice-Hazymoon"
         minStars: 10

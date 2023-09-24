@@ -9,6 +9,13 @@ declare global {
             lazyload: boolean,
             backtop: boolean,
             pangu: boolean,
+            console: {
+                enabled: boolean,
+                leftText: string,
+                leftColor: string,
+                rightText: string,
+                rightColor: string,
+            },
             bionicReading: {
                 enabled: boolean,
                 autoBionic: boolean,
@@ -49,7 +56,7 @@ declare global {
                     light: string
                 }
             },
-            creatTime: VarDate
+            createTime: Date;
         }
     }
 }

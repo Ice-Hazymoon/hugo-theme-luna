@@ -1,10 +1,10 @@
 {
- "compilerOptions": {
-  "baseUrl": ".",
-  "paths": {
-   "*": [
-    "*"
-   ]
-  }
- }
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "*": ["*", "./ts/modules/*", "node_modules/*"],
+        },
+        "lib": ["es2020", "dom"],
+    },
+    "include": ["./ts/modules/*", "./ts/window.d.ts"],
 }
