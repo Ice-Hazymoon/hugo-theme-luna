@@ -1,0 +1,1 @@
+(()=>{(function(){window.googleTranslateElementInit=function(){new google.translate.TranslateElement({pageLanguage:"en"},"google_translate_element")};var n=function(t){var e=document.createElement("script");e.src=t,document.body.appendChild(e)};n("//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit")})();})();
