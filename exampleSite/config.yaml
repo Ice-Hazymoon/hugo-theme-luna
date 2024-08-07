@@ -331,7 +331,7 @@ params:
 
   # 启用谷歌翻译插件
   # enable google translate in footer
-  googleTranslate: true
+  googleTranslate: false
 
   # 优化中文排版，请参考：https://github.com/vinta/pangu.js
   # Optimize Chinese typography, see: https://github.com/vinta/pangu.js
