@@ -1,7 +1,7 @@
 .page-gallery {
     .gallery-box {
         .gallery {
-            @apply my-3 mx-3 md:my-4 md:mx-4;
+            @apply mx-3 my-3 md:mx-4 md:my-4;
             figure + figure {
                 @apply ml-3 md:ml-4;
             }
@@ -10,7 +10,7 @@
     .gallery-image {
         @apply relative mb-3 overflow-hidden rounded md:mb-4;
         figcaption {
-            @apply pointer-events-none absolute bottom-0 w-full px-4 pt-8 pb-4 text-center text-lg text-white opacity-100 transition-opacity duration-300 md:opacity-0;
+            @apply pointer-events-none absolute bottom-0 w-full px-4 pb-4 pt-8 text-center text-lg text-white opacity-100 transition-opacity duration-300 md:opacity-0;
             background-image: linear-gradient(to bottom, hsla(330, 0%, 0%, 0), cubic-bezier(0.42, 0, 0.4, 1), hsla(210, 0%, 0%, 0.3));
         }
         img {
@@ -24,7 +24,7 @@
     }
 
     h2 {
-        @apply mt-20 mb-14 text-center text-2xl;
+        @apply mb-14 mt-20 text-center text-2xl;
         a {
             @apply hidden;
         }
@@ -39,6 +39,6 @@
     }
 
     blockquote {
-        @apply mb-12 -mt-10 text-center italic text-gray-400;
+        @apply -mt-10 mb-12 text-center italic text-gray-400;
     }
 }

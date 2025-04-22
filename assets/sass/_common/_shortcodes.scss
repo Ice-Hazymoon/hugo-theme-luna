@@ -58,7 +58,7 @@
             }
         }
         .slide {
-            @apply absolute top-0 left-0 h-full w-full opacity-0;
+            @apply absolute left-0 top-0 h-full w-full opacity-0;
             z-index: 1;
             transition: 1000ms cubic-bezier(0.68, -0.57, 0.33, 1.67) opacity;
             img {
@@ -81,7 +81,7 @@
 
 .timeline {
     .timeline-item {
-        @apply relative pb-4 pl-6 leading-7 before:absolute before:left-0 before:top-2 before:z-10 before:mr-6 before:block before:h-2.5 before:w-2.5 before:rounded-full before:bg-gray-400 after:absolute after:top-4 after:left-[0.1875rem] after:block after:h-full after:w-1 after:bg-gray-100 last:after:hidden hover:before:bg-theme dark:before:bg-gray-500 dark:after:bg-darkBorder dark:before:hover:bg-theme;
+        @apply relative pb-4 pl-6 leading-7 before:absolute before:left-0 before:top-2 before:z-10 before:mr-6 before:block before:h-2.5 before:w-2.5 before:rounded-full before:bg-gray-400 after:absolute after:left-[0.1875rem] after:top-4 after:block after:h-full after:w-1 after:bg-gray-100 last:after:hidden hover:before:bg-theme dark:before:bg-gray-500 dark:after:bg-darkBorder dark:before:hover:bg-theme;
     }
 }
 

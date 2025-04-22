@@ -1,5 +1,5 @@
 {{- define "main" -}}
-    <div class="page-archives relative py-8 px-6 md:px-10">
+    <div class="page-archives relative px-6 py-8 md:px-10">
         <div class="mb-4 inline-flex items-end pb-3 text-3xl">
             <div class="mr-4 inline-flex items-center leading-none">
                 <i class="eva eva-bar-chart mr-2"></i>
@@ -15,7 +15,7 @@
         <div class="mb-8">
             {{- range sort .Site.Taxonomies.categories "Count" "desc" -}}
                 <a
-                    class="mr-2 mb-2 inline-flex items-center rounded border bg-white px-2 py-1 text-xs transition duration-200 ease-[ease] hover:border-theme hover:text-theme dark:border-darkBorder dark:bg-darkBgAccent dark:hover:border-theme"
+                    class="mb-2 mr-2 inline-flex items-center rounded border bg-white px-2 py-1 text-xs transition duration-200 ease-[ease] hover:border-theme hover:text-theme dark:border-darkBorder dark:bg-darkBgAccent dark:hover:border-theme"
                     href="{{- .Page.RelPermalink -}}"
                 >
                     <span>{{- .Page.Title -}}</span>
@@ -27,7 +27,7 @@
         {{- range (where site.RegularPages "Type" "in" (slice "posts" "status")).GroupByDate (T "date.m_y") -}}
             <div class="archives">
                 <div
-                    class="archives_title inline-block rounded-full border border-transparent bg-theme py-1 px-3 text-center text-sm text-white dark:border-darkBorder dark:bg-darkBgAccent dark:text-darkText dark:shadow-none"
+                    class="archives_title inline-block rounded-full border border-transparent bg-theme px-3 py-1 text-center text-sm text-white dark:border-darkBorder dark:bg-darkBgAccent dark:text-darkText dark:shadow-none"
                 >
                     <span>{{- .Key -}}</span>
                 </div>
@@ -55,7 +55,7 @@
                 </ul>
             </div>
         {{- end -}}
-        <div class="inline-block rounded-full border bg-white py-1 px-2 text-center text-sm dark:border-darkBorder dark:bg-darkBgAccent">
+        <div class="inline-block rounded-full border bg-white px-2 py-1 text-center text-sm dark:border-darkBorder dark:bg-darkBgAccent">
             {{- T "archives.helloWorld" -}}
         </div>
     </div>

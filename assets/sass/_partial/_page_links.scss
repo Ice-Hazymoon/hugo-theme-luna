@@ -1,6 +1,6 @@
 .page-links {
     h4 {
-        @apply m-8 ml-0 mb-6 border-l-4 border-theme pl-3 text-2xl leading-none;
+        @apply m-8 mb-6 ml-0 border-l-4 border-theme pl-3 text-2xl leading-none;
     }
 
     a.link-item {
@@ -8,7 +8,9 @@
             width: calc(100% - 5rem);
         }
         &:hover {
-            box-shadow: -14px 14px 28px #f2f2f2, 14px -14px 28px #ffffff;
+            box-shadow:
+                -14px 14px 28px #f2f2f2,
+                14px -14px 28px #ffffff;
             @apply dark:shadow-none;
         }
     }

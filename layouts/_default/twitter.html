@@ -40,7 +40,7 @@
                                         <span>{{- $pubDate -}}</span>
                                     </div>
                                 </div>
-                                <div class="card-r relative w-1 flex-grow border-l-4 border-gray-200 pl-8 pb-10 dark:border-darkBorder">
+                                <div class="card-r relative w-1 flex-grow border-l-4 border-gray-200 pb-10 pl-8 dark:border-darkBorder">
                                     <div class="{{ if $content }}mb-4{{ else }}mb-2{{ end }} text-bases typo -mt-1 break-all">
                                         <div class="mb-2 flex items-center text-sm text-gray-600 sm:hidden">
                                             <i class="eva eva-clock-outline mr-1"></i>
@@ -54,7 +54,7 @@
                                         {{- $title := .title -}}
 
                                         {{- range $pics -}}
-                                            <div class="relative inline-block w-1/2 pr-4 pb-4 lg:w-1/3 xl:w-1/4">
+                                            <div class="relative inline-block w-1/2 pb-4 pr-4 lg:w-1/3 xl:w-1/4">
                                                 <div class="img-box relative overflow-hidden rounded border dark:border-darkBorder">
                                                     {{- $picURL := htmlUnescape (replaceRE "<img src=\"(.+?)\" referrerpolicy=\"no-referrer\">" `${1}` .) -}}
                                                     {{- if $twitterConfig.imageProcessing -}}
@@ -65,6 +65,7 @@
                                                                 {{- warnf "%s" . -}}
                                                             {{- else -}}
                                                                 {{- $processImage := partial "helper/image-process" (dict "Image" . "Site" $Site) -}}
+
 
                                                                 <picture
                                                                     class="noscript-hidden"
@@ -124,7 +125,7 @@
                                         {{- end -}}
 
                                         {{- range $videos -}}
-                                            <div class="relative inline-block w-full pr-4 pb-4 xl:w-2/3">
+                                            <div class="relative inline-block w-full pb-4 pr-4 xl:w-2/3">
                                                 {{- $videoURL := (replaceRE "<video src=\"(.+?)\"(.+?)></video>" `${1}` .) | safeHTML -}}
                                                 {{- if $twitterConfig.imageProcessing -}}
                                                     {{- with resources.GetRemote $videoURL -}}
