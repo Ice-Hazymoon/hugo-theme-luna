@@ -1,5 +1,5 @@
 {{- define "main" -}}
-    {{- $public_cdn := cond .Site.IsServer "" .Site.Params.publicCDN -}}
+    {{- $public_cdn := cond hugo.IsServer "" .Site.Params.publicCDN -}}
     {{- $lazyload_image := print $public_cdn ("images/outload.svg" | relURL) -}}
     {{- $twitterConfig := .Site.Params.twitter -}}
 
@@ -26,7 +26,16 @@
                 <div id="twitter">
                     {{- if $twitterConfig.id -}}
                         {{- $apiurl := (print "https://api.rss2json.com/v1/api.json?" (querify "rss_url" (print $twitterConfig.rsshub "/twitter/user/" $twitterConfig.id))) -}}
-                        {{- $twitterData := getJSON $apiurl -}}
+                        {{- $twitterData := dict -}}
+                        {{ with try (resources.GetRemote $apiurl) }}
+                            {{ with .Err }}
+                                {{ errorf "%s" . }}
+                            {{ else with .Value }}
+                                {{ $twitterData = . | transform.Unmarshal }}
+                            {{ else }}
+                                {{ errorf "Unable to get remote resource %q" $apiurl }}
+                            {{ end }}
+                        {{ end }}
                         {{- range (index $twitterData "items") -}}
                             {{- $pubDate := dateFormat (T "date.d_m_h_s") .pubDate -}}
                             {{- $content := (trim (replaceRE "<br>" "\n" (replaceRE "<video(.+?)</video>|<img(.+?)>" "" .content)) "\n") | safeHTML -}}

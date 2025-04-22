@@ -1,7 +1,7 @@
-{{- $public_cdn := cond .Site.IsServer "" .Site.Params.publicCDN -}}
+{{- $public_cdn := cond hugo.IsServer "" .Site.Params.publicCDN -}}
 {{- $script := resources.Get "translate-google.js" | js.Build (dict "minify" hugo.IsProduction) -}}
 
-{{- if .Site.IsServer -}}
+{{- if hugo.IsServer -}}
     <script type="text/javascript" src="{{- $script.RelPermalink -}}" defer></script>
 {{- else -}}
     {{- $script := $script | fingerprint -}}
@@ -9,7 +9,7 @@
 {{- end -}}
 
 {{- $sass := resources.Get "sass/translateelement.scss" -}}
-{{- $style := $sass | resources.ToCSS | minify | fingerprint -}}<script type="text/javascript">
+{{- $style := $sass | css.Sass | minify | fingerprint -}}<script type="text/javascript">
     window.translateelement_styles = "{{- $style.RelPermalink -}}";
     function googleTranslateElementInit(){
         new google.translate.TranslateElement({

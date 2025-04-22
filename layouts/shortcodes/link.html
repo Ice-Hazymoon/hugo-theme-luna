@@ -3,7 +3,7 @@
 {{- $desc := .Get "desc" -}}
 {{- $image := .Get "image" -}}
 {{- $lazyload := .Site.Params.lazyload -}}
-{{- $public_cdn := cond .Site.IsServer "" .Site.Params.publicCDN -}}
+{{- $public_cdn := cond hugo.IsServer "" .Site.Params.publicCDN -}}
 {{- $svg_outload := "images/outload.svg" | relURL -}}
 
 {{- if not (urls.Parse $image).Scheme -}}

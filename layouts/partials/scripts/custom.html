@@ -1,6 +1,6 @@
-{{- $public_cdn := cond .Site.IsServer "" .Site.Params.publicCDN -}}
+{{- $public_cdn := cond hugo.IsServer "" .Site.Params.publicCDN -}}
 {{- $customScript := resources.Get "ts/custom.ts" | js.Build (dict "minify" hugo.IsProduction) -}}
-{{- if .Site.IsServer -}}
+{{- if hugo.IsServer -}}
     <script
         type="text/javascript"
         src="{{- $customScript.RelPermalink -}}"

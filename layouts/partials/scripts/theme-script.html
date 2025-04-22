@@ -1,7 +1,7 @@
 {{- $pjax := .Site.Params.pjax -}}
-{{- $isServer := .Site.IsServer -}}
+{{- $isServer := hugo.IsServer -}}
 {{- $version := getenv "HUGO_VERSION" -}}
-{{- $public_cdn := cond .Site.IsServer "" .Site.Params.publicCDN -}}<script type="text/javascript">
+{{- $public_cdn := cond hugo.IsServer "" .Site.Params.publicCDN -}}<script type="text/javascript">
 window.__theme = {
     cdn: '{{- $public_cdn -}}',
     pjax: {{- $pjax -}},
@@ -23,7 +23,7 @@ window.__theme = {
     backtop: {{- .Site.Params.backtop -}},
     pangu: {{- .Site.Params.pangu -}},
     autoDarkMode: {{- .Site.Params.autoDarkMode -}},
-    googleAnalytics: {{- if .Site.GoogleAnalytics -}}true{{- else -}}false{{- end -}},
+    googleAnalytics: {{- if .Site.Config.Services.GoogleAnalytics.ID -}}true{{- else -}}false{{- end -}},
     hugoEncrypt: {
         wrongPasswordText: '{{- i18n "encrypt.wrongPassword" -}}',
         userStorage: {{- if .Site.Params.HugoEncrypt.Storage -}} window['{{- .Site.Params.HugoEncrypt.Storage -}}Storage'] {{- else -}} localStorage {{- end -}},

@@ -1,5 +1,5 @@
 {{- define "main" -}}
-    {{- $public_cdn := cond .Site.IsServer "" .Site.Params.publicCDN -}}
+    {{- $public_cdn := cond hugo.IsServer "" .Site.Params.publicCDN -}}
 
 
     <div class="page-search">
