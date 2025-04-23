@@ -1,5 +1,5 @@
 {{- $Summary := .Summary | plainify -}}
-{{- $public_cdn := cond .Site.IsServer "" .Site.Params.publicCDN -}}
+{{- $public_cdn := cond hugo.IsServer "" .Site.Params.publicCDN -}}
 {{- $lazyload_image := print $public_cdn ("images/outload.svg" | relURL) -}}
 
 {{- $processImage := "" -}}

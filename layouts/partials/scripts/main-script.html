@@ -1,4 +1,4 @@
-{{- $public_cdn := cond .Site.IsServer "" .Site.Params.publicCDN -}}
+{{- $public_cdn := cond hugo.IsServer "" .Site.Params.publicCDN -}}
 
 {{- $scratch := newScratch -}}
 {{- $scratch.SetInMap "jsModules" "lazyload" (cond .Site.Params.lazyload "ts/modules/lazyload.js" "ts/_.ts") -}}
@@ -20,7 +20,7 @@
 {{- $scratch.SetInMap "jsModules" "swupHeadPlugin" (cond .Site.Params.pjax "ts/modules/swupHeadPlugin.js" "ts/_.ts") -}}
 
 {{- $mainScript := resources.Get "ts/main.ts" | js.Build (dict "minify" hugo.IsProduction "params" (dict "foo" "bar") "shims" ($scratch.Get "jsModules")) -}}
-{{- if .Site.IsServer -}}
+{{- if hugo.IsServer -}}
     <script type="text/javascript" src="{{- $mainScript.RelPermalink -}}" defer></script>
 {{- else -}}
     {{- $mainScript := $mainScript | fingerprint -}}

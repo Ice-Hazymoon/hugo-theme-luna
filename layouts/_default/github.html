@@ -34,7 +34,16 @@
                     {{- if $multiple -}}<div class="github-tab order-last hidden border-t border-gray-200 dark:border-gray-600 md:mx-6 mx-4">{{- end -}}
                         <div class="{{ if $multiple }} -mx-4 {{ else }} md:mx-6 mx-2 {{ end }}" id="github">
                             {{- $apiURL := print "https://api.github.com/users/" $id "/repos?per_page=100&type=owner" -}}
-                            {{- $githubData := getJSON $apiURL -}}
+                            {{- $githubData := dict -}}
+                            {{ with try (resources.GetRemote $apiURL) }}
+                                {{ with .Err }}
+                                    {{ errorf "%s" . }}
+                                {{ else with .Value }}
+                                    {{ $githubData = . | transform.Unmarshal }}
+                                {{ else }}
+                                    {{ errorf "Unable to get remote resource %q" $apiURL }}
+                                {{ end }}
+                            {{ end }}
                             {{- range sort $githubData "stargazers_count" "desc" -}}
                                 {{- if and (eq .owner.login $id) (gt .stargazers_count $githubConfig.minStars) -}}
                                     <a href="{{- .html_url -}}" target="_blank" rel="noopener noreferrer" class="inline-flex w-full  flex-col  justify-between sm:w-1/2">

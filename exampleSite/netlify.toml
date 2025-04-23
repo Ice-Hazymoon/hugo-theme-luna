@@ -1,9 +1,9 @@
 [build]
-  command = "cd themes/hugo-theme-luna && npm install postcss-cli -g && npm install --production && cd ../../ && hugo --gc -v --minify --cleanDestinationDir --enableGitInfo"
+  command = "cd themes/hugo-theme-luna && npm install postcss-cli -g && npm install --production && cd ../../ && hugo --gc --minify --cleanDestinationDir --enableGitInfo"
   publish = "public"
 
 [build.environment]
-  HUGO_VERSION = "0.104.3"
+  HUGO_VERSION = "0.146.0"
 
 [[plugins]]
     package = "netlify-plugin-hugo-cache-resources"

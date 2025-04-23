@@ -18,7 +18,7 @@ const modules = {
     '@swup/slide-theme/dist/index.umd.js': `${js_modules_path}/swupSlideTheme.js`,
     '@swup/head-plugin/dist/index.umd.js': `${js_modules_path}/swupHeadPlugin.js`,
     'swup-morph-plugin/dist/index.umd.js': `${js_modules_path}/swupMorphPlugin.js`,
-    'flexsearch/dist/flexsearch.bundle.js': `${js_modules_path}/flexsearch.js`,
+    'flexsearch/dist/flexsearch.bundle.min.js': `${js_modules_path}/flexsearch.js`,
     'katex/dist/katex.js': `${js_modules_path}/katex.js`,
     'pangu/dist/browser/pangu.js': `${js_modules_path}/pangu.js`,
     'katex/dist/katex.css': `${css_modules_path}/katex.css`,

@@ -1,7 +1,7 @@
 {{- $processImage := "" -}}
 {{- $lazyload := .Page.Site.Params.lazyload -}}
 {{- $imageZoom := .Page.Site.Params.imageZoom -}}
-{{- $public_cdn := cond .Page.Site.IsServer "" .Page.Site.Params.publicCDN -}}
+{{- $public_cdn := cond hugo.IsServer "" .Page.Site.Params.publicCDN -}}
 {{- $lazyload_image := print $public_cdn ("images/outload.svg" | relURL) -}}
 {{- $Permalink := .Destination | relURL | safeURL -}}
 {{- $Alt := .PlainText | safeHTML -}}

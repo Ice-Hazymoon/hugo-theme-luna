@@ -50,7 +50,7 @@
 - Carousel
 - Many [shortcodes](https://hugo-theme-luna.imiku.me/2022/05/02/shortcodes.html/)
 - Dark mode
-- [Bionic Reading](https://bionic-reading.com/) 
+- [Bionic Reading](https://bionic-reading.com/)
 - Image gallery
 - Responsive images
 - Article encryption (please do not encrypt important content under any circumstances)
@@ -71,7 +71,7 @@
 
 ### - 📋 Requirements
 
-- **hugo-extended** >= 0.104.0
+- **hugo-extended** >= 0.146.0
 - **NodeJs** >= 16.0.0
 - **postcss-cli**, Install using `npm install postcss-cli -g`
 
@@ -115,14 +115,14 @@ Refer to [vercel.json](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/mast
 Environment variables
 
 ```
-HUGO_VERSION: 0.104.3
+HUGO_VERSION: 0.146.0
 NODE_VERSION: 17.3.0
 ```
 
 Build command
 
 ```bash
-cd themes/hugo-theme-luna && npm install postcss-cli -g && npm install --production && cd ../../ && hugo --gc -v --minify --cleanDestinationDir --enableGitInfo
+cd themes/hugo-theme-luna && npm install postcss-cli -g && npm install --production && cd ../../ && hugo --gc --minify --cleanDestinationDir --enableGitInfo
 ```
 
 Build output directory
@@ -218,11 +218,11 @@ hugo server -s ./exampleSite -D --themesDir "../.."
 ## 📈 Performance tests
 
 > [https://imiku.me](https://imiku.me)
-> 
+>
 > with pjax and katex turned off
 
-| Lighthouse                                                                                                      | GTmetrix                                                                                                      |
-| --------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| Lighthouse                                                                                                      | GTmetrix                                                                                                    |
+| --------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
 | ![Lighthouse](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/lighthouse.png) | ![GTmetrix](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/gtmetrix.png) |
 
 ## 👏 Acknowledgements

@@ -6,4 +6,4 @@
 {{- $colors.Set "theme" "bg-theme/10 text-theme" -}}
 
 
-<span class="{{ $colors.Get (index .Params 0) }} whitespace-nowrap rounded py-1 px-2 text-sm">{{- index .Params 1 | markdownify -}}</span>
+<span class="{{ $colors.Get (index .Params 0) }} whitespace-nowrap rounded px-2 py-1 text-sm">{{- index .Params 1 | markdownify -}}</span>

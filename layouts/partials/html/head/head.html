@@ -1,4 +1,4 @@
-{{- $public_cdn := cond .Site.IsServer "" .Site.Params.publicCDN -}}
+{{- $public_cdn := cond hugo.IsServer "" .Site.Params.publicCDN -}}
 
 {{- $title := partial "data/title" . .RelPermalink -}}
 {{- $description := partial "data/description" . .RelPermalink -}}
@@ -17,9 +17,9 @@
 <link href="{{- `index.xml` | absURL -}}" title="{{- $title -}}" type="application/rss+xml" rel="alternate" />
 <title>{{- $title -}}</title>
 {{- $sassTemplate := resources.Get "sass/main.scss" -}}
-{{- $styles := $sassTemplate | resources.ExecuteAsTemplate "main.css" . | resources.ToCSS | postCSS (dict "config" "postcss.config.js") -}}
+{{- $styles := $sassTemplate | resources.ExecuteAsTemplate "main.css" . | css.Sass | postCSS (dict "config" "postcss.config.js") -}}
 
-{{- if .Site.IsServer -}}
+{{- if hugo.IsServer -}}
     <link rel="stylesheet" href="{{- $styles.RelPermalink -}}" />
 {{- else -}}
     {{- $styles := $styles | fingerprint | resources.PostProcess -}}

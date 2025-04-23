@@ -18,7 +18,8 @@ hasCJKLanguage: true
 
 # 每页显示文章数量
 # pagination size
-paginate: 10
+pagination:
+  pagerSize: 10
 
 # 启用谷歌统计
 # google analytics tracking code
@@ -33,9 +34,6 @@ permalinks:
   # Format of posts links
   posts: /:year/:month/:day/:slug.html # 2019/01/01/hello-world.html
   pages: /:slug.html # about.html
-
-author:
-  name: Ice-Hazymoon
 
 frontmatter:
   lastmod:
@@ -412,7 +410,9 @@ params:
       site: "@Ice_Hazymoon"
     image: "featured.png" # in assets folder | false
 
-  author: Ice-Hazymoon
+  author:
+    name: Ice-Hazymoon
+    email: Ice-Hazymoon@example.com
   keywords:
     - Hugo
     - Hugo Theme

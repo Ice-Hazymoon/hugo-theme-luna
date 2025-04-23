@@ -1,4 +1,4 @@
-{{- $public_cdn := cond .Site.IsServer "" .Site.Params.publicCDN -}}
+{{- $public_cdn := cond hugo.IsServer "" .Site.Params.publicCDN -}}
 {{- $src := .Get "src" | default (.Get 0) -}}
 {{- if not (urls.Parse $src).Scheme -}}
     {{- $src = print $public_cdn .Page.RelPermalink $src -}}

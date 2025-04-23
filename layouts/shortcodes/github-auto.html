@@ -1,4 +1,13 @@
-{{- $githubData := getJSON (print "https://api.github.com/repos/" (.Get "name")) -}}
+{{- $githubData := dict -}}
+{{ with try (resources.GetRemote (print "https://api.github.com/repos/" (.Get "name"))) }}
+    {{ with .Err }}
+        {{ errorf "%s" . }}
+    {{ else with .Value }}
+        {{ $githubData = . | transform.Unmarshal }}
+    {{ else }}
+        {{ errorf "Unable to get remote resource %q" (print "https://api.github.com/repos/" (.Get "name")) }}
+    {{ end }}
+{{ end }}
 {{- $githubColors := .Site.Data.luna.githubColors -}}
 {{- with $githubData -}}
     <div class="github my-4 rounded border p-4 dark:border-darkBorder">

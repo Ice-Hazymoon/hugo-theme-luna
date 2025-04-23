@@ -1,5 +1,5 @@
 {{- $icon := resources.Get "icon.png" -}}
-{{- $public_cdn := cond .Site.IsServer "" .Site.Params.publicCDN -}}
+{{- $public_cdn := cond hugo.IsServer "" .Site.Params.publicCDN -}}
 {{- $icon_192 := print $public_cdn ($icon.Resize "192x192").RelPermalink -}}
 {{- $icon_256 := print $public_cdn ($icon.Resize "256x256").RelPermalink -}}
 {{- $icon_384 := print $public_cdn ($icon.Resize "384x384").RelPermalink -}}
@@ -11,7 +11,7 @@
     "scope": "/",
     "start_url": "{{- "/" | relLangURL -}}",
     "name": "{{- .Site.Title | safeHTML -}}",
-    "short_name": "{{- (or .Site.Params.author .Site.Author.name) | safeHTML -}}",
+    "short_name": "{{- .Site.Params.author.name | safeHTML -}}",
     "description": "{{- .Site.Title | safeHTML -}}",
     "icons": [
         {
