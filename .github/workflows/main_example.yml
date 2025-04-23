@@ -3,53 +3,53 @@ name: CI
 on: [push]
 
 jobs:
-    deploy:
-        if: ${{ false }} # Please delete this line
-        env:
-          HUGO_VERSION: ${{ github.sha }}
-          TZ: Asia/Shanghai
-        runs-on: ubuntu-latest
-        
-        steps:
-            - name: Git checkout
-              uses: actions/checkout@v2
-              with:
-                fetch-depth: 0
-                submodules: true
-            
-            - name: Set git config core.quotepath false # https://github.com/gohugoio/hugo/issues/9810#issuecomment-1107519804
-              run: git config --global core.quotepath false
-  
-            - name: Use Node.js
-              uses: actions/setup-node@v1
-              with:
-                node-version: '16.x'
-                
-            - name: Install Theme
-              run: cd themes/hugo-theme-luna && yarn install --production
-                
-            - name: Install PostCSS-CLI
-              run: npm install postcss-cli -g
+  deploy:
+    if: ${{ false }} # Please delete this line
+    env:
+      HUGO_VERSION: ${{ github.sha }}
+      TZ: Asia/Shanghai
+    runs-on: ubuntu-latest
 
-            - name: Setup hugo
-              uses: peaceiris/actions-hugo@v2
-              with:
-                hugo-version: '0.104.0'
-                extended: true
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          submodules: true
 
-            - name: Build Hugo
-              run: echo "HUGO_VERSION -> $HUGO_VERSION" && hugo --gc --minify --cleanDestinationDir
+      - name: Set git config core.quotepath false # https://github.com/gohugoio/hugo/issues/9810#issuecomment-1107519804
+        run: git config --global core.quotepath false
 
-            - name: Hugo-Encrypt
-              run: cd themes/hugo-theme-luna && node ./hugo-encrypt.js
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: "16.x"
 
-            - name: Deploy
-              uses: peaceiris/actions-gh-pages@v3
-              with:
-                personal_token: ${{ secrets.TOKEN }}
-                external_repository: "Ice-Hazymoon/blog-hugo-pages"
-                publish_branch: master
-                publish_dir: ./public
-                force_orphan: true
-                user_name: Ice-Hazymoon
-                user_email: imiku.me@gmail.com
+      - name: Install Theme
+        run: cd themes/hugo-theme-luna && yarn install --production
+
+      - name: Install PostCSS-CLI
+        run: npm install postcss-cli -g
+
+      - name: Setup hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: "0.146.0"
+          extended: true
+
+      - name: Build Hugo
+        run: echo "HUGO_VERSION -> $HUGO_VERSION" && hugo --gc --minify --cleanDestinationDir
+
+      - name: Hugo-Encrypt
+        run: cd themes/hugo-theme-luna && node ./hugo-encrypt.js
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.TOKEN }}
+          external_repository: "Ice-Hazymoon/blog-hugo-pages"
+          publish_branch: master
+          publish_dir: ./public
+          force_orphan: true
+          user_name: Ice-Hazymoon
+          user_email: imiku.me@gmail.com

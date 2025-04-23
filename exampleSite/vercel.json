@@ -2,7 +2,7 @@
     "public": true,
     "build": {
         "env": {
-            "HUGO_VERSION": "0.104.3"
+            "HUGO_VERSION": "0.146.0"
         }
     },
     "buildCommand": "hugo --gc -v --minify --cleanDestinationDir --enableGitInfo",

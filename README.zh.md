@@ -50,7 +50,7 @@
 - 轮播图
 - 丰富的[短代码](https://hugo-theme-luna.imiku.me/zh-cn/2022/05/02/shortcodes.html/)支持
 - 夜间模式
-- [Bionic Reading](https://bionic-reading.com/) 
+- [Bionic Reading](https://bionic-reading.com/)
 - 画廊模式
 - 图片自动压缩，支持 webp 向下兼容
 - 支持文章加密（任何情况下都请勿加密重要内容）
@@ -72,7 +72,7 @@
 
 注意，在使用该主题之前，请确保你遵循以下环境
 
-- **hugo-extended** 版本 >= 0.104.0
+- **hugo-extended** 版本 >= 0.146.0
 - **NodeJs** >= 16.0.0
 - 已安装 **postcss-cli**，使用 `npm install postcss-cli -g` 安装
 
@@ -119,7 +119,7 @@ Environment variables
 
 ```
 HUGO_THEME: repo
-HUGO_VERSION: 0.104.3
+HUGO_VERSION: 0.146.0
 NODE_VERSION: 17.3.0
 ```
 
@@ -230,11 +230,11 @@ hugo server -s ./exampleSite -D --themesDir "../.."
 ## 📈 性能测试
 
 > [https://imiku.me](https://imiku.me)
-> 
+>
 > （关闭 pjax 和 katex 后）
 
-| Lighthouse                                                                                                      | GTmetrix                                                                                                      |
-| --------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| Lighthouse                                                                                                      | GTmetrix                                                                                                    |
+| --------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
 | ![Lighthouse](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/lighthouse.png) | ![GTmetrix](https://raw.githubusercontent.com/Ice-Hazymoon/hugo-theme-luna/master/screenshots/gtmetrix.png) |
 
 ## 👏 致谢

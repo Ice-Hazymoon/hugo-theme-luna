@@ -3,47 +3,47 @@ name: CI
 on: [push]
 
 jobs:
-    deploy:
-        env:
-          HUGO_VERSION: ${{ github.sha }}
-          TZ: Asia/Shanghai
-        runs-on: ubuntu-latest
-        
-        steps:
-            - name: Git checkout
-              uses: actions/checkout@v2
-              with:
-                fetch-depth: 0
-            
-            - name: Set git config core.quotepath false # https://github.com/gohugoio/hugo/issues/9810#issuecomment-1107519804
-              run: git config --global core.quotepath false
-  
-            - name: Use Node.js
-              uses: actions/setup-node@v1
-              with:
-                node-version: '16.x'
-                
-            - name: Install Theme
-              run: yarn install --production
-                
-            - name: Install PostCSS-CLI
-              run: npm install postcss-cli -g
+  deploy:
+    env:
+      HUGO_VERSION: ${{ github.sha }}
+      TZ: Asia/Shanghai
+    runs-on: ubuntu-latest
 
-            - name: Setup hugo
-              uses: peaceiris/actions-hugo@v2
-              with:
-                hugo-version: '0.104.0'
-                extended: true
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
-            - name: Build Hugo
-              run: echo "HUGO_VERSION -> $HUGO_VERSION" && hugo --gc -v --minify --cleanDestinationDir  -s ./exampleSite --themesDir "../.." --enableGitInfo
+      - name: Set git config core.quotepath false # https://github.com/gohugoio/hugo/issues/9810#issuecomment-1107519804
+        run: git config --global core.quotepath false
 
-            - name: Hugo-Encrypt
-              run: node ./hugo-encrypt.js
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: "16.x"
 
-            - name: Deploy
-              uses: peaceiris/actions-gh-pages@v3
-              with:
-                personal_token: ${{ secrets.TOKEN }}
-                publish_dir: ./exampleSite/public
-                force_orphan: true
+      - name: Install Theme
+        run: yarn install --production
+
+      - name: Install PostCSS-CLI
+        run: npm install postcss-cli -g
+
+      - name: Setup hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: "0.146.0"
+          extended: true
+
+      - name: Build Hugo
+        run: echo "HUGO_VERSION -> $HUGO_VERSION" && hugo --gc -v --minify --cleanDestinationDir  -s ./exampleSite --themesDir "../.." --enableGitInfo
+
+      - name: Hugo-Encrypt
+        run: node ./hugo-encrypt.js
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.TOKEN }}
+          publish_dir: ./exampleSite/public
+          force_orphan: true
