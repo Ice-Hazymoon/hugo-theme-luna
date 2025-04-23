@@ -5,7 +5,7 @@
             "HUGO_VERSION": "0.146.0"
         }
     },
-    "buildCommand": "hugo --gc -v --minify --cleanDestinationDir --enableGitInfo",
+    "buildCommand": "hugo --gc --minify --cleanDestinationDir --enableGitInfo",
     "installCommand": "cd themes/hugo-theme-luna && npm install postcss-cli -g && npm install --production && cd ../../",
     "outputDirectory": "public"
 }

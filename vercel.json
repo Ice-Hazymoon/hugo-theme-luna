@@ -6,7 +6,7 @@
             "HUGO_THEME": "path0"
         }
     },
-    "buildCommand": "hugo --gc -v --minify --cleanDestinationDir  -s ./exampleSite --themesDir ../.. --enableGitInfo",
+    "buildCommand": "hugo --gc --minify --cleanDestinationDir  -s ./exampleSite --themesDir ../.. --enableGitInfo",
     "installCommand": "npm install postcss-cli -g && npm install --production",
     "outputDirectory": "exampleSite/public"
 }
