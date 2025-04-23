@@ -1,0 +1,36 @@
+{
+    "theme_color": "#dd6065",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "/",
+    "name": "Hugo Theme Luna",
+    "short_name": "Ice-Hazymoon",
+    "description": "Hugo Theme Luna",
+    "icons": [
+        {
+            "src": "/icon_hu_c48c2c0adb50abee.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/icon_hu_b5c4eabf349d564c.png",
+            "sizes": "256x256",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/icon_hu_d6fe3ec10d44be1e.png",
+            "sizes": "384x384",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/icon_hu_4833caba83ebf361.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ]
+}
