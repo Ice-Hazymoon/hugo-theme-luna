@@ -83,7 +83,7 @@ cd themes/hugo-theme-luna
 npm install --production
 ```
 
-There is a [`config.yaml`](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/exampleSite/config.yaml) file in the [`exampleSite`](https://github.com/Ice-Hazymoon/hugo-theme-luna/tree/main/exampleSite) directory, copy the file to your site directory and modify the contents.
+There is a [`hugo.yaml`](exampleSite/hugo.yaml) file in the [`exampleSite`](exampleSite) directory, copy the file to your site directory and modify the contents.
 
 ### - 🔄 Update theme
 
@@ -115,8 +115,8 @@ Refer to [vercel.json](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/mast
 Environment variables
 
 ```
-HUGO_VERSION: 0.146.0
-NODE_VERSION: 17.3.0
+HUGO_VERSION: 0.150.0
+NODE_VERSION: 22.19.0
 ```
 
 Build command
@@ -133,7 +133,7 @@ Build output directory
 
 ### - ⚙️ Configuration
 
-See [`config.yaml`](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/exampleSite/config.yaml) file to configure your site
+See [`hugo.yaml`](exampleSite/hugo.yaml) file to configure your site
 
 If you prefer to use toml, you can convert it [here](https://www.convertsimple.com/convert-yaml-to-toml)
 

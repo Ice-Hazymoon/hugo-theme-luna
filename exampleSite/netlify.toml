@@ -3,9 +3,11 @@
   publish = "public"
 
 [build.environment]
-  HUGO_VERSION = "0.146.0"
+  HUGO_VERSION = "0.150.0"
+  NODE_VERSION = "22.19.0"
 
 [[plugins]]
     package = "netlify-plugin-hugo-cache-resources"
         [plugins.inputs]
             debug = true
+    package = "@netlify/plugin-lighthouse"
