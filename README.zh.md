@@ -92,7 +92,7 @@ cd themes/hugo-theme-luna
 npm install --production
 ```
 
-在主题 [`exampleSite`](https://github.com/Ice-Hazymoon/hugo-theme-luna/tree/main/exampleSite) 目录有一个 [`config.yaml`](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/exampleSite/config.yaml) 文件，将该文件复制到你的站点目录下并根据需求修改相关内容。
+在主题 [`exampleSite`](exampleSite) 目录有一个 [`hugo.yaml`](exampleSite/hugo.yaml) 文件，将该文件复制到你的站点目录下并根据需求修改相关内容。
 
 ### - 🔄 更新主题
 
@@ -119,8 +119,8 @@ Environment variables
 
 ```
 HUGO_THEME: repo
-HUGO_VERSION: 0.146.0
-NODE_VERSION: 17.3.0
+HUGO_VERSION: 0.150.0
+NODE_VERSION: 22.19.0
 ```
 
 Build command
@@ -137,7 +137,7 @@ Build output directory
 
 ### - ⚙️ 配置
 
-请参考 [`config.yaml`](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/master/exampleSite/config.yaml) 文件来配置你的博客
+请参考 [`hugo.yaml`](exampleSite/hugo.yaml) 文件来配置你的博客
 
 如果你喜欢使用 toml，你可以在 [convert yaml to toml](https://www.convertsimple.com/convert-yaml-to-toml) 转换它
 

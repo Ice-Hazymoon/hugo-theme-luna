@@ -1,14 +1,19 @@
 [build]
-  command = "npm install postcss-cli -g && npm install --production && hugo --gc --minify --cleanDestinationDir  -s ./exampleSite --themesDir ../.. --enableGitInfo"
+  command = "npm install --production && hugo --gc --minify --cleanDestinationDir  -s ./exampleSite --themesDir ../.. --enableGitInfo"
   publish = "exampleSite/public"
 
 [build.environment]
-  HUGO_VERSION = "0.146.0"
+  HUGO_VERSION = "0.150.0"
+  NODE_VERSION = "22.19.0"
+  GO_VERSION = "1.25.1"
   HUGO_THEME = "repo"
 
 [[plugins]]
-    package = "netlify-plugin-hugo-cache-resources"
-        [plugins.inputs]
-            debug = true
-            # Relative path to source directory in case you use Hugo's "--s" option
-            srcdir = "exampleSite"
+  package = "netlify-plugin-hugo-cache-resources"
+    [plugins.inputs]
+      debug = true
+      # Relative path to source directory in case you use Hugo's "--s" option
+      srcdir = "exampleSite"
+
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
