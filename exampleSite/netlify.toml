@@ -1,5 +1,5 @@
 [build]
-  command = "cd themes/hugo-theme-luna && npm install postcss-cli -g && npm install --production && cd ../../ && hugo --gc --minify --cleanDestinationDir --enableGitInfo"
+  command = "cd themes/hugo-theme-luna && npm install postcss-cli -g && npm install --omit=dev && cd ../../ && hugo --gc --minify --cleanDestinationDir --enableGitInfo"
   publish = "public"
 
 [build.environment]

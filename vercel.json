@@ -7,6 +7,6 @@
         }
     },
     "buildCommand": "hugo --gc --minify --cleanDestinationDir  -s ./exampleSite --themesDir ../.. --enableGitInfo",
-    "installCommand": "npm install postcss-cli -g && npm install --production",
+    "installCommand": "npm install postcss-cli -g && npm install --omit=dev",
     "outputDirectory": "exampleSite/public"
 }

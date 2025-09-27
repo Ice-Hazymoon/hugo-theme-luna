@@ -6,6 +6,6 @@
         }
     },
     "buildCommand": "hugo --gc --minify --cleanDestinationDir --enableGitInfo",
-    "installCommand": "cd themes/hugo-theme-luna && npm install postcss-cli -g && npm install --production && cd ../../",
+    "installCommand": "cd themes/hugo-theme-luna && npm install postcss-cli -g && npm install --omit=dev && cd ../../",
     "outputDirectory": "public"
 }
