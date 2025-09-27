@@ -2,7 +2,7 @@
     "public": true,
     "build": {
         "env": {
-            "HUGO_VERSION": "0.146.0",
+            "HUGO_VERSION": "0.150.1",
             "HUGO_THEME": "path0"
         }
     },
