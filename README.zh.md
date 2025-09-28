@@ -73,7 +73,7 @@
 注意，在使用该主题之前，请确保你遵循以下环境
 
 - **hugo-extended** 版本 >= 0.146.0
-- **NodeJs** >= 16.0.0
+- **NodeJs** >= 20.0.0
 - 已安装 **postcss-cli**，使用 `npm install postcss-cli -g` 安装
 
 第一次使用 Hugo 可以参考官方的安装手册：[https://gohugo.io/getting-started/installing/](https://gohugo.io/getting-started/installing/)
@@ -89,7 +89,7 @@ scoop install hugo-extended
 ```bash
 git submodule add -b master https://github.com/Ice-Hazymoon/hugo-theme-luna themes/hugo-theme-luna
 cd themes/hugo-theme-luna
-npm install --production
+npm install --omit=dev
 ```
 
 在主题 [`exampleSite`](exampleSite) 目录有一个 [`hugo.yaml`](exampleSite/hugo.yaml) 文件，将该文件复制到你的站点目录下并根据需求修改相关内容。
@@ -119,14 +119,14 @@ Environment variables
 
 ```
 HUGO_THEME: repo
-HUGO_VERSION: 0.150.0
-NODE_VERSION: 22.19.0
+HUGO_VERSION: 0.150.1
+NODE_VERSION: 22.20.0
 ```
 
 Build command
 
 ```bash
-$ cd themes/hugo-theme-luna && npm install postcss-cli -g && npm install --production && cd ../../ && hugo --gc --minify --cleanDestinationDir --enableGitInfo
+$ cd themes/hugo-theme-luna && npm install postcss-cli -g && npm install --omit=dev && cd ../../ && hugo --gc --minify --cleanDestinationDir --enableGitInfo
 ```
 
 Build output directory

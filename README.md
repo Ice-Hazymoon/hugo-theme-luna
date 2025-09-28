@@ -72,7 +72,7 @@
 ### - 📋 Requirements
 
 - **hugo-extended** >= 0.146.0
-- **NodeJs** >= 16.0.0
+- **NodeJs** >= 20.0.0
 - **postcss-cli**, Install using `npm install postcss-cli -g`
 
 ### - 📥 Install as git submodule
@@ -80,7 +80,7 @@
 ```bash
 git submodule add -b master https://github.com/Ice-Hazymoon/hugo-theme-luna themes/hugo-theme-luna
 cd themes/hugo-theme-luna
-npm install --production
+npm install --omit=dev
 ```
 
 There is a [`hugo.yaml`](exampleSite/hugo.yaml) file in the [`exampleSite`](exampleSite) directory, copy the file to your site directory and modify the contents.
@@ -115,14 +115,14 @@ Refer to [vercel.json](https://github.com/Ice-Hazymoon/hugo-theme-luna/blob/mast
 Environment variables
 
 ```
-HUGO_VERSION: 0.150.0
-NODE_VERSION: 22.19.0
+HUGO_VERSION: 0.150.1
+NODE_VERSION: 22.20.0
 ```
 
 Build command
 
 ```bash
-cd themes/hugo-theme-luna && npm install postcss-cli -g && npm install --production && cd ../../ && hugo --gc --minify --cleanDestinationDir --enableGitInfo
+cd themes/hugo-theme-luna && npm install postcss-cli -g && npm install --omit=dev && cd ../../ && hugo --gc --minify --cleanDestinationDir --enableGitInfo
 ```
 
 Build output directory

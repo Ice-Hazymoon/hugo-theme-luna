@@ -1,5 +1,5 @@
 [build]
-  command = "npm install --production && hugo --gc --minify --cleanDestinationDir  -s ./exampleSite --themesDir ../.. --enableGitInfo"
+  command = "npm install --omit=dev && hugo --gc --minify --cleanDestinationDir  -s ./exampleSite --themesDir ../.. --enableGitInfo"
   publish = "exampleSite/public"
 
 [build.environment]
